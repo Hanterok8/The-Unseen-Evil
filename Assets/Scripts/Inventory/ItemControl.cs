@@ -5,7 +5,7 @@ public class ItemControl : MonoBehaviour
 {
     [SerializeField] private LayerMask _layer;
     [SerializeField] private Transform[] _slots;
-    [SerializeField] private int[] _amount;
+    [SerializeField] private Transform[] _outlines;
     [SerializeField] private Image[] _inventorySprites;
     [SerializeField] private float _distance;
     private Camera _camera;
@@ -16,10 +16,9 @@ public class ItemControl : MonoBehaviour
     void Start()
     {
         _camera = Camera.main;
-        _amount = new int[_slots.Length];
         selected = 0;
         lastSlot = 0;
-        _slots[selected].GetChild(1).gameObject.SetActive(true);
+        _outlines[selected].gameObject.SetActive(true);
     }
     void Update()
     {
@@ -44,10 +43,11 @@ public class ItemControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2)) selected = 1;
         if (Input.GetKeyDown(KeyCode.Alpha3)) selected = 2;
         if (Input.GetKeyDown(KeyCode.Alpha4)) selected = 3;
+        if (Input.GetKeyDown(KeyCode.Alpha5)) selected = 4;
         if (selected != -1)
         {
-            _slots[lastSlot].GetChild(1).gameObject.SetActive(false);
-            _slots[selected].GetChild(1).gameObject.SetActive(true);
+            _outlines[lastSlot].gameObject.SetActive(false);
+            _outlines[selected].gameObject.SetActive(true);
             lastSlot = selected;
         }
 
@@ -58,61 +58,21 @@ public class ItemControl : MonoBehaviour
         int freeSlotIndex = -1;
         for (int i = 0; i < _slots.Length; i++) // Знаходження вільного слоту.
         {
-            if (_slots[i].childCount < 3)
+            if (_slots[i].childCount < 2)
             {
                 freeSlotIndex = i;
                 break;
-            }
-            else
-            {
-                SlotItemInformation _slotInfo = _slots[i].GetComponent<SlotItemInformation>();
-                if (_slotInfo.name == info.name)
-                {
-                    _amount[i]++;
-                    Destroy(info.gameObject);
-                    AmountUI(_amount[i], i);
-                    return;
-
-                }
             }
         }
         if (freeSlotIndex == -1) return;
         Image img = info.name switch
         {
-            "apple" => _inventorySprites[0]
+            "apple" => _inventorySprites[0] // тестова назва
         };
-        img = Instantiate(img) as Image;
+        img = Instantiate(img);
         img.transform.parent = _slots[freeSlotIndex];
-        _amount[freeSlotIndex]++;
         _slots[freeSlotIndex].GetComponent<SlotItemInformation>().name = info.name;
         img.transform.localPosition = new Vector3(0, 0, 0);
         Destroy(info.gameObject);
-        
-
-
-    }
-    void AmountUI(int amount, int index) //Текст з кількістю однакових речей в одному слоті
-    {
-        if (amount != 1)
-        {
-            TMP_Text _text = _slots[index].GetChild(0).GetComponent<TMP_Text>();
-            _text.text = $"{amount}";
-           
-            if (_text.text.ToCharArray().Length > 1)
-            {
-                if (moved) return;
-                _text.fontSize /= 1.5f;
-                _slots[index].GetChild(0).transform.position += new Vector3(-1.5f, 0);
-                moved = true;
-            }
-            else
-            {
-                _text.fontSize = 18;
-                if (moved)
-                {
-                    _slots[index].GetChild(0).transform.position -= new Vector3(-1.5f, 0);
-                }
-            }
-        }
     }
 }
