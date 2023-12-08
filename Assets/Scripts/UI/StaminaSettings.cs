@@ -1,27 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Unity.Netcode;
-using System.Runtime.CompilerServices;
 
-public class StaminaSettings : NetworkBehaviour
+public class StaminaSettings : MonoBehaviour
 {
     [SerializeField] private Image _staminaUI;
-    private int _playerStamina = 100;
-    void ChangeStaminaValue(int hpSubtract)
+    [SerializeField] private int _playerStamina = 100;
+    public void ChangeStaminaValue(int changedHP) // якщо потрібно відняти ХП, то пишемо changedHP зі знаком "-".
     {
-        _playerStamina -= hpSubtract;
-        float staminaUIwidth = _staminaUI.rectTransform.sizeDelta.x;
-        _staminaUI.rectTransform.localPosition += -Vector3.right * staminaUIwidth/100.0f * hpSubtract;
+        _playerStamina += changedHP;
+        _staminaUI.fillAmount = (float)_playerStamina/100.0f;
         if (_playerStamina <= 0)
         {
             _playerStamina = 0;
+            _staminaUI.fillAmount = 0;
         }
-    }
-    public void UpgradeStaminaMaxValue(int extraWidth)
-    {
-        Vector2 staminaUIsize = _staminaUI.rectTransform.sizeDelta;
-        _staminaUI.rectTransform.sizeDelta = new Vector2(staminaUIsize.x+extraWidth, staminaUIsize.y);
     }
 }
