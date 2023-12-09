@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 419895237}
   - component: {fileID: 419895236}
   - component: {fileID: 419895235}
+  - component: {fileID: 419895238}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -180,7 +181,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -208,13 +209,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419895234}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.000000026077032, y: 0.000000061801344, z: 0.00000005214718, w: 1}
+  m_LocalPosition: {x: 0, y: 0.65, z: 1.7}
+  m_LocalScale: {x: 12.5, y: 12.500001, z: 12.500001}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1684102547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &419895238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419895234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0e9f62a9b6ae840afe784e9f6bbea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitiveMouse: 100
+  Player: {fileID: 1522289287}
 --- !u!1001 &706974766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -281,7 +296,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -3321919801592875672, guid: 212e4aa9a77052e4c941c4ee16d95f3a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 419895237}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 212e4aa9a77052e4c941c4ee16d95f3a, type: 3}
       insertIndex: -1
@@ -422,11 +440,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de86e7724451e204b9fe331eae17d1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1522289281}
   _speed: 3
   _maxSpeed: 4
   _minSpeed: 2
   _ground: 0
-  _jumpPower: 700
+  _jumpPower: 4
   _animator: {fileID: 1522289284}
   _state: 0
   Rb: {fileID: 1522289283}
@@ -466,7 +485,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522289281}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 212e4aa9a77052e4c941c4ee16d95f3a, type: 3}
   m_Controller: {fileID: 9100000, guid: 90774f473ece6dc44b2a2d1794f73327, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -516,6 +535,16 @@ MonoBehaviour:
   _player: {fileID: 1522289281}
   _animator: {fileID: 1522289284}
   _crouchSpeed: 2
+--- !u!4 &1522289287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 212e4aa9a77052e4c941c4ee16d95f3a, type: 3}
+  m_PrefabInstance: {fileID: 706974766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1684102547 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3321919801592875672, guid: 212e4aa9a77052e4c941c4ee16d95f3a, type: 3}
+  m_PrefabInstance: {fileID: 706974766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2041158393
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +643,6 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 419895237}
   - {fileID: 2041158395}
   - {fileID: 1500559502}
   - {fileID: 706974766}
