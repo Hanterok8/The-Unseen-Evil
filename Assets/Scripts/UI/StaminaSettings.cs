@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+[RequireComponent(typeof(Move))]
 public class StaminaSettings : MonoBehaviour
 {
     [SerializeField] private Image _staminaUI;
@@ -22,16 +22,6 @@ public class StaminaSettings : MonoBehaviour
         {
             if (!_noDoubleCoroutines) StartCoroutine(staminaWhileWalking());
         }
-        if (moving.isRunning && moving.curSpeedX == 0 && moving.curSpeedY == 0 && !_noDoubleCoroutines)
-        {
-            StartCoroutine(staminaWhileWalking());
-        }
-        //if (((!moving.isRunning && (moving.curSpeedX != 0 || moving.curSpeedY != 0)) || (moving.curSpeedX == 0 && moving.curSpeedY == 0))
-        //    && !_staminaSubtructing && !_noDoubleCoroutines)
-        //{
-
-        //}
-        //else 
 
         if (_playerStamina < 1) _playerStamina = 0;
         if (_playerStamina > 99) _playerStamina = 100;
@@ -65,7 +55,7 @@ public class StaminaSettings : MonoBehaviour
     public IEnumerator staminaWhileWalking()
     {
         _noDoubleCoroutines = true;
-        while (!moving.isRunning || (moving.curSpeedX != 0 && moving.curSpeedY != 0))
+        while ((!moving.isRunning && (moving.curSpeedX != 0 || moving.curSpeedY != 0)) || (moving.curSpeedX == 0 && moving.curSpeedY == 0))
         {
             _playerStamina += 1;
             _staminaUI.fillAmount = (float)_playerStamina / 100.0f;
