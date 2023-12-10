@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< ours
-guid: 5e03420d49327d747ab55beeb16c881c
-=======
-guid: dc3ec41db5bdd4348b33ba5ca1c5ff54
->>>>>>> theirs
+guid: 19dd2afa4a33ee24c9766b7abafa1bbb
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
