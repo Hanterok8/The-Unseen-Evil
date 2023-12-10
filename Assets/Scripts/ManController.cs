@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ManController : MonoBehaviour
@@ -9,6 +10,7 @@ public class ManController : MonoBehaviour
     [SerializeField] private bool _ground;
     [SerializeField] private float _jumpPower = 4f;
     [SerializeField] public Animator _animator;
+    private float _timeJump = 1;
     public int _state;
 
     public Rigidbody Rb;
@@ -54,14 +56,19 @@ public class ManController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Jumb();
+            StartCoroutine(Jump());
         }
         _animator.SetInteger("State", _state);
     }
     void Jumb()
+    { 
+        Rb.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
+    }
+    private IEnumerator Jump()
     {
         _animator.SetTrigger("Jump");
-        Rb.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
+        yield return new WaitForSeconds(_timeJump);
+        Jumb();
     }
     private void OnCollisionEnter(Collision collision)
     {
