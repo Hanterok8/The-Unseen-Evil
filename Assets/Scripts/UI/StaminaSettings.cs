@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-[RequireComponent(typeof(Move))]
+[RequireComponent(typeof(ManController))]
 public class StaminaSettings : MonoBehaviour
 {
     [SerializeField] private Image _staminaUI;
@@ -10,11 +10,11 @@ public class StaminaSettings : MonoBehaviour
     [SerializeField] public int _playerStamina = 100;
     private bool _staminaSubtructing = false;
     private bool _noDoubleCoroutines = false;
-    Move moving;
-    private void Start() => moving = GetComponent<Move>();
+    ManController moving;
+    private void Start() => moving = GetComponent<ManController>();
     private void Update()
     {
-        if (moving.isRunning && (moving.curSpeedX != 0 || moving.curSpeedY != 0) && !_noDoubleCoroutines && _playerStamina > 0) // && _staminaSubtructing
+        if (moving._isRunning && (moving.curSpeedX != 0 || moving.curSpeedY != 0) && !_noDoubleCoroutines && _playerStamina > 0) // && _staminaSubtructing
         {
             StartCoroutine(staminaWhileRunning());
         }
@@ -31,7 +31,7 @@ public class StaminaSettings : MonoBehaviour
     public void ChangeStaminaValue(int changedHP) // якщо потрібно відняти ХП, то пишемо changedHP зі знаком "-".
     {
         _playerStamina += changedHP;
-        _staminaUI.fillAmount = (float)_playerStamina/100.0f;
+        _staminaUI.fillAmount = (float)_playerStamina / 100.0f;
         if (_playerStamina <= 0)
         {
             _playerStamina = 0;
@@ -41,21 +41,21 @@ public class StaminaSettings : MonoBehaviour
     public IEnumerator staminaWhileRunning()
     {
         _noDoubleCoroutines = true;
-        while (moving.isRunning && (moving.curSpeedX != 0 || moving.curSpeedY != 0))
+        while (moving._isRunning && (moving.curSpeedX != 0 || moving.curSpeedY != 0))
         {
             _playerStamina -= 1;
             _staminaUI.fillAmount = (float)_playerStamina / 100.0f;
             yield return new WaitForSeconds(0.1f);
-        
+
             //if (_playerStamina < 1) _playerStamina = 0; 
         }
-       // _staminaSubtructing = false;
+        // _staminaSubtructing = false;
         _noDoubleCoroutines = false;
     }
     public IEnumerator staminaWhileWalking()
     {
         _noDoubleCoroutines = true;
-        while ((!moving.isRunning && (moving.curSpeedX != 0 || moving.curSpeedY != 0)) || (moving.curSpeedX == 0 && moving.curSpeedY == 0))
+        while ((!moving._isRunning && (moving.curSpeedX != 0 || moving.curSpeedY != 0)) || (moving.curSpeedX == 0 && moving.curSpeedY == 0))
         {
             _playerStamina += 1;
             _staminaUI.fillAmount = (float)_playerStamina / 100.0f;

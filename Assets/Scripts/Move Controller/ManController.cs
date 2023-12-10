@@ -11,9 +11,16 @@ public class ManController : MonoBehaviour
     [SerializeField] public Animator _animator;
     public int _state;
 
+    public bool _isRunning;
+    public float curSpeedX;
+    public float curSpeedY;
+
     public Rigidbody Rb;
     void Update()
     {
+        curSpeedX = Input.GetAxis("Horizontal") * _speed;
+        curSpeedY = Input.GetAxis("Vertical") * _speed;
+        _isRunning = Input.GetKey(KeyCode.LeftShift);
         GetInput();
     }
     public void GetInput()
@@ -23,7 +30,7 @@ public class ManController : MonoBehaviour
             _player.GetComponent<CrouchControlller>().enabled = false;
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
             _state = 1;
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (_isRunning && GetComponent<StaminaSettings>()._playerStamina > 0)
             {
                 transform.Translate(Vector3.forward * _maxSpeed * Time.deltaTime);
                 _state = 2;

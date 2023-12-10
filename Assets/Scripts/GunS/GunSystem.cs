@@ -17,14 +17,10 @@ public class GunSystem_Yarik : MonoBehaviour
     public RaycastHit rayHit;
     public LayerMask whatIsEnemy;
 
-    public CamShake camShake;
+   // public CamShake camShake;
     public float camShakeMagnitude, camShakeDurations;
-    public GameObject muz
+    public GameObject muz;
 
-    void Start()
-    {
-        
-    }
     private void Awake()
     {
         bulletsLeft = magazinSize;
@@ -83,7 +79,7 @@ public class GunSystem_Yarik : MonoBehaviour
                 //rayHit.collider.GetComponent<Enemy>().TakeDamage(damage);
             }
         }
-        camShake.Shake(camShakeDurations, camShakeMagnitude);
+    //    camShake.Shake(camShakeDurations, camShakeMagnitude);
 
         bulletsLeft--;
         bulletsShot--;
