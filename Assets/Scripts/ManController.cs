@@ -8,9 +8,7 @@ public class ManController : MonoBehaviour
     [SerializeField] public float _maxSpeed = 4f;
     [SerializeField] public float _minSpeed = 2f;
     [SerializeField] private bool _ground;
-    [SerializeField] private float _jumpPower = 4f;
     [SerializeField] public Animator _animator;
-    private float _timeJump = 1;
     public int _state;
 
     public Rigidbody Rb;
@@ -54,21 +52,7 @@ public class ManController : MonoBehaviour
             transform.Translate(Vector3.back * _minSpeed * Time.deltaTime);
             _state = 3;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(Jump());
-        }
         _animator.SetInteger("State", _state);
-    }
-    void Jumb()
-    { 
-        Rb.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
-    }
-    private IEnumerator Jump()
-    {
-        _animator.SetTrigger("Jump");
-        yield return new WaitForSeconds(_timeJump);
-        Jumb();
     }
     private void OnCollisionEnter(Collision collision)
     {
