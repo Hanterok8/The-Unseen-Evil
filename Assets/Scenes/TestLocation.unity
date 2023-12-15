@@ -2178,20 +2178,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 12
   timeBetweenShooting: 0.01
-  spread: 1
   range: 100
   reloadTime: 2
-  timeBetweenShots: 0
-  magazineSize: 0
-  bulletsPerTap: 1
+  timeBetweenShots: 0.01
+  magazineSize: 2
   allowButtonHold: 1
+  fireRate: 15
   fpsCam: {fileID: 1660205841}
-  attackPoint: {fileID: 1580195317}
-  whatIsEnemy:
-    serializedVersion: 2
-    m_Bits: 0
   impactEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
   muzzleFlash: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+  impactForce: 30
 --- !u!1 &690603466
 GameObject:
   m_ObjectHideFlags: 0
