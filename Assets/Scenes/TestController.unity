@@ -378,9 +378,10 @@ GameObject:
   - component: {fileID: 272673707}
   - component: {fileID: 272673709}
   - component: {fileID: 272673708}
+  - component: {fileID: 272673710}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Stamina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -442,6 +443,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272673706}
   m_CullTransparentMesh: 1
+--- !u!114 &272673710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272673706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b625af2d99d6dba43aa44f2d121c069d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &419895234
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dreyar By M.Aure
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 212e4aa9a77052e4c941c4ee16d95f3a, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -727,10 +744,10 @@ PrefabInstance:
       addedObject: {fileID: 1522289286}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 212e4aa9a77052e4c941c4ee16d95f3a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1522289289}
+      addedObject: {fileID: 1522289288}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 212e4aa9a77052e4c941c4ee16d95f3a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1522289288}
+      addedObject: {fileID: 1522289289}
   m_SourcePrefab: {fileID: 100100000, guid: 212e4aa9a77052e4c941c4ee16d95f3a, type: 3}
 --- !u!1 &765690323
 GameObject:
@@ -985,7 +1002,7 @@ GameObject:
   - component: {fileID: 1006443571}
   m_Layer: 5
   m_Name: stamina text
-  m_TagString: Untagged
+  m_TagString: StaminaText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1614,17 +1631,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de86e7724451e204b9fe331eae17d1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1522289281}
   _speed: 3
   _maxSpeed: 4
   _minSpeed: 2
   _ground: 0
-  _animator: {fileID: 1522289284}
   _state: 0
   _isRunning: 0
-  curSpeedX: 0
-  curSpeedY: 0
-  Rb: {fileID: 1522289283}
+  AxesSpeed: {x: 0, y: 0}
 --- !u!54 &1522289283
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1754,11 +1767,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1522289281}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e8b6ee89d80ff4e9bd6dfd518120a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 745a92e4ecafa434d8212bff394d7c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _staminaUI: {fileID: 272673708}
-  _staminaTextUI: {fileID: 1006443571}
   _playerStamina: 100
 --- !u!1 &1677819944
 GameObject:
