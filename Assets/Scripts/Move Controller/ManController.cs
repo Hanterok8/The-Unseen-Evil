@@ -31,7 +31,6 @@ public class ManController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            GetComponent<CrouchControlller>().enabled = false;
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
             _state = 1;
             if (_isRunning && GetComponent<StaminaSettings>()._playerStamina > 0)
@@ -42,24 +41,20 @@ public class ManController : MonoBehaviour
         }
         else
         {
-            GetComponent<CrouchControlller>().enabled = true;
             _state = 0;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            GetComponent<CrouchControlller>().enabled = false;
             transform.Translate(Vector3.left * _minSpeed * Time.deltaTime);
             _state = 6;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            GetComponent<CrouchControlller>().enabled = false;
             transform.Translate(Vector3.right * _minSpeed * Time.deltaTime);
             _state = 5;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            GetComponent<CrouchControlller>().enabled = false;
             transform.Translate(Vector3.back * _minSpeed * Time.deltaTime);
             _state = 3;
         }
