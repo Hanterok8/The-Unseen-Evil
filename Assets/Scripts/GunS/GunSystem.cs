@@ -1,91 +1,102 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UIElements;
 
-public class GunSystem_Yarik : MonoBehaviour
+public class GunSystem : MonoBehaviour
 {
+    //Gun stats
     public int damage;
-    public float timeBeetwenShoting, spread, range, reloadTime, timeBeetwenShots;
-    public int magazinSize, bulletsPerTap;
-    public bool alowButtonHold;
+    public float timeBetweenShooting, range, reloadTime, timeBetweenShots;
+    public int magazineSize;
+    public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
 
+    //bools 
     bool shooting, readyToShoot, reloading;
-
-    public Camera mainCamera;
-    public Transform attackPoint;
+    public float fireRate = 15f;
+    //Reference
+    public Camera fpsCam;
     public RaycastHit rayHit;
-    public LayerMask whatIsEnemy;
+    public GameObject impactEffect;
+    //Graphics
+    public ParticleSystem muzzleFlash;
+    public float impactForce = 30f;
 
-   // public CamShake camShake;
-    public float camShakeMagnitude, camShakeDurations;
-    public GameObject muz;
-
+    public void Update()
+    {
+        if (Input.GetButtonDown("Fire1")&&Time.time>=timeBetweenShooting) 
+        {
+            MyInput();
+            if ( bulletsLeft == 0 && !reloading) Reload();
+        }
+    }
     private void Awake()
     {
-        bulletsLeft = magazinSize;
-        readyToShoot = true; 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        MyInput();   
+        bulletsLeft = magazineSize;
+        readyToShoot = true;
     }
     private void MyInput()
     {
-        if (alowButtonHold)shooting = Input.GetKey(KeyCode.Mouse0);
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
+        {
+            Debug.Log("Reload button pressed");
+        }
+
+
+        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazinSize && !reloading) Reload();
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0) {
-            bulletsShot = bulletsPerTap;
-            Shoot();
+
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        {
+            bulletsShot = 1;
+            timeBetweenShooting = Time.time + 1f / fireRate;
+            if (bulletsShot > 0 && bulletsLeft > 0 && !reloading)
+                Invoke("Shoot", timeBetweenShots);
         }
     }
-    private void Reload()
+    void Shoot()
     {
-        reloading = true;
-        Invoke("ReloadFinished", reloadTime);
-    }
-    private void ReloadFinished() 
-    {
-        bulletsLeft = magazinSize;
-        reloading = false;
-    }
-    private void ResetShoot() 
-    {
-        readyToShoot = true;
-    }
-    private void Shoot() 
-    {
-        readyToShoot = false;
-
-        float x = Random.Range(-spread, spread);
-        float y = Random.Range(-spread, spread);
-
-        //if use rigidbody  
-        // if(rigidbody.velocity.magnitude>0)
-        //spread=spread*1.5f;
-        //else spread = "normal spread";
-        Vector3 direction= mainCamera.transform.forward+new Vector3(x, y, 0);
-
-        if (Physics.Raycast(mainCamera.transform.position, direction, out rayHit, range, whatIsEnemy)) 
+        //muzzleFlash.Play();
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.Log(rayHit.collider.name);
-
-            if (rayHit.collider.CompareTag("Enemy"))
+            Debug.Log(hit.transform.name);
+            Target target = hit.transform.GetComponent<Target>();
+            if (target != null)
             {
-                //rayHit.collider.GetComponent<Enemy>().TakeDamage(damage);
+                target.TakeDamage(damage);
+            }
+            if (hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
         }
-    //    camShake.Shake(camShakeDurations, camShakeMagnitude);
 
         bulletsLeft--;
         bulletsShot--;
 
-        Invoke("ResetShoot", timeBeetwenShoting);
+        Invoke("ResetShot", timeBetweenShooting);
 
-        if(bulletsShot>0&&bulletsLeft>0)Invoke("Shoot", timeBeetwenShots);
+        GameObject impacGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impacGO, 2f);
+
+        if (bulletsShot > 0 && bulletsLeft > 0)
+            Invoke("Shoot", timeBetweenShots);
+    }
+    void Reload() 
+    {
+        reloading = true;
+        Invoke("ReloadFinished", reloadTime);
+    }
+    private void ReloadFinished()
+    {
+        bulletsLeft = magazineSize;
+        reloading = false;
+    }
+    private void ResetShot()    
+    {
+        readyToShoot = true;
     }
 }
+

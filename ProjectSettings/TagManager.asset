@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Stamina
   - StaminaText
+  - Map
   layers:
   - Default
   - TransparentFX
