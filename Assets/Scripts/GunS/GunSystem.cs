@@ -1,24 +1,22 @@
 using UnityEngine;
-using TMPro;
-using UnityEngine.UIElements;
 
 public class GunSystem : MonoBehaviour
 {
-    //Gun stats
+    [Header("Gun stats")]
     public int damage;
     public float timeBetweenShooting, range, reloadTime, timeBetweenShots;
     public int magazineSize;
     public bool allowButtonHold;
-    int bulletsLeft, bulletsShot;
+    [SerializeField]int bulletsLeft;
+    int bulletsShot;
 
-    //bools 
     bool shooting, readyToShoot, reloading;
     public float fireRate = 15f;
-    //Reference
-    public Camera fpsCam;
+    private Camera fpsCam;
+    [Header("Reference")]
     public RaycastHit rayHit;
     public GameObject impactEffect;
-    //Graphics
+    [Header("Graphics")]
     public ParticleSystem muzzleFlash;
     public float impactForce = 30f;
 
@@ -29,20 +27,23 @@ public class GunSystem : MonoBehaviour
             MyInput();
             if ( bulletsLeft == 0 && !reloading) Reload();
         }
+        else if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
+        {
+            Reload();
+        }
     }
     private void Awake()
     {
+        fpsCam = Camera.main;
         bulletsLeft = magazineSize;
         readyToShoot = true;
     }
     private void MyInput()
     {
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
-        {
-            Debug.Log("Reload button pressed");
-        }
-
-
+        //if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
+        //{
+        //    Debug.Log("Reload button pressed");
+        //}
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
@@ -78,8 +79,8 @@ public class GunSystem : MonoBehaviour
 
         Invoke("ResetShot", timeBetweenShooting);
 
-        GameObject impacGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(impacGO, 2f);
+        GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impactGO, 2f);
 
         if (bulletsShot > 0 && bulletsLeft > 0)
             Invoke("Shoot", timeBetweenShots);

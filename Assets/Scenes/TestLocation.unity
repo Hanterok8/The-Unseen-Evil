@@ -2181,13 +2181,27 @@ MonoBehaviour:
   range: 100
   reloadTime: 2
   timeBetweenShots: 0.01
-  magazineSize: 2
+  magazineSize: 5
   allowButtonHold: 1
+  bulletsLeft: 0
   fireRate: 15
   fpsCam: {fileID: 1660205841}
   impactEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
   muzzleFlash: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
   impactForce: 30
+--- !u!114 &608960890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608960887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745a92e4ecafa434d8212bff394d7c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStamina: 100
 --- !u!1 &690603466
 GameObject:
   m_ObjectHideFlags: 0
@@ -4672,15 +4686,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 246096783875109895, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
       propertyPath: _speed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 246096783875109895, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
       propertyPath: _maxSpeed
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 246096783875109895, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
       propertyPath: _minSpeed
-      value: 3
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4362842171759553627, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4817222683512253107, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
       propertyPath: m_Name
@@ -4752,6 +4770,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4817222683512253107, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 608960888}
+    - targetCorrespondingSourceObject: {fileID: 4817222683512253107, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 608960890}
   m_SourcePrefab: {fileID: 100100000, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
 --- !u!1001 &1388794688
 PrefabInstance:
