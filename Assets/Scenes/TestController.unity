@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 272673707}
   - component: {fileID: 272673709}
   - component: {fileID: 272673708}
+  - component: {fileID: 272673710}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -442,6 +443,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272673706}
   m_CullTransparentMesh: 1
+--- !u!114 &272673710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272673706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b625af2d99d6dba43aa44f2d121c069d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &613013718
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +545,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613013718}
   m_CullTransparentMesh: 1
+--- !u!1 &745084015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4817222683512253107, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
+  m_PrefabInstance: {fileID: 4081503155540897249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &745084024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745084015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745a92e4ecafa434d8212bff394d7c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStamina: 100
 --- !u!1 &765690323
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +816,7 @@ GameObject:
   - component: {fileID: 1006443571}
   m_Layer: 5
   m_Name: stamina text
-  m_TagString: Untagged
+  m_TagString: StaminaText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2021,6 +2052,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dreyar By M.Aure
       objectReference: {fileID: 0}
+    - target: {fileID: 4817222683512253107, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5301271324252172297, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5456648
@@ -2061,10 +2096,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1128875831554196136, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4817222683512253107, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 745084024}
   m_SourcePrefab: {fileID: 100100000, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
