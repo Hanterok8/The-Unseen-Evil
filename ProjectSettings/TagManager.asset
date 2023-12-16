@@ -8,6 +8,11 @@ TagManager:
   - StaminaText
   - Map
   - Wall
+  - Item_text
+  - Item_image
+  - Purchase_Menu
+  - Store_Menu
+  - Price_text
   layers:
   - Default
   - TransparentFX

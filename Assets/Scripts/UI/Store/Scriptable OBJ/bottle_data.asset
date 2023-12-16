@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a625eb8f3f72d04fb99c705bc7856a8, type: 3}
+  m_Name: bottle_data
+  m_EditorClassIdentifier: 
+  _price: 1
+  _name: Empty bottle
+  _sprite: {fileID: 21300000, guid: e86292c553273ab4f92c8a7d134afe3b, type: 3}
