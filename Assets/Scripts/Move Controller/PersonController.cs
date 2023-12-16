@@ -1,14 +1,14 @@
-using System.Collections;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
-public class ManController : MonoBehaviour
+public class PersonController : MonoBehaviour
 {
     [SerializeField] public float _speed = 3f;
     [SerializeField] public float _maxSpeed = 4f;
     [SerializeField] public float _minSpeed = 2f;
     [SerializeField] private bool _ground;
     private Animator _animator;
+    public GameObject _player;
     public int _state;
 
     public bool _isRunning;
@@ -31,30 +31,36 @@ public class ManController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
+            _player.GetComponent<CrouchControlller>().enabled = false;
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
             _state = 1;
             if (_isRunning && GetComponent<StaminaSettings>()._playerStamina > 0)
             {
+                _player.GetComponent<CrouchControlller>().enabled = false;
                 transform.Translate(Vector3.forward * _maxSpeed * Time.deltaTime);
                 _state = 2;
             }
         }
         else
         {
+            _player.GetComponent<CrouchControlller>().enabled = true;
             _state = 0;
         }
         if (Input.GetKey(KeyCode.A))
         {
+            _player.GetComponent<CrouchControlller>().enabled = false;
             transform.Translate(Vector3.left * _minSpeed * Time.deltaTime);
             _state = 6;
         }
         if (Input.GetKey(KeyCode.D))
         {
+            _player.GetComponent<CrouchControlller>().enabled = false;
             transform.Translate(Vector3.right * _minSpeed * Time.deltaTime);
             _state = 5;
         }
         if (Input.GetKey(KeyCode.S))
         {
+            _player.GetComponent<CrouchControlller>().enabled = false;
             transform.Translate(Vector3.back * _minSpeed * Time.deltaTime);
             _state = 3;
         }

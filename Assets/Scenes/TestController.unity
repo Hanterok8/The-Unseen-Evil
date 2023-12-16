@@ -738,7 +738,7 @@ PrefabInstance:
       addedObject: {fileID: 1522289283}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 212e4aa9a77052e4c941c4ee16d95f3a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1522289282}
+      addedObject: {fileID: 1522289290}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 212e4aa9a77052e4c941c4ee16d95f3a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1522289286}
@@ -1619,25 +1619,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 212e4aa9a77052e4c941c4ee16d95f3a, type: 3}
   m_PrefabInstance: {fileID: 706974766}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1522289282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522289281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de86e7724451e204b9fe331eae17d1df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 3
-  _maxSpeed: 4
-  _minSpeed: 2
-  _ground: 0
-  _state: 0
-  _isRunning: 0
-  AxesSpeed: {x: 0, y: 0}
 --- !u!54 &1522289283
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1771,6 +1752,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerStamina: 100
+--- !u!114 &1522289290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522289281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de86e7724451e204b9fe331eae17d1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 3
+  _maxSpeed: 4
+  _minSpeed: 2
+  _ground: 0
+  _player: {fileID: 1522289281}
+  _state: 0
+  _isRunning: 0
+  AxesSpeed: {x: 0, y: 0}
 --- !u!1 &1677819944
 GameObject:
   m_ObjectHideFlags: 0

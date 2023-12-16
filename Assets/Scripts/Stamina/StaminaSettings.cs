@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
-[RequireComponent(typeof(ManController))]
+[RequireComponent(typeof(PersonController))]
 public class StaminaSettings : MonoBehaviour
 {
     [SerializeField] public int _playerStamina = 100;
     private bool _noDoubleCoroutines = false;
-    private ManController moving;
+    private PersonController moving;
 
-    private void Start() => moving = GetComponent<ManController>();
+    private void Start() => moving = GetComponent<PersonController>();
     private void Update()
     {
         if (moving._isRunning && (moving.AxesSpeed.x != 0 || moving.AxesSpeed.y != 0) && !_noDoubleCoroutines && _playerStamina > 0)
