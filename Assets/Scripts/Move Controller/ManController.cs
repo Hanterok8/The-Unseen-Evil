@@ -17,6 +17,7 @@ public class ManController : MonoBehaviour
     private Rigidbody Rb;
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         Rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
     }

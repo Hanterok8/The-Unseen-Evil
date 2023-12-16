@@ -10,7 +10,9 @@ public class PurchaseMenu : MonoBehaviour
 
     private TMP_Text _priceText;
     private TMP_Text _itemText;
-    Image _itemImage;
+    private Image _itemImage;
+   
+
 
     private void Awake()
     {
@@ -24,9 +26,11 @@ public class PurchaseMenu : MonoBehaviour
     }
     public void OnItemClick()
     {
-        Debug.Log("Item store clicked");
         if(!_buyMenu.activeSelf) _buyMenu.SetActive(true);
         int _id = GetComponent<ItemID>().id;
+        GameObject purchaseButton = _priceText.transform.parent.gameObject;
+        purchaseButton.GetComponent<OnPurchase>()._lastClickedButtonID = _id;
+        purchaseButton.GetComponent<Button>().interactable = true;
         _priceText.text = _itemDatum[_id].price;
         _itemText.text = _itemDatum[_id].name;
         _itemImage.sprite = _itemDatum[_id].sprite;

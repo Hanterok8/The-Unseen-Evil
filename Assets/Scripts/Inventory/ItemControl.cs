@@ -26,14 +26,12 @@ public class ItemControl : MonoBehaviour
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, _distance, _layer))
         {
-            //Тут буде відображатись, як гравець навівся на предмет
-            Debug.Log(1);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 PickUpInformation _itemInfo = hit.collider.gameObject.GetComponent<PickUpInformation>();
-                ItemPickUp(_itemInfo);
+                ItemReceive(_itemInfo.name);
+                Destroy(_itemInfo.gameObject);
             }
-
         }
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
         
@@ -53,26 +51,26 @@ public class ItemControl : MonoBehaviour
 
 
     }
-    void ItemPickUp(PickUpInformation info)
+    public void ItemReceive(string infoName)
     {
         int freeSlotIndex = -1;
-        for (int i = 0; i < _slots.Length; i++) // Знаходження вільного слоту.
+        for (int i = 0; i < _slots.Length; i++)
         {
-            if (_slots[i].childCount < 2)
+            if (_slots[i].childCount < 1)
             {
                 freeSlotIndex = i;
                 break;
             }
         }
         if (freeSlotIndex == -1) return;
-        Image img = info.name switch
+        Image img = infoName switch
         {
-            "apple" => _inventorySprites[0] // тестова назва
+            "AK-74" => _inventorySprites[0],
+            "Empty bottle" => _inventorySprites[1]
         };
         img = Instantiate(img);
         img.transform.parent = _slots[freeSlotIndex];
-        _slots[freeSlotIndex].GetComponent<SlotItemInformation>().name = info.name;
+        _slots[freeSlotIndex].GetComponent<SlotItemInformation>().name = infoName;
         img.transform.localPosition = new Vector3(0, 0, 0);
-        Destroy(info.gameObject);
     }
 }

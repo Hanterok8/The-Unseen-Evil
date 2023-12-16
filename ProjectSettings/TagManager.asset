@@ -13,6 +13,7 @@ TagManager:
   - Purchase_Menu
   - Store_Menu
   - Price_text
+  - Item Button
   layers:
   - Default
   - TransparentFX
