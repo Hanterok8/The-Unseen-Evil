@@ -1,10 +1,17 @@
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
+    [SerializeField] private TMP_Text roomName;
+    void Start()
+    {
+        roomName.text = $"Room {PlayerPrefs.GetString("RoomName")}";
+        PlayerPrefs.DeleteKey("RoomName");
+    }
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene(0);

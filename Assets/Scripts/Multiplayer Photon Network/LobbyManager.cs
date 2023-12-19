@@ -1,12 +1,16 @@
 using Photon.Pun;
+using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
-    public TMP_Text LogText;
-    [SerializeField] private int maximumPlayers;
+    [SerializeField] private TMP_Text localRoomCode;
+
+    [SerializeField] private TMP_Text LogText;
+    public int maximumPlayers;
+    public bool isRoomVisible = true;
     void Start()
     {
         PhotonNetwork.NickName = "Player" + Random.Range(1000, 9999);
@@ -21,17 +25,36 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private string RandomLetter()
     {
-        int num = Random.Range(0, 25);
-        char let = (char)('a' + num);
-        char upperChar = char.ToUpper(let);
+        System.Random rnd = new System.Random();
+        char randomChar = (char)rnd.Next('a', 'z');
+        char upperChar = char.ToUpper(randomChar);
         return upperChar.ToString();
     }
 
     public void CreateRoom()
-=>      PhotonNetwork.CreateRoom(RandomLetter(), new Photon.Realtime.RoomOptions { MaxPlayers = maximumPlayers });
-    public void JoinRoom()
-=>      PhotonNetwork.JoinRandomRoom();
+    {
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.MaxPlayers = maximumPlayers;
+        roomOptions.IsVisible = isRoomVisible;
+        string randomLetter = RandomLetter();
+        Log("Trying to join room " + randomLetter);
+        PlayerPrefs.SetString("RoomName", randomLetter);
+        PhotonNetwork.CreateRoom(randomLetter, roomOptions);
 
+    }
+    public void JoinPublicRoom()
+        => PhotonNetwork.JoinRandomRoom();
+    public void JoinLocalRoom()
+    {
+        try
+        {
+            PhotonNetwork.JoinRoom(localRoomCode.text);
+        }
+        catch
+        {
+            Log("This room does not exist");
+        }
+    }
     public override void OnJoinedRoom()
     {
         Log("Joined the room");
