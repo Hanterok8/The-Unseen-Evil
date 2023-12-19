@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class OpenStore : MonoBehaviour
@@ -11,7 +8,7 @@ public class OpenStore : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            GetComponent<ManController>().enabled = !GetComponent<ManController>().enabled;
+            GetComponent<PersonController>().enabled = !GetComponent<PersonController>().enabled;
             Cursor.visible = !Cursor.visible;
             if (!Cursor.visible)
                 Cursor.lockState = CursorLockMode.Locked;
