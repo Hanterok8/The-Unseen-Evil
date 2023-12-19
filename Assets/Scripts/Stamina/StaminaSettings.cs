@@ -1,24 +1,19 @@
 using System.Collections;
 using UnityEngine;
-[RequireComponent(typeof(ManController))]
+[RequireComponent(typeof(PersonController))]
 public class StaminaSettings : MonoBehaviour
 {
     [SerializeField] public int _playerStamina = 100;
     private bool _noDoubleCoroutines = false;
-    private ManController moving;
+    private PersonController moving;
 
     private void Start()
     {
-        moving = GetComponent<ManController>();
+        moving = GetComponent<PersonController>();
         StartCoroutine(StaminaChanging());
     }
-    private void Update()
-    {
-        //if (_playerStamina < 1) _playerStamina = 0;
-        //if (_playerStamina > 99) _playerStamina = 100;
-    }
 
-    public void ChangeStaminaValue(int changedStamina) // якщо потрібно відняти ХП, то пишемо changedHP зі знаком "-".
+    public void ChangeStaminaValue(int changedStamina)
     {
         _playerStamina += changedStamina;        
         if (_playerStamina <= 0)

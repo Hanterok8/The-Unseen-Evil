@@ -14,7 +14,7 @@ public class CrouchControlller : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            _player.GetComponent<ManController>().enabled = false;
+            _player.GetComponent<PersonController>().enabled = false;
             _state = 11;
             if (Input.GetKey(KeyCode.W))
             {
@@ -39,7 +39,7 @@ public class CrouchControlller : MonoBehaviour
         }
         else
         {
-            _player.GetComponent<ManController>().enabled = true;
+            _player.GetComponent<PersonController>().enabled = true;
             _state = 0;
         }
         _animator.SetInteger("State", _state);
