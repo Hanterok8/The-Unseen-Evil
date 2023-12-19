@@ -2135,7 +2135,8 @@ GameObject:
   - component: {fileID: 1216662687}
   - component: {fileID: 1216662686}
   - component: {fileID: 1216662685}
-  m_Layer: 0
+  - component: {fileID: 1216662689}
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2222,12 +2223,25 @@ Transform:
   m_GameObject: {fileID: 1216662684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: -0.88, z: -12.66886}
+  m_LocalPosition: {x: 0.15, y: 0.265, z: -10.235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1216662689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216662684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9393ac01239f8c9478c6e64edc8bcf97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: cube
 --- !u!1 &1239198895
 GameObject:
   m_ObjectHideFlags: 0
@@ -3638,6 +3652,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1006443571}
     - target: {fileID: 4362842171759553627, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
+      propertyPath: _layer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4362842171759553627, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
       propertyPath: _slots.Array.data[0]
       value: 
       objectReference: {fileID: 765690324}
@@ -3679,7 +3697,7 @@ PrefabInstance:
       objectReference: {fileID: 1687287760}
     - target: {fileID: 4362842171759553627, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
       propertyPath: _inventorySprites.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4362842171759553627, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
       propertyPath: _inventorySprites.Array.data[0]
@@ -3689,6 +3707,10 @@ PrefabInstance:
       propertyPath: _inventorySprites.Array.data[1]
       value: 
       objectReference: {fileID: 632833253210291807, guid: 930e00511bf7dc74db5dd2efdc6cf4bd, type: 3}
+    - target: {fileID: 4362842171759553627, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
+      propertyPath: _inventorySprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 3068253908334526384, guid: 7bce9074c19d18b49bc8d653b961de5a, type: 3}
     - target: {fileID: 4817222683512253107, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
       propertyPath: m_Name
       value: Dreyar By M.Aure

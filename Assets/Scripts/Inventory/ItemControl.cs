@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+
 public class ItemControl : MonoBehaviour
 {
     [SerializeField] private LayerMask _layer;
@@ -37,11 +37,18 @@ public class ItemControl : MonoBehaviour
         
 
         selected = -1;
-        if (Input.GetKeyDown(KeyCode.Alpha1)) selected = 0;
-        if (Input.GetKeyDown(KeyCode.Alpha2)) selected = 1;
-        if (Input.GetKeyDown(KeyCode.Alpha3)) selected = 2;
-        if (Input.GetKeyDown(KeyCode.Alpha4)) selected = 3;
-        if (Input.GetKeyDown(KeyCode.Alpha5)) selected = 4;
+        for (int i = 0; i < 5; i++)
+        {
+            if (Input.GetKeyDown($"{i + 1}"))
+            {
+                selected = i;
+            }
+        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1)) selected = 0;
+        //if (Input.GetKeyDown(KeyCode.Alpha2)) selected = 1;
+        //if (Input.GetKeyDown(KeyCode.Alpha3)) selected = 2;
+        //if (Input.GetKeyDown(KeyCode.Alpha4)) selected = 3;
+        //if (Input.GetKeyDown(KeyCode.Alpha5)) selected = 4;
         if (selected != -1)
         {
             _outlines[lastSlot].gameObject.SetActive(false);
@@ -66,8 +73,9 @@ public class ItemControl : MonoBehaviour
         Image img = infoName switch
         {
             "AK-74" => _inventorySprites[0],
-            "Empty bottle" => _inventorySprites[1]
-        };
+            "Empty bottle" => _inventorySprites[1],
+            "cube" => _inventorySprites[2]
+        }; ;
         img = Instantiate(img);
         img.transform.parent = _slots[freeSlotIndex];
         _slots[freeSlotIndex].GetComponent<SlotItemInformation>().name = infoName;
