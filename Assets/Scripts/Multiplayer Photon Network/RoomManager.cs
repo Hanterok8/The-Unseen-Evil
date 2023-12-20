@@ -3,10 +3,12 @@ using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private TMP_Text roomName;
+    [SerializeField] private GameObject StartButton;
 
     [SerializeField] private Transform playerListContent;
     [SerializeField] private GameObject playerlistPrefab;
@@ -16,30 +18,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
         Instantiate(playerlistPrefab, playerListContent).GetComponent<PlayerListNickname>().SetUpNickname(player);
         roomName.text = PhotonNetwork.CurrentRoom.Name;
     }
-    public override void OnLeftRoom()
-    {
-        SceneManager.LoadScene(0);
-
-    }
-    public override void OnJoinedRoom()
-    {
-        roomName.text = PhotonNetwork.CurrentRoom.Name;
-        RecreatePlayerInRoomList();
-
-    }
+    
     public void Leave()
     {
         PhotonNetwork.LeaveRoom();
     }
-
-    public override void OnPlayerEnteredRoom(Player newPlayer)
+    public void StartTheGame()
     {
-        Instantiate(playerlistPrefab, playerListContent).GetComponent<PlayerListNickname>().SetUpNickname(newPlayer);
+        PhotonNetwork.LoadLevel("TestController");
     }
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        Invoke(nameof(RecreatePlayerInRoomList), 0.2f);
-    }
+    
     private void RecreatePlayerInRoomList()
     {
         Player[] playersInRoom = PhotonNetwork.PlayerList;
@@ -52,5 +40,29 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             Instantiate(playerlistPrefab, playerListContent).GetComponent<PlayerListNickname>().SetUpNickname(playersInRoom[i]);
         }
+    }
+    public override void OnLeftRoom()
+    {
+        SceneManager.LoadScene(0);
+
+    }
+    public override void OnJoinedRoom()
+    {
+        roomName.text = PhotonNetwork.CurrentRoom.Name;
+        StartButton.SetActive(PhotonNetwork.IsMasterClient);
+        RecreatePlayerInRoomList();
+
+    }
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Instantiate(playerlistPrefab, playerListContent).GetComponent<PlayerListNickname>().SetUpNickname(newPlayer);
+    }
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        Invoke(nameof(RecreatePlayerInRoomList), 0.2f);
+    }
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        StartButton.SetActive(PhotonNetwork.IsMasterClient);
     }
 }
