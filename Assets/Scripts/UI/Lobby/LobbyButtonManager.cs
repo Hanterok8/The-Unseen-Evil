@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ public class LobbyButtonManager : MonoBehaviour
 
     [SerializeField] private Slider playerLimitValue;
     [SerializeField] private Toggle visibleTogleButton;
+    [SerializeField] private TMP_Text nickname;
     public void SetOrJoinRoom()
     {
         mainMenuButtons.SetActive(false);
@@ -38,5 +40,10 @@ public class LobbyButtonManager : MonoBehaviour
     {
         LobbyManager lobbyManager = Object.FindFirstObjectByType<LobbyManager>();
         lobbyManager.isRoomVisible = visibleTogleButton.isOn;
+    }
+    public void OnEnteredNickname()
+    {
+        LobbyManager lobbyManager = Object.FindFirstObjectByType<LobbyManager>();
+        lobbyManager.playerNickname = nickname.text;
     }
 }

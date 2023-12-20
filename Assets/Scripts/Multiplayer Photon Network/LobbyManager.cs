@@ -2,7 +2,6 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
@@ -10,6 +9,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     [SerializeField] private TMP_Text LogText;
     public int maximumPlayers;
+    public string playerNickname;
     public bool isRoomVisible = true;
     void Start()
     {
@@ -33,19 +33,25 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
+        if(playerNickname != "player nickname is not entered")
+            PhotonNetwork.NickName = playerNickname;
+
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = maximumPlayers;
         roomOptions.IsVisible = isRoomVisible;
         string randomLetter = RandomLetter();
         Log("Trying to join room " + randomLetter);
-        PlayerPrefs.SetString("RoomName", randomLetter);
         PhotonNetwork.CreateRoom(randomLetter, roomOptions);
 
     }
     public void JoinPublicRoom()
-        => PhotonNetwork.JoinRandomRoom();
+    {
+        PhotonNetwork.NickName = playerNickname;
+        PhotonNetwork.JoinRandomRoom();
+    }
     public void JoinLocalRoom()
     {
+        PhotonNetwork.NickName = playerNickname;
         try
         {
             PhotonNetwork.JoinRoom(localRoomCode.text);
