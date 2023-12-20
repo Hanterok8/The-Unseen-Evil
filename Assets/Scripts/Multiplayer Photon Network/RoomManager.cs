@@ -50,8 +50,26 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         roomName.text = PhotonNetwork.CurrentRoom.Name;
         StartButton.SetActive(PhotonNetwork.IsMasterClient);
+        ChangeSameNickNames();
         RecreatePlayerInRoomList();
 
+    }
+    private void ChangeSameNickNames()
+    {
+        string ourNickName;
+        string otherPlayersNickName;
+        for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
+        {
+            ourNickName = PhotonNetwork.PlayerList[i].NickName;
+            for (int j = 0; j < PhotonNetwork.PlayerList.Length; j++)
+            {
+                otherPlayersNickName = PhotonNetwork.PlayerList[j].NickName;
+                if (ourNickName == otherPlayersNickName && i != j)
+                {
+                    PhotonNetwork.PlayerList[j].NickName += "1";
+                }
+            }
+        }
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {

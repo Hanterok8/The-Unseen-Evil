@@ -1,13 +1,15 @@
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemControl : MonoBehaviour
 {
+    private Transform[] _slots;
+    private Transform[] _outlines;
     [SerializeField] private LayerMask _layer;
-    [SerializeField] private Transform[] _slots;
-    [SerializeField] private Transform[] _outlines;
     [SerializeField] private Image[] _inventorySprites;
     [SerializeField] private float _distance;
+    private PhotonView _photonView;
     private Camera _camera;
     private int lastSlot;
     private int selected;
@@ -15,13 +17,24 @@ public class ItemControl : MonoBehaviour
     private bool moved = false;
     void Start()
     {
+        _photonView = GetComponent<PhotonView>();
         _camera = Camera.main;
         selected = 0;
         lastSlot = 0;
+        Transform slotsChildren = GameObject.FindGameObjectWithTag("Slots").transform;
+        Transform outlineChildren = GameObject.FindGameObjectWithTag("Outlines").transform;
+        _slots = new Transform[slotsChildren.childCount];
+        _outlines = new Transform[outlineChildren.childCount];
+        for (int i = 0; i < slotsChildren.childCount; i++)
+        {
+            _slots[i] = slotsChildren.GetChild(i);
+            _outlines[i] = outlineChildren.GetChild(i);
+        }
         _outlines[selected].gameObject.SetActive(true);
     }
     void Update()
     {
+        if (!_photonView.IsMine) return;
         RaycastHit hit;
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, _distance, _layer))
@@ -44,11 +57,7 @@ public class ItemControl : MonoBehaviour
                 selected = i;
             }
         }
-        //if (Input.GetKeyDown(KeyCode.Alpha1)) selected = 0;
-        //if (Input.GetKeyDown(KeyCode.Alpha2)) selected = 1;
-        //if (Input.GetKeyDown(KeyCode.Alpha3)) selected = 2;
-        //if (Input.GetKeyDown(KeyCode.Alpha4)) selected = 3;
-        //if (Input.GetKeyDown(KeyCode.Alpha5)) selected = 4;
+
         if (selected != -1)
         {
             _outlines[lastSlot].gameObject.SetActive(false);

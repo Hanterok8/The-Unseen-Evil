@@ -46,12 +46,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     }
     public void JoinPublicRoom()
     {
-        PhotonNetwork.NickName = playerNickname;
+        if (playerNickname != "player nickname is not entered")
+            PhotonNetwork.NickName = playerNickname;
         PhotonNetwork.JoinRandomRoom();
     }
     public void JoinLocalRoom()
     {
-        PhotonNetwork.NickName = playerNickname;
+        if (playerNickname != "player nickname is not entered")
+            PhotonNetwork.NickName = playerNickname;
         try
         {
             PhotonNetwork.JoinRoom(localRoomCode.text);
@@ -67,6 +69,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         PhotonNetwork.LoadLevel("Matchmaking");
     }
+
+    
+
     private void Log(string message)
     {
         Debug.Log(message);

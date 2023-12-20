@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class CrouchControlller : MonoBehaviour
@@ -5,10 +6,15 @@ public class CrouchControlller : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private Animator _animator;
     [SerializeField] private float _crouchSpeed = 2;
+
+    private PhotonView _photonView;
     private int _state;
+    private void Start()
+=>      _photonView = GetComponent<PhotonView>();
     private void Update()
     {
-        CrouchInput();
+        if (_photonView.IsMine) CrouchInput();
+        
     }
     private void CrouchInput()
     {

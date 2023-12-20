@@ -1,3 +1,4 @@
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,7 @@ public class StaminaUI : MonoBehaviour
     private TMP_Text _staminaTextUI;
     private Image _staminaUI;
     private GameObject _player;
+
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
