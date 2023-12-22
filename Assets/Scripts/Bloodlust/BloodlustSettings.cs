@@ -11,6 +11,11 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
     public int _demonBloodlust;
     private void Start()
     {
+        if (transform.parent.GetComponent<PlayerOrDemon>().isPlayerOrDemon == "Player")
+        {
+            enabled = false;
+            return;
+        }
         _demonBloodlust = 0;
         _photonView = GetComponent<PhotonView>();
         StartCoroutine(BloodlustScale());
@@ -19,17 +24,12 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
     {
         ActivateAimodipsis();
         if (isAimodipsis && _demonBloodlust <= 0)
-        {
             isAimodipsis = false;
-        }
     }
     private void ActivateAimodipsis()
     {
         if (_demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !isAimodipsis)
-        {
             isAimodipsis = true;
-        }
-
     }
 
     private IEnumerator BloodlustScale()

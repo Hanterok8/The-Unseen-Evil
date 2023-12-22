@@ -20,6 +20,8 @@ TagManager:
   - BloodlustText
   - Bloodlust
   - BloodHint
+  - GameObjectBloodLust
+  - GameManager
   layers:
   - Default
   - TransparentFX

@@ -10,11 +10,18 @@ public class BloodlustUI : MonoBehaviour
     private TMP_Text _bloodlustTextUI;
     private TMP_Text _bloodHintText;
     private Image _bloodlustUI;
-    private GameObject _player; //Change name in future.
+    private GameObject _player; 
 
     private void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player"); // Change tag into "Demon" in future.
+        
+        _player = GameObject.FindGameObjectWithTag("Player"); 
+        if (_player.transform.parent.GetComponent<PlayerOrDemon>().isPlayerOrDemon == "Player")
+        {
+            GameObject.FindGameObjectWithTag("GameObjectBloodLust").SetActive(false);
+            enabled = false;
+            return;
+        }
         _bloodlustTextUI = GameObject.FindGameObjectWithTag("BloodlustText").GetComponent<TMP_Text>();
         _bloodHintText = GameObject.FindGameObjectWithTag("BloodHint").GetComponent <TMP_Text>();
         _bloodlustUI = GetComponent<Image>();

@@ -1064,7 +1064,7 @@ GameObject:
   - component: {fileID: 1012338343}
   m_Layer: 5
   m_Name: BLOODLUST
-  m_TagString: Untagged
+  m_TagString: GameObjectBloodLust
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1757,7 +1757,7 @@ GameObject:
   - component: {fileID: 1603145412}
   m_Layer: 0
   m_Name: Game Manager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1774,7 +1774,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de541df7b049a04e83bc299fa450d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 211740327263869155, guid: 242c6bd41e0a80f40b2c5a1dafd7e1b3, type: 3}
+  playerPrefab: {fileID: 2435702076327006110, guid: ea60303d56315b6478216bba4dec6e71, type: 3}
+  DemonNicknames:
+  - 
+  - 
 --- !u!4 &1603145413
 Transform:
   m_ObjectHideFlags: 0
