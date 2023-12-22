@@ -17,6 +17,9 @@ TagManager:
   - Bullet
   - Slots
   - Outlines
+  - BloodlustText
+  - Bloodlust
+  - BloodHint
   layers:
   - Default
   - TransparentFX

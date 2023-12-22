@@ -4,10 +4,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private float sensitiveMouse = 100f;
-
-    private float mouseX;
-    private float mouseY;
-
     private float yRotation;
     private float xRotation;
 
@@ -22,8 +18,8 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         if (!_photonView.IsMine) return;
-        mouseX = Input.GetAxis("Mouse X") * sensitiveMouse * Time.deltaTime;
-        mouseY = Input.GetAxis("Mouse Y") * sensitiveMouse * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * sensitiveMouse * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitiveMouse * Time.deltaTime;
 
         yRotation += mouseX;
         xRotation -= mouseY;

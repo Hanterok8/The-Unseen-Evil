@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: -1383932682630923010}
   - component: {fileID: 7536020201071796203}
   - component: {fileID: 8013121190149926527}
+  - component: {fileID: -7742646366246758057}
   m_Layer: 0
   m_Name: Dreyar By M.Aure
   m_TagString: Player
@@ -325,6 +326,20 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &-7742646366246758057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211740327263869155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9638ec485d9de8459ca91f5fe2a73b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAimodipsis: 0
+  _demonBloodlust: 0
 --- !u!1 &298176652979889167
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 using Photon.Pun;
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody))]
+
 [RequireComponent(typeof(Animator))]
 public class PersonController : MonoBehaviour
 {
@@ -16,11 +16,9 @@ public class PersonController : MonoBehaviour
     public bool _isRunning;
     public Vector2 AxesSpeed;
 
-    private Rigidbody Rb;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         _photonView = GetComponent<PhotonView>();
     }
@@ -36,8 +34,6 @@ public class PersonController : MonoBehaviour
     }
     private void MovementInput()
     {
-        if (!_photonView.IsMine)
-            return;
         if (Input.GetKey(KeyCode.W))
         {
             _player.GetComponent<CrouchControlller>().enabled = false;
