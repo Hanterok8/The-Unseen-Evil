@@ -16,7 +16,7 @@ public class BloodlustUI : MonoBehaviour
     {
         
         _player = GameObject.FindGameObjectWithTag("Player"); 
-        if (_player.transform.parent.GetComponent<PlayerOrDemon>().isPlayerOrDemon == "Player")
+        if (!_player.transform.parent.GetComponent<PlayerOrDemon>().isDemon)
         {
             GameObject.FindGameObjectWithTag("GameObjectBloodLust").SetActive(false);
             enabled = false;

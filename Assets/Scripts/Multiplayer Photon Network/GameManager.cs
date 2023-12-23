@@ -7,18 +7,15 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject playerPrefab;
     public string[] DemonNicknames = new string[2];
     void Awake()
-    { 
-        PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(Random.Range(-2, 2),0, Random.Range(-2, 2)), Quaternion.identity);
-        MakePlayersDemons();
-
-    }
-    private void Start()
     {
-        
+        PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(Random.Range(-4, 4),0, Random.Range(-4, 4)), Quaternion.identity);
+        MakePlayersDemons();
     }
+
+
     public void PlayerModeSet()
     {
-        int len = 2;
+        int len = 1;
         System.Random rnd = new System.Random();
         int min = 0, max = PhotonNetwork.CountOfPlayers;
         int[] Demons = new int[len];
@@ -39,10 +36,11 @@ public class GameManager : MonoBehaviourPunCallbacks
                 Transform playersParent = players[i].transform.parent;
                 if (playersParent.GetComponent<PlayerNickName>().nickName == DemonNicknames[j])
                 {
-                    playersParent.GetComponent<PlayerOrDemon>().isPlayerOrDemon = "Demon";
+                    playersParent.GetComponent<PlayerOrDemon>().isDemon = true;
                 }
             }
 
         }
     }
+
 }

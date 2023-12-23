@@ -6,14 +6,19 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float sensitiveMouse = 100f;
     private float yRotation;
     private float xRotation;
+    private const int yLookLimit = 55;
 
-    private Transform Player;
+    [SerializeField] private Transform Player;
     private PhotonView _photonView;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
         _photonView = Player.GetComponent<PhotonView>();
+        if (!_photonView.IsMine)
+        {
+            Destroy(GetComponent<Camera>());
+            Destroy(GetComponent<AudioListener>());
+        }
     }
     void Update()
     {
@@ -24,7 +29,7 @@ public class CameraController : MonoBehaviour
         yRotation += mouseX;
         xRotation -= mouseY;
 
-        xRotation = Mathf.Clamp(xRotation, -55f, 55f);
+        xRotation = Mathf.Clamp(xRotation, -yLookLimit, yLookLimit);
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         Player.rotation = Quaternion.Euler(0, yRotation, 0);

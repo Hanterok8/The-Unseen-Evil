@@ -10,62 +10,63 @@ public class PersonController : MonoBehaviour
     [SerializeField] private bool _ground;
     private PhotonView _photonView;
     private Animator _animator;
-    public GameObject _player;
     public int _state;
-
+    private CrouchControlller _crouchController;
+    private StaminaSettings _staminaSettings;
     public bool _isRunning;
     public Vector2 AxesSpeed;
 
     private void Start()
     {
+        _staminaSettings = GetComponent<StaminaSettings>();
+        _crouchController = GetComponent<CrouchControlller>();
         Cursor.lockState = CursorLockMode.Locked;
         _animator = GetComponent<Animator>();
         _photonView = GetComponent<PhotonView>();
     }
     private void Update()
     {
-        if (_photonView.IsMine)
-        {
-            AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _speed, Input.GetAxis("Vertical") * _speed);
-            _isRunning = Input.GetKey(KeyCode.LeftShift);
-            MovementInput();
-        }
-        
+        if (!_photonView.IsMine) return;
+        AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _speed, Input.GetAxis("Vertical") * _speed);
+        _isRunning = Input.GetKey(KeyCode.LeftShift);
+        MovementInput();
+
     }
     private void MovementInput()
     {
         if (Input.GetKey(KeyCode.W))
         {
-            _player.GetComponent<CrouchControlller>().enabled = false;
+            
+            _crouchController.enabled = false;
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
             _state = 1;
-            if (_isRunning && GetComponent<StaminaSettings>()._playerStamina > 0)
+            if (_isRunning && _staminaSettings._playerStamina > 0)
             {
-                _player.GetComponent<CrouchControlller>().enabled = false;
+                _crouchController.enabled = false;
                 transform.Translate(Vector3.forward * _maxSpeed * Time.deltaTime);
                 _state = 2;
             }
         }
         else
         {
-            _player.GetComponent<CrouchControlller>().enabled = true;
+            _crouchController.enabled = true;
             _state = 0;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            _player.GetComponent<CrouchControlller>().enabled = false;
+            _crouchController.enabled = false;
             transform.Translate(Vector3.left * _minSpeed * Time.deltaTime);
             _state = 6;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            _player.GetComponent<CrouchControlller>().enabled = false;
+            _crouchController.enabled = false;
             transform.Translate(Vector3.right * _minSpeed * Time.deltaTime);
             _state = 5;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            _player.GetComponent<CrouchControlller>().enabled = false;
+            _crouchController.enabled = false;
             transform.Translate(Vector3.back * _minSpeed * Time.deltaTime);
             _state = 3;
         }

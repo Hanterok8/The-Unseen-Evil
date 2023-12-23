@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitiveMouse: 300
+  Player: {fileID: 4160769733840140983}
 --- !u!1 &567743921851604410
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd213ceadab7d2348b95216739c75945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerOrDemon: Player
+  isDemon: 0
 --- !u!1 &2443349726047756437
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +832,6 @@ MonoBehaviour:
   _maxSpeed: 4
   _minSpeed: 2
   _ground: 0
-  _player: {fileID: 2529424917898191501}
   _state: 0
   _isRunning: 0
   AxesSpeed: {x: 0, y: 0}

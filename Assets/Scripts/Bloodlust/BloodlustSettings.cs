@@ -11,7 +11,7 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
     public int _demonBloodlust;
     private void Start()
     {
-        if (transform.parent.GetComponent<PlayerOrDemon>().isPlayerOrDemon == "Player")
+        if (!transform.parent.GetComponent<PlayerOrDemon>().isDemon)
         {
             enabled = false;
             return;
