@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     private PhotonView _photonView;
     void Start()
     {
+        Player = Player.transform.parent;
         Cursor.lockState = CursorLockMode.Locked;
         _photonView = Player.GetComponent<PhotonView>();
         if (!_photonView.IsMine)
@@ -32,6 +33,6 @@ public class CameraController : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -yLookLimit, yLookLimit);
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        Player.rotation = Quaternion.Euler(0, yRotation, 0);
+        Player.transform.GetChild(0).rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }

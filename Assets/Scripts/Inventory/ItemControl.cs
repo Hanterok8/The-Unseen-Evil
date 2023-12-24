@@ -34,6 +34,7 @@ public class ItemControl : MonoBehaviour
     }
     void Update()
     {
+        if(_camera == null) _camera = Camera.main;
         if (!_photonView.IsMine) return;
         RaycastHit hit;
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);

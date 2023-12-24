@@ -14,7 +14,7 @@ public class BloodlustUI : MonoBehaviour
 
     private void Start()
     {
-        
+
         _player = GameObject.FindGameObjectWithTag("Player");
         Invoke(nameof(CheckIsDemon), 0.1f); 
         _bloodlustTextUI = GameObject.FindGameObjectWithTag("BloodlustText").GetComponent<TMP_Text>();
@@ -23,7 +23,8 @@ public class BloodlustUI : MonoBehaviour
     }
     private void Update()
     {
-        BloodlustSettings bloodlustSettings = _player.GetComponent<BloodlustSettings>(); 
+        if (_player == null) _player = GameObject.FindGameObjectWithTag("Player");
+        BloodlustSettings bloodlustSettings = _player.transform.parent.GetComponent<BloodlustSettings>(); 
         _bloodlustUI.fillAmount = bloodlustSettings._demonBloodlust / 100.0f;
         _bloodlustTextUI.text = $"{bloodlustSettings._demonBloodlust}%";
 

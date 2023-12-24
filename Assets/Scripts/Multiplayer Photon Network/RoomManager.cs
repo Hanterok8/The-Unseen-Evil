@@ -25,7 +25,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
     public void StartTheGame()
     {
-        PhotonNetwork.LoadLevel("TestController");
+        PhotonNetwork.LoadLevel("PlayLocation");
     }
     
     private void RecreatePlayerInRoomList()

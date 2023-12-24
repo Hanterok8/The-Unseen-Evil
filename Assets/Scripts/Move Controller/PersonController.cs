@@ -22,7 +22,7 @@ public class PersonController : MonoBehaviour
         _crouchController = GetComponent<CrouchControlller>();
         Cursor.lockState = CursorLockMode.Locked;
         _animator = GetComponent<Animator>();
-        _photonView = GetComponent<PhotonView>();
+        _photonView = transform.parent.GetComponent<PhotonView>();
     }
     private void Update()
     {

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class DemonController : MonoBehaviour
@@ -9,7 +11,8 @@ public class DemonController : MonoBehaviour
     private Animator _animator;
     public int _state;
     [SerializeField] private Rigidbody _Rb;
-    private float _forse = 10f;
+    private float _force = 10f;
+    private bool isInSuperJumpCoolDown = false;
 
     public bool _isRunning;
     public Vector2 AxesSpeed;
@@ -56,11 +59,19 @@ public class DemonController : MonoBehaviour
             transform.Translate(Vector3.back * _minSpeed * Time.deltaTime);
             _state = 3;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isInSuperJumpCoolDown)
         {
-            _Rb.AddForce(Vector3.forward * _forse * 5 , ForceMode.Impulse);
+            StartCoroutine(DoSuperJump());
         }
         _animator.SetInteger("State", _state);
+    }
+    IEnumerator DoSuperJump()
+    {
+        _Rb.AddForce(Vector3.up * _force / 2, ForceMode.Impulse);
+        _Rb.AddForce(transform.forward * _force, ForceMode.Impulse);
+        isInSuperJumpCoolDown = true;
+        yield return new WaitForSeconds(3);
+        isInSuperJumpCoolDown = false;
     }
     private void OnCollisionEnter(Collision collision)
     {

@@ -11,9 +11,9 @@ public class StaminaSettings : MonoBehaviour
 
     private void Start()
     {
-        _photonView = GetComponent<PhotonView>();
+        _photonView = transform.parent.GetComponent<PhotonView>();
         moving = GetComponent<PersonController>();
-        StartCoroutine(StaminaChanging());
+        StartCoroutine(StaminaChanging());  
     }
 
     public void ChangeStaminaValue(int changedStamina)

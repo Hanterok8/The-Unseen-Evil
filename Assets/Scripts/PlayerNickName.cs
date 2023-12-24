@@ -10,7 +10,7 @@ public class PlayerNickName : MonoBehaviourPunCallbacks
     private PhotonView _photonView;
     private void Awake()
     {
-        _photonView = transform.GetChild(0).GetComponent<PhotonView>();
+        _photonView = GetComponent<PhotonView>();
         if (_photonView.IsMine)
         {
             _nickName = PhotonNetwork.NickName;

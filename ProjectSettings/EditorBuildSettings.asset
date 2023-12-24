@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Matchmaking.unity
     guid: b23d00bc1d15c4c47926bcd101728f55
   - enabled: 1
-    path: Assets/Scenes/TestController.unity
-    guid: 28e8032dd5d3dcc47bfcb93950cc9cfd
+    path: Assets/Scenes/PlayLocation.unity
+    guid: 09b35ce20c85eaf459f41f1956463e82
   m_configObjects: {}

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public string[] DemonNicknames = new string[2];
     void Awake()
     {
-        PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(Random.Range(-4, 4),0, Random.Range(-4, 4)), Quaternion.identity);
+        PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(Random.Range(-4, 4),3, Random.Range(-4, 4)), Quaternion.identity);
         MakePlayersDemons();
     }
 
