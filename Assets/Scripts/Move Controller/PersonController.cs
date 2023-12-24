@@ -22,10 +22,11 @@ public class PersonController : MonoBehaviour
         _crouchController = GetComponent<CrouchControlller>();
         Cursor.lockState = CursorLockMode.Locked;
         _animator = GetComponent<Animator>();
-        _photonView = transform.parent.GetComponent<PhotonView>();
+        _photonView = GetComponent<PhotonView>();
     }
     private void Update()
     {
+        if (_photonView == null) _photonView = GetComponent<PhotonView>();
         if (!_photonView.IsMine) return;
         AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _speed, Input.GetAxis("Vertical") * _speed);
         _isRunning = Input.GetKey(KeyCode.LeftShift);

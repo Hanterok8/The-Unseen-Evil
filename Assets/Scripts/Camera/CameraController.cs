@@ -9,10 +9,10 @@ public class CameraController : MonoBehaviour
     private const int yLookLimit = 55;
 
     [SerializeField] private Transform Player;
-    private PhotonView _photonView;
+    [SerializeField] private PhotonView _photonView;
     void Start()
     {
-        Player = Player.transform.parent;
+        
         Cursor.lockState = CursorLockMode.Locked;
         _photonView = Player.GetComponent<PhotonView>();
         if (!_photonView.IsMine)
@@ -23,6 +23,15 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
+        if (_photonView == null)
+        {
+            _photonView = Player.GetComponent<PhotonView>();
+            if (!_photonView.IsMine)
+            {
+                Destroy(GetComponent<Camera>());
+                Destroy(GetComponent<AudioListener>());
+            }
+        }
         if (!_photonView.IsMine) return;
         float mouseX = Input.GetAxis("Mouse X") * sensitiveMouse * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensitiveMouse * Time.deltaTime;
@@ -33,6 +42,6 @@ public class CameraController : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -yLookLimit, yLookLimit);
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        Player.transform.GetChild(0).rotation = Quaternion.Euler(0, yRotation, 0);
+        Player.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }

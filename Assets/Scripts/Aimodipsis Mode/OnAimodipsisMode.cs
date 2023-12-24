@@ -1,7 +1,6 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Timeline;
 using UnityEngine;
 
 public class OnAimodipsisMode : MonoBehaviour
@@ -13,13 +12,14 @@ public class OnAimodipsisMode : MonoBehaviour
 
     void Start()
     {
-        photonView = GetComponent<PhotonView>();
+        photonView = transform.GetChild(0).GetComponent<PhotonView>();
         bloodLust = GetComponent<BloodlustSettings>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (photonView == null) transform.GetChild(0).GetComponent<PhotonView>();
         if (!photonView.IsMine) return;
         if(bloodLust == null) bloodLust = GetComponent<BloodlustSettings>();
         if (bloodLust._demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !bloodLust.isAimodipsis)

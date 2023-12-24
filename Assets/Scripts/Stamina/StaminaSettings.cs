@@ -11,13 +11,18 @@ public class StaminaSettings : MonoBehaviour
 
     private void Start()
     {
-        _photonView = transform.parent.GetComponent<PhotonView>();
+        _photonView = GetComponent<PhotonView>();
         moving = GetComponent<PersonController>();
         StartCoroutine(StaminaChanging());  
+    }
+    private void Update()
+    {
+        
     }
 
     public void ChangeStaminaValue(int changedStamina)
     {
+        
         if (!_photonView.IsMine) return;
         _playerStamina += changedStamina;        
         if (_playerStamina <= 0)
@@ -29,7 +34,8 @@ public class StaminaSettings : MonoBehaviour
     {
         while (true)
         {
-            if (!_photonView.IsMine) break; 
+            if (_photonView == null) _photonView = GetComponent<PhotonView>();
+            if (!_photonView.IsMine || transform.parent.GetComponent<PlayerOrDemon>().isDemon) break; 
             if (moving._isRunning && (moving.AxesSpeed.x != 0 || moving.AxesSpeed.y != 0))
             {
                 if (_playerStamina > 0) _playerStamina -= 1;

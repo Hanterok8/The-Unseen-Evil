@@ -18,9 +18,13 @@ public class StaminaUI : MonoBehaviour
     }
     private void Update()
     {
-        
+        if (_player == null)  _player = GameObject.FindGameObjectWithTag("Player"); 
+        if (_player.transform.parent.GetComponent<PlayerOrDemon>().isDemon)
+        {
+            _staminaTextUI.text = "inf.";
+            return;
+        }
         if (_player == null) _player = GameObject.FindGameObjectWithTag("Player");
-        enabled = !_player.transform.parent.GetComponent<PlayerOrDemon>().isDemon;
         StaminaSettings staminaSettings = _player.GetComponent<StaminaSettings>();
         _staminaUI.fillAmount = staminaSettings._playerStamina / 100.0f; 
         _staminaTextUI.text = $"{staminaSettings._playerStamina}%";

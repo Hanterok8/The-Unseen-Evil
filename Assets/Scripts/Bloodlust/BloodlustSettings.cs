@@ -15,8 +15,12 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
             return;
         }
         _demonBloodlust = 0;
-        _photonView = GetComponent<PhotonView>();
+        _photonView = transform.GetChild(0).GetComponent<PhotonView>();
         StartCoroutine(BloodlustScale());
+    }
+    void Update()
+    {
+        if(_photonView == null) _photonView = transform.GetChild(0).GetComponent<PhotonView>();
     }
     private IEnumerator BloodlustScale()
     {
@@ -29,12 +33,12 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
             }
             if (!isAimodipsis)
             {
-                _demonBloodlust += 1;
+                if(_demonBloodlust < 100) _demonBloodlust += 50;
                 yield return new WaitForSeconds(3);
             }
             else
             {
-                _demonBloodlust -= 1;
+                if(_demonBloodlust > 0) _demonBloodlust -= 1;
                 yield return new WaitForSeconds(1);
             }
         }

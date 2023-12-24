@@ -13,6 +13,7 @@ public class CrouchControlller : MonoBehaviour
 =>      _photonView = transform.parent.GetComponent<PhotonView>();
     private void Update()
     {
+        if (_photonView == null) _photonView = GetComponent<PhotonView>();
         if (_photonView.IsMine) CrouchInput();
         
     }

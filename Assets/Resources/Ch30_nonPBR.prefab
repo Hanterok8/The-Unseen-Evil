@@ -766,6 +766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitiveMouse: 300
   Player: {fileID: 7922546751584887003}
+  _photonView: {fileID: 0}
 --- !u!1 &2778741640974685349
 GameObject:
   m_ObjectHideFlags: 0
