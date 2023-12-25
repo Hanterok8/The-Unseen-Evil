@@ -2185,7 +2185,6 @@ MonoBehaviour:
   allowButtonHold: 1
   bulletsLeft: 0
   fireRate: 15
-  fpsCam: {fileID: 1660205841}
   impactEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
   muzzleFlash: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
   impactForce: 30
@@ -4760,7 +4759,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1128875831554196136, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5113982364278790394, guid: 80f0ce05b3a4179478ced2584556f7eb, type: 3}
