@@ -427,6 +427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch30_nonPBR
       objectReference: {fileID: 0}
+    - target: {fileID: 5563352522231221554, guid: 473982180ba583c4587a19887f7b56b4, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7673650417116095696, guid: 473982180ba583c4587a19887f7b56b4, type: 3}
       propertyPath: sceneViewId
       value: 1
