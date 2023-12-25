@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void PlayerModeSet()
     {
-        int len = 1;
+        int len = PhotonNetwork.CountOfPlayers / 3;
+        if (len == 0) len = 1;
         System.Random rnd = new System.Random();
         int min = 0, max = PhotonNetwork.CountOfPlayers;
         int[] Demons = new int[len];
@@ -28,15 +29,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void MakePlayersDemons()
     {
         PlayerModeSet();
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        for (int i = 0; i < players.Length; i++)
+        PlayerNickName[] playersNames = Object.FindObjectsOfType<PlayerNickName>();
+        for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
         {
             for (int j = 0; j < DemonNicknames.Length; j++)
             {
-                Transform playersParent = players[i].transform.parent;
-                if (playersParent.GetComponent<PlayerNickName>().nickName == DemonNicknames[j])
+                if (playersNames[i].nickName == DemonNicknames[j])
                 {
-                    playersParent.GetComponent<PlayerOrDemon>().isDemon = true;
+                    playersNames[i].GetComponent<PlayerOrDemon>().isDemon = true;
                 }
             }
 

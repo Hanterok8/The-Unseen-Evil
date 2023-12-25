@@ -333,6 +333,7 @@ MonoBehaviour:
   _ground: 0
   _state: 0
   _Rb: {fileID: 9168012729401099908}
+  _photonView: {fileID: 0}
   _isRunning: 0
   AxesSpeed: {x: 0, y: 0}
 --- !u!136 &8974254019273461512

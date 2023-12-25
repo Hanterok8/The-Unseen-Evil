@@ -1,5 +1,4 @@
 using Photon.Pun;
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ public class DemonController : MonoBehaviour
     [SerializeField] private Rigidbody _Rb;
     private float _force = 10f;
     private bool isInSuperJumpCoolDown = false;
-    private PhotonView _photonView;
+    [SerializeField] private PhotonView _photonView;
     public bool _isRunning;
     public Vector2 AxesSpeed;
 
@@ -25,7 +24,7 @@ public class DemonController : MonoBehaviour
     }
     private void Update()
     {
-        if(_photonView == null) _photonView = GetComponent<PhotonView>();
+        if (_photonView == null) _photonView = GetComponent<PhotonView>();
         if (!_photonView.IsMine) return;
         AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _speed, Input.GetAxis("Vertical") * _speed);
         _isRunning = Input.GetKey(KeyCode.LeftShift);

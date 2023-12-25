@@ -1,3 +1,5 @@
+using Photon.Pun;
+using System;
 using UnityEngine;
 
 public class GunSystem : MonoBehaviour
@@ -19,9 +21,19 @@ public class GunSystem : MonoBehaviour
     [Header("Graphics")]
     public ParticleSystem muzzleFlash;
     public float impactForce = 30f;
+    GameObject impactGO;
+    private PhotonView photonView;
 
+    private void Awake()
+    {
+        photonView = GetComponent<PhotonView>();
+        fpsCam = Camera.main;
+        bulletsLeft = magazineSize;
+        readyToShoot = true;
+    }
     public void Update()
     {
+        if (!photonView.IsMine) return;
         if (Input.GetButtonDown("Fire1")&&Time.time>=timeBetweenShooting) 
         {
             MyInput();
@@ -32,18 +44,9 @@ public class GunSystem : MonoBehaviour
             Reload();
         }
     }
-    private void Awake()
-    {
-        fpsCam = Camera.main;
-        bulletsLeft = magazineSize;
-        readyToShoot = true;
-    }
+   
     private void MyInput()
     {
-        //if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
-        //{
-        //    Debug.Log("Reload button pressed");
-        //}
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
@@ -53,7 +56,7 @@ public class GunSystem : MonoBehaviour
             bulletsShot = 1;
             timeBetweenShooting = Time.time + 1f / fireRate;
             if (bulletsShot > 0 && bulletsLeft > 0 && !reloading)
-                Invoke("Shoot", timeBetweenShots);
+                Invoke(nameof(Shoot), timeBetweenShots);
         }
     }
     void Shoot()
@@ -77,18 +80,24 @@ public class GunSystem : MonoBehaviour
         bulletsLeft--;
         bulletsShot--;
 
-        Invoke("ResetShot", timeBetweenShooting);
+        Invoke(nameof(ResetShot), timeBetweenShooting);
 
-        GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(impactGO, 2f);
+        impactGO = PhotonNetwork.Instantiate(impactEffect.name, hit.point, Quaternion.LookRotation(hit.normal));
+        Invoke(nameof(DestroyProjectile), 2f);
 
         if (bulletsShot > 0 && bulletsLeft > 0)
-            Invoke("Shoot", timeBetweenShots);
+            Invoke(nameof(Shoot), timeBetweenShots);
     }
+
+    private void DestroyProjectile()
+    {
+        PhotonNetwork.Destroy(impactGO);
+    }
+
     void Reload() 
     {
         reloading = true;
-        Invoke("ReloadFinished", reloadTime);
+        Invoke(nameof(ReloadFinished), reloadTime);
     }
     private void ReloadFinished()
     {
