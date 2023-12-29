@@ -467,6 +467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coke_Botle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8bfe12227e24b2e4389bd1fc9a2a349f, type: 3}
+      propertyPath: m_TagString
+      value: Item_Botle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 569820985022629020, guid: 8bfe12227e24b2e4389bd1fc9a2a349f, type: 3}

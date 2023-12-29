@@ -22,6 +22,9 @@ TagManager:
   - BloodHint
   - GameObjectBloodLust
   - GameManager
+  - Item_Botle
+  - Item_LambBlood
+  - Item_HolyWater
   layers:
   - Default
   - TransparentFX
