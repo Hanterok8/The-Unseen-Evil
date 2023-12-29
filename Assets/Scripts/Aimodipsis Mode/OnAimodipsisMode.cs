@@ -1,8 +1,7 @@
 using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BloodlustSettings))]
 public class OnAimodipsisMode : MonoBehaviour
 {
     [SerializeField] private GameObject inhabitantPrefab;
@@ -14,27 +13,37 @@ public class OnAimodipsisMode : MonoBehaviour
     {
         photonView = transform.GetChild(0).GetComponent<PhotonView>();
         bloodLust = GetComponent<BloodlustSettings>();
+        if (!GetComponent<PlayerOrDemon>().isDemon)
+        {
+            enabled = false;
+            return;
+        }
     }
 
-    void Update()
+    private void Update()
     {
-        //if (photonView == null) transform.GetChild(0).GetComponent<PhotonView>();
         if (!photonView.IsMine) return;
-        //if(bloodLust == null) bloodLust = GetComponent<BloodlustSettings>();
 
         if (bloodLust._demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !bloodLust.isAimodipsis)
         {
-            PhotonNetwork.Instantiate(demonPrefab.name, transform.GetChild(0).position, Quaternion.identity).transform.parent = transform;
-            bloodLust.isAimodipsis = true;
+            RebornPlayer(demonPrefab);
         }
         else if (bloodLust.isAimodipsis && bloodLust._demonBloodlust <= 0)
         {
-            PhotonNetwork.Instantiate(inhabitantPrefab.name, transform.GetChild(0).position, Quaternion.identity).transform.parent = transform;
-            bloodLust.isAimodipsis = false;  
+            RebornPlayer(inhabitantPrefab);  
         }
-        else return;
+        else
+        {
+            return;
+        }
         PhotonNetwork.Destroy(transform.GetChild(0).gameObject);
         photonView = transform.GetChild(0).GetComponent<PhotonView>();
         bloodLust = GetComponent<BloodlustSettings>();
+    }
+    private void RebornPlayer(GameObject instantiationPrefab)
+    {
+        GameObject prefabInstantiation = PhotonNetwork.Instantiate(instantiationPrefab.name, transform.GetChild(0).position, Quaternion.identity);
+        prefabInstantiation.transform.parent = transform;
+        bloodLust.isAimodipsis = !bloodLust.isAimodipsis;
     }
 }
