@@ -10,7 +10,9 @@ public class BloodlustUI : MonoBehaviour
     private TMP_Text _bloodlustTextUI;
     private TMP_Text _bloodHintText;
     private Image _bloodlustUI;
-    private GameObject _player; 
+    private GameObject _player;
+
+    private IsAimodipsis _aimodipsis;
 
     private void Start()
     {
@@ -20,6 +22,7 @@ public class BloodlustUI : MonoBehaviour
         _bloodlustTextUI = GameObject.FindGameObjectWithTag("BloodlustText").GetComponent<TMP_Text>();
         _bloodHintText = GameObject.FindGameObjectWithTag("BloodHint").GetComponent <TMP_Text>();
         _bloodlustUI = GetComponent<Image>();
+        _aimodipsis = Object.FindFirstObjectByType<IsAimodipsis>();
     }
     private void Update()
     {
@@ -28,7 +31,7 @@ public class BloodlustUI : MonoBehaviour
         _bloodlustUI.fillAmount = bloodlustSettings._demonBloodlust / 100.0f;
         _bloodlustTextUI.text = $"{bloodlustSettings._demonBloodlust}%";
 
-        if (bloodlustSettings._demonBloodlust >= 60 && !bloodlustSettings.isAimodipsis)
+        if (bloodlustSettings._demonBloodlust >= 60 && !_aimodipsis.isAimodipsis)
         {
             _bloodHintText.text = "Press (F) to active Aimodipsis Mode.";
         }

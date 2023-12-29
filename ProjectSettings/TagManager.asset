@@ -22,6 +22,7 @@ TagManager:
   - BloodHint
   - GameObjectBloodLust
   - GameManager
+  - shop_circle
   layers:
   - Default
   - TransparentFX

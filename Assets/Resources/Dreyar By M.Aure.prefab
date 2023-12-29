@@ -1731,6 +1731,7 @@ GameObject:
   - component: {fileID: 543213127222780656}
   - component: {fileID: 7683458041294809906}
   - component: {fileID: 2963868116764675941}
+  - component: {fileID: -1642266917566573661}
   m_Layer: 0
   m_Name: Dreyar By M.Aure
   m_TagString: Player
@@ -1842,9 +1843,10 @@ MonoBehaviour:
   _maxSpeed: 4
   _minSpeed: 2
   _ground: 0
-  _state: 0
-  _isRunning: 0
   AxesSpeed: {x: 0, y: 0}
+  state: 0
+  isRunning: 0
+  isFrozen: 0
 --- !u!114 &1440454149975077768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1977,6 +1979,20 @@ MonoBehaviour:
   impactEffect: {fileID: 1337198075554910, guid: 9c5444d8493bcfc4e92bfa87be99af36, type: 3}
   muzzleFlash: {fileID: 198234346748616026, guid: e8ff2f1604b6a4d4ebed0318e558bba7, type: 3}
   impactForce: 30
+--- !u!114 &-1642266917566573661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6230639358007800092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cef874f382965a4889cf14d765a59b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  store: {fileID: 0}
+  buyMenu: {fileID: 0}
 --- !u!1 &6276606276191135039
 GameObject:
   m_ObjectHideFlags: 0

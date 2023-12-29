@@ -7,13 +7,15 @@ public class OnAimodipsisMode : MonoBehaviour
     [SerializeField] private GameObject inhabitantPrefab;
     [SerializeField] private GameObject demonPrefab;
     [SerializeField] private BloodlustSettings bloodLust;
+    private IsAimodipsis aimodipsis;
     private PhotonView photonView;
 
     void Start()
     {
+        aimodipsis = Object.FindFirstObjectByType<IsAimodipsis>();
         photonView = transform.GetChild(0).GetComponent<PhotonView>();
         bloodLust = GetComponent<BloodlustSettings>();
-        if (!GetComponent<PlayerOrDemon>().isDemon)
+        if (!GetComponent<PlayerOrDemon>().isDemon && photonView.IsMine)
         {
             enabled = false;
             return;
@@ -24,13 +26,17 @@ public class OnAimodipsisMode : MonoBehaviour
     {
         if (!photonView.IsMine) return;
 
-        if (bloodLust._demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !bloodLust.isAimodipsis)
+        if (bloodLust._demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !aimodipsis.isAimodipsis)
         {
             RebornPlayer(demonPrefab);
         }
-        else if (bloodLust.isAimodipsis && bloodLust._demonBloodlust <= 0)
+        if (aimodipsis.isAimodipsis && bloodLust._demonBloodlust <= 0)
         {
-            RebornPlayer(inhabitantPrefab);  
+            RebornPlayer(inhabitantPrefab);
+        }
+        else if (aimodipsis.isAimodipsis && Input.GetKeyDown(KeyCode.F))
+        {
+            RebornPlayer(demonPrefab);
         }
         else
         {
@@ -44,6 +50,6 @@ public class OnAimodipsisMode : MonoBehaviour
     {
         GameObject prefabInstantiation = PhotonNetwork.Instantiate(instantiationPrefab.name, transform.GetChild(0).position, Quaternion.identity);
         prefabInstantiation.transform.parent = transform;
-        bloodLust.isAimodipsis = !bloodLust.isAimodipsis;
+        aimodipsis.isAimodipsis = !aimodipsis.isAimodipsis;
     }
 }
