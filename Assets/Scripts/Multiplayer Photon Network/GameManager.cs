@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     void Awake()
     {
         PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(Random.Range(-4, 4),3, Random.Range(-4, 4)), Quaternion.identity);
+        
+    }
+    private void Start()
+    {
         MakePlayersDemons();
     }
 

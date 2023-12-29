@@ -21,7 +21,7 @@ public class GunSystem : MonoBehaviour
     [Header("Graphics")]
     public ParticleSystem muzzleFlash;
     public float impactForce = 30f;
-    GameObject impactGO;
+    GameObject impactGO;    
     private PhotonView photonView;
 
     private void Awake()

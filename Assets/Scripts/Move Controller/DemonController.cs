@@ -32,7 +32,6 @@ public class DemonController : MonoBehaviour
     }
     private void MovementInput()
     {
-
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);

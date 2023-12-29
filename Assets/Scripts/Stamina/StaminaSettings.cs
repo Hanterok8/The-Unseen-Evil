@@ -36,12 +36,12 @@ public class StaminaSettings : MonoBehaviour
         {
             if (_photonView == null) _photonView = GetComponent<PhotonView>();
             if (!_photonView.IsMine || transform.parent.GetComponent<PlayerOrDemon>().isDemon) break; 
-            if (moving._isRunning && (moving.AxesSpeed.x != 0 || moving.AxesSpeed.y != 0))
+            if (moving.isRunning && (moving.AxesSpeed.x != 0 || moving.AxesSpeed.y != 0))
             {
                 if (_playerStamina > 0) _playerStamina -= 1;
                 yield return new WaitForSeconds(0.1f);
             }
-            else if ((!moving._isRunning && (moving.AxesSpeed.x != 0 || moving.AxesSpeed.y != 0)) || (moving.AxesSpeed.x == 0 && moving.AxesSpeed.y == 0))
+            else if ((!moving.isRunning && (moving.AxesSpeed.x != 0 || moving.AxesSpeed.y != 0)) || (moving.AxesSpeed.x == 0 && moving.AxesSpeed.y == 0))
             {
                 if (_playerStamina < 100) _playerStamina += 1;
                 yield return new WaitForSeconds(0.15f);
