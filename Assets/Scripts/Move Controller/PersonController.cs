@@ -72,6 +72,19 @@ public class PersonController : MonoBehaviour
             transform.Translate(Vector3.back * _minSpeed * Time.deltaTime);
             state = 3;
         }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            state = 20;
+        }
+        if (Input.GetKey(KeyCode.T))
+        {
+            state = 21;
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            state = 22;
+        }
+
         _animator.SetInteger("State", state);
     }
     private void OnCollisionEnter(Collision collision)
