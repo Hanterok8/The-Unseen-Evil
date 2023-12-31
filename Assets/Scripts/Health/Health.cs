@@ -7,7 +7,10 @@ public class Health : MonoBehaviour
     private void Start()
 => health = 100;
     public void KillPlayer()
-=> health = 0;
+    {
+        health = 0; 
+        Debug.Log("killed player");
+    }
     public void TakeDamage(int damage)
     {
         if (damage < 0)

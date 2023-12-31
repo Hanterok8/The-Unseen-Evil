@@ -4,12 +4,13 @@ using UnityEngine.UI;
 
 public class ItemControl : MonoBehaviour
 {
-    private Transform[] _slots;
-    private Transform[] _outlines;
     [SerializeField] private LayerMask _layer;
     [SerializeField] private Image[] _inventorySprites;
     [SerializeField] private float _distance;
+    private Transform[] _slots;
+    private Transform[] _outlines;
     private PhotonView _photonView;
+    private CurrentPlayer _currentLivingPlayer;
     private Camera _camera;
     private int lastSlot;
     private int selected;
@@ -17,7 +18,8 @@ public class ItemControl : MonoBehaviour
     private bool moved = false;
     void Start()
     {
-        _photonView = transform.GetChild(0).GetComponent<PhotonView>();
+        _currentLivingPlayer = Object.FindObjectOfType<CurrentPlayer>();
+        _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         _camera = Camera.main;
         selected = 0;
         lastSlot = 0;
@@ -34,7 +36,7 @@ public class ItemControl : MonoBehaviour
     }
     void Update()
     {
-        if (_photonView == null) _photonView = transform.GetChild(0).GetComponent<PhotonView>();
+        if (_photonView == null) _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         if (_camera == null) _camera = Camera.main;
         if (!_photonView.IsMine) return;
         RaycastHit hit;

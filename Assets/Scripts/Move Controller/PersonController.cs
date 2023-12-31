@@ -12,8 +12,8 @@ public class PersonController : MonoBehaviour
     public int state;
     public bool isRunning;
     public bool isFrozen;
+    public Animator animator;
     private PhotonView _photonView;
-    private Animator _animator;
     private CrouchControlller _crouchController;
     private StaminaSettings _staminaSettings;
 
@@ -22,7 +22,7 @@ public class PersonController : MonoBehaviour
         _staminaSettings = GetComponent<StaminaSettings>();
         _crouchController = GetComponent<CrouchControlller>();
         Cursor.lockState = CursorLockMode.Locked;
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         _photonView = GetComponent<PhotonView>();
     }
     private void Update()
@@ -36,8 +36,8 @@ public class PersonController : MonoBehaviour
     }
     private Animator GetAnimator()
     {
-        if(_animator == null) _animator = GetComponent<Animator>();
-        return _animator;
+        if(animator == null) animator = GetComponent<Animator>();
+        return animator;
     }
     private void MovementInput()
     {
@@ -83,7 +83,7 @@ public class PersonController : MonoBehaviour
     [PunRPC]
     private void ChangeAnimation(int animationState)
     {
-        _animator.SetInteger("State", animationState);
+        animator.SetInteger("State", animationState);
     }
     private void OnCollisionEnter(Collision collision)
     {

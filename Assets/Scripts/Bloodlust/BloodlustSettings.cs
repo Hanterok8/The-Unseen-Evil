@@ -6,16 +6,18 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
 {
     public int _demonBloodlust;
     private PhotonView _photonView;
+    private CurrentPlayer _currentLivingPlayer;
     private void Start()
     {
+        _currentLivingPlayer = Object.FindObjectOfType<CurrentPlayer>();
         Invoke(nameof(OffForInhabitant), 2);
         _demonBloodlust = 0;
-        _photonView = transform.GetChild(0).GetComponent<PhotonView>();
+        _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         StartCoroutine(BloodlustScale());
     }
     void Update()
     {
-        if(_photonView == null) _photonView = transform.GetChild(0).GetComponent<PhotonView>();
+        if(_photonView == null) _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
     }
     private void OffForInhabitant()
     {
@@ -40,7 +42,7 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
             }
             else
             {
-                if(_demonBloodlust > 0) _demonBloodlust -= 1;
+                if(_demonBloodlust > 0) _demonBloodlust -= 2;
                 yield return new WaitForSeconds(1);
             }
         }

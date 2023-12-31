@@ -333,8 +333,9 @@ MonoBehaviour:
   _maxSpeed: 4
   _minSpeed: 2
   _ground: 0
-  _state: 0
   _photonView: {fileID: 0}
+  isFrozen: 0
+  _state: 0
   _isRunning: 0
   AxesSpeed: {x: 0, y: 0}
 --- !u!136 &8974254019273461512
@@ -453,7 +454,7 @@ MonoBehaviour:
   distanceLimit: 3
   aimLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 129
   particlesAtKilling: {fileID: 3761379653020853854, guid: d1c4d54c54a71f545912a285e323c6f8, type: 3}
 --- !u!114 &346950421424689855
 MonoBehaviour:

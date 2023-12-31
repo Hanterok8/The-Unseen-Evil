@@ -7,10 +7,12 @@ public class OnAimodipsisMode : MonoBehaviour
     [SerializeField] private GameObject inhabitantPrefab;
     [SerializeField] private GameObject demonPrefab;
     [SerializeField] private PhotonView photonView;
+    private CurrentPlayer currentLivingPlayer;
     private BloodlustSettings bloodLust;
     void Start()
     {
-        photonView = transform.GetChild(0).GetComponent<PhotonView>();
+        currentLivingPlayer = Object.FindObjectOfType<CurrentPlayer>();
+        photonView = currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         bloodLust = GetComponent<BloodlustSettings>();
         if (!GetComponent<PlayerOrDemon>().isDemon && photonView.IsMine)
         {
@@ -38,10 +40,10 @@ public class OnAimodipsisMode : MonoBehaviour
     private void RebornPlayer(GameObject prefabToSpawn, bool aimodipsisModeTurnTo)
     {
         GameObject spawnedPrefab = PhotonNetwork.Instantiate
-            (prefabToSpawn.name, transform.GetChild(0).localPosition + Vector3.up * 3, Quaternion.identity);
-        PhotonNetwork.Destroy(transform.GetChild(0).gameObject);
-        spawnedPrefab.GetComponent<PlayerParent>().SetNewParent(transform);
+            (prefabToSpawn.name, currentLivingPlayer.transform.localPosition + Vector3.up * 3, Quaternion.identity);
+        PhotonNetwork.Destroy(currentLivingPlayer.CurrentPlayerModel);
         IsAimodipsis.isAimodipsis = aimodipsisModeTurnTo;
         photonView = spawnedPrefab.GetComponent<PhotonView>();
+        currentLivingPlayer.CurrentPlayerModel = spawnedPrefab;
     }
 }

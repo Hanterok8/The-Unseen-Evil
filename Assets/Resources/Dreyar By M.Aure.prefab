@@ -1860,7 +1860,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31493202b2c6345448ddbd6853a497e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 6230639358007800092}
   _animator: {fileID: 9124537630165473359}
   _crouchSpeed: 2
 --- !u!114 &6027222748680873890
@@ -2004,6 +2003,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c9bc35109697a4999941636a7f217d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photonView: {fileID: 0}
+  parentTransform: {fileID: 0}
 --- !u!1 &6276606276191135039
 GameObject:
   m_ObjectHideFlags: 0

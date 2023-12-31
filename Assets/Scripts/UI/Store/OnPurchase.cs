@@ -8,7 +8,7 @@ public class OnPurchase : MonoBehaviour
     public int _lastClickedButtonID;
     public void OnPurchasingItem()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = GameObject.FindGameObjectWithTag("PlayerInstance");
         ItemControl itemControl = player.GetComponent<ItemControl>();
         itemControl.ItemReceive(_itemName.text);
 

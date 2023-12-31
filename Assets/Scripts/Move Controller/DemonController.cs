@@ -8,14 +8,15 @@ public class DemonController : MonoBehaviour
     [SerializeField] public float _maxSpeed = 4f;
     [SerializeField] public float _minSpeed = 2f;
     [SerializeField] private bool _ground;
-    private Animator _animator;
+    [SerializeField] private PhotonView _photonView;
+    public bool isFrozen;
     public int _state;
+    public bool _isRunning;
+    public Vector2 AxesSpeed;
+    private Animator _animator;
     private Rigidbody _rb;
     private float _force = 10f;
     private bool isInSuperJumpCoolDown = false;
-    [SerializeField] private PhotonView _photonView;
-    public bool _isRunning;
-    public Vector2 AxesSpeed;
 
     private void Start()
     {
@@ -30,7 +31,7 @@ public class DemonController : MonoBehaviour
         if (!_photonView.IsMine) return;
         AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _speed, Input.GetAxis("Vertical") * _speed);
         _isRunning = Input.GetKey(KeyCode.LeftShift);
-        MovementInput();
+        if(!isFrozen) MovementInput();
     }
     private void MovementInput()
     {
