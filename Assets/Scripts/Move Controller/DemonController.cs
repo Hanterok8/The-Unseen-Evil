@@ -10,7 +10,7 @@ public class DemonController : MonoBehaviour
     [SerializeField] private bool _ground;
     private Animator _animator;
     public int _state;
-    [SerializeField] private Rigidbody _Rb;
+    private Rigidbody _rb;
     private float _force = 10f;
     private bool isInSuperJumpCoolDown = false;
     [SerializeField] private PhotonView _photonView;
@@ -19,6 +19,8 @@ public class DemonController : MonoBehaviour
 
     private void Start()
     {
+
+        _rb = GetComponent<Rigidbody>();
         _photonView = GetComponent<PhotonView>();
         _animator = GetComponent<Animator>();
     }
@@ -69,8 +71,8 @@ public class DemonController : MonoBehaviour
     }
     IEnumerator DoSuperJump()
     {
-        _Rb.AddForce(Vector3.up * _force / 2, ForceMode.Impulse);
-        _Rb.AddForce(transform.forward * _force, ForceMode.Impulse);
+        _rb.AddForce(Vector3.up * _force / 2, ForceMode.Impulse);
+        _rb.AddForce(transform.forward * _force, ForceMode.Impulse);
         isInSuperJumpCoolDown = true;
         yield return new WaitForSeconds(3);
         isInSuperJumpCoolDown = false;

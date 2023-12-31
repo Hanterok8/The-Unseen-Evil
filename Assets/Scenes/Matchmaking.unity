@@ -1099,7 +1099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: {fileID: 1033576611}
   StartButton: {fileID: 679048990}
-  playerListContent: {fileID: 0}
+  playerListContent: {fileID: 1744978896}
   playerlistPrefab: {fileID: 2603336080641680871, guid: 78bde40020a052442a2a55060bbc6b4f, type: 3}
 --- !u!4 &1641465554
 Transform:

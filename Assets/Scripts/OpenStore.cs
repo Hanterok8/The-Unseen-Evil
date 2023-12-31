@@ -2,20 +2,18 @@ using UnityEngine;
 
 public class OpenStore : MonoBehaviour
 {
-    [SerializeField] private GameObject store;
-    [SerializeField] private GameObject buyMenu;
+    private StoreElements storeElements;
     private PersonController personController;
     private bool isInShopCircleCollider;
-    private IsAimodipsis aimodipsis;
     private void Start()
     {
-        aimodipsis = Object.FindFirstObjectByType<IsAimodipsis>();
         personController = GetComponent<PersonController>();
+        storeElements = Object.FindFirstObjectByType<StoreElements>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && !aimodipsis.isAimodipsis)
+        if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && !IsAimodipsis.isAimodipsis)
         {
             personController.enabled = !personController.enabled;
             Cursor.visible = !Cursor.visible;
@@ -23,8 +21,8 @@ public class OpenStore : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
             else
                 Cursor.lockState = CursorLockMode.None;
-            store.SetActive(!store.activeSelf);
-            buyMenu.SetActive(false);
+            storeElements.store.SetActive(!storeElements.store.activeSelf);
+            storeElements.buyMenu.SetActive(false);
         }
     }
     private void OnTriggerEnter(Collider collider)

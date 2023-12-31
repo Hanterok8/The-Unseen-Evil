@@ -1,8 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IsAimodipsis : MonoBehaviour
 {
-    public bool isAimodipsis;
+    public static bool isAimodipsis;
+    private void Start()
+    {
+        isAimodipsis = false;
+    }
 }

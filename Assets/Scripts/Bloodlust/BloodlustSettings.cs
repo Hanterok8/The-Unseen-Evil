@@ -5,16 +5,10 @@ using UnityEngine;
 public class BloodlustSettings : MonoBehaviourPunCallbacks
 {
     public int _demonBloodlust;
-    private IsAimodipsis aimodipsis;
     private PhotonView _photonView;
     private void Start()
     {
-        if (!GetComponent<PlayerOrDemon>().isDemon)
-        {
-            enabled = false;
-            return;
-        }
-        aimodipsis = Object.FindFirstObjectByType<IsAimodipsis>();
+        Invoke(nameof(OffForInhabitant), 2);
         _demonBloodlust = 0;
         _photonView = transform.GetChild(0).GetComponent<PhotonView>();
         StartCoroutine(BloodlustScale());
@@ -22,6 +16,13 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
     void Update()
     {
         if(_photonView == null) _photonView = transform.GetChild(0).GetComponent<PhotonView>();
+    }
+    private void OffForInhabitant()
+    {
+        if (!GetComponent<PlayerOrDemon>().isDemon)
+        {
+            enabled = false;
+        }
     }
     private IEnumerator BloodlustScale()
     {
@@ -32,7 +33,7 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
                 StartCoroutine(BloodlustScale());
                 break;
             }
-            if (!aimodipsis.isAimodipsis)
+            if (!IsAimodipsis.isAimodipsis)
             {
                 if(_demonBloodlust < 100) _demonBloodlust += 50;
                 yield return new WaitForSeconds(3);

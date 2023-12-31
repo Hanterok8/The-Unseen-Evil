@@ -34,6 +34,11 @@ public class PersonController : MonoBehaviour
         if(!isFrozen) MovementInput();
 
     }
+    private Animator GetAnimator()
+    {
+        if(_animator == null) _animator = GetComponent<Animator>();
+        return _animator;
+    }
     private void MovementInput()
     {
         if (Input.GetKey(KeyCode.W))
@@ -72,7 +77,13 @@ public class PersonController : MonoBehaviour
             transform.Translate(Vector3.back * _minSpeed * Time.deltaTime);
             state = 3;
         }
-        _animator.SetInteger("State", state);
+        
+        _photonView.RPC(nameof(ChangeAnimation), RpcTarget.All, state);
+    }
+    [PunRPC]
+    private void ChangeAnimation(int animationState)
+    {
+        _animator.SetInteger("State", animationState);
     }
     private void OnCollisionEnter(Collision collision)
     {

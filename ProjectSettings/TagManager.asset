@@ -23,6 +23,7 @@ TagManager:
   - GameObjectBloodLust
   - GameManager
   - shop_circle
+  - PlayerInstance
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - Water
   - UI
   - Pickable
-  - 
+  - Player
   - 
   - 
   - 

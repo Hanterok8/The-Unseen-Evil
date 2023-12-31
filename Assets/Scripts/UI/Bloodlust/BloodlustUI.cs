@@ -18,7 +18,7 @@ public class BloodlustUI : MonoBehaviour
     {
 
         _player = GameObject.FindGameObjectWithTag("Player");
-        Invoke(nameof(CheckIsDemon), 0.1f); 
+        Invoke(nameof(CheckIsDemon), 2f); 
         _bloodlustTextUI = GameObject.FindGameObjectWithTag("BloodlustText").GetComponent<TMP_Text>();
         _bloodHintText = GameObject.FindGameObjectWithTag("BloodHint").GetComponent <TMP_Text>();
         _bloodlustUI = GetComponent<Image>();
@@ -31,7 +31,7 @@ public class BloodlustUI : MonoBehaviour
         _bloodlustUI.fillAmount = bloodlustSettings._demonBloodlust / 100.0f;
         _bloodlustTextUI.text = $"{bloodlustSettings._demonBloodlust}%";
 
-        if (bloodlustSettings._demonBloodlust >= 60 && !_aimodipsis.isAimodipsis)
+        if (bloodlustSettings._demonBloodlust >= 60 && !IsAimodipsis.isAimodipsis)
         {
             _bloodHintText.text = "Press (F) to active Aimodipsis Mode.";
         }
@@ -46,7 +46,6 @@ public class BloodlustUI : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("GameObjectBloodLust").SetActive(false);
             enabled = false;
-            return;
         }
     }
 }

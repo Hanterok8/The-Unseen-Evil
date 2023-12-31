@@ -6,9 +6,10 @@ public class GameManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private GameObject playerPrefab;
     public string[] DemonNicknames = new string[2];
+    public GameObject spawnedPlayer;
     void Awake()
     {
-        PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(Random.Range(-4, 4),3, Random.Range(-4, 4)), Quaternion.identity);
+        spawnedPlayer = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(Random.Range(-4, 4),3, Random.Range(-4, 4)), Quaternion.identity);
         
     }
     private void Start()
