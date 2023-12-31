@@ -10,7 +10,9 @@ public class DemonAbilities : MonoBehaviour
     private Camera mainCamera;
     private PhotonView photonView;
     private bool inCooldown;
-    private GameObject playerParam;
+
+    private GameObject currentPlayerParam;
+    private GameObject currentParticlesParam;
     private void Start()
     {
         photonView = GetComponent<PhotonView>();
@@ -29,27 +31,23 @@ public class DemonAbilities : MonoBehaviour
             {
                 Debug.Log("Aimed on player");
                 GameObject inhabitant = hit.collider.gameObject;
-                KillInhabitant(5, inhabitant);
+                currentPlayerParam = inhabitant;
+                KillInhabitant(5);
             }
         }
     }
-    private void KillInhabitant(float timeToKill, GameObject inhabitant)
+    public void KillInhabitant(int timeToKill)
     {
-        PersonController inhabitantController = inhabitant.GetComponent<PersonController>();
-        inhabitantController.isFrozen = true;
-        GetComponent<DemonController>().isFrozen = true;
-        playerParam = inhabitant;
-        photonView.RPC(nameof(ÑhangePositionRPC), RpcTarget.All);
-        GameObject particleSystem = PhotonNetwork.Instantiate
-            (particlesAtKilling.name, inhabitant.transform.position, Quaternion.Euler(-90,0,0));
-        Health inhabitantHealth = inhabitant.GetComponent<Health>();
-        Invoke(nameof(inhabitantHealth.KillPlayer), timeToKill);
-        Destroy(particleSystem, timeToKill);
-        StartCoroutine(ResetCooldown(3));
-        GetComponent<DemonController>().isFrozen = false;
+        photonView.RPC(nameof(KillPlayerRPC), RpcTarget.All, timeToKill);
 
     }
-    
+
+    private void UnfreezeDemon()
+=> GetComponent<DemonController>().isDemonFrozen = false;
+    private void DeleteParticles()
+    {
+        PhotonNetwork.Destroy(currentParticlesParam);
+    }
     private IEnumerator ResetCooldown(int cooldownTime)
     {
         inCooldown = true;
@@ -58,11 +56,26 @@ public class DemonAbilities : MonoBehaviour
     }
 
     [PunRPC]
-    private void ÑhangePositionRPC()
+    private void KillPlayerRPC(int time)
     {
-        playerParam.transform.localPosition += new Vector3(0f, 0.75f, 0f);
-        playerParam.GetComponent<Rigidbody>().useGravity = true;
-        playerParam.GetComponent<PersonController>().animator.SetInteger("State", 7);
-
+        PersonController inhabitantController = currentPlayerParam.GetComponent<PersonController>();
+        //inhabitantController.isFrozen = true;
+        //playerParam.GetComponent<PersonController>().isInhabitantFrozen = true;
+        inhabitantController.SetNewFrozenValue(true);
+        GetComponent<DemonController>().isDemonFrozen = true;
+        currentPlayerParam.transform.localPosition += new Vector3(0f, 0.75f, 0f);
+        //playerParam.GetComponent<Rigidbody>().isKinematic = true;
+        inhabitantController.SetKinematicModeForRigidbody();
+        //inhabitantController.ChangePlayerAnimation(7);
+        currentPlayerParam.GetComponent<PersonController>().ChangePlayerAnimation(7);
+        GameObject particleSystem = PhotonNetwork.Instantiate
+            (particlesAtKilling.name, currentPlayerParam.transform.position, Quaternion.Euler(-90, 0, 0));
+        currentParticlesParam = particleSystem.gameObject;
+        Health inhabitantHealth = currentPlayerParam.GetComponent<Health>();
+        //Invoke(nameof(inhabitantHealth.KillPlayer), timeToKill);
+        Invoke(nameof(DeleteParticles), time);
+        StartCoroutine(ResetCooldown(time));
+        Invoke(nameof(UnfreezeDemon), time);
     }
+    
 }

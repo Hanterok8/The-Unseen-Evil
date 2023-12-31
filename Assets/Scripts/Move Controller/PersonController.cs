@@ -11,7 +11,7 @@ public class PersonController : MonoBehaviour
     public Vector2 AxesSpeed;
     public int state;
     public bool isRunning;
-    public bool isFrozen;
+    public bool isInhabitantFrozen;
     public Animator animator;
     private PhotonView _photonView;
     private CrouchControlller _crouchController;
@@ -24,6 +24,7 @@ public class PersonController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         animator = GetComponent<Animator>();
         _photonView = GetComponent<PhotonView>();
+        isInhabitantFrozen = false;
     }
     private void Update()
     {
@@ -31,19 +32,27 @@ public class PersonController : MonoBehaviour
         if (!_photonView.IsMine) return;
         AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _speed, Input.GetAxis("Vertical") * _speed);
         isRunning = Input.GetKey(KeyCode.LeftShift);
-        if(!isFrozen) MovementInput();
+        if (!isInhabitantFrozen)
+        {
+            MovementInput();
+        }
 
     }
     private Animator GetAnimator()
     {
-        if(animator == null) animator = GetComponent<Animator>();
+        if (animator == null) animator = GetComponent<Animator>();
         return animator;
     }
     private void MovementInput()
     {
+        if (Input.GetKey(KeyCode.K))
+        {
+            state = 7;
+            Debug.Log("state: " + state);
+        }
         if (Input.GetKey(KeyCode.W))
         {
-            
+
             _crouchController.enabled = false;
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
             state = 1;
@@ -77,14 +86,19 @@ public class PersonController : MonoBehaviour
             transform.Translate(Vector3.back * _minSpeed * Time.deltaTime);
             state = 3;
         }
-        
-        _photonView.RPC(nameof(ChangeAnimation), RpcTarget.All, state);
+
+        ChangePlayerAnimation(state);
+
     }
-    [PunRPC]
-    private void ChangeAnimation(int animationState)
+    public void SetNewFrozenValue(bool isFrozenNow)
+    => isInhabitantFrozen = isFrozenNow;
+    public void SetKinematicModeForRigidbody()
+    => GetComponent<Rigidbody>().isKinematic = true;
+    public void ChangePlayerAnimation(int playerState)
     {
-        animator.SetInteger("State", animationState);
+        _photonView.RPC(nameof(ChangeAnimationRPC), RpcTarget.All, playerState);
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
@@ -97,5 +111,10 @@ public class PersonController : MonoBehaviour
             _maxSpeed = 4;
             _speed = 3;
         }
+    }
+    [PunRPC]
+    private void ChangeAnimationRPC(int animationState)
+    {
+        GetAnimator().SetInteger("State", animationState);
     }
 }

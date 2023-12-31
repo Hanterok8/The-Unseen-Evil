@@ -334,7 +334,7 @@ MonoBehaviour:
   _minSpeed: 2
   _ground: 0
   _photonView: {fileID: 0}
-  isFrozen: 0
+  isDemonFrozen: 0
   _state: 0
   _isRunning: 0
   AxesSpeed: {x: 0, y: 0}

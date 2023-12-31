@@ -1847,7 +1847,8 @@ MonoBehaviour:
   AxesSpeed: {x: 0, y: 0}
   state: 0
   isRunning: 0
-  isFrozen: 0
+  isInhabitantFrozen: 0
+  animator: {fileID: 0}
 --- !u!114 &1440454149975077768
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,21 +9,21 @@ public class DemonController : MonoBehaviour
     [SerializeField] public float _minSpeed = 2f;
     [SerializeField] private bool _ground;
     [SerializeField] private PhotonView _photonView;
-    public bool isFrozen;
+    public bool isDemonFrozen;
     public int _state;
     public bool _isRunning;
     public Vector2 AxesSpeed;
-    private Animator _animator;
+    private Animator animator;
     private Rigidbody _rb;
     private float _force = 10f;
     private bool isInSuperJumpCoolDown = false;
 
     private void Start()
     {
-
+        isDemonFrozen = false;
         _rb = GetComponent<Rigidbody>();
         _photonView = GetComponent<PhotonView>();
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -31,7 +31,7 @@ public class DemonController : MonoBehaviour
         if (!_photonView.IsMine) return;
         AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _speed, Input.GetAxis("Vertical") * _speed);
         _isRunning = Input.GetKey(KeyCode.LeftShift);
-        if(!isFrozen) MovementInput();
+        if(!isDemonFrozen) MovementInput();
     }
     private void MovementInput()
     {
@@ -68,7 +68,7 @@ public class DemonController : MonoBehaviour
         {
             StartCoroutine(DoSuperJump());
         }
-        _animator.SetInteger("State", _state);
+        ChangePlayerAnimation(_state);
     }
     IEnumerator DoSuperJump()
     {
@@ -77,6 +77,15 @@ public class DemonController : MonoBehaviour
         isInSuperJumpCoolDown = true;
         yield return new WaitForSeconds(3);
         isInSuperJumpCoolDown = false;
+    }
+    private void ChangePlayerAnimation(int playerState)
+    {
+        _photonView.RPC(nameof(ChangeAnimationRPC), RpcTarget.All, playerState);
+    }
+    private Animator GetAnimator()
+    {
+        if (animator == null) animator = GetComponent<Animator>();
+        return animator;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -90,5 +99,10 @@ public class DemonController : MonoBehaviour
             _maxSpeed = 4;
             _speed = 3;
         }
+    }
+    [PunRPC]
+    private void ChangeAnimationRPC(int animationState)
+    {
+        GetAnimator().SetInteger("State", animationState);
     }
 }
