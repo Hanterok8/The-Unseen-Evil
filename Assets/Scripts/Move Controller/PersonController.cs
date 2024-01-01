@@ -15,12 +15,16 @@ public class PersonController : MonoBehaviour
     private PhotonView _photonView;
     private Animator _animator;
     private CrouchControlller _crouchController;
+    private RifleController _rifleController;
+    private HoldController _holdController;
     private StaminaSettings _staminaSettings;
 
     private void Start()
     {
+        _rifleController = GetComponent<RifleController>();
         _staminaSettings = GetComponent<StaminaSettings>();
         _crouchController = GetComponent<CrouchControlller>();
+        _holdController = GetComponent<HoldController>();
         Cursor.lockState = CursorLockMode.Locked;
         _animator = GetComponent<Animator>();
         _photonView = GetComponent<PhotonView>();
@@ -72,23 +76,6 @@ public class PersonController : MonoBehaviour
             transform.Translate(Vector3.back * _minSpeed * Time.deltaTime);
             state = 3;
         }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            state = 20;
-        }
-        if (Input.GetKey(KeyCode.T))
-        {
-            state = 21;
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            state = 22;
-        }
-        if (Input.GetKey(KeyCode.Y))
-        {
-            state = 30;
-        }
-
         _animator.SetInteger("State", state);
     }
     private void OnCollisionEnter(Collision collision)
