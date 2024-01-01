@@ -84,6 +84,10 @@ public class PersonController : MonoBehaviour
         {
             state = 22;
         }
+        if (Input.GetKey(KeyCode.Y))
+        {
+            state = 30;
+        }
 
         _animator.SetInteger("State", state);
     }
