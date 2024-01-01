@@ -22,6 +22,7 @@ public class PersonController : MonoBehaviour
         _staminaSettings = GetComponent<StaminaSettings>();
         _crouchController = GetComponent<CrouchControlller>();
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         animator = GetComponent<Animator>();
         _photonView = GetComponent<PhotonView>();
         isInhabitantFrozen = false;

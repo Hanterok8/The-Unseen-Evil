@@ -5,19 +5,20 @@ public class CrouchControlller : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private float _crouchSpeed = 2;
-
+    public bool isCrouchFrozen;
     private PersonController _personController;
     private PhotonView _photonView;
     private int _state;
     private void Start()
     {
+        isCrouchFrozen = false;
         _personController = GetComponent<PersonController>();
         _photonView = GetComponent<PhotonView>();
     }
     private void Update()
     {
         if (_photonView == null) _photonView = GetComponent<PhotonView>();
-        if (_photonView.IsMine) CrouchInput();
+        if (_photonView.IsMine && !isCrouchFrozen) CrouchInput();
 
     }
     private void CrouchInput()

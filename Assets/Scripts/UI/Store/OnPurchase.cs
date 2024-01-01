@@ -12,7 +12,7 @@ public class OnPurchase : MonoBehaviour
         ItemControl itemControl = player.GetComponent<ItemControl>();
         itemControl.ItemReceive(_itemName.text);
 
-        ItemID[] itemButtons = Object.FindObjectsOfType<ItemID>();
+        ItemID[] itemButtons = FindObjectsOfType<ItemID>();
         for(int i = 0;i < itemButtons.Length; i++)
         {
             if (itemButtons[i].id == _lastClickedButtonID)

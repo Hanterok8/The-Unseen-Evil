@@ -86,9 +86,8 @@ public class ItemControl : MonoBehaviour
         Image img = infoName switch
         {
             "AK-74" => _inventorySprites[0],
-            "Empty bottle" => _inventorySprites[1],
-            "cube" => _inventorySprites[2]
-        }; ;
+            "Empty bottle" => _inventorySprites[1]
+        }; 
         img = Instantiate(img);
         img.transform.parent = _slots[freeSlotIndex];
         _slots[freeSlotIndex].GetComponent<SlotItemInformation>().name = infoName;
