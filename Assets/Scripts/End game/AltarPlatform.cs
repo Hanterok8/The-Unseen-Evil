@@ -1,5 +1,6 @@
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class AltarPlatform : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class AltarPlatform : MonoBehaviour
         platformItem.SetActive(true);
         meshRenderer.material.color = Color.blue;
         itemControl.TakeAwayItem(usingSlot);
+        Transform altarObject = transform.parent;
+        altarObject.GetComponent<AltarConnectingItems>().AddActivatedPlatform();
     }
     private void OnCollisionEnter(Collision collision)
     {

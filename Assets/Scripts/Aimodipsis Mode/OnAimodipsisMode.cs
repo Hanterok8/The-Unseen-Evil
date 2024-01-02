@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(BloodlustSettings))]
 public class OnAimodipsisMode : MonoBehaviour
 {
-    [SerializeField] private GameObject inhabitantPrefab;
+    [SerializeField] private GameObject residentPrefab;
     [SerializeField] private GameObject demonPrefab;
     [SerializeField] private PhotonView photonView;
     private CurrentPlayer currentLivingPlayer;
@@ -30,7 +30,7 @@ public class OnAimodipsisMode : MonoBehaviour
         }
         else if (IsAimodipsis.isAimodipsis && bloodLust._demonBloodlust <= 0)
         {
-            RebornPlayer(inhabitantPrefab, false);
+            RebornPlayer(residentPrefab, false);
         }
         //else if (aimodipsis.isAimodipsis && Input.GetKeyDown(KeyCode.F))
         //{

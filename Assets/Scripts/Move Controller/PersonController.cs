@@ -103,7 +103,11 @@ public class PersonController : MonoBehaviour
     {
         _photonView.RPC(nameof(ChangeAnimationRPC), RpcTarget.All, playerState);
     }
-
+    [PunRPC]
+    private void ChangeAnimationRPC(int animationState)
+    {
+        animator.SetInteger("State", animationState);
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
@@ -117,9 +121,5 @@ public class PersonController : MonoBehaviour
             _speed = 3;
         }
     }
-    [PunRPC]
-    private void ChangeAnimationRPC(int animationState)
-    {
-        GetAnimator().SetInteger("State", animationState);
-    }
+    
 }
