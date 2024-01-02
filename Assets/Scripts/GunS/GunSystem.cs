@@ -9,7 +9,7 @@ public class GunSystem : MonoBehaviour
     public float timeBetweenShooting, range, reloadTime, timeBetweenShots;
     public int magazineSize;
     public bool allowButtonHold;
-    [SerializeField]int bulletsLeft;
+    [SerializeField] int bulletsLeft;
     int bulletsShot;
 
     bool shooting, readyToShoot, reloading;
@@ -23,7 +23,6 @@ public class GunSystem : MonoBehaviour
     public float impactForce = 30f;
     GameObject impactGO;    
     private PhotonView photonView;
-
     private void Awake()
     {
         photonView = GetComponent<PhotonView>();

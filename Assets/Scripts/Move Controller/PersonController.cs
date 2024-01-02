@@ -15,12 +15,16 @@ public class PersonController : MonoBehaviour
     public Animator animator;
     private PhotonView _photonView;
     private CrouchControlller _crouchController;
+    private RifleController _rifleController;
+    private HoldController _holdController;
     private StaminaSettings _staminaSettings;
 
     private void Start()
     {
+        _rifleController = GetComponent<RifleController>();
         _staminaSettings = GetComponent<StaminaSettings>();
         _crouchController = GetComponent<CrouchControlller>();
+        _holdController = GetComponent<HoldController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         animator = GetComponent<Animator>();
