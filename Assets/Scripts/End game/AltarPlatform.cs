@@ -34,7 +34,7 @@ public class AltarPlatform : MonoBehaviour
             return;
         platformItem.SetActive(true);
         meshRenderer.material.color = Color.blue;
-        itemControl.TakeAwayItem(usingSlot, indexOfRequiredItem);
+        itemControl.TakeAwayItem(usingSlot);
     }
     private void OnCollisionEnter(Collision collision)
     {

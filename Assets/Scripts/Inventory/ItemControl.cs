@@ -55,7 +55,6 @@ public class ItemControl : MonoBehaviour
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
         
 
-        //selected = -1;
         for (int i = 0; i < 5; i++)
         {
             if (Input.GetKeyDown($"{i + 1}"))
@@ -72,12 +71,6 @@ public class ItemControl : MonoBehaviour
             }
         }
 
-        //if (selected != -1)
-        //{
-        //    _outlines[lastSlot].gameObject.SetActive(false);
-        //    _outlines[selected].gameObject.SetActive(true);
-        //    lastSlot = selected;
-        //}
 
 
     }
@@ -107,10 +100,12 @@ public class ItemControl : MonoBehaviour
         _slots[freeSlotIndex].GetComponent<SlotItemInformation>().itemGameObjectIndex = itemIndexInInventory;
         img.transform.localPosition = new Vector3(0, 0, 0);
     }
-    public void TakeAwayItem(int slotIndexOfItem, int indexOfItemGameObject)
+    public void TakeAwayItem(int slotIndexOfItem)
     {
-        _inventoryGameObjects[indexOfItemGameObject].SetActive(false);
+        int currentGameObjectIndex = _slots[slotIndexOfItem].GetComponent<SlotItemInformation>().itemGameObjectIndex;
+        _inventoryGameObjects[currentGameObjectIndex].SetActive(false);
         _slots[slotIndexOfItem].GetComponent<SlotItemInformation>().name = "";
+        _slots[slotIndexOfItem].GetComponent<SlotItemInformation>().itemGameObjectIndex = new int();
         Transform itemImage = _slots[slotIndexOfItem].transform.GetChild(0);
         Destroy(itemImage.gameObject);
     }
