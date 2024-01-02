@@ -5,5 +5,5 @@ using UnityEngine;
 public class SlotItemInformation : MonoBehaviour
 {
     [SerializeField] public string name;
-    [SerializeField] public string usage;
+    [SerializeField] public int itemGameObjectIndex;
 }

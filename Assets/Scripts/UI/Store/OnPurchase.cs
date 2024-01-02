@@ -10,7 +10,7 @@ public class OnPurchase : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("PlayerInstance");
         ItemControl itemControl = player.GetComponent<ItemControl>();
-        itemControl.ItemReceive(_itemName.text);
+        itemControl.ReceiveItem(_itemName.text);
 
         ItemID[] itemButtons = FindObjectsOfType<ItemID>();
         for(int i = 0;i < itemButtons.Length; i++)

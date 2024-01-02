@@ -100,6 +100,8 @@ MonoBehaviour:
   - {fileID: 7039369880851252820}
   - {fileID: 199921251085226954}
   _distance: 3
+  selected: 0
+  _slots: []
 --- !u!114 &1755473603941372799
 MonoBehaviour:
   m_ObjectHideFlags: 0
