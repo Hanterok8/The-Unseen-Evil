@@ -24,6 +24,9 @@ TagManager:
   - GameManager
   - shop_circle
   - PlayerInstance
+  - Item_Botle
+  - Item_LambBlood
+  - Item_HolyWater
   layers:
   - Default
   - TransparentFX
