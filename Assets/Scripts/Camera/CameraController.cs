@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float sensitiveMouse = 100f;
     private float yRotation;
     private float xRotation;
-    private const int yLookLimit = 55;
+    private const int Y_LOOK_LIMIT = 55;
 
     [SerializeField] private Transform Player;
     [SerializeField] private PhotonView _photonView;
@@ -39,7 +39,7 @@ public class CameraController : MonoBehaviour
         yRotation += mouseX;
         xRotation -= mouseY;
 
-        xRotation = Mathf.Clamp(xRotation, -yLookLimit, yLookLimit);
+        xRotation = Mathf.Clamp(xRotation, -Y_LOOK_LIMIT, Y_LOOK_LIMIT);
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         Player.rotation = Quaternion.Euler(0, yRotation, 0);

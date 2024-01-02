@@ -42,8 +42,7 @@ public class DemonAbilities : MonoBehaviour
 
     }
 
-    private void UnfreezeDemon()
-=> GetComponent<DemonController>().isDemonFrozen = false;
+    private void UnfreezeDemon() => GetComponent<DemonController>().isDemonFrozen = false;
     private void DeleteParticles()
     {
         PhotonNetwork.Destroy(currentParticlesParam);
@@ -59,14 +58,10 @@ public class DemonAbilities : MonoBehaviour
     private void KillPlayerRPC(int time)
     {
         PersonController inhabitantController = currentPlayerParam.GetComponent<PersonController>();
-        //inhabitantController.isFrozen = true;
-        //playerParam.GetComponent<PersonController>().isInhabitantFrozen = true;
         inhabitantController.SetNewFrozenValue(true);
         GetComponent<DemonController>().isDemonFrozen = true;
         currentPlayerParam.transform.localPosition += new Vector3(0f, 0.75f, 0f);
-        //playerParam.GetComponent<Rigidbody>().isKinematic = true;
         inhabitantController.SetKinematicModeForRigidbody();
-        //inhabitantController.ChangePlayerAnimation(7);
         currentPlayerParam.GetComponent<PersonController>().ChangePlayerAnimation(7);
         GameObject particleSystem = PhotonNetwork.Instantiate
             (particlesAtKilling.name, currentPlayerParam.transform.position, Quaternion.Euler(-90, 0, 0));
@@ -77,5 +72,5 @@ public class DemonAbilities : MonoBehaviour
         StartCoroutine(ResetCooldown(time));
         Invoke(nameof(UnfreezeDemon), time);
     }
-    
+
 }
