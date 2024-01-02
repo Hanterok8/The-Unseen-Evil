@@ -6,6 +6,7 @@ public class ItemControl : MonoBehaviour
 {
     [SerializeField] private LayerMask _layer;
     [SerializeField] private Image[] _inventorySprites;
+    [SerializeField] private GameObject[] _inventoryGameObjects;
     [SerializeField] private float _distance;
     private Transform[] _slots;
     private Transform[] _outlines;
@@ -14,6 +15,7 @@ public class ItemControl : MonoBehaviour
     private Camera _camera;
     private int lastSlot;
     private int selected;
+    private int itemIndexInInventory;
 
     private bool moved = false;
     void Start()
@@ -82,12 +84,15 @@ public class ItemControl : MonoBehaviour
                 break;
             }
         }
-        if (freeSlotIndex == -1) return;
-        Image img = infoName switch
+        if (freeSlotIndex == -1) return; 
+        _inventoryGameObjects[itemIndexInInventory].SetActive(false);
+        itemIndexInInventory = infoName switch
         {
-            "AK-74" => _inventorySprites[0],
-            "Empty bottle" => _inventorySprites[1]
-        }; 
+            "AK-74" => 0,
+            "Empty bottle" => 1
+        };
+        Image img = _inventorySprites[itemIndexInInventory];
+        _inventoryGameObjects[itemIndexInInventory].SetActive(true);
         img = Instantiate(img);
         img.transform.parent = _slots[freeSlotIndex];
         _slots[freeSlotIndex].GetComponent<SlotItemInformation>().name = infoName;

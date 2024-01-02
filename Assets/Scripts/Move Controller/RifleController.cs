@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class RifleController : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
-    [SerializeField] private Animator _animator;
-
+    private PersonController _personController;
     private PhotonView _photonView;
-    private int _state;
     private void Start()
-=>      _photonView = transform.parent.GetComponent<PhotonView>();
+    {
+        _photonView = GetComponent<PhotonView>();
+        _personController = GetComponent<PersonController>();
+    }
     private void Update()
     {
         if (_photonView == null) _photonView = GetComponent<PhotonView>();
@@ -20,12 +20,12 @@ public class RifleController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Q))
         {
-            _state = 20;
+            _personController.ChangePlayerAnimation(20);
         }
         if (Input.GetKey(KeyCode.T))
         {
-            _state = 21;
+            _personController.ChangePlayerAnimation(21);
         }
-        
+
     }
 }
