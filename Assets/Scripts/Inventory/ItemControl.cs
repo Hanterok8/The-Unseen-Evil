@@ -96,16 +96,18 @@ public class ItemControl : MonoBehaviour
         _inventoryGameObjects[itemIndexInInventory].SetActive(true);
         img = Instantiate(img);
         img.transform.parent = _slots[freeSlotIndex];
-        _slots[freeSlotIndex].GetComponent<SlotItemInformation>().name = infoName;
-        _slots[freeSlotIndex].GetComponent<SlotItemInformation>().itemGameObjectIndex = itemIndexInInventory;
+        SlotItemInformation slotInformation = _slots[freeSlotIndex].GetComponent<SlotItemInformation>();
+        slotInformation.name = infoName;
+        slotInformation.itemGameObjectIndex = itemIndexInInventory;
         img.transform.localPosition = new Vector3(0, 0, 0);
     }
     public void TakeAwayItem(int slotIndexOfItem)
     {
         int currentGameObjectIndex = _slots[slotIndexOfItem].GetComponent<SlotItemInformation>().itemGameObjectIndex;
         _inventoryGameObjects[currentGameObjectIndex].SetActive(false);
-        _slots[slotIndexOfItem].GetComponent<SlotItemInformation>().name = "";
-        _slots[slotIndexOfItem].GetComponent<SlotItemInformation>().itemGameObjectIndex = new int();
+        SlotItemInformation slotInformation = _slots[slotIndexOfItem].GetComponent<SlotItemInformation>();
+        slotInformation.name = "";
+        slotInformation.itemGameObjectIndex = new int();
         Transform itemImage = _slots[slotIndexOfItem].transform.GetChild(0);
         Destroy(itemImage.gameObject);
     }
