@@ -4,11 +4,13 @@ using UnityEngine;
 [RequireComponent(typeof(BloodlustSettings))]
 public class OnAimodipsisMode : MonoBehaviour
 {
-    [SerializeField] private GameObject inhabitantPrefab;
+    [SerializeField] private GameObject residentPrefab;
     [SerializeField] private GameObject demonPrefab;
     [SerializeField] private PhotonView photonView;
     private CurrentPlayer currentLivingPlayer;
     private BloodlustSettings bloodLust;
+
+    private bool isPlayerBecomeDemon;
     void Start()
     {
         currentLivingPlayer = Object.FindObjectOfType<CurrentPlayer>();
@@ -27,15 +29,17 @@ public class OnAimodipsisMode : MonoBehaviour
         if (bloodLust._demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !IsAimodipsis.isAimodipsis)
         {
             RebornPlayer(demonPrefab, true);
+            isPlayerBecomeDemon = true;
         }
         else if (IsAimodipsis.isAimodipsis && bloodLust._demonBloodlust <= 0)
         {
-            RebornPlayer(inhabitantPrefab, false);
+            RebornPlayer(residentPrefab, false);
+            isPlayerBecomeDemon = false;
         }
-        //else if (aimodipsis.isAimodipsis && Input.GetKeyDown(KeyCode.F))
-        //{
-        //    RebornPlayer(demonPrefab);
-        //}
+        else if (IsAimodipsis.isAimodipsis && Input.GetKeyDown(KeyCode.F) && !isPlayerBecomeDemon)
+        {
+            RebornPlayer(demonPrefab, true);
+        }
     }
     private void RebornPlayer(GameObject prefabToSpawn, bool aimodipsisModeTurnTo)
     {
@@ -45,5 +49,6 @@ public class OnAimodipsisMode : MonoBehaviour
         IsAimodipsis.isAimodipsis = aimodipsisModeTurnTo;
         photonView = spawnedPrefab.GetComponent<PhotonView>();
         currentLivingPlayer.CurrentPlayerModel = spawnedPrefab;
+        
     }
 }

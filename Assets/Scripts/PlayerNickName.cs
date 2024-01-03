@@ -1,7 +1,4 @@
 using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class PlayerNickName : MonoBehaviourPunCallbacks
 {
@@ -11,7 +8,7 @@ public class PlayerNickName : MonoBehaviourPunCallbacks
     private PhotonView _photonView;
     private void Awake()
     {
-        _currentLivingPlayer = Object.FindObjectOfType<CurrentPlayer>();
+        _currentLivingPlayer = FindObjectOfType<CurrentPlayer>();
         _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         if (_photonView.IsMine)
         {

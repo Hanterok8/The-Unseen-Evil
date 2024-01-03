@@ -23,9 +23,11 @@ public class GunSystem : MonoBehaviour
     public float impactForce = 30f;
     GameObject impactGO;    
     private PhotonView photonView;
+    private CurrentPlayer player;
     private void Awake()
     {
-        photonView = GetComponent<PhotonView>();
+        player = FindObjectOfType<CurrentPlayer>();
+        photonView = player.CurrentPlayerModel.GetComponent<PhotonView>();
         fpsCam = Camera.main;
         bulletsLeft = magazineSize;
         readyToShoot = true;

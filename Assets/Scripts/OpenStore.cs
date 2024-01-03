@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class OpenStore : MonoBehaviour
 {
+    [SerializeField] private GunSystem gunSystem;
     private StoreElements storeElements;
-    private GunSystem gunSystem;
     private bool isInShopCircleCollider;
     private bool isStoreOpened;
     private void Start()
     {
-        gunSystem = GetComponent<GunSystem>();
         storeElements = FindFirstObjectByType<StoreElements>();
         isStoreOpened = false;
     }

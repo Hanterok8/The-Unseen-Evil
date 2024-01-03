@@ -6,16 +6,17 @@ public class ItemControl : MonoBehaviour
 {
     [SerializeField] private LayerMask _layer;
     [SerializeField] private Image[] _inventorySprites;
+    [SerializeField] private GameObject[] _inventoryGameObjects;
     [SerializeField] private float _distance;
-    private Transform[] _slots;
+    public int selected;
+    public Transform[] _slots;
     private Transform[] _outlines;
     private PhotonView _photonView;
     private CurrentPlayer _currentLivingPlayer;
     private Camera _camera;
     private int lastSlot;
-    private int selected;
+    private int itemIndexInInventory;
 
-    private bool moved = false;
     void Start()
     {
         _currentLivingPlayer = Object.FindObjectOfType<CurrentPlayer>();
@@ -34,6 +35,7 @@ public class ItemControl : MonoBehaviour
         }
         _outlines[selected].gameObject.SetActive(true);
     }
+
     void Update()
     {
         if (_photonView == null) _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
@@ -46,32 +48,33 @@ public class ItemControl : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 PickUpInformation _itemInfo = hit.collider.gameObject.GetComponent<PickUpInformation>();
-                ItemReceive(_itemInfo.name);
+                ReceiveItem(_itemInfo.name);
                 Destroy(_itemInfo.gameObject);
             }
         }
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
         
 
-        selected = -1;
         for (int i = 0; i < 5; i++)
         {
             if (Input.GetKeyDown($"{i + 1}"))
             {
                 selected = i;
+                _outlines[lastSlot].gameObject.SetActive(false);
+                _outlines[selected].gameObject.SetActive(true);
+                int indexOfPickedGameObject = _slots[selected].GetComponent<SlotItemInformation>().itemGameObjectIndex;
+                int indexOfLastGameObject = _slots[lastSlot].GetComponent<SlotItemInformation>().itemGameObjectIndex;
+                _inventoryGameObjects[indexOfPickedGameObject].SetActive(true);
+                _inventoryGameObjects[indexOfLastGameObject].SetActive(false);
+                lastSlot = selected;
+                break;
             }
         }
 
-        if (selected != -1)
-        {
-            _outlines[lastSlot].gameObject.SetActive(false);
-            _outlines[selected].gameObject.SetActive(true);
-            lastSlot = selected;
-        }
 
 
     }
-    public void ItemReceive(string infoName)
+    public void ReceiveItem(string infoName)
     {
         int freeSlotIndex = -1;
         for (int i = 0; i < _slots.Length; i++)
@@ -82,15 +85,30 @@ public class ItemControl : MonoBehaviour
                 break;
             }
         }
-        if (freeSlotIndex == -1) return;
-        Image img = infoName switch
+        if (freeSlotIndex == -1) return; 
+        _inventoryGameObjects[itemIndexInInventory].SetActive(false);
+        itemIndexInInventory = infoName switch
         {
-            "AK-74" => _inventorySprites[0],
-            "Empty bottle" => _inventorySprites[1]
-        }; 
+            "AK-74" => 0,
+            "Empty bottle" => 1
+        };
+        Image img = _inventorySprites[itemIndexInInventory];
+        _inventoryGameObjects[itemIndexInInventory].SetActive(true);
         img = Instantiate(img);
         img.transform.parent = _slots[freeSlotIndex];
-        _slots[freeSlotIndex].GetComponent<SlotItemInformation>().name = infoName;
+        SlotItemInformation slotInformation = _slots[freeSlotIndex].GetComponent<SlotItemInformation>();
+        slotInformation.name = infoName;
+        slotInformation.itemGameObjectIndex = itemIndexInInventory;
         img.transform.localPosition = new Vector3(0, 0, 0);
+    }
+    public void TakeAwayItem(int slotIndexOfItem)
+    {
+        int currentGameObjectIndex = _slots[slotIndexOfItem].GetComponent<SlotItemInformation>().itemGameObjectIndex;
+        _inventoryGameObjects[currentGameObjectIndex].SetActive(false);
+        SlotItemInformation slotInformation = _slots[slotIndexOfItem].GetComponent<SlotItemInformation>();
+        slotInformation.name = "";
+        slotInformation.itemGameObjectIndex = new int();
+        Transform itemImage = _slots[slotIndexOfItem].transform.GetChild(0);
+        Destroy(itemImage.gameObject);
     }
 }
