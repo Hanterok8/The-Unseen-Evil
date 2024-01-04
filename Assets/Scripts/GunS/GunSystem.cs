@@ -67,10 +67,10 @@ public class GunSystem : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
+            RewardForGhost ghost = hit.transform.GetComponent<RewardForGhost>();
+            if (ghost != null)
             {
-                target.TakeDamage(damage);
+                ghost.GiveReward(10);
             }
             if (hit.rigidbody != null)
             {
