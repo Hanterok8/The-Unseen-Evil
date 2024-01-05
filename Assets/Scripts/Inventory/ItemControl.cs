@@ -64,8 +64,8 @@ public class ItemControl : MonoBehaviour
                 _outlines[selected].gameObject.SetActive(true);
                 int indexOfPickedGameObject = _slots[selected].GetComponent<SlotItemInformation>().itemGameObjectIndex;
                 int indexOfLastGameObject = _slots[lastSlot].GetComponent<SlotItemInformation>().itemGameObjectIndex;
-                _inventoryGameObjects[indexOfPickedGameObject].SetActive(true);
-                _inventoryGameObjects[indexOfLastGameObject].SetActive(false);
+                if(indexOfLastGameObject != -1) _inventoryGameObjects[indexOfLastGameObject].SetActive(false);
+                if (indexOfPickedGameObject != -1) _inventoryGameObjects[indexOfPickedGameObject].SetActive(true);
                 lastSlot = selected;
                 break;
             }

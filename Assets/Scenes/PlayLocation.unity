@@ -14021,7 +14021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  itemGameObjectIndex: 0
+  itemGameObjectIndex: -1
 --- !u!114 &339937255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29357,7 +29357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  itemGameObjectIndex: 0
+  itemGameObjectIndex: -1
 --- !u!114 &840431489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39577,7 +39577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  itemGameObjectIndex: 0
+  itemGameObjectIndex: -1
 --- !u!114 &1179306516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66489,7 +66489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  itemGameObjectIndex: 0
+  itemGameObjectIndex: -1
 --- !u!114 &1919975706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72280,7 +72280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  itemGameObjectIndex: 0
+  itemGameObjectIndex: -1
 --- !u!114 &2113983645
 MonoBehaviour:
   m_ObjectHideFlags: 0
