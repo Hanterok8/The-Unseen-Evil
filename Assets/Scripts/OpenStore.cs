@@ -8,7 +8,7 @@ public class OpenStore : MonoBehaviour
     private bool isStoreOpened;
     private void Start()
     {
-        storeElements = FindFirstObjectByType<StoreElements>();
+        storeElements = FindObjectOfType<StoreElements>();
         isStoreOpened = false;
     }
 
