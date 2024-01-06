@@ -25,6 +25,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
     public void StartTheGame()
     {
+        StartButton.GetComponent<Button>().interactable = false;
         PhotonNetwork.LoadLevel("PlayLocation");
     }
     

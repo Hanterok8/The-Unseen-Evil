@@ -83,7 +83,8 @@ public class ItemControl : MonoBehaviour
         itemIndexInInventory = infoName switch
         {
             "AK-74" => 0,
-            "Empty bottle" => 1
+            "Empty bottle" => 1,
+            "Lamb's blood" => 2
         };
         Image img = _inventorySprites[itemIndexInInventory];
         _inventoryGameObjects[itemIndexInInventory].SetActive(true);
