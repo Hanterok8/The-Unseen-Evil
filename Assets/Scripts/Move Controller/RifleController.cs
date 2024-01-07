@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class RifleController : MonoBehaviour
 {
+    public Camera mainCamera;
+    public Camera AIMCamera;
     private PersonController _personController;
     private PhotonView _photonView;
     private void Start()
@@ -25,7 +27,16 @@ public class RifleController : MonoBehaviour
         if (Input.GetKey(KeyCode.T))
         {
             _personController.ChangePlayerAnimation(21);
-        }
-
+            if (Input.GetMouseButtonDown(1))
+            {
+                mainCamera.enabled = false;
+                AIMCamera.enabled = true;
+            }
+            if (Input.GetMouseButtonUp(1))
+            {
+                mainCamera.enabled = true;
+                AIMCamera.enabled = false;
+            }
+        }       
     }
 }
