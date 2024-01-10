@@ -15,10 +15,10 @@ public class GhostMovement : MonoBehaviour
 
     private void Update()
     {
-        MoveTo_();
+        MoveTo();
     }
 
-    private void MoveTo_()
+    private void MoveTo()
     {
         if (TargetObject != null)
         {
@@ -43,7 +43,7 @@ public class GhostMovement : MonoBehaviour
         TargetObjectName = TargetObject.name;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         string colider_name = other.gameObject.name;
         if (colider_name == TargetObjectName)
