@@ -16,7 +16,7 @@ MonoBehaviour:
     AppIdRealtime: 273a2cff-2221-41bd-861f-86a6ef283353
     AppIdFusion: 
     AppIdChat: 
-    AppIdVoice: 
+    AppIdVoice: 8d2d687a-2525-4b6d-b680-158e19858132
     AppVersion: 
     UseNameServer: 1
     FixedRegion: 
@@ -28,28 +28,22 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: eu
+  DevRegion: 
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
+  - CantHearYou
+  - ChangeColour
   - ClickRpc
   - DestroyRpc
+  - HeresWhy
+  - ChangeAnimationRPC
   - DestroySpaceship
   - Fire
-  - RespawnSpaceship
-  - DestroyPlayer
-  - ChangeAnimation
-  - RebornPlayer
-  - Reborn
-  - SetParent
-  - SetParentRPC
-  - KillInhabitant
-  - "\u0421hangePositionRPC"
-  - ChangeAnimationRPC
-  - ChangeAnimationServer
   - KillPlayerRPC
+  - RespawnSpaceship
   DisableAutoOpenWizard: 1
-  ShowSettings: 0
-  DevRegionSetOnce: 1
+  ShowSettings: 1
+  DevRegionSetOnce: 0
