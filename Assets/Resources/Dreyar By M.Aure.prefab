@@ -1862,6 +1862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 9124537630165473359}
   _crouchSpeed: 2
+  isCrouchFrozen: 0
 --- !u!114 &6027222748680873890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1930,6 +1931,10 @@ MonoBehaviour:
     LayerIndex: 0
   - SynchronizeType: 0
     LayerIndex: 1
+  - SynchronizeType: 0
+    LayerIndex: 2
+  - SynchronizeType: 0
+    LayerIndex: 3
 --- !u!114 &7683458041294809906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1974,7 +1979,7 @@ MonoBehaviour:
   timeBetweenShots: 0.01
   magazineSize: 5
   allowButtonHold: 1
-  bulletsLeft: 0
+  bulletsLeft: 5
   fireRate: 15
   impactEffect: {fileID: 1337198075554910, guid: 9c5444d8493bcfc4e92bfa87be99af36, type: 3}
   muzzleFlash: {fileID: 198234346748616026, guid: e8ff2f1604b6a4d4ebed0318e558bba7, type: 3}
@@ -1991,6 +1996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cef874f382965a4889cf14d765a59b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunSystem: {fileID: 0}
 --- !u!1 &6276606276191135039
 GameObject:
   m_ObjectHideFlags: 0

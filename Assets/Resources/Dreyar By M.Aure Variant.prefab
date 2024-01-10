@@ -3048,7 +3048,7 @@ MonoBehaviour:
   timeBetweenShots: 0.01
   magazineSize: 5
   allowButtonHold: 1
-  bulletsLeft: 0
+  bulletsLeft: 15
   fireRate: 15
   impactEffect: {fileID: 1337198075554910, guid: 9c5444d8493bcfc4e92bfa87be99af36, type: 3}
   muzzleFlash: {fileID: 198234346748616026, guid: e8ff2f1604b6a4d4ebed0318e558bba7, type: 3}

@@ -27,6 +27,7 @@ TagManager:
   - Item_Botle
   - Item_LambBlood
   - Item_HolyWater
+  - SpiritsZone
   layers:
   - Default
   - TransparentFX
