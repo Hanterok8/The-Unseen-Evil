@@ -59,14 +59,7 @@ public class ItemControl : MonoBehaviour
         {
             if (Input.GetKeyDown($"{i + 1}"))
             {
-                selected = i;
-                _outlines[lastSlot].gameObject.SetActive(false);
-                _outlines[selected].gameObject.SetActive(true);
-                int indexOfPickedGameObject = _slots[selected].GetComponent<SlotItemInformation>().itemGameObjectIndex;
-                int indexOfLastGameObject = _slots[lastSlot].GetComponent<SlotItemInformation>().itemGameObjectIndex;
-                _inventoryGameObjects[indexOfPickedGameObject].SetActive(true);
-                _inventoryGameObjects[indexOfLastGameObject].SetActive(false);
-                lastSlot = selected;
+                SelectAnotherSlot(i);
                 break;
             }
         }
@@ -90,7 +83,8 @@ public class ItemControl : MonoBehaviour
         itemIndexInInventory = infoName switch
         {
             "AK-74" => 0,
-            "Empty bottle" => 1
+            "Empty bottle" => 1,
+            "Lamb's blood" => 2
         };
         Image img = _inventorySprites[itemIndexInInventory];
         _inventoryGameObjects[itemIndexInInventory].SetActive(true);
@@ -100,6 +94,7 @@ public class ItemControl : MonoBehaviour
         slotInformation.name = infoName;
         slotInformation.itemGameObjectIndex = itemIndexInInventory;
         img.transform.localPosition = new Vector3(0, 0, 0);
+        SelectAnotherSlot(freeSlotIndex);
     }
     public void TakeAwayItem(int slotIndexOfItem)
     {
@@ -110,5 +105,16 @@ public class ItemControl : MonoBehaviour
         slotInformation.itemGameObjectIndex = new int();
         Transform itemImage = _slots[slotIndexOfItem].transform.GetChild(0);
         Destroy(itemImage.gameObject);
+    }
+    private void SelectAnotherSlot(int newSlotIndex)
+    {
+        selected = newSlotIndex;
+        _outlines[lastSlot].gameObject.SetActive(false);
+        _outlines[selected].gameObject.SetActive(true);
+        int indexOfPickedGameObject = _slots[selected].GetComponent<SlotItemInformation>().itemGameObjectIndex;
+        int indexOfLastGameObject = _slots[lastSlot].GetComponent<SlotItemInformation>().itemGameObjectIndex;
+        if (indexOfLastGameObject != -1) _inventoryGameObjects[indexOfLastGameObject].SetActive(false);
+        if (indexOfPickedGameObject != -1) _inventoryGameObjects[indexOfPickedGameObject].SetActive(true);
+        lastSlot = selected;
     }
 }

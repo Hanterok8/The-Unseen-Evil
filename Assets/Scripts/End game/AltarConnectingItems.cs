@@ -6,6 +6,7 @@ public class AltarConnectingItems : MonoBehaviour
     [SerializeField] private GameObject gameEndingImage;
     private bool isConnected = false;
     private int activatedPlatforms = 0;
+    private const int REQUIRED_ITEMS = 2;
     private void Update()
     {
         if (isConnected)
@@ -14,7 +15,7 @@ public class AltarConnectingItems : MonoBehaviour
     public void AddActivatedPlatform()
     {
         activatedPlatforms++;
-        isConnected = activatedPlatforms == 1;
+        isConnected = activatedPlatforms == REQUIRED_ITEMS;
     }
     private void OnItemsConnected()
     {
