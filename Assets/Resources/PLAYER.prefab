@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92bca7d661949634d82ad3ba0611422f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  residentPrefab: {fileID: 0}
+  residentPrefab: {fileID: 5498398436094513123, guid: 0d330762d46ee2148a1905420337b3f6, type: 3}
   demonPrefab: {fileID: 1115505141538682346, guid: 473982180ba583c4587a19887f7b56b4, type: 3}
   photonView: {fileID: 0}
 --- !u!114 &8872150382153344279

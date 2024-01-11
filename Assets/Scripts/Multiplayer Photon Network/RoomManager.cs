@@ -26,6 +26,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public void StartTheGame()
     {
         StartButton.GetComponent<Button>().interactable = false;
+            
+        PlayerPrefs.SetInt("PlayersInLobby", PhotonNetwork.CountOfPlayers);
         PhotonNetwork.LoadLevel("PlayLocation");
     }
     

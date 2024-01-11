@@ -10,10 +10,13 @@ public class OnAimodipsisMode : MonoBehaviour
     private CurrentPlayer currentLivingPlayer;
     private BloodlustSettings bloodLust;
 
+    private VoiceModeChanger voiceModeChanger;
+
     private bool isPlayerBecomeDemon;
     void Start()
     {
-        currentLivingPlayer = Object.FindObjectOfType<CurrentPlayer>();
+        voiceModeChanger = FindObjectOfType<VoiceModeChanger>();
+        currentLivingPlayer = FindObjectOfType<CurrentPlayer>();
         photonView = currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         bloodLust = GetComponent<BloodlustSettings>();
         if (!GetComponent<PlayerOrDemon>().isDemon && photonView.IsMine)
@@ -49,6 +52,7 @@ public class OnAimodipsisMode : MonoBehaviour
         IsAimodipsis.isAimodipsis = aimodipsisModeTurnTo;
         photonView = spawnedPrefab.GetComponent<PhotonView>();
         currentLivingPlayer.CurrentPlayerModel = spawnedPrefab;
-        
+
+        voiceModeChanger.TurnVoiceChatInto(aimodipsisModeTurnTo);
     }
 }

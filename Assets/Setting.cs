@@ -7,7 +7,7 @@ public class Setting : MonoBehaviour
     {
         seeSettings.SetActive(true);
     }
-    public void offSettings()
+    public void OffSettings()
     {
         seeSettings.SetActive(false);
     }

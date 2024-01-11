@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -7,14 +8,26 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject playerPrefab;
     public string[] DemonNicknames = new string[2];
     public GameObject spawnedPlayer;
+    private List<PlayerNickName> playersNames = new List<PlayerNickName>();
     void Awake()
     {
-        spawnedPlayer = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(Random.Range(-4, 4),3, Random.Range(-4, 4)), Quaternion.identity);
-        
+        spawnedPlayer = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(Random.Range(-4, 4), 3, Random.Range(-4, 4)), Quaternion.identity);
+
     }
-    private void Start()
+    private void Update()
     {
-        MakePlayersDemons();
+        if (PlayerPrefs.HasKey("PlayersInLobby"))
+        {
+            Time.timeScale = 0;
+            Debug.Log(PhotonNetwork.CountOfPlayers + "- players, needed players - " + PlayerPrefs.GetInt("PlayersInLobby"));
+            if (PhotonNetwork.CountOfPlayers == PlayerPrefs.GetInt("PlayersInLobby"))
+            {
+                MakePlayersDemons();
+                Time.timeScale = 1;
+                PlayerPrefs.DeleteKey("PlayersInLobby");
+            }
+            
+        }
     }
 
 
@@ -35,6 +48,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         PlayerModeSet();
         PlayerNickName[] playersNames = Object.FindObjectsOfType<PlayerNickName>();
+        Debug.Log(playersNames.Length + " players");
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
         {
             for (int j = 0; j < DemonNicknames.Length; j++)
