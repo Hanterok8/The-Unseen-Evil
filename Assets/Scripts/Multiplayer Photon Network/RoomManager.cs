@@ -1,5 +1,7 @@
 using Photon.Pun;
 using Photon.Realtime;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,13 +14,15 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     [SerializeField] private Transform playerListContent;
     [SerializeField] private GameObject playerlistPrefab;
+
+    private List<string> DemonNicknames = new List<string>();
     void Start()
     {
         Player player = PhotonNetwork.PlayerList[0];
         Instantiate(playerlistPrefab, playerListContent).GetComponent<PlayerListNickname>().SetUpNickname(player);
         roomName.text = PhotonNetwork.CurrentRoom.Name;
     }
-    
+
     public void Leave()
     {
         PhotonNetwork.LeaveRoom();
@@ -26,11 +30,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public void StartTheGame()
     {
         StartButton.GetComponent<Button>().interactable = false;
-            
-        PlayerPrefs.SetInt("PlayersInLobby", PhotonNetwork.CountOfPlayers);
+        PlayerModeSet();
+        for (int i = 0; i < DemonNicknames.LongCount(); i++)
+        {
+            PlayerPrefs.SetString($"Demon{i}", DemonNicknames[i]);
+
+        }
+        PlayerPrefs.SetInt("PlayerCount", PhotonNetwork.CountOfPlayers);
         PhotonNetwork.LoadLevel("PlayLocation");
     }
-    
+
     private void RecreatePlayerInRoomList()
     {
         Player[] playersInRoom = PhotonNetwork.PlayerList;
@@ -85,5 +94,18 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
         StartButton.SetActive(PhotonNetwork.IsMasterClient);
+    }
+    public void PlayerModeSet()
+    {
+        int len = PhotonNetwork.CountOfPlayers / 3;
+        if (len == 0) len = 1;
+        System.Random rnd = new System.Random();
+        int min = 0, max = PhotonNetwork.CountOfPlayers;
+        int[] Demons = new int[len];
+        Demons = Enumerable.Range(min, max).OrderBy(i => rnd.Next()).Take(len).ToArray();
+        for (int i = 0; i < Demons.Length; i++)
+        {
+            DemonNicknames.Add(PhotonNetwork.PlayerList[Demons[i]].NickName);
+        }
     }
 }
