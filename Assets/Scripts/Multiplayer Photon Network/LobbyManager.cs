@@ -11,6 +11,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public int maximumPlayers;
     public string playerNickname;
     public bool isRoomVisible = true;
+
+    public int sensetivityInGame = -1;
     void Start()
     {
         PhotonNetwork.NickName = "Player" + Random.Range(1000, 9999);
@@ -35,7 +37,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         if(playerNickname != "player nickname is not entered")
             PhotonNetwork.NickName = playerNickname;
-
+        PlayerPrefs.SetInt("Sensetivity", sensetivityInGame == -1 ? 100 : sensetivityInGame);
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = maximumPlayers;
         roomOptions.IsVisible = isRoomVisible;
@@ -48,12 +50,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         if (playerNickname != "player nickname is not entered")
             PhotonNetwork.NickName = playerNickname;
+        PlayerPrefs.SetInt("Sensetivity", sensetivityInGame == -1 ? 100 : sensetivityInGame);
         PhotonNetwork.JoinRandomRoom();
     }
     public void JoinLocalRoom()
     {
         if (playerNickname != "player nickname is not entered")
             PhotonNetwork.NickName = playerNickname;
+        PlayerPrefs.SetInt("Sensetivity", sensetivityInGame == -1 ? 100 : sensetivityInGame);
         try
         {
             PhotonNetwork.JoinRoom(localRoomCode.text);

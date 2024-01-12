@@ -4,15 +4,16 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private float sensitiveMouse = 100f;
-    private float yRotation;
-    private float xRotation;
-    private const int Y_LOOK_LIMIT = 55;
-
     [SerializeField] private Transform Player;
     [SerializeField] private PhotonView _photonView;
+    private float xRotation;
+    private float yRotation;
+    private const int Y_LOOK_LIMIT = 55;
+    private const int COEFFICIENT = 3; 
+
     void Start()
     {
-        
+        sensitiveMouse = PlayerPrefs.GetInt("Sensetivity") * COEFFICIENT;
         Cursor.lockState = CursorLockMode.Locked;
         _photonView = Player.GetComponent<PhotonView>();
         if (!_photonView.IsMine)

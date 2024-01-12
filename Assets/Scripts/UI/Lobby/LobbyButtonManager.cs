@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,8 +13,14 @@ public class LobbyButtonManager : MonoBehaviour
     [SerializeField] private GameObject joinByCode;
 
     [SerializeField] private Slider playerLimitValue;
+    [SerializeField] private Slider sensetivity;
     [SerializeField] private Toggle visibleTogleButton;
     [SerializeField] private TMP_Text nickname;
+
+    LobbyManager lobbyManager;
+
+    private void Start()
+    => lobbyManager = FindFirstObjectByType<LobbyManager>();
     public void SetOrJoinRoom()
     {
         mainMenuButtons.SetActive(false);
@@ -30,20 +37,20 @@ public class LobbyButtonManager : MonoBehaviour
         joinByCode.SetActive(true);
     }
 
-
     public void MaxNumberOfPlayersChanged()
     {
-        LobbyManager lobbyManager = Object.FindFirstObjectByType<LobbyManager>();
         lobbyManager.maximumPlayers = (int)playerLimitValue.value;
     }
     public void VisibleStateChanged()
     {
-        LobbyManager lobbyManager = Object.FindFirstObjectByType<LobbyManager>();
         lobbyManager.isRoomVisible = visibleTogleButton.isOn;
     }
     public void OnEnteredNickname()
     {
-        LobbyManager lobbyManager = Object.FindFirstObjectByType<LobbyManager>();
         lobbyManager.playerNickname = nickname.text;
+    }
+    public void OnSensetivityChanged()
+    {
+        lobbyManager.sensetivityInGame = (int)sensetivity.value;
     }
 }
