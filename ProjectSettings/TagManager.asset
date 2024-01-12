@@ -28,6 +28,7 @@ TagManager:
   - Item_LambBlood
   - Item_HolyWater
   - SpiritsZone
+  - AmmoCount
   layers:
   - Default
   - TransparentFX

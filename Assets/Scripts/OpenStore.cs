@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class OpenStore : MonoBehaviour
 {
-    [SerializeField] private GunSystem gunSystem;
+    [SerializeField] private Weapon weapon;
     private StoreElements storeElements;
     private bool isInShopCircleCollider;
     private bool isStoreOpened;
@@ -21,7 +21,7 @@ public class OpenStore : MonoBehaviour
     }
     private void SwapStoreUIState()
     {
-        gunSystem.enabled = !gunSystem.enabled;
+        weapon.enabled = !weapon.enabled;
         if (Cursor.visible)
             Cursor.lockState = CursorLockMode.Locked;
         else

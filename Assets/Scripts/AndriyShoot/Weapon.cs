@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Weapon : MonoBehaviour
 {
@@ -26,9 +27,14 @@ public class Weapon : MonoBehaviour
     public AudioSource AudioSource;
     public AudioSource audioReload;
 
-    public Camera Cam;
+    private Camera Cam;
 
-    public Text Ammo;
+    private TMP_Text Ammo;
+    private void Start()
+    {
+        Cam = Camera.main;
+        Ammo = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<TMP_Text>();
+    }
     void Update()
     {
         if (Input.GetMouseButton(0) && ammoInClip > 0 && Time.time > nextFire && CanShoot)
@@ -86,4 +92,8 @@ public class Weapon : MonoBehaviour
             maxAmmo = 0;
         }
     }
+    private void OnDisable()
+    {
+        Ammo.text = "";
+    } 
 }
