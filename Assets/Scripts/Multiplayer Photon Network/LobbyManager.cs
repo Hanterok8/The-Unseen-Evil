@@ -15,6 +15,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public int sensetivityInGame = -1;
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         PhotonNetwork.NickName = "Player" + Random.Range(1000, 9999);
         Log("Player`s name is set to " + PhotonNetwork.NickName);
 
