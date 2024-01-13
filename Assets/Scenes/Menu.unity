@@ -2918,7 +2918,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3098403174478993315}
         m_TargetAssemblyTypeName: Setting, Assembly-CSharp
-        m_MethodName: offSettings
+        m_MethodName: OffSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
