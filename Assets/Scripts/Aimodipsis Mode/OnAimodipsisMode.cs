@@ -13,8 +13,11 @@ public class OnAimodipsisMode : MonoBehaviour
     private VoiceModeChanger voiceModeChanger;
 
     private bool isPlayerBecomeDemon;
+
+    private IsAimodipsis isAimodipsisMode;
     void Start()
     {
+        isAimodipsisMode = GetComponent<IsAimodipsis>();
         voiceModeChanger = FindObjectOfType<VoiceModeChanger>();
         currentLivingPlayer = FindObjectOfType<CurrentPlayer>();
         photonView = currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
@@ -29,17 +32,16 @@ public class OnAimodipsisMode : MonoBehaviour
     {
         if (!photonView.IsMine) return;
 
-        if (bloodLust._demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !IsAimodipsis.isAimodipsis)
+        if (bloodLust._demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !isAimodipsisMode.isAimodipsis)
         {
             RebornPlayer(demonPrefab, true);
-            isPlayerBecomeDemon = true;
+            photonView.RPC(nameof(TurnOnAimodipsisForAllPlayers), RpcTarget.All);
         }
-        else if (IsAimodipsis.isAimodipsis && bloodLust._demonBloodlust <= 0)
+        else if (isAimodipsisMode.isAimodipsis && bloodLust._demonBloodlust <= 0)
         {
             RebornPlayer(residentPrefab, false);
-            isPlayerBecomeDemon = false;
         }
-        else if (IsAimodipsis.isAimodipsis && Input.GetKeyDown(KeyCode.F) && !isPlayerBecomeDemon)
+        else if (isAimodipsisMode.isAimodipsis && Input.GetKeyDown(KeyCode.F) && !isPlayerBecomeDemon)
         {
             RebornPlayer(demonPrefab, true);
         }
@@ -49,10 +51,20 @@ public class OnAimodipsisMode : MonoBehaviour
         GameObject spawnedPrefab = PhotonNetwork.Instantiate
             (prefabToSpawn.name, currentLivingPlayer.CurrentPlayerModel.transform.localPosition + Vector3.up * 3, Quaternion.identity);
         PhotonNetwork.Destroy(currentLivingPlayer.CurrentPlayerModel);
-        IsAimodipsis.isAimodipsis = aimodipsisModeTurnTo;
+        isAimodipsisMode.isAimodipsis = aimodipsisModeTurnTo;
         photonView = spawnedPrefab.GetComponent<PhotonView>();
         currentLivingPlayer.CurrentPlayerModel = spawnedPrefab;
 
-        voiceModeChanger.TurnVoiceChatInto(aimodipsisModeTurnTo);
+        voiceModeChanger.TurnVoiceChatInto(photonView, aimodipsisModeTurnTo);
+        isPlayerBecomeDemon = aimodipsisModeTurnTo;
+    }
+    [PunRPC]
+    private void TurnOnAimodipsisForAllPlayers()
+    {
+        IsAimodipsis[] isAimodipsisses = FindObjectsOfType<IsAimodipsis>();
+        for (int i = 0; i < isAimodipsisses.Length; i++)
+        {
+            isAimodipsisses[i].isAimodipsis = true;
+        }
     }
 }

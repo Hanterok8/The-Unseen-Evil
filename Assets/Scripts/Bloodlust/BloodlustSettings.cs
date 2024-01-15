@@ -7,9 +7,11 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
     public int _demonBloodlust;
     private PhotonView _photonView;
     private CurrentPlayer _currentLivingPlayer;
+    private IsAimodipsis _aimodipsis;
     private void Start()
     {
-        _currentLivingPlayer = Object.FindObjectOfType<CurrentPlayer>();
+        _currentLivingPlayer = FindObjectOfType<CurrentPlayer>();
+        _aimodipsis = FindObjectOfType<IsAimodipsis>(); 
         Invoke(nameof(OffForInhabitant), 2);
         _demonBloodlust = 0;
         _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
@@ -35,7 +37,7 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
                 StartCoroutine(BloodlustScale());
                 break;
             }
-            if (!IsAimodipsis.isAimodipsis)
+            if (!_aimodipsis.isAimodipsis)
             {
                 if(_demonBloodlust < 100) _demonBloodlust += 50;
                 yield return new WaitForSeconds(3);

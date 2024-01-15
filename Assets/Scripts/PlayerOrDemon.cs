@@ -23,7 +23,7 @@ public class PlayerOrDemon : MonoBehaviour
     }
     public void GetDemonNicknames()
     {
-        int numberOfDemonPlayers = PlayerPrefs.GetInt("PlayerCount") / 3;
+        int numberOfDemonPlayers = 2; // PlayerPrefs.GetInt("PlayerCount") / 3;
         if (numberOfDemonPlayers == 0) numberOfDemonPlayers++;
         for (int i = 0; i < numberOfDemonPlayers; i++)
         {

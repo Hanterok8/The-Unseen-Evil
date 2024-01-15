@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8872150382153344279}
   - component: {fileID: 1755473603941372799}
   - component: {fileID: 8621339492810830216}
+  - component: {fileID: -7124927950923978891}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: PlayerInstance
@@ -102,7 +103,7 @@ MonoBehaviour:
   - {fileID: 199921251085226954}
   - {fileID: 3209804594580824763}
   _distance: 3
-  selected: 0
+  selected: 2
   _slots: []
 --- !u!114 &1755473603941372799
 MonoBehaviour:
@@ -130,6 +131,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentPlayerModel: {fileID: 9060880548771803430}
+--- !u!114 &-7124927950923978891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2435702076327006110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6b64df39dda0446b72ab8e5aedcb46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAimodipsis: 0
 --- !u!1001 &3598528817568693957
 PrefabInstance:
   m_ObjectHideFlags: 0

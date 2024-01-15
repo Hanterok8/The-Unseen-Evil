@@ -31,12 +31,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         StartButton.GetComponent<Button>().interactable = false;
         PlayerModeSet();
-        for (int i = 0; i < DemonNicknames.LongCount(); i++)
+        for (int i = 0; i < DemonNicknames.Count; i++)
         {
             PlayerPrefs.SetString($"Demon{i}", DemonNicknames[i]);
-
+            PlayerPrefs.Save();
         }
         PlayerPrefs.SetInt("PlayerCount", PhotonNetwork.CountOfPlayers);
+        PlayerPrefs.Save();
         PhotonNetwork.LoadLevel("PlayLocation");
     }
 
@@ -97,7 +98,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
     public void PlayerModeSet()
     {
-        int len = PhotonNetwork.CountOfPlayers / 3;
+        int len = 2; // PhotonNetwork.CountOfPlayers / 3;
         if (len == 0) len = 1;
         System.Random rnd = new System.Random();
         int min = 0, max = PhotonNetwork.CountOfPlayers;

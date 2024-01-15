@@ -1,18 +1,18 @@
 using Photon.Voice.Unity;
 using UnityEngine;
-
-public class VoiceModeChanger : MonoBehaviour
+using Photon.Pun;
+public class VoiceModeChanger : MonoBehaviourPunCallbacks
 {
-    //GameObject[] playersWithSpeaker;
-    Speaker[] speakers;
+    private Speaker[] speakers;
+
     private void Start()
     {
-        //Speaker[] speakers = FindObjectsOfType<Speaker>();
         speakers = FindObjectsOfType<Speaker>();
-        //for (int i = 0; i < speakers.Length; i++)
-        //    playersWithSpeaker[i] = speakers[i].gameObject;
     }
-    public void TurnVoiceChatInto(bool VoiceChatTurnInto)
+    public void TurnVoiceChatInto(PhotonView photonView, bool VoiceChatTurnInto)
+    => photonView.RPC(nameof(TurnVoiceChatIntoRPC), RpcTarget.All, VoiceChatTurnInto);
+    [PunRPC]
+    private void TurnVoiceChatIntoRPC(bool VoiceChatTurnInto)
     {
         foreach (Speaker speaker in speakers)
         {

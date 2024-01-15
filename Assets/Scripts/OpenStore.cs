@@ -6,15 +6,18 @@ public class OpenStore : MonoBehaviour
     private StoreElements storeElements;
     private bool isInShopCircleCollider;
     private bool isStoreOpened;
+
+    private IsAimodipsis aimodipsis;
     private void Start()
     {
         storeElements = FindObjectOfType<StoreElements>();
+        aimodipsis = FindObjectOfType<IsAimodipsis>();
         isStoreOpened = false;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && !IsAimodipsis.isAimodipsis)
+        if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && aimodipsis.isAimodipsis)
         {
             SwapStoreUIState();
         }
