@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Voice.Unity;
 using UnityEngine;
 
 [RequireComponent(typeof(BloodlustSettings))]
@@ -7,6 +8,7 @@ public class OnAimodipsisMode : MonoBehaviour
     [SerializeField] private GameObject residentPrefab;
     [SerializeField] private GameObject demonPrefab;
     [SerializeField] private PhotonView photonView;
+    private Speaker[] speakers;
     private CurrentPlayer currentLivingPlayer;
     private BloodlustSettings bloodLust;
 
@@ -17,6 +19,7 @@ public class OnAimodipsisMode : MonoBehaviour
     private IsAimodipsis isAimodipsisMode;
     void Start()
     {
+        speakers = FindObjectsOfType<Speaker>();
         isAimodipsisMode = GetComponent<IsAimodipsis>();
         voiceModeChanger = FindObjectOfType<VoiceModeChanger>();
         currentLivingPlayer = FindObjectOfType<CurrentPlayer>();
@@ -54,8 +57,8 @@ public class OnAimodipsisMode : MonoBehaviour
         isAimodipsisMode.isAimodipsis = aimodipsisModeTurnTo;
         photonView = spawnedPrefab.GetComponent<PhotonView>();
         currentLivingPlayer.CurrentPlayerModel = spawnedPrefab;
-
-        voiceModeChanger.TurnVoiceChatInto(photonView, aimodipsisModeTurnTo);
+        //int thatPlayerID = voiceModeChanger.photonView.ViewID;
+        voiceModeChanger.photonView.RPC(nameof(TurnVoiceChatIntoRPC), RpcTarget.All, aimodipsisModeTurnTo);//, thatPlayerID);
         isPlayerBecomeDemon = aimodipsisModeTurnTo;
     }
     [PunRPC]
@@ -65,6 +68,15 @@ public class OnAimodipsisMode : MonoBehaviour
         for (int i = 0; i < isAimodipsisses.Length; i++)
         {
             isAimodipsisses[i].isAimodipsis = true;
+        }
+    }
+    [PunRPC]
+    private void TurnVoiceChatIntoRPC(bool VoiceChatTurnInto)//, int viewID)
+    {
+        //if (photonView.ViewID != viewID) return;
+        foreach (Speaker speaker in speakers)
+        {
+            speaker.enabled = VoiceChatTurnInto;
         }
     }
 }

@@ -98,10 +98,12 @@ MonoBehaviour:
   - {fileID: 1247286989746259404, guid: c3e7492027e2c0d4e9c779845ff7d294, type: 3}
   - {fileID: 632833253210291807, guid: 930e00511bf7dc74db5dd2efdc6cf4bd, type: 3}
   - {fileID: 1885793852632665162, guid: c8d8966b78bfebb45bef893cdb91e55f, type: 3}
+  - {fileID: 4586617436358527917, guid: c4675c81d3ca0284d96a486720e5a7e6, type: 3}
   _inventoryGameObjects:
   - {fileID: 5913779767677985554}
   - {fileID: 199921251085226954}
   - {fileID: 3209804594580824763}
+  - {fileID: 2921187087283539806}
   _distance: 3
   selected: 2
   _slots: []
@@ -152,6 +154,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7610150125004724718}
     m_Modifications:
+    - target: {fileID: 1835971976666968475, guid: 0d330762d46ee2148a1905420337b3f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2124307734145277054, guid: 0d330762d46ee2148a1905420337b3f6, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -216,6 +222,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8334795727537505034, guid: 0d330762d46ee2148a1905420337b3f6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6742046953424063818, guid: 0d330762d46ee2148a1905420337b3f6, type: 3}
     m_RemovedGameObjects: []
@@ -225,6 +235,11 @@ PrefabInstance:
 --- !u!1 &199921251085226954 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3690358725459881231, guid: 0d330762d46ee2148a1905420337b3f6, type: 3}
+  m_PrefabInstance: {fileID: 3598528817568693957}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2921187087283539806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1835971976666968475, guid: 0d330762d46ee2148a1905420337b3f6, type: 3}
   m_PrefabInstance: {fileID: 3598528817568693957}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3209804594580824763 stripped

@@ -10,7 +10,7 @@ public class DemonAbilities : MonoBehaviour
     private Camera mainCamera;
     private PhotonView photonView;
     private bool inCooldown;
-
+    private Animator playerAnimator;
     private GameObject currentPlayerParam;
     private GameObject currentParticlesParam;
     private void Start()
@@ -73,7 +73,8 @@ public class DemonAbilities : MonoBehaviour
         GetComponent<DemonController>().isDemonFrozen = true;
         killedPlayer.transform.localPosition += new Vector3(0f, 0.75f, 0f);
         residentController.SetKinematicModeForRigidbody();
-        //residentController.ChangePlayerAnimation(7);
+        playerAnimator = residentController.animator;
+        photonView.RPC(nameof(ChangePlayerAnimationRPC), RpcTarget.All, 7);
         GameObject particleSystem = PhotonNetwork.Instantiate
             (particlesAtKilling.name, killedPlayer.transform.position, Quaternion.Euler(-90, 0, 0));
         currentParticlesParam = particleSystem.gameObject;
@@ -82,6 +83,11 @@ public class DemonAbilities : MonoBehaviour
         Invoke(nameof(DeleteParticles), time);
         StartCoroutine(ResetCooldown(time));
         Invoke(nameof(UnfreezeDemon), time);
+    }
+    [PunRPC]
+    private void ChangePlayerAnimationRPC(int animationState)
+    {
+        playerAnimator.SetInteger("State", animationState);
     }
 
 }

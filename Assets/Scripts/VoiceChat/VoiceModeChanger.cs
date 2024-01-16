@@ -1,22 +1,11 @@
-using Photon.Voice.Unity;
-using UnityEngine;
 using Photon.Pun;
 public class VoiceModeChanger : MonoBehaviourPunCallbacks
 {
-    private Speaker[] speakers;
+    public PhotonView photonView;
 
     private void Start()
     {
-        speakers = FindObjectsOfType<Speaker>();
+        photonView = GetComponent<PhotonView>();
     }
-    public void TurnVoiceChatInto(PhotonView photonView, bool VoiceChatTurnInto)
-    => photonView.RPC(nameof(TurnVoiceChatIntoRPC), RpcTarget.All, VoiceChatTurnInto);
-    [PunRPC]
-    private void TurnVoiceChatIntoRPC(bool VoiceChatTurnInto)
-    {
-        foreach (Speaker speaker in speakers)
-        {
-            speaker.enabled = VoiceChatTurnInto;
-        }
-    }
+
 }

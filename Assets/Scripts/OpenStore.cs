@@ -17,7 +17,7 @@ public class OpenStore : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && aimodipsis.isAimodipsis)
+        if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && !aimodipsis.isAimodipsis)
         {
             SwapStoreUIState();
         }

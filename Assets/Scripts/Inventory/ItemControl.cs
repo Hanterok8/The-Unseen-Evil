@@ -84,7 +84,8 @@ public class ItemControl : MonoBehaviour
         {
             "AK-74" => 0,
             "Empty bottle" => 1,
-            "Lamb's blood" => 2
+            "Lamb's blood" => 2,
+            "Gift of foresight" => 3
         };
         Image img = _inventorySprites[itemIndexInInventory];
         _inventoryGameObjects[itemIndexInInventory].SetActive(true);

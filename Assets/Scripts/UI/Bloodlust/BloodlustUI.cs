@@ -20,7 +20,7 @@ public class BloodlustUI : MonoBehaviour
         _bloodlustTextUI = GameObject.FindGameObjectWithTag("BloodlustText").GetComponent<TMP_Text>();
         _bloodHintText = GameObject.FindGameObjectWithTag("BloodHint").GetComponent<TMP_Text>();
         _bloodlustUI = GetComponent<Image>();
-        _aimodipsis = FindObjectOfType<IsAimodipsis>();
+        _aimodipsis = _player.GetComponent<IsAimodipsis>();
     }
     private void Update()
     {
