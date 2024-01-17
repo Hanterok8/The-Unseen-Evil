@@ -244,7 +244,8 @@ GameObject:
   - component: {fileID: 8239194167660642266}
   - component: {fileID: 5563352522231221554}
   - component: {fileID: 1421539909117384223}
-  m_Layer: 0
+  - component: {fileID: 6076414648594422645}
+  m_Layer: 8
   m_Name: Ch30_nonPBR
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -455,6 +456,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 129
   particlesAtKilling: {fileID: 3761379653020853854, guid: d1c4d54c54a71f545912a285e323c6f8, type: 3}
+--- !u!114 &6076414648594422645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115505141538682346}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 1, g: 0.38597694, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1306782403655418792
 GameObject:
   m_ObjectHideFlags: 0

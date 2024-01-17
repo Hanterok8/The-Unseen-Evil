@@ -6,8 +6,8 @@ public class ItemControl : MonoBehaviour
 {
     [SerializeField] private LayerMask _layer;
     [SerializeField] private Image[] _inventorySprites;
-    [SerializeField] private GameObject[] _inventoryGameObjects;
     [SerializeField] private float _distance;
+    private GameObject[] _inventoryGameObjects;
     public int selected;
     public Transform[] _slots;
     private Transform[] _outlines;
@@ -38,9 +38,11 @@ public class ItemControl : MonoBehaviour
 
     void Update()
     {
+        
         if (_photonView == null) _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         if (_camera == null) _camera = Camera.main;
         if (!_photonView.IsMine) return;
+        if (_inventoryGameObjects == null) _inventoryGameObjects = _currentLivingPlayer.CurrentPlayerModel.GetComponent<Items>().ItemGameObjects;
         RaycastHit hit;
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, _distance, _layer))
