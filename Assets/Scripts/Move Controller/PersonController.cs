@@ -50,11 +50,27 @@ public class PersonController : MonoBehaviour
     }
     private void MovementInput()
     {
-        if (Input.GetKey(KeyCode.K))
-        {
-            state = 7;
-            Debug.Log("state: " + state);
-        }
+        Forward();
+        Backward();
+        Right();
+        Left();
+        ChangePlayerAnimation(state);
+    }
+    public void SetNewFrozenValue(bool isFrozenNow)
+    => isInhabitantFrozen = isFrozenNow;
+    public void SetKinematicModeForRigidbody()
+    => GetComponent<Rigidbody>().isKinematic = true;
+    public void ChangePlayerAnimation(int playerState)
+    {
+        _photonView.RPC(nameof(ChangeAnimationRPC), RpcTarget.All, playerState);
+    }
+    [PunRPC]
+    private void ChangeAnimationRPC(int animationState)
+    {
+        animator.SetInteger("State", animationState);
+    }
+    public void Forward()
+    {
         if (Input.GetKey(KeyCode.W))
         {
 
@@ -73,40 +89,43 @@ public class PersonController : MonoBehaviour
             _crouchController.enabled = true;
             state = 0;
         }
-        if (Input.GetKey(KeyCode.A))
-        {
-            _crouchController.enabled = false;
-            transform.Translate(Vector3.left * _minSpeed * Time.deltaTime);
-            state = 6;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            _crouchController.enabled = false;
-            transform.Translate(Vector3.right * _minSpeed * Time.deltaTime);
-            state = 5;
-        }
+    }
+    public void Backward()
+    {
         if (Input.GetKey(KeyCode.S))
         {
             _crouchController.enabled = false;
             transform.Translate(Vector3.back * _minSpeed * Time.deltaTime);
             state = 3;
         }
-
-        ChangePlayerAnimation(state);
-
     }
-    public void SetNewFrozenValue(bool isFrozenNow)
-    => isInhabitantFrozen = isFrozenNow;
-    public void SetKinematicModeForRigidbody()
-    => GetComponent<Rigidbody>().isKinematic = true;
-    public void ChangePlayerAnimation(int playerState)
+    public void Left()
     {
-        _photonView.RPC(nameof(ChangeAnimationRPC), RpcTarget.All, playerState);
+        if (Input.GetKey(KeyCode.A))
+        {
+            _crouchController.enabled = false;
+            transform.Translate(Vector3.left * _minSpeed * Time.deltaTime);
+            _maxSpeed = 3;
+            state = 6;
+        }
+        else
+        {
+            _maxSpeed = 4;
+        }
     }
-    [PunRPC]
-    private void ChangeAnimationRPC(int animationState)
+    public void Right()
     {
-        animator.SetInteger("State", animationState);
+        if (Input.GetKey(KeyCode.D))
+        {
+            _crouchController.enabled = false;
+            transform.Translate(Vector3.right * _minSpeed * Time.deltaTime);
+            _maxSpeed = 3;
+            state = 5;
+        }
+        else
+        {
+            _maxSpeed = 4;
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -121,5 +140,4 @@ public class PersonController : MonoBehaviour
             _speed = 3;
         }
     }
-    
 }
