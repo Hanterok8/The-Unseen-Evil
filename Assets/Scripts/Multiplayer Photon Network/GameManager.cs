@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject spawnedPlayer;
     private void Awake()
     {
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsVisible = false;
         spawnedPlayer = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(Random.Range(-4, 4), 3, Random.Range(-4, 4)), Quaternion.identity);
     }
 

@@ -1,7 +1,5 @@
 using Photon.Pun;
 using Photon.Realtime;
-using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,7 +13,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [SerializeField] private Transform playerListContent;
     [SerializeField] private GameObject playerlistPrefab;
 
-    private List<string> DemonNicknames = new List<string>();
+    private string DemonNickname;
     void Start()
     {
         Player player = PhotonNetwork.PlayerList[0];
@@ -30,12 +28,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public void StartTheGame()
     {
         StartButton.GetComponent<Button>().interactable = false;
+
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsVisible = false;
         PlayerModeSet();
-        for (int i = 0; i < DemonNicknames.Count; i++)
-        {
-            PlayerPrefs.SetString($"Demon{i}", DemonNicknames[i]);
-            PlayerPrefs.Save();
-        }
+        PlayerPrefs.SetString($"Demon", DemonNickname);
+        PlayerPrefs.Save();
         PlayerPrefs.SetInt("PlayerCount", PhotonNetwork.CountOfPlayers);
         PlayerPrefs.Save();
         PhotonNetwork.LoadLevel("PlayLocation");
@@ -98,15 +96,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
     public void PlayerModeSet()
     {
-        int len = 2; // PhotonNetwork.CountOfPlayers / 3;
-        if (len == 0) len = 1;
-        System.Random rnd = new System.Random();
-        int min = 0, max = PhotonNetwork.CountOfPlayers;
-        int[] Demons = new int[len];
-        Demons = Enumerable.Range(min, max).OrderBy(i => rnd.Next()).Take(len).ToArray();
-        for (int i = 0; i < Demons.Length; i++)
-        {
-            DemonNicknames.Add(PhotonNetwork.PlayerList[Demons[i]].NickName);
-        }
+        int demonIndex = Random.Range(0, PhotonNetwork.CountOfPlayers);
+        DemonNickname = PhotonNetwork.PlayerList[demonIndex].NickName;
     }
 }

@@ -45,10 +45,6 @@ public class OnAimodipsisMode : MonoBehaviour
         {
             RebornPlayer(residentPrefab, false);
         }
-        else if (isAimodipsisMode.isAimodipsis && Input.GetKeyDown(KeyCode.F) && !isPlayerBecomeDemon)
-        {
-            RebornPlayer(demonPrefab, true);
-        }
     }
     private void RebornPlayer(GameObject prefabToSpawn, bool aimodipsisModeTurnTo)
     {
@@ -56,21 +52,21 @@ public class OnAimodipsisMode : MonoBehaviour
             (prefabToSpawn.name, currentLivingPlayer.CurrentPlayerModel.transform.localPosition + Vector3.up * 3, Quaternion.identity);
         PhotonNetwork.Destroy(currentLivingPlayer.CurrentPlayerModel);
         isAimodipsisMode.isAimodipsis = aimodipsisModeTurnTo;
-        photonView = spawnedPrefab.GetComponent<PhotonView>();
         currentLivingPlayer.CurrentPlayerModel = spawnedPrefab;
-        currentLivingPlayer.GetComponent<IsAimodipsis>().isAimodipsis = aimodipsisModeTurnTo;
+        photonView = currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         photonView.RPC(nameof(TurnVoiceChatIntoRPC), RpcTarget.All, aimodipsisModeTurnTo);
+        photonView.RPC(nameof(TurnOnAimodipsisForAllPlayers), RpcTarget.All, aimodipsisModeTurnTo);
         isPlayerBecomeDemon = aimodipsisModeTurnTo;
     }
-    //[PunRPC]
-    //private void TurnOnAimodipsisForAllPlayers()
-    //{
-    //    IsAimodipsis[] isAimodipsisses = FindObjectsOfType<IsAimodipsis>();
-    //    for (int i = 0; i < isAimodipsisses.Length; i++)
-    //    {
-    //        isAimodipsisses[i].isAimodipsis = true;
-    //    }
-    //}
+    [PunRPC]
+    private void TurnOnAimodipsisForAllPlayers(bool setAimodipsisModeTo)
+    {
+        IsAimodipsis[] isAimodipsisses = FindObjectsOfType<IsAimodipsis>();
+        for (int i = 0; i < isAimodipsisses.Length; i++)
+        {
+            isAimodipsisses[i].SetAimodipsisMode(setAimodipsisModeTo);
+        }
+    }
     [PunRPC]
     private void TurnVoiceChatIntoRPC(bool voiceChatTurnInto)
     {

@@ -1,35 +1,31 @@
 using Photon.Pun;
-using System.Collections.Generic;
 using UnityEngine;
 public class PlayerOrDemon : MonoBehaviour
 {
     [SerializeField] public bool isDemon;
 
     private PhotonView photonView;
-    private List<string> demonNicknames = new List<string>();
+    private string demonNickname;
+    private bool isChecked = false;
     private void Start()
     {
         photonView = GetComponent<CurrentPlayer>().CurrentPlayerModel.GetComponent<PhotonView>();
-        if (!photonView.IsMine) return;
-        GetDemonNicknames();
-        for (int i = 0; i < demonNicknames.Count; i++)
+    }
+    private void Update()
+    {
+        if (photonView.IsMine && !isChecked)
         {
-            if (PhotonNetwork.NickName == demonNicknames[i])
+            demonNickname = GetDemonNickname();
+            if (PhotonNetwork.NickName == demonNickname)
             {
                 isDemon = true;
-                break;
             }
+            isChecked = true;
         }
     }
-    public void GetDemonNicknames()
+    public string GetDemonNickname()
     {
-        int numberOfDemonPlayers = 2; // PlayerPrefs.GetInt("PlayerCount") / 3;
-        if (numberOfDemonPlayers == 0) numberOfDemonPlayers++;
-        for (int i = 0; i < numberOfDemonPlayers; i++)
-        {
-            Debug.Log(PlayerPrefs.GetString($"Demon{i}"));
-            demonNicknames.Add(PlayerPrefs.GetString($"Demon{i}"));
-        }
+        return PlayerPrefs.GetString("Demon");
     }
 
 }

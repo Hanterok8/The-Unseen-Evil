@@ -9,7 +9,7 @@ public class PredictDemonPosition : MonoBehaviour
     private GameObject Player;
     private const int FOV = 360;
     private const int MAX_DISTANCE = 15;
-    private Collider[] demonsAround;
+    private Collider[] demonAround;
     private bool isUsingAbility = false;
     private int secondsLeft;
     private PhotonView photonView;
@@ -56,19 +56,16 @@ public class PredictDemonPosition : MonoBehaviour
     }
     private void FindDemonsInRadius()
     {
-        demonsAround = Physics.OverlapSphere(transform.position, FOV, layerWithDemon);
-        if (demonsAround.Length > 0) CircleDemons(true);
+        demonAround = Physics.OverlapSphere(transform.position, FOV, layerWithDemon);
+        if (demonAround.Length > 0) CircleDemons(true);
         else CircleDemons(false);
 
     }
     private void CircleDemons(bool areDemonsCircled)
     {
-        foreach (Collider demon in demonsAround)
+        if (Vector3.Distance(myParent.transform.position, demonAround[0].transform.position) < MAX_DISTANCE)
         {
-            if (Vector3.Distance(myParent.transform.position, demon.transform.position) < MAX_DISTANCE)
-            {
-                demon.GetComponent<Outline>().enabled = areDemonsCircled;
-            }
+            demonAround[0].GetComponent<Outline>().enabled = areDemonsCircled;
         }
     }
 }
