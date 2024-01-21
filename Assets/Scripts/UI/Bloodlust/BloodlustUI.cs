@@ -6,9 +6,9 @@ using Photon.Pun;
 public class BloodlustUI : MonoBehaviour
 {
     [SerializeField] private Image _bloodlustUI;
+    [SerializeField] private GameObject _player;
     private TMP_Text _bloodlustTextUI;
     private TMP_Text _bloodHintText;
-    private GameObject _player;
     private PlayerOrDemon _playerOrDemon;
     private IsAimodipsis _aimodipsis;
     private GameObject _bloodlustScale;
@@ -23,21 +23,10 @@ public class BloodlustUI : MonoBehaviour
         _bloodlustTextUI = GameObject.FindGameObjectWithTag("BloodlustText").GetComponent<TMP_Text>();
         _bloodHintText = GameObject.FindGameObjectWithTag("BloodHint").GetComponent<TMP_Text>();
         _aimodipsis = _player.GetComponent<IsAimodipsis>();
-        //_photonView = GetComponent<PhotonView>();
-        //InvokeRepeating(nameof(CheckArePlayersConnected), 0, 0.5f);
     }
     private void Update()
     {
-        //if (arePlayersConnected)
-        //{
-        //    _player = GetLocalPlayer();
-        //}
-        //else
-        //{
-        //    return;
-        //}
-        //if (!_photonView.IsMine) return;
-        //Debug.Log(_player.gameObject.GetComponent<PhotonView>().Owner.NickName);
+
         _bloodlustScale.SetActive(_playerOrDemon.isDemon);
         if (!_playerOrDemon.isDemon) return;
         BloodlustSettings bloodlustSettings = _player.GetComponent<BloodlustSettings>();
@@ -53,27 +42,4 @@ public class BloodlustUI : MonoBehaviour
             _bloodHintText.text = "";
         }
     }
-    //private void CheckArePlayersConnected()
-    //{
-    //    GameObject[] playersInGame = GameObject.FindGameObjectsWithTag("PlayerInstance");
-    //    if (playersInGame.Length == PlayerPrefs.GetInt("PlayerCount"))
-    //    {
-    //        arePlayersConnected = true;
-    //        _photonView = GetComponent<PhotonView>();
-    //        CancelInvoke();
-    //    }
-    //}
-    //private GameObject GetLocalPlayer()
-    //{
-    //    GameObject[] allPlayers= GameObject.FindGameObjectsWithTag("PlayerInstance");
-    //    foreach (GameObject player in allPlayers)
-    //    {
-    //        if (player.GetComponent<PhotonView>().Owner.NickName == _photonView.Owner.NickName)
-    //        {
-    //            return player;
-    //        }
-    //    }
-    //    return null;
-
-    //}
 }
