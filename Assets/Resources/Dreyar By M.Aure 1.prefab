@@ -1441,6 +1441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 8689119559916738999}
+  playerCamera: {fileID: 185944274680265174}
 --- !u!114 &4396781758846366516
 MonoBehaviour:
   m_ObjectHideFlags: 0

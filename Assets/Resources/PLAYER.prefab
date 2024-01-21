@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1755473603941372799}
   - component: {fileID: 8621339492810830216}
   - component: {fileID: -7124927950923978891}
+  - component: {fileID: 4620161218603573376}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: PlayerInstance
@@ -141,6 +142,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAimodipsis: 0
+--- !u!114 &4620161218603573376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2435702076327006110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &5701064829217741216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,7 +218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7463700899374913278, guid: 687d88306d715dd4cac52f97e239182a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

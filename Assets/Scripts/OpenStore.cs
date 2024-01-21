@@ -3,6 +3,8 @@ using UnityEngine;
 public class OpenStore : MonoBehaviour
 {
     [SerializeField] private Weapon weapon;
+    [SerializeField] private Camera playerCamera;
+    private CameraController cameraController;
     private StoreElements storeElements;
     private bool isInShopCircleCollider;
     private bool isStoreOpened;
@@ -10,6 +12,7 @@ public class OpenStore : MonoBehaviour
     private IsAimodipsis aimodipsis;
     private void Start()
     {
+        cameraController = playerCamera.GetComponent<CameraController>();
         storeElements = FindObjectOfType<StoreElements>();
         aimodipsis = FindObjectOfType<IsAimodipsis>();
         isStoreOpened = false;
@@ -24,6 +27,7 @@ public class OpenStore : MonoBehaviour
     }
     private void SwapStoreUIState()
     {
+        cameraController.enabled = !cameraController.enabled;
         weapon.enabled = !weapon.enabled;
         if (Cursor.visible)
             Cursor.lockState = CursorLockMode.Locked;

@@ -18,10 +18,6 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
         _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         if (!_photonView.IsMine) return;
         InvokeRepeating(nameof(ChangeBloodlustScale), 0, _bootDelay);
-        //if (photonView.IsMine)
-        //{
-        //    StartCoroutine(BloodlustScale());
-        //}
     }
     void Update()
     {
@@ -34,32 +30,11 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
             enabled = false;
         }
     }
-    private IEnumerator BloodlustScale()
-    {
-        while (true)
-        {
-            //if (!_photonView.IsMine)
-            //{
-            //    StartCoroutine(BloodlustScale());
-            //    break;
-            //}
-            if (!_aimodipsis.isAimodipsis)
-            {
-                if (_demonBloodlust < 100) _demonBloodlust += 50;
-                yield return new WaitForSeconds(3);
-            }
-            else
-            {
-                if (_demonBloodlust > 0) _demonBloodlust -= 2;
-                yield return new WaitForSeconds(1);
-            }
-        }
-    }
     private void ChangeBloodlustScale()
     {
         if (!_aimodipsis.isAimodipsis)
         {
-            if (_demonBloodlust < 100) _demonBloodlust += 6;
+            if (_demonBloodlust < 100) _demonBloodlust += 50;
             _bootDelay = 3;
         }
         else

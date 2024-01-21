@@ -32,9 +32,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
         PlayerModeSet();
-        PlayerPrefs.SetString($"Demon", DemonNickname);
+        PlayerPrefs.SetString("Demon", DemonNickname);
         PlayerPrefs.Save();
-        PlayerPrefs.SetInt("PlayerCount", PhotonNetwork.CountOfPlayers);
+        PlayerPrefs.SetInt("PlayerCount", PhotonNetwork.PlayerList.Length);
         PlayerPrefs.Save();
         PhotonNetwork.LoadLevel("PlayLocation");
     }
@@ -96,7 +96,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
     public void PlayerModeSet()
     {
-        int demonIndex = Random.Range(0, PhotonNetwork.CountOfPlayers);
+        int demonIndex = Random.Range(0, PhotonNetwork.PlayerList.Length); // count of player чомусь дорівнює 1
         DemonNickname = PhotonNetwork.PlayerList[demonIndex].NickName;
     }
 }

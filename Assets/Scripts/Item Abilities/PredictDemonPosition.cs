@@ -7,7 +7,7 @@ public class PredictDemonPosition : MonoBehaviour
     [SerializeField] private LayerMask layerWithDemon;
     [SerializeField] private GameObject myParent;
     private GameObject Player;
-    private const int FOV = 360;
+    private const int RADIUS = 360;
     private const int MAX_DISTANCE = 15;
     private Collider[] demonAround;
     private bool isUsingAbility = false;
@@ -56,7 +56,7 @@ public class PredictDemonPosition : MonoBehaviour
     }
     private void FindDemonsInRadius()
     {
-        demonAround = Physics.OverlapSphere(transform.position, FOV, layerWithDemon);
+        demonAround = Physics.OverlapSphere(myParent.transform.position, RADIUS, layerWithDemon);
         if (demonAround.Length > 0) CircleDemons(true);
         else CircleDemons(false);
 

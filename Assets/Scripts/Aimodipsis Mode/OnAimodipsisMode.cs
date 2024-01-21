@@ -8,27 +8,18 @@ public class OnAimodipsisMode : MonoBehaviour
     [SerializeField] private GameObject residentPrefab;
     [SerializeField] private GameObject demonPrefab;
     [SerializeField] private PhotonView photonView;
-
     private CurrentPlayer currentLivingPlayer;
     private BloodlustSettings bloodLust;
-
-    //private VoiceModeChanger voiceModeChanger;
-
     private bool isPlayerBecomeDemon;
-
     private IsAimodipsis isAimodipsisMode;
+
     void Start()
     {
-
         isAimodipsisMode = GetComponent<IsAimodipsis>();
-        //voiceModeChanger = FindObjectOfType<VoiceModeChanger>();
         currentLivingPlayer = FindObjectOfType<CurrentPlayer>();
-        photonView = currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
+        photonView = GetComponent<PhotonView>();
+        //photonView = currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         bloodLust = GetComponent<BloodlustSettings>();
-        if (!GetComponent<PlayerOrDemon>().isDemon && photonView.IsMine)
-        {
-            enabled = false;
-        }
     }
 
     private void Update()
@@ -39,7 +30,6 @@ public class OnAimodipsisMode : MonoBehaviour
         if (bloodLust._demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !isAimodipsisMode.isAimodipsis)
         {
             RebornPlayer(demonPrefab, true);
-            //photonView.RPC(nameof(TurnOnAimodipsisForAllPlayers), RpcTarget.All);
         }
         else if (isAimodipsisMode.isAimodipsis && bloodLust._demonBloodlust <= 0)
         {
