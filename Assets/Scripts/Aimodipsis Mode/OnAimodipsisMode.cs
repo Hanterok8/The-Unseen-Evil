@@ -24,7 +24,6 @@ public class OnAimodipsisMode : MonoBehaviour
 
     private void Update()
     {
-        if(photonView == null) photonView = currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         if (!photonView.IsMine) return;
 
         if (bloodLust._demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !isAimodipsisMode.isAimodipsis)
@@ -43,7 +42,7 @@ public class OnAimodipsisMode : MonoBehaviour
         PhotonNetwork.Destroy(currentLivingPlayer.CurrentPlayerModel);
         isAimodipsisMode.isAimodipsis = aimodipsisModeTurnTo;
         currentLivingPlayer.CurrentPlayerModel = spawnedPrefab;
-        photonView = currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
+        photonView = GetComponent<PhotonView>();
         photonView.RPC(nameof(TurnVoiceChatIntoRPC), RpcTarget.All, aimodipsisModeTurnTo);
         photonView.RPC(nameof(TurnOnAimodipsisForAllPlayers), RpcTarget.All, aimodipsisModeTurnTo);
         isPlayerBecomeDemon = aimodipsisModeTurnTo;

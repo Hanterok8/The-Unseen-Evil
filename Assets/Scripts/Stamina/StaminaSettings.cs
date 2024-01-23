@@ -8,7 +8,7 @@ public class StaminaSettings : MonoBehaviour
     private GameObject emptyPlayerObject;
     private PersonController moving;
     private PhotonView _photonView;
-    private float _bootDelay;
+    private float _bootDelay = 0.1f;
     public bool isDemon = false;
 
     private void Start()
@@ -16,6 +16,7 @@ public class StaminaSettings : MonoBehaviour
         emptyPlayerObject = GameObject.FindGameObjectWithTag("PlayerInstance");
         _photonView = GetComponent<PhotonView>();
         moving = GetComponent<PersonController>();
+        _photonView = GetComponent<PhotonView>();
         if (!_photonView.IsMine) return;
         InvokeRepeating(nameof(ChangeStaminaValue), 0, _bootDelay);
     }

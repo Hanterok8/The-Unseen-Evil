@@ -27,7 +27,8 @@ public class PlayerOrDemon : MonoBehaviour
     private void CheckIsDemonConnected()
     {
         GameObject[] playersInGame = GameObject.FindGameObjectsWithTag("PlayerInstance");
-        if (playersInGame.Length == PlayerPrefs.GetInt("PlayerCount"))
+        int numberOfPlayers = PlayerPrefs.GetInt("PlayerCount");
+        if (playersInGame.Length == numberOfPlayers)
         {
             FindDemonPlayerObject();
             CancelInvoke();
