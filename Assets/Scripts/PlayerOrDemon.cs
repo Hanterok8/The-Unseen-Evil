@@ -10,9 +10,6 @@ public class PlayerOrDemon : MonoBehaviour
     private bool isChecked = false;
     private void Start()
     {
-        GameObject livingPlayer;
-        //livingPlayer = GetComponent<CurrentPlayer>().CurrentPlayerModel;
-        //photonView = livingPlayer.GetComponent<PhotonView>();
         photonView = GetComponent<PhotonView>();
     }
     private void Update()

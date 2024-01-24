@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float sensitiveMouse = 100f;
+    [SerializeField] private float sensetivityMouse = 100f;
     [SerializeField] private Transform Player;
     [SerializeField] private PhotonView _photonView;
     private float xRotation;
@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        sensitiveMouse = PlayerPrefs.GetInt("Sensetivity") * COEFFICIENT;
+        sensetivityMouse = PlayerPrefs.GetInt("Sensetivity") * COEFFICIENT;
         Cursor.lockState = CursorLockMode.Locked;
         _photonView = Player.GetComponent<PhotonView>();
         if (!_photonView.IsMine)
@@ -34,8 +34,8 @@ public class CameraController : MonoBehaviour
             }
         }
         if (!_photonView.IsMine) return;
-        float mouseX = Input.GetAxis("Mouse X") * sensitiveMouse * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitiveMouse * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * sensetivityMouse * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensetivityMouse * Time.deltaTime;
 
         yRotation += mouseX;
         xRotation -= mouseY;

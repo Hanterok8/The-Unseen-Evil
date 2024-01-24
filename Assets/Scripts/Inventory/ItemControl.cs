@@ -105,7 +105,7 @@ public class ItemControl : MonoBehaviour
         _inventoryGameObjects[currentGameObjectIndex].SetActive(false);
         SlotItemInformation slotInformation = _slots[slotIndexOfItem].GetComponent<SlotItemInformation>();
         slotInformation.name = "";
-        slotInformation.itemGameObjectIndex = new int();
+        slotInformation.itemGameObjectIndex = -1;
         Transform itemImage = _slots[slotIndexOfItem].transform.GetChild(0);
         Destroy(itemImage.gameObject);
     }
@@ -117,6 +117,7 @@ public class ItemControl : MonoBehaviour
         int indexOfPickedGameObject = _slots[selected].GetComponent<SlotItemInformation>().itemGameObjectIndex;
         int indexOfLastGameObject = _slots[lastSlot].GetComponent<SlotItemInformation>().itemGameObjectIndex;
         if (indexOfLastGameObject != -1) _inventoryGameObjects[indexOfLastGameObject].SetActive(false);
+
         if (indexOfPickedGameObject != -1) _inventoryGameObjects[indexOfPickedGameObject].SetActive(true);
         lastSlot = selected;
     }

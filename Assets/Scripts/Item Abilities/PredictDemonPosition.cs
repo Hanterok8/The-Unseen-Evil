@@ -27,7 +27,7 @@ public class PredictDemonPosition : MonoBehaviour
     }
     private void Update()
     {
-        if (!photonView.IsMine || transform.GetChild(0) != null) return;
+        if (!photonView.IsMine || transform.GetChild(0) == null) return;
         if (Input.GetMouseButtonDown(0) && !isUsingAbility)
         {
             Debug.Log("tapped");
