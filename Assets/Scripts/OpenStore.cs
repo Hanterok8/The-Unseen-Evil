@@ -14,7 +14,7 @@ public class OpenStore : MonoBehaviour
     {
         cameraController = playerCamera.GetComponent<CameraController>();
         storeElements = FindObjectOfType<StoreElements>();
-        aimodipsis = FindObjectOfType<IsAimodipsis>();
+        aimodipsis = GetComponent<IsAimodipsis>();
         isStoreOpened = false;
     }
 
