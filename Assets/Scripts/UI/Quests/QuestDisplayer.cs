@@ -8,10 +8,11 @@ public class QuestDisplayer : MonoBehaviour
     private TMP_Text questText;
     private int interactedTargets = 0;
     
-    private void Start()
+    private void Awake()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("PlayerInstance");
         questAnimator = GetComponent<Animator>();
-        questSwitcher = FindObjectOfType<QuestSwitcher>();
+        questSwitcher = player.GetComponent<QuestSwitcher>();//FindObjectOfType<QuestSwitcher>();
         questText = GetComponent<TMP_Text>();
     }
     private void OnEnable()
@@ -26,7 +27,7 @@ public class QuestDisplayer : MonoBehaviour
     }
     private void DisplayNewQuest()
     {
-        questAnimator.SetTrigger("Receive");
+        questAnimator.SetTrigger("Received");
         QuestData quest = questSwitcher.currentQuest;
         questText.text = $"{quest.description} ({interactedTargets}/{quest.requiredTargets})";
     }

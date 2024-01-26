@@ -37,17 +37,17 @@ public class QuestSwitcher : MonoBehaviour
     }
     public void PassQuest()
     {
-        onPassedQuest?.Invoke();
         completedQuest.Add(currentQuest);
         currentQuest = null;
+        onPassedQuest?.Invoke();
     }
     private void GiveNewQuest()
     {
-        onGivenQuest?.Invoke();
         secondsBeforeNextQuest = SECONDS_ON_START;
         int randomQuest = UnityEngine.Random.Range(0, leftQuests.Count);
         currentQuest = leftQuests[randomQuest];
         leftQuests.Remove(leftQuests[randomQuest]);
+        onGivenQuest?.Invoke();
     }
 
 }
