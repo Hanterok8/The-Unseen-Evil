@@ -6,4 +6,5 @@ public class StoreElements : MonoBehaviour
 {
     [SerializeField] public GameObject store;
     [SerializeField] public GameObject buyMenu;
+    [SerializeField] public GameObject BlurBackground;
 }
