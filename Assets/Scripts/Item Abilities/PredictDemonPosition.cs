@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PredictDemonPosition : MonoBehaviour
 {
+    [SerializeField] private GameObject particlesEffect;
     [SerializeField] private LayerMask layerWithDemon;
     [SerializeField] private GameObject myParent;
     private GameObject Player;
     private const int RADIUS = 360;
-    private const int MAX_DISTANCE = 15;
+    private const int MAX_DISTANCE = 30;
     private Collider[] demonAround;
     private bool isUsingAbility = false;
     private int secondsLeft;
@@ -46,11 +47,14 @@ public class PredictDemonPosition : MonoBehaviour
     private IEnumerator UseAbility()
     {
         secondsLeft = 20;
+        GameObject particles = Instantiate(particlesEffect);
+        particles.GetComponent<EffectFollow>().player = myParent.transform;
         while (secondsLeft >= -1)
         {
             yield return new WaitForSeconds(1);
             secondsLeft--;
         }
+        Destroy(particles);
         isUsingAbility = false;
         enabled = false;
     }
@@ -58,7 +62,6 @@ public class PredictDemonPosition : MonoBehaviour
     {
         demonAround = Physics.OverlapSphere(myParent.transform.position, RADIUS, layerWithDemon);
         if (demonAround.Length > 0) CircleDemons();
-
     }
     private void CircleDemons()
     {

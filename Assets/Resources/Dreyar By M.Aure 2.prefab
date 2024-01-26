@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0e9f62a9b6ae840afe784e9f6bbea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitiveMouse: 300
+  sensetivityMouse: 100
   Player: {fileID: 3065900204679136333}
   _photonView: {fileID: 0}
 --- !u!1 &1657250135692785622
@@ -1284,6 +1284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46dbef3a5d442654da864f708096fb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  AIMCamera: {fileID: 0}
 --- !u!114 &8476407132248776419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1411,6 +1413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 8799213293950528838}
   playerCamera: {fileID: 8016230631410983}
+  isStoreOpened: 0
 --- !u!114 &4579140868872128453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1902,6 +1905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a79cc00a74bc3744908732dc666181c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particlesEffect: {fileID: 2363176649821673517, guid: 61b95b16f9831a447930acd2f1cda16c, type: 3}
   layerWithDemon:
     serializedVersion: 2
     m_Bits: 256
