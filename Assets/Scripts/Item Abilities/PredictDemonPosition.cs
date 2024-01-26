@@ -8,7 +8,7 @@ public class PredictDemonPosition : MonoBehaviour
     [SerializeField] private LayerMask layerWithDemon;
     [SerializeField] private GameObject myParent;
     private GameObject Player;
-    private const int RADIUS = 360;
+    //private const int RADIUS = 360;
     private const int MAX_DISTANCE = 30;
     private Collider[] demonAround;
     private bool isUsingAbility = false;
@@ -60,19 +60,18 @@ public class PredictDemonPosition : MonoBehaviour
     }
     private void FindDemonsInRadius()
     {
-        demonAround = Physics.OverlapSphere(myParent.transform.position, RADIUS, layerWithDemon);
+        demonAround = Physics.OverlapSphere(myParent.transform.position, MAX_DISTANCE, layerWithDemon);
         if (demonAround.Length > 0) CircleDemons();
+        else UncircleDemon();
     }
     private void CircleDemons()
     {
         Outline demonOutline = demonAround[0].GetComponent<Outline>();
-        if (Vector3.Distance(myParent.transform.position, demonAround[0].transform.position) < MAX_DISTANCE)
-        {
-            demonOutline.enabled = true;
-        }
-        else
-        {
-           demonOutline.enabled = false;
-        }
+        demonOutline.enabled = true;
+    }
+    private void UncircleDemon()
+    {
+        Outline demonOutline = FindObjectOfType<Outline>();
+        if(demonOutline) demonOutline.enabled = false;
     }
 }
