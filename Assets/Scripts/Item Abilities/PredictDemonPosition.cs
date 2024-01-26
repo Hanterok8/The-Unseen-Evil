@@ -57,15 +57,19 @@ public class PredictDemonPosition : MonoBehaviour
     private void FindDemonsInRadius()
     {
         demonAround = Physics.OverlapSphere(myParent.transform.position, RADIUS, layerWithDemon);
-        if (demonAround.Length > 0) CircleDemons(true);
-        else CircleDemons(false);
+        if (demonAround.Length > 0) CircleDemons();
 
     }
-    private void CircleDemons(bool areDemonsCircled)
+    private void CircleDemons()
     {
+        Outline demonOutline = demonAround[0].GetComponent<Outline>();
         if (Vector3.Distance(myParent.transform.position, demonAround[0].transform.position) < MAX_DISTANCE)
         {
-            demonAround[0].GetComponent<Outline>().enabled = areDemonsCircled;
+            demonOutline.enabled = true;
+        }
+        else
+        {
+           demonOutline.enabled = false;
         }
     }
 }
