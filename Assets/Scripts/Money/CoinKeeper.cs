@@ -4,8 +4,22 @@ using UnityEngine;
 public class CoinKeeper : MonoBehaviour
 {
     [SerializeField] private TMP_Text coinsOnDisplay;
+    private QuestSwitcher questSwitcher;
     public int coins = 0;
 
+    private void Awake()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("PlayerInstance");
+        questSwitcher = player.GetComponent<QuestSwitcher>();
+    }
+    private void OnEnable()
+    {
+        questSwitcher.onReceivedCoinsByQuest += AddCoins;
+    }
+    private void OnDisable()
+    {
+        questSwitcher.onReceivedCoinsByQuest -= AddCoins;
+    }
     public void AddCoins(int numberOfCoins)
     {
         coins += numberOfCoins;

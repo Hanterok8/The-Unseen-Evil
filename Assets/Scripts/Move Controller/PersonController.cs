@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -18,9 +19,13 @@ public class PersonController : MonoBehaviour
     private RifleController _rifleController;
     private HoldController _holdController;
     private StaminaSettings _staminaSettings;
+    //private Camera camera;
+    private int newFOV;
+    public Action<int> onChangedFOV;
 
     private void Awake()
     {
+        //camera = Camera.main;
         animator = GetComponent<Animator>();
     }
     private void Start()
@@ -60,12 +65,13 @@ public class PersonController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.W))
         {
-
+            newFOV = 60;
             _crouchController.enabled = false;
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
             state = 1;
             if (isRunning && _staminaSettings._playerStamina > 0)
             {
+                newFOV = 75;
                 _crouchController.enabled = false;
                 transform.Translate(Vector3.forward * _maxSpeed * Time.deltaTime);
                 state = 2;
@@ -73,6 +79,7 @@ public class PersonController : MonoBehaviour
         }
         else
         {
+            newFOV = 60;
             _crouchController.enabled = true;
             state = 0;
         }
@@ -94,7 +101,7 @@ public class PersonController : MonoBehaviour
             transform.Translate(Vector3.back * _minSpeed * Time.deltaTime);
             state = 3;
         }
-
+        onChangedFOV?.Invoke(newFOV);
         ChangePlayerAnimation(state);
 
     }

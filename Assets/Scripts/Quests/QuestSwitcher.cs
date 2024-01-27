@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class QuestSwitcher : MonoBehaviour
@@ -11,6 +12,7 @@ public class QuestSwitcher : MonoBehaviour
     public QuestData currentQuest;
     public Action onGivenQuest;
     public Action onPassedQuest;
+    public Action<int> onReceivedCoinsByQuest;
 
     private bool canQuestBeTaken;
     private PhotonView photonView;
@@ -35,11 +37,12 @@ public class QuestSwitcher : MonoBehaviour
             GiveNewQuest();
         }
     }
-    public void PassQuest()
+    public void PassQuest(int receivedCoins)
     {
         completedQuest.Add(currentQuest);
         currentQuest = null;
         onPassedQuest?.Invoke();
+        onReceivedCoinsByQuest?.Invoke(receivedCoins);
     }
     private void GiveNewQuest()
     {
