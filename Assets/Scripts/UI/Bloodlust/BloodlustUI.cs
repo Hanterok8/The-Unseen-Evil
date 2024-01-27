@@ -12,8 +12,7 @@ public class BloodlustUI : MonoBehaviour
     private PlayerOrDemon _playerOrDemon;
     private IsAimodipsis _aimodipsis;
     private GameObject _bloodlustScale;
-    //private PhotonView _photonView;
-    //private bool arePlayersConnected;
+    private BloodlustSettings bloodlustSettings;
 
     private void Start()
     {
@@ -26,10 +25,9 @@ public class BloodlustUI : MonoBehaviour
     }
     private void Update()
     {
-
         _bloodlustScale.SetActive(_playerOrDemon.isDemon);
         if (!_playerOrDemon.isDemon) return;
-        BloodlustSettings bloodlustSettings = _player.GetComponent<BloodlustSettings>();
+        bloodlustSettings = _player.GetComponent<BloodlustSettings>();
         _bloodlustUI.fillAmount = bloodlustSettings._demonBloodlust / 100.0f;
         _bloodlustTextUI.text = $"{bloodlustSettings._demonBloodlust}%";
 

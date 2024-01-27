@@ -9,7 +9,7 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
     private CurrentPlayer _currentLivingPlayer;
     private IsAimodipsis _aimodipsis;
     private float _bootDelay = 3;
-    private void Start()
+    private void OnEnable()
     {
         _currentLivingPlayer = FindObjectOfType<CurrentPlayer>();
         _aimodipsis = FindObjectOfType<IsAimodipsis>();

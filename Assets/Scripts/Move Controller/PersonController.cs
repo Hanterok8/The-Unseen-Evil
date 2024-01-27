@@ -19,6 +19,10 @@ public class PersonController : MonoBehaviour
     private HoldController _holdController;
     private StaminaSettings _staminaSettings;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void Start()
     {
         _rifleController = GetComponent<RifleController>();
@@ -27,7 +31,6 @@ public class PersonController : MonoBehaviour
         _holdController = GetComponent<HoldController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        animator = GetComponent<Animator>();
         _photonView = GetComponent<PhotonView>();
         isInhabitantFrozen = false;
     }

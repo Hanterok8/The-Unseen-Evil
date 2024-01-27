@@ -4,7 +4,6 @@ public class PlayerOrDemon : MonoBehaviour
 {
     [SerializeField] public bool isDemon;
     private GameObject Demon;
-    private GameObject DemonModel;
     private PhotonView photonView;
     private string demonNickname;
     private bool isChecked = false;
@@ -24,8 +23,8 @@ public class PlayerOrDemon : MonoBehaviour
     private void CheckIsDemonConnected()
     {
         GameObject[] playersInGame = GameObject.FindGameObjectsWithTag("PlayerInstance");
-        int numberOfPlayers = PlayerPrefs.GetInt("PlayerCount");
-        if (playersInGame.Length == numberOfPlayers)
+        int numberOfRequiredPlayers = PlayerPrefs.GetInt("PlayerCount");
+        if (playersInGame.Length == numberOfRequiredPlayers)
         {
             FindDemonPlayerObject();
             CancelInvoke();
@@ -37,26 +36,29 @@ public class PlayerOrDemon : MonoBehaviour
         foreach(GameObject player in players)
         {
             GameObject playerModel = player.GetComponent<CurrentPlayer>().CurrentPlayerModel;
-            if (playerModel.GetComponent <PhotonView>().Owner.NickName == demonNickname)
+            if (playerModel.GetComponent<PhotonView>().Owner.NickName == demonNickname)
             {
                 Demon = player;
-                DemonModel = playerModel;
-                photonView.RPC(nameof(TurnOnDemonScripts), RpcTarget.All);
+                photonView.RPC(nameof(TurnOnDemonScriptsRPC), RpcTarget.All);
                 break;
             }
         }
     }
     [PunRPC]
-    private void TurnOnDemonScripts()
+    private void TurnOnDemonScriptsRPC()
     {
-        Demon.GetComponent<PlayerOrDemon>().isDemon = true;
-        Demon.GetComponent<OnAimodipsisMode>().enabled = true;
-        DemonModel.GetComponent<StaminaSettings>().isDemon = true;
-        Demon.GetComponent<BloodlustSettings>().enabled = true;
+        Demon.GetComponent<PlayerOrDemon>().TurnOnMyDemonScripts();
     }
     private string GetDemonNickname()
     {
         return PlayerPrefs.GetString("Demon");
+    }
+    public void TurnOnMyDemonScripts()
+    {
+        isDemon = true;
+        GetComponent<OnAimodipsisMode>().enabled = true;
+        GetComponent<CurrentPlayer>().CurrentPlayerModel.GetComponent<StaminaSettings>().isDemon = true;
+        GetComponent<BloodlustSettings>().enabled = true;
     }
 
 }
