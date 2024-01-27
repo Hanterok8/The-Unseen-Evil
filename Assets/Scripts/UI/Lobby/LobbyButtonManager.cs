@@ -11,6 +11,7 @@ public class LobbyButtonManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuButtons;
     [SerializeField] private GameObject settingRoom;
     [SerializeField] private GameObject joinByCode;
+    [SerializeField] private GameObject _playBg;
 
     [SerializeField] private Slider playerLimitValue;
     [SerializeField] private Slider sensetivity;
@@ -25,6 +26,7 @@ public class LobbyButtonManager : MonoBehaviour
     {
         mainMenuButtons.SetActive(false);
         createOrJoinButtons.SetActive(true);
+        _playBg.SetActive(true);
     }
     public void SetRoom()
     {
