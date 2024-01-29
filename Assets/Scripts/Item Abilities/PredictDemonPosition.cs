@@ -56,6 +56,7 @@ public class PredictDemonPosition : MonoBehaviour
             secondsLeft--;
         }
         Destroy(currentParticles);
+        UncircleDemon();
         isUsingAbility = false;
         enabled = false;
     }
