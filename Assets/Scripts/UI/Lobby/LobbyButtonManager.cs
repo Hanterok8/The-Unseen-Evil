@@ -16,6 +16,8 @@ public class LobbyButtonManager : MonoBehaviour
     [SerializeField] private Slider sensetivity;
     [SerializeField] private Toggle visibleTogleButton;
     [SerializeField] private TMP_Text nickname;
+    [SerializeField] private TMP_Text roomName;
+    [SerializeField] private TMP_Text localRoomCode;
 
     LobbyManager lobbyManager;
 
@@ -25,6 +27,14 @@ public class LobbyButtonManager : MonoBehaviour
     {
         mainMenuButtons.SetActive(false);
         createOrJoinButtons.SetActive(true);
+    }
+    public void OnRoomNameChanged()
+    {
+        lobbyManager.roomName = roomName.text;
+    }
+    public void OnLocalRoomCodeChanged()
+    {
+        lobbyManager.localRoomCode.text = localRoomCode.text;
     }
     public void SetRoom()
     {
