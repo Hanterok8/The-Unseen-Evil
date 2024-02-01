@@ -1820,14 +1820,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 5
-  m_InputType: 0
+  m_ContentType: 1
+  m_InputType: 1
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 5
+  m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 16.6
   m_CharacterLimit: 12
@@ -4048,7 +4048,7 @@ RectTransform:
   m_Father: {fileID: 7324939833353961316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4482,8 +4482,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5615137139893280813}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -7.4559, y: 0}
   m_SizeDelta: {x: 37.2, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7505,7 +7505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &7582206549488822639
 GameObject:
   m_ObjectHideFlags: 0
@@ -8463,7 +8463,7 @@ MonoBehaviour:
   visibleTogleButton: {fileID: 1380769277580184364}
   nickname: {fileID: 3386059902878948762}
   roomName: {fileID: 671669990}
-  localRoomCode: {fileID: 0}
+  localRoomCode: {fileID: 4878537176366596878}
 --- !u!1 &9095841605780995399
 GameObject:
   m_ObjectHideFlags: 0

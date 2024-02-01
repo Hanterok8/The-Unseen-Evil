@@ -30,7 +30,7 @@ public class LobbyButtonManager : MonoBehaviour
     }
     public void OnRoomNameChanged()
     {
-        lobbyManager.roomName = roomName.text;
+        lobbyManager.createdRoomName = roomName.text;
     }
     public void OnLocalRoomCodeChanged()
     {

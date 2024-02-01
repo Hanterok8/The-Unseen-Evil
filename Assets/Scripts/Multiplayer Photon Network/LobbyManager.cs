@@ -10,7 +10,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] private TMP_Text LogText;
     public int maximumPlayers;
     public string playerNickname;
-    public string roomName;
+    public string createdRoomName;
     public bool isRoomVisible = true;
 
     public int sensetivityInGame = -1;
@@ -37,7 +37,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
-        if (roomName == null || roomName.Length < 3)
+        if (createdRoomName == null || createdRoomName.Length < 3)
             return;
         if(playerNickname != "player nickname is not entered")
             PhotonNetwork.NickName = playerNickname;
@@ -46,8 +46,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         roomOptions.MaxPlayers = maximumPlayers;
         roomOptions.IsVisible = isRoomVisible;
         //string randomLetter = RandomLetter();
-        Log("Trying to join room " + roomName);
-        PhotonNetwork.CreateRoom(roomName, roomOptions);
+        Log("Trying to join room " + createdRoomName);
+        PhotonNetwork.CreateRoom(createdRoomName, roomOptions);
 
     }
     public void JoinPublicRoom()

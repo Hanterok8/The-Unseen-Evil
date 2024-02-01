@@ -19,7 +19,6 @@ TagManager:
   - Outlines
   - BloodlustText
   - Bloodlust
-  - BloodHint
   - GameObjectBloodLust
   - GameManager
   - shop_circle
@@ -29,6 +28,7 @@ TagManager:
   - Item_HolyWater
   - SpiritsZone
   - AmmoCount
+  - Hint
   layers:
   - Default
   - TransparentFX
