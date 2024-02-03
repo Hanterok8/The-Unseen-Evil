@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -6,13 +7,22 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float sensetivityMouse = 100f;
     [SerializeField] private Transform Player;
     [SerializeField] private PhotonView _photonView;
+    private PersonController personController;
+    private DemonController demonController;
     private float xRotation;
     private float yRotation;
     private const int Y_LOOK_LIMIT = 55;
-    private const int COEFFICIENT = 3; 
-
+    private const int COEFFICIENT = 3;
+    private Camera camera;
+    private int currentFOV = 60;
+    private void Awake()
+    {
+        personController = Player.GetComponent<PersonController>();
+        demonController = Player.GetComponent<DemonController>();
+    }
     void Start()
     {
+        camera = GetComponent<Camera>();
         sensetivityMouse = PlayerPrefs.GetInt("Sensetivity") * COEFFICIENT;
         Cursor.lockState = CursorLockMode.Locked;
         _photonView = Player.GetComponent<PhotonView>();
@@ -21,6 +31,20 @@ public class CameraController : MonoBehaviour
             Destroy(GetComponent<Camera>());
             Destroy(GetComponent<AudioListener>());
         }
+    }
+    private void OnEnable()
+    {
+        if (personController)
+            personController.onChangedFOV += SetNewFOV;
+        else
+            demonController.onChangedFOV += SetNewFOV;
+    }
+    private void OnDisable()
+    {
+        if (personController)
+            personController.onChangedFOV -= SetNewFOV;
+        else
+            demonController.onChangedFOV -= SetNewFOV;
     }
     void Update()
     {
@@ -44,5 +68,22 @@ public class CameraController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         Player.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+    private void SetNewFOV(int newCameraFOV)
+    {
+        if (currentFOV == newCameraFOV) return;
+        StopAllCoroutines();
+        StartCoroutine(InterpolateToNewFOV(newCameraFOV, currentFOV));
+        currentFOV = newCameraFOV;
+    }
+
+    private IEnumerator InterpolateToNewFOV(int newFOV, int previousFOV)
+    {
+        int step = previousFOV > newFOV ? -1 : 1;
+        while (camera.fieldOfView != newFOV)
+        {
+            camera.fieldOfView += step;
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }

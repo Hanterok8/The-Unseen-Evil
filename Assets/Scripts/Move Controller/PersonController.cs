@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -13,12 +14,18 @@ public class PersonController : MonoBehaviour
     public bool isRunning;
     public bool isInhabitantFrozen;
     public Animator animator;
+    public Action<int> onChangedFOV;
     private PhotonView _photonView;
     private CrouchControlller _crouchController;
     private RifleController _rifleController;
     private HoldController _holdController;
     private StaminaSettings _staminaSettings;
+    private int newFOV;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void Start()
     {
         _rifleController = GetComponent<RifleController>();
@@ -27,7 +34,6 @@ public class PersonController : MonoBehaviour
         _holdController = GetComponent<HoldController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        animator = GetComponent<Animator>();
         _photonView = GetComponent<PhotonView>();
         isInhabitantFrozen = false;
     }
@@ -57,12 +63,13 @@ public class PersonController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.W))
         {
-
+            newFOV = 60;
             _crouchController.enabled = false;
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
             state = 1;
             if (isRunning && _staminaSettings._playerStamina > 0)
             {
+                newFOV = 75;
                 _crouchController.enabled = false;
                 transform.Translate(Vector3.forward * _maxSpeed * Time.deltaTime);
                 state = 2;
@@ -70,6 +77,7 @@ public class PersonController : MonoBehaviour
         }
         else
         {
+            newFOV = 60;
             _crouchController.enabled = true;
             state = 0;
         }
@@ -91,7 +99,7 @@ public class PersonController : MonoBehaviour
             transform.Translate(Vector3.back * _minSpeed * Time.deltaTime);
             state = 3;
         }
-
+        onChangedFOV?.Invoke(newFOV);
         ChangePlayerAnimation(state);
 
     }

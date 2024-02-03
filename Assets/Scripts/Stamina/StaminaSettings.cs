@@ -1,15 +1,18 @@
 using Photon.Pun;
+using System;
 using UnityEngine;
 [RequireComponent(typeof(PersonController))]
 [RequireComponent(typeof(PhotonView))]
 public class StaminaSettings : MonoBehaviour
 {
     [SerializeField] public int _playerStamina = 100;
+    public Action onBecomeDemon;
+    public Action onStaminaUpdated;
+    public bool isDemon = false;
     private GameObject emptyPlayerObject;
     private PersonController moving;
     private PhotonView _photonView;
     private float _bootDelay = 0.1f;
-    public bool isDemon = false;
 
     private void Start()
     {
@@ -24,17 +27,23 @@ public class StaminaSettings : MonoBehaviour
     {
         if (moving.isRunning && (moving.AxesSpeed.x != 0 || moving.AxesSpeed.y != 0))
         {
-            if (_playerStamina > 0) _playerStamina -= 1;
+            if (_playerStamina > 0) UpdateStamina(-1);
             _bootDelay = 0.1f;
         }
         else if ((!moving.isRunning && (moving.AxesSpeed.x != 0 || moving.AxesSpeed.y != 0)) || (moving.AxesSpeed.x == 0 && moving.AxesSpeed.y == 0))
         {
-            if (_playerStamina < 100) _playerStamina += 1;
+            if (_playerStamina < 100) UpdateStamina(1);
             _bootDelay = 0.15f;
         }
         if (isDemon)
         {
+            onBecomeDemon?.Invoke();
             CancelInvoke();
         }
+    }
+    private void UpdateStamina(int staminaStep)
+    {
+        onStaminaUpdated?.Invoke();
+        _playerStamina += staminaStep;
     }
 }

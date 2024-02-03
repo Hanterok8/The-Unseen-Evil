@@ -1,4 +1,3 @@
-using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,65 +8,43 @@ public class StaminaUI : MonoBehaviour
     private TMP_Text _staminaTextUI;
     private Image _staminaUI;
     private GameObject _playerModel;
-    private GameObject _playerEmptyObject;
-    //private PhotonView _photonView;
-    //private bool arePlayersConnected;
+    private CurrentPlayer currentPlayer;
 
-    private void Start()
+    private StaminaSettings staminaSettings;
+    private void OnEnable()
     {
-        _playerEmptyObject = GameObject.FindGameObjectWithTag("PlayerInstance");
+        staminaSettings.onBecomeDemon += TurnOffStaminaUI;
+        staminaSettings.onStaminaUpdated += UpdateStaminaUI;
+    }
+    private void OnDisable()
+    {
+        staminaSettings.onBecomeDemon -= TurnOffStaminaUI;
+        staminaSettings.onStaminaUpdated -= UpdateStaminaUI;
+    }
+    private void Awake()
+    {
+        currentPlayer = GameObject.FindGameObjectWithTag("PlayerInstance").GetComponent<CurrentPlayer>();
         _playerModel = GameObject.FindGameObjectWithTag("Player");
         _staminaTextUI = GameObject.FindGameObjectWithTag("StaminaText").GetComponent<TMP_Text>();
         _staminaUI = GetComponent<Image>();
-        //InvokeRepeating(nameof(CheckArePlayersConnected), 0, 0.5f);
+        staminaSettings = _playerModel.GetComponent<StaminaSettings>();
     }
     private void Update()
     {
-        //if (arePlayersConnected)
-        //{
-        //    _playerEmptyObject = GetLocalPlayer();
-        //}
-        //else
-        //{
-        //    return;
-        //}
-        if (_playerModel == null) _playerModel = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log(_playerModel.GetComponent<PhotonView>().Owner.NickName);
-        if (_playerEmptyObject.GetComponent<PlayerOrDemon>().isDemon)
+        if (_playerModel == null)
         {
-            _staminaTextUI.text = "inf.";
-            return;
+            _playerModel = currentPlayer.CurrentPlayerModel;
+            staminaSettings = _playerModel.GetComponent<StaminaSettings>();
         }
-
-        StaminaSettings staminaSettings = _playerModel.GetComponent<StaminaSettings>();
-        _staminaUI.fillAmount = staminaSettings._playerStamina / 100.0f; 
+    }
+    private void UpdateStaminaUI()
+    {
+        _staminaUI.fillAmount = staminaSettings._playerStamina / 100.0f;
         _staminaTextUI.text = $"{staminaSettings._playerStamina}%";
     }
-    //private void CheckArePlayersConnected()
-    //{
-    //    GameObject[] playersInGame = GameObject.FindGameObjectsWithTag("PlayerInstance");
-    //    if (playersInGame.Length == PlayerPrefs.GetInt("PlayerCount"))
-    //    {
-    //        arePlayersConnected = true;
-    //        _photonView = GetComponent<PhotonView>();
-    //        CancelInvoke();
-    //    }
-    //}
-    //private GameObject GetLocalPlayer()
-    //{
-    //    GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("PlayerInstance");
-    //    foreach (GameObject player in allPlayers)
-    //    {
-    //        if (player.GetComponent<PhotonView>().Owner.NickName == _photonView.Owner.NickName)
-    //        {
-    //            return player;
-    //        }
-    //    }
-    //    return null;
-
-    //}
-    //private GameObject GetPlayerModel()
-    //{
-    //    return _playerEmptyObject.GetComponent<CurrentPlayer>().CurrentPlayerModel;
-    //}
+    private void TurnOffStaminaUI()
+    {
+        _staminaTextUI.text = "inf.";
+        enabled = false;
+    }
 }

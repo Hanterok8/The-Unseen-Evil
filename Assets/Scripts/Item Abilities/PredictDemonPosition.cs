@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PredictDemonPosition : MonoBehaviour
 {
+    [SerializeField] private GameObject particlesEffect;
     [SerializeField] private LayerMask layerWithDemon;
     [SerializeField] private GameObject myParent;
     private GameObject Player;
-    private const int RADIUS = 360;
-    private const int MAX_DISTANCE = 15;
+    private const int MAX_DISTANCE = 30;
     private Collider[] demonAround;
     private bool isUsingAbility = false;
     private int secondsLeft;
     private PhotonView photonView;
+    private GameObject currentParticles;
     private void Start()
     {
         GameObject[] playersInGame = GameObject.FindGameObjectsWithTag("PlayerInstance");
@@ -27,7 +28,7 @@ public class PredictDemonPosition : MonoBehaviour
     }
     private void Update()
     {
-        if (!photonView.IsMine || transform.GetChild(0) == null) return;
+        if (!photonView.IsMine || !transform.GetChild(0).gameObject.activeSelf) return;
         if (Input.GetMouseButtonDown(0) && !isUsingAbility)
         {
             Debug.Log("tapped");
@@ -46,26 +47,37 @@ public class PredictDemonPosition : MonoBehaviour
     private IEnumerator UseAbility()
     {
         secondsLeft = 20;
+        currentParticles = Instantiate(particlesEffect);
+        currentParticles.GetComponent<EffectFollow>().player = myParent.transform;
         while (secondsLeft >= -1)
         {
             yield return new WaitForSeconds(1);
             secondsLeft--;
         }
+        Destroy(currentParticles);
+        UncircleDemon();
         isUsingAbility = false;
         enabled = false;
     }
     private void FindDemonsInRadius()
     {
-        demonAround = Physics.OverlapSphere(myParent.transform.position, RADIUS, layerWithDemon);
-        if (demonAround.Length > 0) CircleDemons(true);
-        else CircleDemons(false);
-
+        demonAround = Physics.OverlapSphere(myParent.transform.position, MAX_DISTANCE, layerWithDemon);
+        if (demonAround.Length > 0) CircleDemons();
+        else UncircleDemon();
     }
-    private void CircleDemons(bool areDemonsCircled)
+    private void CircleDemons()
     {
-        if (Vector3.Distance(myParent.transform.position, demonAround[0].transform.position) < MAX_DISTANCE)
-        {
-            demonAround[0].GetComponent<Outline>().enabled = areDemonsCircled;
-        }
+        Outline demonOutline = demonAround[0].GetComponent<Outline>();
+        demonOutline.enabled = true;
+    }
+    private void UncircleDemon()
+    {
+        Outline demonOutline = FindObjectOfType<Outline>();
+        if(demonOutline) demonOutline.enabled = false;
+    }
+    private void OnDestroy()
+    {
+        Destroy(currentParticles?.gameObject);
+        UncircleDemon();
     }
 }

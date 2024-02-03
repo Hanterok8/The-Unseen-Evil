@@ -4,18 +4,31 @@ public class OpenStore : MonoBehaviour
 {
     [SerializeField] private Weapon weapon;
     [SerializeField] private Camera playerCamera;
+    public bool isStoreOpened;
     private CameraController cameraController;
     private StoreElements storeElements;
     private bool isInShopCircleCollider;
-    private bool isStoreOpened;
 
     private IsAimodipsis aimodipsis;
     private void Start()
     {
         cameraController = playerCamera.GetComponent<CameraController>();
         storeElements = FindObjectOfType<StoreElements>();
-        aimodipsis = FindObjectOfType<IsAimodipsis>();
+        
+        aimodipsis = GetPlayer().GetComponent<IsAimodipsis>();
         isStoreOpened = false;
+    }
+    private GameObject GetPlayer()
+    {
+        CurrentPlayer[] players = FindObjectsOfType<CurrentPlayer>();
+        foreach (CurrentPlayer player in players)
+        {
+            if (player.CurrentPlayerModel == gameObject)
+            {
+                return player.gameObject;
+            }
+        }
+        return null;
     }
 
     private void Update()
@@ -36,6 +49,8 @@ public class OpenStore : MonoBehaviour
         Cursor.visible = !Cursor.visible;
         storeElements.store.SetActive(!storeElements.store.activeSelf);
         storeElements.buyMenu.SetActive(false);
+        GameObject blur = storeElements.BlurBackground;
+        blur.SetActive(!blur.activeSelf);
         isStoreOpened = !isStoreOpened;
     }
     private void OnTriggerEnter(Collider collider)
