@@ -17,6 +17,7 @@ public class LobbyButtonManager : MonoBehaviour
     [SerializeField] private Toggle visibleTogleButton;
     [SerializeField] private TMP_Text nickname;
     [SerializeField] private TMP_Text roomName;
+    [SerializeField] private TMP_InputField roomNameInputField;
     [SerializeField] private TMP_Text localRoomCode;
 
     LobbyManager lobbyManager;
@@ -30,7 +31,14 @@ public class LobbyButtonManager : MonoBehaviour
     }
     public void OnRoomNameChanged()
     {
+        FixString(roomNameInputField);
         lobbyManager.createdRoomName = roomName.text;
+    }
+    private void FixString(TMP_InputField target)
+    {
+        target.lineType = TMP_InputField.LineType.MultiLineSubmit;
+        target.textComponent.SetAllDirty();
+        target.lineType = TMP_InputField.LineType.SingleLine;
     }
     public void OnLocalRoomCodeChanged()
     {

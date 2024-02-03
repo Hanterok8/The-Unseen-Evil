@@ -15,19 +15,32 @@ public class BloodlustUI : MonoBehaviour
     private GameObject _bloodlustScale;
     private BloodlustSettings bloodlustSettings;
 
-    private void Start()
+    private void Awake()
     {
         _bloodlustScale = GameObject.FindGameObjectWithTag("GameObjectBloodLust");
         player = GameObject.FindGameObjectWithTag("PlayerInstance");
         _playerOrDemon = player.GetComponent<PlayerOrDemon>();
         _bloodlustTextUI = GameObject.FindGameObjectWithTag("BloodlustText").GetComponent<TMP_Text>();
         _aimodipsis = player.GetComponent<IsAimodipsis>();
-    }
-    private void Update()
-    {
-        _bloodlustScale.SetActive(_playerOrDemon.isDemon);
-        if (!_playerOrDemon.isDemon) return;
         bloodlustSettings = player.GetComponent<BloodlustSettings>();
+        _bloodlustScale.SetActive(false);
+    }
+    private void OnEnable()
+    {
+        bloodlustSettings.onBloodlustActivated += ActivateScale;
+        bloodlustSettings.onChangedBloodlust += UpdateBloodlustUI;
+    }
+    private void OnDisable()
+    {
+        bloodlustSettings.onBloodlustActivated -= ActivateScale;
+        bloodlustSettings.onChangedBloodlust -= UpdateBloodlustUI;
+    }
+    private void ActivateScale()
+    {
+        _bloodlustScale.SetActive(true);
+    }
+    private void UpdateBloodlustUI()
+    {
         bloodlustUI.fillAmount = bloodlustSettings._demonBloodlust / 100.0f;
         _bloodlustTextUI.text = $"{bloodlustSettings._demonBloodlust}%";
 

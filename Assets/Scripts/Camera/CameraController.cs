@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform Player;
     [SerializeField] private PhotonView _photonView;
     private PersonController personController;
+    private DemonController demonController;
     private float xRotation;
     private float yRotation;
     private const int Y_LOOK_LIMIT = 55;
@@ -17,6 +18,7 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         personController = Player.GetComponent<PersonController>();
+        demonController = Player.GetComponent<DemonController>();
     }
     void Start()
     {
@@ -32,11 +34,17 @@ public class CameraController : MonoBehaviour
     }
     private void OnEnable()
     {
-        personController.onChangedFOV += SetNewFOV;
+        if (personController)
+            personController.onChangedFOV += SetNewFOV;
+        else
+            demonController.onChangedFOV += SetNewFOV;
     }
     private void OnDisable()
     {
-        personController.onChangedFOV -= SetNewFOV;
+        if (personController)
+            personController.onChangedFOV -= SetNewFOV;
+        else
+            demonController.onChangedFOV -= SetNewFOV;
     }
     void Update()
     {

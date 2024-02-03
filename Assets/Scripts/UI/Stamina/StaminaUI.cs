@@ -8,34 +8,43 @@ public class StaminaUI : MonoBehaviour
     private TMP_Text _staminaTextUI;
     private Image _staminaUI;
     private GameObject _playerModel;
-    private GameObject _playerEmptyObject;
+    private CurrentPlayer currentPlayer;
 
-    private PlayerOrDemon playerOrDemon;
     private StaminaSettings staminaSettings;
-    private void Start()
+    private void OnEnable()
     {
-        _playerEmptyObject = GameObject.FindGameObjectWithTag("PlayerInstance");
+        staminaSettings.onBecomeDemon += TurnOffStaminaUI;
+        staminaSettings.onStaminaUpdated += UpdateStaminaUI;
+    }
+    private void OnDisable()
+    {
+        staminaSettings.onBecomeDemon -= TurnOffStaminaUI;
+        staminaSettings.onStaminaUpdated -= UpdateStaminaUI;
+    }
+    private void Awake()
+    {
+        currentPlayer = GameObject.FindGameObjectWithTag("PlayerInstance").GetComponent<CurrentPlayer>();
         _playerModel = GameObject.FindGameObjectWithTag("Player");
         _staminaTextUI = GameObject.FindGameObjectWithTag("StaminaText").GetComponent<TMP_Text>();
         _staminaUI = GetComponent<Image>();
-        playerOrDemon = _playerEmptyObject.GetComponent<PlayerOrDemon>();
         staminaSettings = _playerModel.GetComponent<StaminaSettings>();
     }
     private void Update()
     {
         if (_playerModel == null)
         {
-            _playerModel = GameObject.FindGameObjectWithTag("Player");
+            _playerModel = currentPlayer.CurrentPlayerModel;
             staminaSettings = _playerModel.GetComponent<StaminaSettings>();
         }
-
-        if (playerOrDemon.isDemon)
-        {
-            _staminaTextUI.text = "inf.";
-            enabled = false;
-            return;
-        }
+    }
+    private void UpdateStaminaUI()
+    {
         _staminaUI.fillAmount = staminaSettings._playerStamina / 100.0f;
         _staminaTextUI.text = $"{staminaSettings._playerStamina}%";
+    }
+    private void TurnOffStaminaUI()
+    {
+        _staminaTextUI.text = "inf.";
+        enabled = false;
     }
 }

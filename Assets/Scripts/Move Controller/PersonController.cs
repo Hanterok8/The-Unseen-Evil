@@ -14,18 +14,16 @@ public class PersonController : MonoBehaviour
     public bool isRunning;
     public bool isInhabitantFrozen;
     public Animator animator;
+    public Action<int> onChangedFOV;
     private PhotonView _photonView;
     private CrouchControlller _crouchController;
     private RifleController _rifleController;
     private HoldController _holdController;
     private StaminaSettings _staminaSettings;
-    //private Camera camera;
     private int newFOV;
-    public Action<int> onChangedFOV;
 
     private void Awake()
     {
-        //camera = Camera.main;
         animator = GetComponent<Animator>();
     }
     private void Start()

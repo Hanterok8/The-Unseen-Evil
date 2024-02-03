@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class DemonController : MonoBehaviour
     public int _state;
     public bool _isRunning;
     public Vector2 AxesSpeed;
+    public Action<int> onChangedFOV;
+    private int newFOV;
     private Animator animator;
     private Rigidbody _rb;
     private float _force = 10f;
@@ -37,16 +40,19 @@ public class DemonController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
+            newFOV = 60;
             transform.Translate(Vector3.forward * _speed * Time.deltaTime);
             _state = 1;
             if (_isRunning)
             {
+                newFOV = 75;
                 transform.Translate(Vector3.forward * _maxSpeed * Time.deltaTime);
                 _state = 2;
             }
         }
         else
         {
+            newFOV = 60;
             _state = 0;
         }
         if (Input.GetKey(KeyCode.A))
@@ -68,6 +74,7 @@ public class DemonController : MonoBehaviour
         {
             StartCoroutine(DoSuperJump());
         }
+        onChangedFOV?.Invoke(newFOV);
         ChangePlayerAnimation(_state);
     }
     IEnumerator DoSuperJump()
