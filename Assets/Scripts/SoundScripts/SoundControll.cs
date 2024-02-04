@@ -4,7 +4,9 @@ using UnityEngine.UI;
 
 public class SoundControll : MonoBehaviour
 {
-    public string volumeParametr = "MasterVolume";
+    public string volume1Parametr = "MasterVolume";
+    public string volume2Parametr = "MasterVolume";
+    public string volume3Parametr = "MasterVolume";
     public AudioMixer audioMixer;
     public Slider slider;
 
@@ -16,7 +18,17 @@ public class SoundControll : MonoBehaviour
     }
     private void HandleSlider(float value)
     {
-        var volumeValue = Mathf.Log10(value) * _multiplier;
-        audioMixer.SetFloat(volumeParametr, volumeValue);
+        var volumeValue = CalculateVolume(value);
+        audioMixer.SetFloat(volume1Parametr, volumeValue);
+        audioMixer.SetFloat(volume2Parametr, volumeValue);
+        audioMixer.SetFloat(volume3Parametr, volumeValue);
+    }
+    private float CalculateVolume(float value)
+    {
+        if(value == 0)
+        {
+            return -80;
+        }
+        return Mathf.Log10(value) * _multiplier;
     }
 }
