@@ -16,10 +16,12 @@ public class ItemControl : MonoBehaviour
     private Camera _camera;
     private int lastSlot;
     private int itemIndexInInventory;
+    QuestSwitcher _questSwitcher;
 
     void Start()
     {
-        _currentLivingPlayer = Object.FindObjectOfType<CurrentPlayer>();
+        _questSwitcher = GetComponent<QuestSwitcher>();
+        _currentLivingPlayer = GetComponent<CurrentPlayer>();
         _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         _camera = Camera.main;
         selected = 0;
@@ -38,24 +40,35 @@ public class ItemControl : MonoBehaviour
 
     void Update()
     {
-        
+
         if (_photonView == null) _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         if (_camera == null) _camera = Camera.main;
         if (!_photonView.IsMine) return;
         if (_inventoryGameObjects == null) _inventoryGameObjects = _currentLivingPlayer.CurrentPlayerModel.GetComponent<Items>().ItemGameObjects;
         RaycastHit hit;
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, _distance, _layer))
+        if (Physics.Raycast(ray, out hit, _distance, _layer) && Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            PickUpInformation _itemInfo = hit.collider.gameObject.GetComponent<PickUpInformation>();
+            if (_itemInfo.isQuestedItem)
             {
-                PickUpInformation _itemInfo = hit.collider.gameObject.GetComponent<PickUpInformation>();
-                ReceiveItem(_itemInfo.name);
-                Destroy(_itemInfo.gameObject);
+                if (!_questSwitcher.currentQuest) return;
+                foreach (string item in _questSwitcher.currentQuest.usingItems)
+                {
+                    if (item == _itemInfo.name)
+                    {
+                        ReceiveItem(_itemInfo.name);
+                        Destroy(_itemInfo.gameObject);
+                    }
+                }
+                return;
             }
+
+            ReceiveItem(_itemInfo.name);
+            Destroy(_itemInfo.gameObject);
         }
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-        
+
 
         for (int i = 0; i < 5; i++)
         {
@@ -80,14 +93,15 @@ public class ItemControl : MonoBehaviour
                 break;
             }
         }
-        if (freeSlotIndex == -1) return; 
+        if (freeSlotIndex == -1) return;
         _inventoryGameObjects[itemIndexInInventory].SetActive(false);
         itemIndexInInventory = infoName switch
         {
             "AK-74" => 0,
             "Empty bottle" => 1,
             "Lamb's blood" => 2,
-            "Gift of foresight" => 3
+            "Gift of foresight" => 3,
+            "Maze key" => 4
         };
         Image img = _inventorySprites[itemIndexInInventory];
         _inventoryGameObjects[itemIndexInInventory].SetActive(true);

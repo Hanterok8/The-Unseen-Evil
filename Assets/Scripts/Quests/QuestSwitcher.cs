@@ -12,7 +12,10 @@ public class QuestSwitcher : MonoBehaviour
     public Action onGivenQuest;
     public Action onPassedQuest;
     public Action<int> onReceivedCoinsByQuest;
+    public Action onAllQuestsCompleted;
+    public Action onAddedQuestStep;
 
+    public int interactedTargets = 0;
     private bool canQuestBeTaken;
     private PhotonView photonView;
     private const int SECONDS_ON_START = 7;
@@ -45,11 +48,22 @@ public class QuestSwitcher : MonoBehaviour
     }
     private void GiveNewQuest()
     {
+        if (leftQuests.Count == 0)
+        {
+            onAllQuestsCompleted?.Invoke();
+            return;
+        }
+        interactedTargets = 0;
         secondsBeforeNextQuest = SECONDS_ON_START;
         int randomQuest = UnityEngine.Random.Range(0, leftQuests.Count);
         currentQuest = leftQuests[randomQuest];
         leftQuests.Remove(leftQuests[randomQuest]);
         onGivenQuest?.Invoke();
+    }
+    public void AddQuestStep(int steps)
+    {
+        interactedTargets += steps;
+        onAddedQuestStep?.Invoke();
     }
 
 }

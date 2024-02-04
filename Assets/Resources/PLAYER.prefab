@@ -101,6 +101,7 @@ MonoBehaviour:
   - {fileID: 632833253210291807, guid: 930e00511bf7dc74db5dd2efdc6cf4bd, type: 3}
   - {fileID: 1885793852632665162, guid: c8d8966b78bfebb45bef893cdb91e55f, type: 3}
   - {fileID: 4586617436358527917, guid: c4675c81d3ca0284d96a486720e5a7e6, type: 3}
+  - {fileID: 7110653457783099416, guid: b153a8e678af8df4785962bfd2a1829e, type: 3}
   _distance: 3
   selected: 2
   _slots: []
@@ -182,6 +183,7 @@ MonoBehaviour:
   secondsBeforeNextQuest: 0
   completedQuest: []
   currentQuest: {fileID: 0}
+  interactedTargets: 0
 --- !u!1001 &6903312222116822648
 PrefabInstance:
   m_ObjectHideFlags: 0

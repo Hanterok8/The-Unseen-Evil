@@ -29,6 +29,8 @@ TagManager:
   - SpiritsZone
   - AmmoCount
   - Hint
+  - BloodHint
+  - MazeGates
   layers:
   - Default
   - TransparentFX
@@ -39,7 +41,7 @@ TagManager:
   - Pickable
   - Player
   - Demon
-  - 
+  - GatesInMaze
   - 
   - 
   - 
