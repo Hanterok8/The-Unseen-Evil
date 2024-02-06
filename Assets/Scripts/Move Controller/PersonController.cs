@@ -129,5 +129,14 @@ public class PersonController : MonoBehaviour
             _speed = 3;
         }
     }
-    
+
+    internal void LookAtDemon(Transform demon)
+    {
+        transform.LookAt(demon);
+    }
+
+    internal void KickPlayer()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
 }

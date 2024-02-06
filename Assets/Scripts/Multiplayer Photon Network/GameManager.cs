@@ -8,6 +8,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private GameObject playerPrefab;
+    
 
     private void Awake()
     {

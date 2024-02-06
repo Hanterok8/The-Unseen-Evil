@@ -83,6 +83,7 @@ MonoBehaviour:
   residentPrefab: {fileID: 3470049310683012215, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
   demonPrefab: {fileID: 1115505141538682346, guid: 473982180ba583c4587a19887f7b56b4, type: 3}
   photonView: {fileID: 0}
+  currentLivingPlayer: {fileID: 0}
 --- !u!114 &8872150382153344279
 MonoBehaviour:
   m_ObjectHideFlags: 0

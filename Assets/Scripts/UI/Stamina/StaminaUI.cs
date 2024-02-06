@@ -2,7 +2,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
-//[RequireComponent(typeof(PhotonView))]
 public class StaminaUI : MonoBehaviour
 {
     private TMP_Text _staminaTextUI;

@@ -8,7 +8,7 @@ public class OnAimodipsisMode : MonoBehaviour
     [SerializeField] private GameObject residentPrefab;
     [SerializeField] private GameObject demonPrefab;
     [SerializeField] private PhotonView photonView;
-    private CurrentPlayer currentLivingPlayer;
+    [SerializeField] private CurrentPlayer currentLivingPlayer;
     private BloodlustSettings bloodLust;
     private bool isPlayerBecomeDemon;
     private IsAimodipsis isAimodipsisMode;
@@ -16,7 +16,7 @@ public class OnAimodipsisMode : MonoBehaviour
     void Start()
     {
         isAimodipsisMode = GetComponent<IsAimodipsis>();
-        currentLivingPlayer = FindObjectOfType<CurrentPlayer>();
+        currentLivingPlayer = GetComponent<CurrentPlayer>();
         photonView = GetComponent<PhotonView>();
         //photonView = currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         bloodLust = GetComponent<BloodlustSettings>();
