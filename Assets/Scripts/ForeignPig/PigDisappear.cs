@@ -35,6 +35,9 @@ public class PigDisappear : MonoBehaviour
     }
     private void Disappear()
     {
+        GameObject player = pigQuestEnd.gameObject;
+        GameObject playerModel = player.GetComponent<CurrentPlayer>().CurrentPlayerModel;
+        transform.LookAt(playerModel.transform);
         uglyFace.SetActive(true);
         normalFace.SetActive(false);
         Destroy(gameObject, 1);
