@@ -1,8 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Pun;
-//[RequireComponent(typeof(PhotonView))]
 public class BloodlustUI : MonoBehaviour
 {
     [SerializeField] private Image bloodlustUI;

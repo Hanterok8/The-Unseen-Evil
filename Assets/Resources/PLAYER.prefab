@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -7124927950923978891}
   - component: {fileID: 4620161218603573376}
   - component: {fileID: 342703972756350915}
+  - component: {fileID: 482025179540012255}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: PlayerInstance
@@ -180,10 +181,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftQuests:
   - {fileID: 11400000, guid: d7d017d654217c140b62fbb6993b800a, type: 2}
+  - {fileID: 11400000, guid: 07662a17a1c8c9e498a55f913459afd0, type: 2}
   secondsBeforeNextQuest: 0
   completedQuest: []
   currentQuest: {fileID: 0}
   interactedTargets: 0
+--- !u!114 &482025179540012255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2435702076327006110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b82c31009f7ce2548ac680c3205cd49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6903312222116822648
 PrefabInstance:
   m_ObjectHideFlags: 0
