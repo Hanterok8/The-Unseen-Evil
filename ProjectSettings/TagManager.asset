@@ -32,6 +32,7 @@ TagManager:
   - BloodHint
   - MazeGates
   - Recipe
+  - ForeignPig
   layers:
   - Default
   - TransparentFX
