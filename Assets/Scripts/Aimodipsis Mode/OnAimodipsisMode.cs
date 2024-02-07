@@ -10,6 +10,11 @@ public class OnAimodipsisMode : MonoBehaviour
     [SerializeField] private GameObject demonPrefab;
     [SerializeField] private PhotonView photonView;
     [SerializeField] private CurrentPlayer currentLivingPlayer;
+    [SerializeField] private AudioClip _demonSound;
+    [SerializeField] private AudioClip _demonVoplSound;
+    [SerializeField] private AudioSource _demonSource;
+    [SerializeField] private AudioSource _demonVoplSource;
+    private CurrentPlayer currentLivingPlayer;
     private BloodlustSettings bloodLust;
     private bool isPlayerBecomeDemon;
     private IsAimodipsis isAimodipsisMode;
@@ -30,10 +35,12 @@ public class OnAimodipsisMode : MonoBehaviour
         if (bloodLust._demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !isAimodipsisMode.isAimodipsis)
         {
             RebornPlayer(demonPrefab, true);
+            _demonSource.PlayOneShot(_demonSound);
         }
         else if (isAimodipsisMode.isAimodipsis && bloodLust._demonBloodlust <= 0)
         {
             RebornPlayer(residentPrefab, false);
+            _demonVoplSource.PlayOneShot(_demonVoplSound);
         }
     }
     private void RebornPlayer(GameObject prefabToSpawn, bool aimodipsisModeTurnTo)

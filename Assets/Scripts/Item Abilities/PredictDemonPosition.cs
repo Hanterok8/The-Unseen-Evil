@@ -7,6 +7,8 @@ public class PredictDemonPosition : MonoBehaviour
     [SerializeField] private GameObject particlesEffect;
     [SerializeField] private LayerMask layerWithDemon;
     [SerializeField] private GameObject myParent;
+    [SerializeField] private AudioSource _magicSourse;
+    [SerializeField] private AudioClip _magicClip;
     private GameObject Player;
     private const int MAX_DISTANCE = 30;
     private Collider[] demonAround;
@@ -31,6 +33,7 @@ public class PredictDemonPosition : MonoBehaviour
         if (!photonView.IsMine || !transform.GetChild(0).gameObject.activeSelf) return;
         if (Input.GetMouseButtonDown(0) && !isUsingAbility)
         {
+            _magicSourse.PlayOneShot(_magicClip);
             Debug.Log("tapped");
             ItemControl itemControl = Player.GetComponent<ItemControl>();
             itemControl.TakeAwayItem(itemControl.selected);
