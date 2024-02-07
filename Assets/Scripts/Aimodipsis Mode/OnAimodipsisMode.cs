@@ -1,6 +1,7 @@
 using Photon.Pun;
 using Photon.Voice.Unity;
 using UnityEngine;
+using UnityEngine.Animations;
 
 [RequireComponent(typeof(BloodlustSettings))]
 public class OnAimodipsisMode : MonoBehaviour

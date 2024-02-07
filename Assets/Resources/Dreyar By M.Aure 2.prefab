@@ -1193,6 +1193,7 @@ GameObject:
   - component: {fileID: 964770410627039602}
   - component: {fileID: 63245400453785277}
   - component: {fileID: 7517021887645514651}
+  - component: {fileID: 5640493138995958709}
   m_Layer: 7
   m_Name: Dreyar By M.Aure 2
   m_TagString: Player
@@ -1521,6 +1522,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3231901e8c4c51049bfa629c1de71151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5640493138995958709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3470049310683012215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41864667025e7ac4d94c9041d99c0bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3550321043067029588

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ForeignPig
   m_EditorClassIdentifier: 
   _name: Foreign Pig
-  _description: Find a pig that doesn't look like an ordinary one
+  _description: "\xB7 Find a pig that doesn't look like an ordinary one"
   _requiredTargets: 1
   _usingItems: []

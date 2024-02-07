@@ -33,6 +33,7 @@ TagManager:
   - MazeGates
   - Recipe
   - ForeignPig
+  - Anomaly
   layers:
   - Default
   - TransparentFX

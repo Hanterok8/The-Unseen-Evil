@@ -74,7 +74,7 @@ public class DemonAbilities : MonoBehaviour
         killedPlayer.transform.localPosition += new Vector3(0f, 0.75f, 0f);
         residentController.SetKinematicModeForRigidbody();
         residentController.LookAtDemon(transform);
-        residentController.KickPlayer();
+        //residentController.KickPlayer();
         playerAnimator = residentController.animator;
         photonView.RPC(nameof(ChangePlayerAnimationRPC), RpcTarget.All, 7);
         GameObject particleSystem = PhotonNetwork.Instantiate
