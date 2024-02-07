@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,8 @@ public class ItemControl : MonoBehaviour
     [SerializeField] private LayerMask _layer;
     [SerializeField] private Image[] _inventorySprites;
     [SerializeField] private float _distance;
-    private GameObject[] _inventoryGameObjects;
+    [SerializeField] private GameObject[] _inventoryGameObjects;
+    [SerializeField] private GameObject demonPrefab;
     public int selected;
     public Transform[] _slots;
     private Transform[] _outlines;
@@ -36,6 +38,7 @@ public class ItemControl : MonoBehaviour
             _outlines[i] = outlineChildren.GetChild(i);
         }
         _outlines[selected].gameObject.SetActive(true);
+        _inventoryGameObjects = _currentLivingPlayer.CurrentPlayerModel.GetComponent<Items>().ItemGameObjects;
     }
 
     void Update()
@@ -44,7 +47,7 @@ public class ItemControl : MonoBehaviour
         if (_photonView == null) _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
         if (_camera == null) _camera = Camera.main;
         if (!_photonView.IsMine) return;
-        if (_inventoryGameObjects == null) _inventoryGameObjects = _currentLivingPlayer.CurrentPlayerModel.GetComponent<Items>().ItemGameObjects;
+
         RaycastHit hit;
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, _distance, _layer) && Input.GetKeyDown(KeyCode.E))
@@ -94,6 +97,10 @@ public class ItemControl : MonoBehaviour
             }
         }
         if (freeSlotIndex == -1) return;
+        if (_inventoryGameObjects[0] == null && _currentLivingPlayer.CurrentPlayerModel != demonPrefab)
+        {
+            _inventoryGameObjects = _currentLivingPlayer.CurrentPlayerModel.GetComponent<Items>().ItemGameObjects;
+        }
         _inventoryGameObjects[itemIndexInInventory].SetActive(false);
         itemIndexInInventory = infoName switch
         {
@@ -125,6 +132,10 @@ public class ItemControl : MonoBehaviour
     }
     private void SelectAnotherSlot(int newSlotIndex)
     {
+        if (_inventoryGameObjects.Length == 0 || _inventoryGameObjects == null)
+        {
+            _inventoryGameObjects = _currentLivingPlayer.CurrentPlayerModel.GetComponent<Items>().ItemGameObjects;
+        }
         selected = newSlotIndex;
         _outlines[lastSlot].gameObject.SetActive(false);
         _outlines[selected].gameObject.SetActive(true);

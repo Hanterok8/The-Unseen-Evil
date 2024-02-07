@@ -1191,9 +1191,6 @@ GameObject:
   - component: {fileID: 1110916836487560904}
   - component: {fileID: 4579140868872128453}
   - component: {fileID: 964770410627039602}
-  - component: {fileID: 63245400453785277}
-  - component: {fileID: 7517021887645514651}
-  - component: {fileID: 5640493138995958709}
   m_Layer: 7
   m_Name: Dreyar By M.Aure COMMIT COPY
   m_TagString: Player
@@ -1497,45 +1494,6 @@ MonoBehaviour:
   - {fileID: 6997791080741310442}
   - {fileID: 7285845088329916943}
   - {fileID: 3070948402232279348}
---- !u!114 &63245400453785277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470049310683012215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99e49a17949b4c34d930965b2db5cc79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1024
---- !u!114 &7517021887645514651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470049310683012215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3231901e8c4c51049bfa629c1de71151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5640493138995958709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470049310683012215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41864667025e7ac4d94c9041d99c0bcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3550321043067029588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,6 +1961,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   myParent: {fileID: 3470049310683012215}
+  _magicSourse: {fileID: 0}
+  _magicClip: {fileID: 0}
 --- !u!1 &5544569685186282092
 GameObject:
   m_ObjectHideFlags: 0

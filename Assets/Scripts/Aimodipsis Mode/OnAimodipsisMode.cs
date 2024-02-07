@@ -9,7 +9,6 @@ public class OnAimodipsisMode : MonoBehaviour
     [SerializeField] private GameObject residentPrefab;
     [SerializeField] private GameObject demonPrefab;
     [SerializeField] private PhotonView photonView;
-    [SerializeField] private CurrentPlayer currentLivingPlayer;
     [SerializeField] private AudioClip _demonSound;
     [SerializeField] private AudioClip _demonVoplSound;
     [SerializeField] private AudioSource _demonSource;
