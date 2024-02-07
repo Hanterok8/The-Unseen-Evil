@@ -968,7 +968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.99984, y: 0}
+  m_AnchoredPosition: {x: -4.999832, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &392082107
@@ -1174,7 +1174,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.99984, y: 0}
+  m_AnchoredPosition: {x: -4.999832, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &499005503
@@ -1396,7 +1396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.99984, y: 0}
+  m_AnchoredPosition: {x: -4.999832, y: 0}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561954130
@@ -1821,9 +1821,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b37be4b2eb21b24784dc4101215d69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume1Parametr: MasterVolume
-  volume2Parametr: MasterVolume
-  volume3Parametr: MasterVolume
+  volume1Parametr: MagicVolume
+  volume2Parametr: DemonOn
+  volume3Parametr: DemonOff
   volume4Parametr: MasterVolume
   volume5Parametr: MasterVolume
   volume6Parametr: MasterVolume
@@ -2198,7 +2198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.99984, y: 0}
+  m_AnchoredPosition: {x: -4.999832, y: 0}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1191804080
@@ -2327,8 +2327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b37be4b2eb21b24784dc4101215d69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume1Parametr: MasterVolume
-  volume2Parametr: MasterVolume
+  volume1Parametr: ShotVolume
+  volume2Parametr: ReloadVolume
   volume3Parametr: MasterVolume
   volume4Parametr: MasterVolume
   volume5Parametr: MasterVolume
@@ -3069,12 +3069,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b37be4b2eb21b24784dc4101215d69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume1Parametr: MasterVolume
-  volume2Parametr: MasterVolume
-  volume3Parametr: MasterVolume
-  volume4Parametr: MasterVolume
-  volume5Parametr: MasterVolume
-  volume6Parametr: MasterVolume
+  volume1Parametr: StepVolume
+  volume2Parametr: ShotVolume
+  volume3Parametr: ReloadVolume
+  volume4Parametr: MagicVolume
+  volume5Parametr: DemonOn
+  volume6Parametr: DemonOff
   audioMixer: {fileID: 24100000, guid: 04efae6f24072f245b6fc3888b9bd793, type: 2}
   slider: {fileID: 1521407397}
 --- !u!1 &1522033520
@@ -3263,8 +3263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b37be4b2eb21b24784dc4101215d69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume1Parametr: MasterVolume
-  volume2Parametr: MasterVolume
+  volume1Parametr: Menu
+  volume2Parametr: MenuPlay
   volume3Parametr: MasterVolume
   volume4Parametr: MasterVolume
   volume5Parametr: MasterVolume
@@ -3947,7 +3947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.99984, y: 0}
+  m_AnchoredPosition: {x: -4.999832, y: 0}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1732102761
@@ -4191,7 +4191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.99984, y: 0}
+  m_AnchoredPosition: {x: -4.999832, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1793205775
@@ -10511,7 +10511,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3583628217153961712, guid: 04efae6f24072f245b6fc3888b9bd793, type: 2}
-  m_audioClip: {fileID: 8300000, guid: a1eaa3045432eff45a9451681867be79, type: 3}
+  m_audioClip: {fileID: 8300000, guid: de45c1e4562424d428fa2d0aed651d71, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
