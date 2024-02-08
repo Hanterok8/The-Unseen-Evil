@@ -7,7 +7,6 @@ public class IsRecipeQuestActivatedChecker : MonoBehaviour
 {
     private RecipeOpener recipeOpener;
     private QuestSwitcher questSwitcher;
-    private const int COINS_FOR_QUEST = 1;
 
     void Start()
     {
@@ -31,6 +30,5 @@ public class IsRecipeQuestActivatedChecker : MonoBehaviour
     private void EndQuest()
     {
         questSwitcher.AddQuestStep(1);
-        questSwitcher.PassQuest(COINS_FOR_QUEST);
     }
 }

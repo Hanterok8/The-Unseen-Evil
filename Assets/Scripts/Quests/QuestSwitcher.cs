@@ -64,6 +64,10 @@ public class QuestSwitcher : MonoBehaviour
     {
         interactedTargets += steps;
         onAddedQuestStep?.Invoke();
+        if (interactedTargets == currentQuest.requiredTargets)
+        {
+            PassQuest(currentQuest.coinsForQuest);
+        }
     }
 
 }

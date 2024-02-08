@@ -16,3 +16,4 @@ MonoBehaviour:
   _description: "\xB7 Find the \"recipe\" of the altar"
   _requiredTargets: 1
   _usingItems: []
+  _coinsForQuest: 1

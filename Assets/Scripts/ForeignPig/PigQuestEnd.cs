@@ -5,7 +5,6 @@ public class PigQuestEnd : MonoBehaviour
 {
     private OnPigClicked pigClicked;
     private QuestSwitcher questSwitcher;
-    private const int COINS_FOR_QUEST = 2;
     public Action onQuestEnded;
 
     private void Start()
@@ -32,6 +31,5 @@ public class PigQuestEnd : MonoBehaviour
     {
         onQuestEnded?.Invoke();
         questSwitcher.AddQuestStep(1);
-        questSwitcher.PassQuest(COINS_FOR_QUEST);
     }
 }
