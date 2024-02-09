@@ -11,6 +11,10 @@ public class OnAnomalyEliminated : MonoBehaviour
         questSwitcher = GetComponent<QuestSwitcher>();
         touchingAnomaly.onAnomalyTouched += AddQuestProgress;
     }
+    private void OnDisable()
+    {
+        touchingAnomaly.onAnomalyTouched -= AddQuestProgress;
+    }
     private void AddQuestProgress()
     {
         if (questSwitcher.currentQuest.name == "Anomaly Eliminator")

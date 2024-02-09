@@ -77,6 +77,7 @@ public class DemonAbilities : MonoBehaviour
         //residentController.KickPlayer();
         playerAnimator = residentController.animator;
         photonView.RPC(nameof(ChangePlayerAnimationRPC), RpcTarget.All, 7);
+        residentController.animator.SetInteger("State", 7);
         GameObject particleSystem = PhotonNetwork.Instantiate
             (particlesAtKilling.name, killedPlayer.transform.position, Quaternion.Euler(-90, 0, 0));
         Invoke(nameof(DeleteParticles), time);

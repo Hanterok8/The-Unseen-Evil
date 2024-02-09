@@ -3,25 +3,23 @@ using UnityEngine;
 
 public class HoldController : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
-    [SerializeField] private Animator _animator;
+    private PersonController _personController;
 
     private PhotonView _photonView;
-    private int _state;
     private void Start()
-=> _photonView = transform.parent.GetComponent<PhotonView>();
+    {
+        _photonView = GetComponent<PhotonView>();
+        _personController = GetComponent<PersonController>();
+    }
     private void Update()
     {
-        if (_photonView == null) _photonView = GetComponent<PhotonView>();
         if (_photonView.IsMine) HoldInput();
-
     }
     private void HoldInput()
     {
         if (Input.GetKey(KeyCode.Y))
         {
-            _state = 30;
+            _personController.ChangePlayerAnimation(30);
         }
-        _animator.SetInteger("State", _state);
     }
 }

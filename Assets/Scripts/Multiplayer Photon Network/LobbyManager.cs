@@ -27,13 +27,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
 =>      Log("Connected to master");
 
-    //private string RandomLetter()
-    //{
-    //    System.Random rnd = new System.Random();
-    //    char randomChar = (char)rnd.Next('a', 'z');
-    //    char upperChar = char.ToUpper(randomChar);
-    //    return upperChar.ToString();
-    //}
 
     public void CreateRoom()
     {
@@ -45,7 +38,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = maximumPlayers;
         roomOptions.IsVisible = isRoomVisible;
-        //string randomLetter = RandomLetter();
         Log("Trying to join room " + createdRoomName);
         PhotonNetwork.CreateRoom(createdRoomName, roomOptions);
 
