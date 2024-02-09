@@ -67,7 +67,7 @@ public class CameraController : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -Y_LOOK_LIMIT, Y_LOOK_LIMIT);
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        Player.rotation = Quaternion.Euler(0, yRotation, 0);
+        Player.rotation = Quaternion.Euler(0, yRotation+1, 0);
     }
     private void SetNewFOV(int newCameraFOV)
     {
