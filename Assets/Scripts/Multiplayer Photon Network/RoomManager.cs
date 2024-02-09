@@ -13,6 +13,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [SerializeField] private Transform playerListContent;
     [SerializeField] private GameObject playerlistPrefab;
     private PhotonView photonView;
+    public static string DemonNickName;
     private string DemonNickname;
     void Start()
     {
@@ -38,7 +39,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [PunRPC]
     private void SetDemonNick()
     {
-        GameManager.DemonNickName = DemonNickname;
+        DemonNickName = DemonNickname;
     }
 
     private void RecreatePlayerInRoomList()

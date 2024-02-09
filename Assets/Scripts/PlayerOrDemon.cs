@@ -10,7 +10,7 @@ public class PlayerOrDemon : MonoBehaviour
     private void Start()
     {
         photonView = GetComponent<PhotonView>();
-        if (photonView.Owner.NickName == GameManager.DemonNickName)
+        if (photonView.Owner.NickName == RoomManager.DemonNickName)
         {
             isDemon = true;
             GetComponent<OnAimodipsisMode>().enabled = true;

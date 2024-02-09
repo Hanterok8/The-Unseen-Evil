@@ -8,7 +8,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private GameObject playerPrefab;
-    public static string DemonNickName;
+    
 
     private void Awake()
     {

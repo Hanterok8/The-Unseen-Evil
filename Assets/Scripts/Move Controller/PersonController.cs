@@ -1,9 +1,11 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Animator))]
-public class PersonController : MonoBehaviour
+public class PersonController : MonoBehaviourPunCallbacks
 {
     [SerializeField] public float _speed = 3f;
     [SerializeField] public float _maxSpeed = 4f;
@@ -137,6 +139,12 @@ public class PersonController : MonoBehaviour
 
     internal void KickPlayer()
     {
-        PhotonNetwork.LeaveRoom();
+        if (!_photonView.IsMine) return;
+        PhotonNetwork.Disconnect();
     }
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
 }

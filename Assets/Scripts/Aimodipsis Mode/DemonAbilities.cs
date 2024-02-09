@@ -43,18 +43,6 @@ public class DemonAbilities : MonoBehaviour
         currentPlayerParam.GetComponent<PersonController>().ChangePlayerAnimation(7);
     }
 
-    private void UnfreezeDemon() => GetComponent<DemonController>().isDemonFrozen = false;
-    private void DeleteParticles()
-    {
-        PhotonNetwork.Destroy(currentParticlesParam);
-    }
-    private IEnumerator ResetCooldown(int cooldownTime)
-    {
-        inCooldown = true;
-        yield return new WaitForSeconds(cooldownTime);
-        inCooldown = false;
-    }
-
     [PunRPC]
     private void KillPlayerRPC(int time, string playerNickname)
     {
@@ -74,10 +62,9 @@ public class DemonAbilities : MonoBehaviour
         killedPlayer.transform.localPosition += new Vector3(0f, 0.75f, 0f);
         residentController.SetKinematicModeForRigidbody();
         residentController.LookAtDemon(transform);
-        //residentController.KickPlayer();
+        residentController.KickPlayer();
         playerAnimator = residentController.animator;
         photonView.RPC(nameof(ChangePlayerAnimationRPC), RpcTarget.All, 7);
-        residentController.animator.SetInteger("State", 7);
         GameObject particleSystem = PhotonNetwork.Instantiate
             (particlesAtKilling.name, killedPlayer.transform.position, Quaternion.Euler(-90, 0, 0));
         Invoke(nameof(DeleteParticles), time);
@@ -88,6 +75,23 @@ public class DemonAbilities : MonoBehaviour
     private void ChangePlayerAnimationRPC(int animationState)
     {
         playerAnimator.SetInteger("State", animationState);
+    }
+    private void DeleteParticles()
+    {
+        photonView.RPC(nameof(DestroyParticlesRPC), RpcTarget.All);
+    }
+    [PunRPC]
+    private void DestroyParticlesRPC()
+    {
+        Destroy(currentParticlesParam);
+    }
+    private void UnfreezeDemon() => GetComponent<DemonController>().isDemonFrozen = false;
+
+    private IEnumerator ResetCooldown(int cooldownTime)
+    {
+        inCooldown = true;
+        yield return new WaitForSeconds(cooldownTime);
+        inCooldown = false;
     }
 
 }
