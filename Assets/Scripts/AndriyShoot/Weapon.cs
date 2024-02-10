@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class Weapon : MonoBehaviour
@@ -27,12 +26,11 @@ public class Weapon : MonoBehaviour
     public AudioSource AudioSource;
     public AudioSource audioReload;
 
-    private Camera Cam;
+    [SerializeField] Camera Cam;
 
     private TMP_Text Ammo;
     private void Start()
     {
-        Cam = Camera.main;
         Ammo = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<TMP_Text>();
     }
     void Update()
@@ -63,7 +61,7 @@ public class Weapon : MonoBehaviour
 
         RaycastHit Hit;
 
-        if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out Hit, Range))
+        if (Physics.Raycast(bulletSpawn.transform.position, bulletSpawn.transform.forward, out Hit, Range))
         {
             GameObject ImpactGO = Instantiate(hitEffect, Hit.point, Quaternion.LookRotation(Hit.normal));
             Destroy(ImpactGO, 2f);

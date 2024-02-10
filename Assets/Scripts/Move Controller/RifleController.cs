@@ -24,19 +24,21 @@ public class RifleController : MonoBehaviour
         {
             _personController.ChangePlayerAnimation(20);
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            _personController.ChangePlayerAnimation(22);
+            mainCamera.enabled = false;
+            AIMCamera.enabled = true;
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            _personController.ChangePlayerAnimation(21);
+            mainCamera.enabled = true;
+            AIMCamera.enabled = false;
+        }
         if (Input.GetKey(KeyCode.T))
         {
             _personController.ChangePlayerAnimation(21);
-            if (Input.GetMouseButtonDown(1))
-            {
-                mainCamera.enabled = false;
-                AIMCamera.enabled = true;
-            }
-            if (Input.GetMouseButtonUp(1))
-            {
-                mainCamera.enabled = true;
-                AIMCamera.enabled = false;
-            }
-        }       
+        }
     }
 }
