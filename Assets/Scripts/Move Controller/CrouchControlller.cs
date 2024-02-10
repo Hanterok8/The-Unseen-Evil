@@ -53,6 +53,15 @@ public class CrouchControlller : MonoBehaviour
             GetComponent<PersonController>().enabled = true;
             _state = 0;
         }
-        _animator.SetInteger("State", _state);
+        ChangeCrouchAnimation(_state);
+    }
+    public void ChangeCrouchAnimation(int playerState)
+    {
+        _photonView.RPC(nameof(ChangeAnimationRPC), RpcTarget.All, playerState);
+    }
+    [PunRPC]
+    private void ChangeAnimationRPC(int animationState)
+    {
+        _animator.SetInteger("State", animationState);
     }
 }

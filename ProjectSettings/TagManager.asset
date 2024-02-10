@@ -34,6 +34,7 @@ TagManager:
   - Recipe
   - ForeignPig
   - Anomaly
+  - Spectator
   layers:
   - Default
   - TransparentFX

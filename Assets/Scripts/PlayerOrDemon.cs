@@ -9,6 +9,7 @@ public class PlayerOrDemon : MonoBehaviour
     //private bool isChecked = false;
     private void Start()
     {
+        PhotonNetwork.SetMasterClient(RoomManager.DemonPlayer);
         photonView = GetComponent<PhotonView>();
         if (photonView.IsMine && PhotonNetwork.IsMasterClient)    
         {

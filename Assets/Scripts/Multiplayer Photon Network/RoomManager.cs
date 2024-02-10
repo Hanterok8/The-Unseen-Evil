@@ -12,7 +12,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     [SerializeField] private Transform playerListContent;
     [SerializeField] private GameObject playerlistPrefab;
-    private Player DemonPlayer;
+    public static Player DemonPlayer;
     void Start()
     {
         Player player = PhotonNetwork.PlayerList[0];
@@ -31,7 +31,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.IsVisible = false;
         PlayerModeSet();
         PhotonNetwork.LoadLevel("PlayLocation");
-        PhotonNetwork.SetMasterClient(DemonPlayer);
     }
 
     private void RecreatePlayerInRoomList()

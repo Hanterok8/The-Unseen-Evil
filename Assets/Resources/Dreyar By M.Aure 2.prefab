@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 8016230631410983}
   - component: {fileID: 725258875326965843}
   - component: {fileID: 187724314771387701}
+  - component: {fileID: 2769697062488827277}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -434,9 +435,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0e9f62a9b6ae840afe784e9f6bbea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensetivityMouse: 100
+  sensitivityMouse: 100
   Player: {fileID: 3065900204679136333}
-  _photonView: {fileID: 0}
+--- !u!114 &2769697062488827277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649439847445909589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1657250135692785622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1281,7 @@ MonoBehaviour:
   _maxSpeed: 4
   _minSpeed: 2
   _ground: 0
+  spectatorPlayer: {fileID: 1104296795575374734, guid: 3cf42f1700b9fc34c99d4703d448de45, type: 3}
   AxesSpeed: {x: 0, y: 0}
   state: 0
   isRunning: 0
@@ -1288,8 +1311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46dbef3a5d442654da864f708096fb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 8016230631410983}
-  AIMCamera: {fileID: 305662018599805056}
+  mainCamera: {fileID: 1649439847445909589}
+  AIMCamera: {fileID: 6854424501122190128}
 --- !u!114 &8476407132248776419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1666,6 +1689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e49a17949b4c34d930965b2db5cc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 8016230631410983}
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -1681,6 +1705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3231901e8c4c51049bfa629c1de71151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 8016230631410983}
 --- !u!114 &8029907373491654442
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,18 +1,22 @@
 using Photon.Pun;
+using UnityEngine;
 
 public class PlayerNickName : MonoBehaviourPunCallbacks
 {
-    private string _nickName;
+    [SerializeField] private string _nickName;
     public string nickName => this._nickName;
-    private CurrentPlayer _currentLivingPlayer;
     private PhotonView _photonView;
     private void Awake()
     {
-        _currentLivingPlayer = FindObjectOfType<CurrentPlayer>();
-        _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
+        _photonView = GetComponent<PhotonView>();
         if (_photonView.IsMine)
         {
-            _nickName = PhotonNetwork.NickName;
+            photonView.RPC(nameof(SetNickname), RpcTarget.All);
         }
+    }
+    [PunRPC]
+    private void SetNickname()
+    {
+        _nickName = photonView.Owner.NickName;
     }
 }
