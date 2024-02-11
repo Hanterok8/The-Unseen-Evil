@@ -6,7 +6,7 @@ public class CharachterController : MonoBehaviour
     [SerializeField] private Rigidbody _playerRigidbody;
 
     [SerializeField] private Transform _mainCamera;
-    [SerializeField] private float _movementWalkSpeed = 1f;
+    [SerializeField] private float _movementWalkSpeed = 2f;
 
     private Vector3 _movementVector;
     void Start()
@@ -43,6 +43,16 @@ public class CharachterController : MonoBehaviour
         Vector3 relativeVector = transform.InverseTransformDirection(movementVector);
         _playerAnimator.SetFloat("Horizontal", relativeVector.x);
         _playerAnimator.SetFloat("Vertical", relativeVector.z);
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            _movementWalkSpeed = 4f;
+            Run();
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            _movementWalkSpeed = 2f;
+            UnRun();
+        }
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             Crouch();
@@ -53,6 +63,14 @@ public class CharachterController : MonoBehaviour
         }
 
         return movementVector;
+    }
+    private void Run()
+    {
+        _playerAnimator.SetBool("isRunning", true);
+    }
+    private void UnRun()
+    {
+        _playerAnimator.SetBool("isRunning", false);
     }
     private void Crouch()
     {
