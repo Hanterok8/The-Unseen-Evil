@@ -64,7 +64,7 @@ public class SpectatorCamera : MonoBehaviour
         currentSpectatingPlayer = players[currentPlayerIndex].transform;
         transform.position = currentSpectatingPlayer.position + distance;
         transform.parent = currentSpectatingPlayer.transform;
-        transform.LookAt(currentSpectatingPlayer);
+        transform.LookAt(currentSpectatingPlayer.position + new Vector3(0, 1, 0));
 
         GameObject playerParent = GetPlayerParent(players[currentPlayerIndex]);
         string nickOfSpectatingPlayer = playerParent.GetComponent<PlayerNickName>().nickName;
@@ -76,7 +76,7 @@ public class SpectatorCamera : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * sensitivityMouse * Time.deltaTime;
         yRotation += mouseX;
         
-        transform.RotateAround(currentSpectatingPlayer.position, new Vector3(0, 1, 0), mouseX * 25   * Time.deltaTime);
+        transform.RotateAround(currentSpectatingPlayer.position, new Vector3(0, 1, 0), mouseX * 35  * Time.deltaTime);
         //transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
     }
 }

@@ -72,6 +72,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
                 if (ourNickName == otherPlayersNickName && i != j)
                 {
                     PhotonNetwork.PlayerList[j].NickName += "1";
+                    ChangeSameNickNames();
+                    return;
                 }
             }
         }
