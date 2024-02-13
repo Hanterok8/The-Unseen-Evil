@@ -196,6 +196,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ff072f623b0b76941ac30ca0d3c7b9ea, type: 2}
   - {fileID: 11400000, guid: ac39b5c5c93cfcb4f89678ceb3d1860c, type: 2}
   secondsBeforeNextQuest: 0
+  extraQuest: {fileID: 11400000, guid: 9fa4809c3c287f34e8c68a7f5dc80d94, type: 2}
   completedQuest: []
   currentQuest: {fileID: 0}
   interactedTargets: 0

@@ -1,22 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class RewardForGhost : MonoBehaviour
 {
-    CoinKeeper coin;
+    private QuestSwitcher questSwitcher;
     public void Start()
     {
-        CoinKeeper coin = GetComponent<CoinKeeper>();
+        questSwitcher = GetComponent<QuestSwitcher>();
     }
-    public void GiveReward(int CountsOfCoins ) 
+    public void GiveReward(int CountsOfCoins)
     {
-        if (coin != null) 
-        {
-            coin.AddCoins(CountsOfCoins);
-            Debug.Log("дало");
-        }
-        Destroy(gameObject);
+     ;
     }
 }

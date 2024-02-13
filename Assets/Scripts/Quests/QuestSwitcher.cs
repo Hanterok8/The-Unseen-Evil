@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class QuestSwitcher : MonoBehaviour
 {
-    [SerializeField] private List<QuestData> leftQuests = new List<QuestData>();
+    [SerializeField] public List<QuestData> leftQuests = new List<QuestData>();
     [SerializeField] private int secondsBeforeNextQuest;
+
+    [Tooltip("The quest that requires some items in order to complete it.")] 
+    [SerializeField] public QuestData extraQuest;
+
     public List<QuestData> completedQuest = new List<QuestData>();
     public QuestData currentQuest;
     public Action onGivenQuest;

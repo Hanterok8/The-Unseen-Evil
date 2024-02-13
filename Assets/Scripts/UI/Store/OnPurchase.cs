@@ -7,6 +7,9 @@ public class OnPurchase : MonoBehaviour
     [SerializeField] private TMP_Text _itemName;
     [SerializeField] private ItemCost _coinsPrice;
     public int lastClickedButtonID;
+    private GameObject player;
+    private void Awake()
+    => player = GameObject.FindGameObjectWithTag("PlayerInstance");
     public void OnPurchasingItem()
     {
         CoinKeeper coinKeeper = FindObjectOfType<CoinKeeper>();
@@ -14,6 +17,7 @@ public class OnPurchase : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("PlayerInstance");
         ItemControl itemControl = player.GetComponent<ItemControl>();
         itemControl.ReceiveItem(_itemName.text);
+        ActiveSomeQuests();
         coinKeeper.SubtractCoins(_coinsPrice.price);
         ItemID[] itemButtons = FindObjectsOfType<ItemID>();
         for(int i = 0;i < itemButtons.Length; i++)
@@ -26,4 +30,13 @@ public class OnPurchase : MonoBehaviour
         }
         GetComponent<Button>().interactable = false;
     }
+    private void ActiveSomeQuests()
+    {
+        if (_itemName.text == "AK-74")
+        {
+            QuestSwitcher questSwitcher= player.GetComponent<QuestSwitcher>();
+            questSwitcher.leftQuests.Add(questSwitcher.extraQuest);
+        }
+    }
 }
+
