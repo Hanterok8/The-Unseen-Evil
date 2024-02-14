@@ -40,7 +40,6 @@ public class DemonAbilities : MonoBehaviour
     public void KillInhabitant(int timeToKill)
     {
         photonView.RPC(nameof(KillPlayerRPC), RpcTarget.All, timeToKill, currentPlayerParam.GetComponent<PhotonView>().Owner.NickName);
-        currentPlayerParam.GetComponent<PersonController>().ChangePlayerAnimation(7);
     }
 
     [PunRPC]
@@ -56,14 +55,14 @@ public class DemonAbilities : MonoBehaviour
                 break;
             }
         }
-        PersonController residentController = killedPlayer.GetComponent<PersonController>();
-        residentController.SetNewFrozenValue(true);
+        CharacterController residentController = killedPlayer.GetComponent<CharacterController>();
+        //residentController.SetNewFrozenValue(true);
         GetComponent<DemonController>().isDemonFrozen = true;
         killedPlayer.transform.localPosition += new Vector3(0f, 0.75f, 0f);
-        residentController.SetKinematicModeForRigidbody();
-        residentController.LookAtDemon(transform);
-        residentController.KickPlayer();
-        playerAnimator = residentController.animator;
+        //residentController.SetKinematicModeForRigidbody();
+        //residentController.LookAtDemon(transform);
+        //residentController.KickPlayer();
+        //playerAnimator = residentController.animator;
         photonView.RPC(nameof(ChangePlayerAnimationRPC), RpcTarget.All, 7);
         GameObject particleSystem = PhotonNetwork.Instantiate
             (particlesAtKilling.name, killedPlayer.transform.position, Quaternion.Euler(-90, 0, 0));

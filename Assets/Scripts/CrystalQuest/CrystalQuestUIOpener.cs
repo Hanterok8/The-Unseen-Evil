@@ -6,19 +6,19 @@ using UnityEngine;
 public class CrystalQuestUIOpener : OpenStore
 {
     private CrystalElements crystalElements;
-    private PersonController personController;
+    private CharacterController characterController;
     private QuestSwitcher questSwitcher;
 
     private void Start()
     {
         questSwitcher = GetQuestSwitcher();
-        personController = GetComponent<PersonController>();
+        characterController = GetComponent<CharacterController>();
         crystalElements = FindObjectOfType<CrystalElements>();
     }
     public override void SwapPlayerMovementState(bool enableTo)
     {
         base.SwapPlayerMovementState(enableTo);
-        personController.enabled = false;
+        characterController.enabled = false;
         GameObject crystalCanvas = crystalElements.crystalCanvas;
         crystalCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;

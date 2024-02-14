@@ -430,7 +430,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649439847445909589}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f0e9f62a9b6ae840afe784e9f6bbea9, type: 3}
   m_Name: 
@@ -1152,10 +1152,8 @@ GameObject:
   - component: {fileID: 1801269065406510372}
   - component: {fileID: 1481877639524880072}
   - component: {fileID: 4626557317557611518}
-  - component: {fileID: 6980809249479535450}
   - component: {fileID: 8661235625801893879}
   - component: {fileID: 5090191656197164472}
-  - component: {fileID: 8476407132248776419}
   - component: {fileID: 3889778718054288073}
   - component: {fileID: 4799168764283103533}
   - component: {fileID: 2892313214222753845}
@@ -1283,28 +1281,8 @@ MonoBehaviour:
   _playerRigidbody: {fileID: 0}
   _mainCamera: {fileID: 1162847930649953265}
   _movementWalkSpeed: 1
---- !u!114 &6980809249479535450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470049310683012215}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de86e7724451e204b9fe331eae17d1df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 15
-  _maxSpeed: 4
-  _minSpeed: 2
-  _ground: 0
-  spectatorPlayer: {fileID: 1104296795575374734, guid: 3cf42f1700b9fc34c99d4703d448de45, type: 3}
-  AxesSpeed: {x: 0, y: 0}
-  state: 0
   isRunning: 0
-  isInhabitantFrozen: 0
-  animator: {fileID: 0}
+  AxesSpeed: {x: 0, y: 0}
 --- !u!114 &8661235625801893879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1329,22 +1307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46dbef3a5d442654da864f708096fb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1649439847445909589}
-  AIMCamera: {fileID: 6854424501122190128}
---- !u!114 &8476407132248776419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470049310683012215}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31493202b2c6345448ddbd6853a497e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 1801269065406510372}
-  isCrouchFrozen: 0
+  mainCamera: {fileID: 8016230631410983}
+  AIMCamera: {fileID: 305662018599805056}
 --- !u!114 &3889778718054288073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3827,7 +3791,6 @@ MonoBehaviour:
   reloadSFX: {fileID: 8300000, guid: 31b23fc48b5a43147a4d4e5571e7966a, type: 3}
   AudioSource: {fileID: 8736647049544937295}
   audioReload: {fileID: 1419803855454381516}
-  Cam: {fileID: 0}
 --- !u!82 &8736647049544937295
 AudioSource:
   m_ObjectHideFlags: 0

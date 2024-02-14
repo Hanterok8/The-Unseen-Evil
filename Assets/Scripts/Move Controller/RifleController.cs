@@ -5,12 +5,12 @@ public class RifleController : MonoBehaviour
 {
     public Camera mainCamera;
     public Camera AIMCamera;
-    private CharachterController _charachterController;
+    private CharacterController _charachterController;
     private PhotonView _photonView;
     private void Start()
     {
         _photonView = GetComponent<PhotonView>();
-        _charachterController = GetComponent<CharachterController>();
+        _charachterController = GetComponent<CharacterController>();
     }
     private void Update()
     {
