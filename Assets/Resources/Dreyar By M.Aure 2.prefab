@@ -1169,6 +1169,7 @@ GameObject:
   - component: {fileID: 6788309797504859992}
   - component: {fileID: 2685224592581704332}
   - component: {fileID: 8029907373491654442}
+  - component: {fileID: 5280645982556885989}
   m_Layer: 7
   m_Name: Dreyar By M.Aure 2
   m_TagString: Player
@@ -1718,6 +1719,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41864667025e7ac4d94c9041d99c0bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5280645982556885989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3470049310683012215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf1e18e768e0e2408129d80e9f5deb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraController: {fileID: 187724314771387701}
+  weapon: {fileID: 8799213293950528838}
 --- !u!1 &3550321043067029588
 GameObject:
   m_ObjectHideFlags: 0
@@ -3696,6 +3711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04c7a312bcd5dc4eadb89f45ecd5ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   maxAmmo: 120
   ammoInClip: 30
   muzleFlash: {fileID: 1743301284569550, guid: e8ff2f1604b6a4d4ebed0318e558bba7, type: 3}
