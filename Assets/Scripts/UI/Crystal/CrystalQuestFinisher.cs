@@ -32,7 +32,7 @@ public class CrystalQuestFinisher : MonoBehaviour
         QuestSwitcher questSwitcher = player.GetComponent<QuestSwitcher>();
         questSwitcher.AddQuestStep(1);
         GameObject currentPlayerModel = player.GetComponent<CurrentPlayer>().CurrentPlayerModel;
-        currentPlayerModel.GetComponent<PersonController>().enabled = true;
+        currentPlayerModel.GetComponent<CharacterController>().enabled = true;
         OpenStore storeOpener = currentPlayerModel.GetComponent<OpenStore>();
         storeOpener.cameraController.enabled = true;
         storeOpener.weapon.enabled = true;

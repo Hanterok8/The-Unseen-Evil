@@ -120,14 +120,14 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
                     }
                 }
                 string definesString = string.Join(";", defines.ToArray());
-                PlayerSettings.SetScriptingDefineSymbolsForGroup(group, definesString);
+                UnityEditor.PlayerSettings.SetScriptingDefineSymbolsForGroup(group, definesString);
             }
         }
 
 
         private static List<string> GetDefinesList(BuildTargetGroup group)
         {
-            return new List<string>(PlayerSettings.GetScriptingDefineSymbolsForGroup(group).Split(';'));
+            return new List<string>(UnityEditor.PlayerSettings.GetScriptingDefineSymbolsForGroup(group).Split(';'));
         }
     }
 }

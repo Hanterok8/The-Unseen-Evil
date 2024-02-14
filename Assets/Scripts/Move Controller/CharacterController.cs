@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -12,6 +13,8 @@ public class CharacterController : MonoBehaviour
     public bool isRunning;
     private Vector3 _movementVector;
     public Vector2 AxesSpeed;
+    public Action<int> onChangedFOV;
+    private int newFOV = 60;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -32,6 +35,7 @@ public class CharacterController : MonoBehaviour
         if (_photonView.IsMine)
         {
             _movementVector = GetMovement();
+            onChangedFOV?.Invoke(newFOV);
             AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _movementWalkSpeed, Input.GetAxis("Vertical") * _movementWalkSpeed);
         }
     }
@@ -64,6 +68,7 @@ public class CharacterController : MonoBehaviour
         OnRun();
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
+            newFOV = 60;
             isRunning = false;
             _movementWalkSpeed = 2f;
             Run(false);
@@ -76,7 +81,7 @@ public class CharacterController : MonoBehaviour
         {
             Crouch(false);
         }
-
+        
         return movementVector;
     }
     [PunRPC]
@@ -101,6 +106,7 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             isRunning = true;
+            newFOV = 75;
             _movementWalkSpeed = 4f;
             Run(true);
         }

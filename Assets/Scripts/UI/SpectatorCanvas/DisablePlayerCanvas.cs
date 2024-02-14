@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class DisablePlayerCanvas : MonoBehaviour
 {
-    private CharacterController characterController;
+    private PlayerSetter playerSettings;
 
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        characterController = player.GetComponent<CharacterController>();
-       // characterController.onTransformedToSpectator += DisableCanvas;
+        playerSettings = player.GetComponent<PlayerSetter>();
+        playerSettings.onTransformedToSpectator += DisableCanvas;
     }
     private void OnDisable()
     {
-        //characterController.onTransformedToSpectator -= DisableCanvas;
+        playerSettings.onTransformedToSpectator -= DisableCanvas;
     }
     public virtual void DisableCanvas()
     {
