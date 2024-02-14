@@ -13,7 +13,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public string createdRoomName;
     public bool isRoomVisible = true;
 
-    public int sensetivityInGame = -1;
+    public int sensitivityInGame = -1;
     void Start()
     {
         PlayerPrefs.DeleteAll();
@@ -27,13 +27,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
 =>      Log("Connected to master");
 
-    //private string RandomLetter()
-    //{
-    //    System.Random rnd = new System.Random();
-    //    char randomChar = (char)rnd.Next('a', 'z');
-    //    char upperChar = char.ToUpper(randomChar);
-    //    return upperChar.ToString();
-    //}
 
     public void CreateRoom()
     {
@@ -41,11 +34,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             return;
         if(playerNickname != "player nickname is not entered")
             PhotonNetwork.NickName = playerNickname;
-        PlayerPrefs.SetInt("Sensetivity", sensetivityInGame == -1 ? 100 : sensetivityInGame);
+        PlayerPrefs.SetInt("Sensitivity", sensitivityInGame == -1 ? 100 : sensitivityInGame);
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = maximumPlayers;
         roomOptions.IsVisible = isRoomVisible;
-        //string randomLetter = RandomLetter();
         Log("Trying to join room " + createdRoomName);
         PhotonNetwork.CreateRoom(createdRoomName, roomOptions);
 
@@ -54,7 +46,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         if (playerNickname != "player nickname is not entered")
             PhotonNetwork.NickName = playerNickname;
-        PlayerPrefs.SetInt("Sensetivity", sensetivityInGame == -1 ? 100 : sensetivityInGame);
+        PlayerPrefs.SetInt("Sensitivity", sensitivityInGame == -1 ? 100 : sensitivityInGame);
         PhotonNetwork.JoinRandomRoom();
     }
     public void JoinLocalRoom()
@@ -64,7 +56,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         if (playerNickname != "player nickname is not entered")
             PhotonNetwork.NickName = playerNickname;
 
-        PlayerPrefs.SetInt("Sensetivity", sensetivityInGame == -1 ? 100 : sensetivityInGame);
+        PlayerPrefs.SetInt("Sensitivity", sensitivityInGame == -1 ? 100 : sensitivityInGame);
         try
         {
             PhotonNetwork.JoinRoom(localRoomCode.text);

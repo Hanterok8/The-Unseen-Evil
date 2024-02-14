@@ -8,7 +8,6 @@ public class MazeEnding : MonoBehaviour
     private GameObject playerModel;
     private PhotonView photonView;
     private GameObject gates;
-    private const int COINS_FOR_QUEST = 1;
     private void Start()
     {
         gates = GameObject.FindGameObjectWithTag("MazeGates");
@@ -40,6 +39,5 @@ public class MazeEnding : MonoBehaviour
         gaterAnimator.ResetTrigger("OpenGates");
         QuestSwitcher questSwitcher = Player.GetComponent<QuestSwitcher>();
         questSwitcher.AddQuestStep(1);
-        questSwitcher.PassQuest(COINS_FOR_QUEST);
     }
 }

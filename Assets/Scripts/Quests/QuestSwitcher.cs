@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class QuestSwitcher : MonoBehaviour
 {
-    [SerializeField] private List<QuestData> leftQuests = new List<QuestData>();
+    [SerializeField] public List<QuestData> leftQuests = new List<QuestData>();
     [SerializeField] private int secondsBeforeNextQuest;
+
+    [Tooltip("The quest that requires some items in order to complete it.")] 
+    [SerializeField] public QuestData extraQuest;
+
     public List<QuestData> completedQuest = new List<QuestData>();
     public QuestData currentQuest;
     public Action onGivenQuest;
@@ -45,12 +49,15 @@ public class QuestSwitcher : MonoBehaviour
         currentQuest = null;
         onPassedQuest?.Invoke();
         onReceivedCoinsByQuest?.Invoke(receivedCoins);
+        if (leftQuests.Count == 0)
+        {
+            onAllQuestsCompleted?.Invoke();
+        }
     }
     private void GiveNewQuest()
     {
         if (leftQuests.Count == 0)
         {
-            onAllQuestsCompleted?.Invoke();
             return;
         }
         interactedTargets = 0;
@@ -64,6 +71,10 @@ public class QuestSwitcher : MonoBehaviour
     {
         interactedTargets += steps;
         onAddedQuestStep?.Invoke();
+        if (interactedTargets == currentQuest.requiredTargets)
+        {
+            PassQuest(currentQuest.coinsForQuest);
+        }
     }
 
 }

@@ -13,7 +13,7 @@ public class PurchaseMenu : MonoBehaviour
     private Image _itemImage;
     ItemCost _itemCost;
 
-
+    private PlayerOrDemon _playerOrDemon;
     private void Awake()
     {
         BuyMenuInfo menuInfo = GameObject.FindGameObjectWithTag("Store_Menu").GetComponent<BuyMenuInfo>();
@@ -25,10 +25,16 @@ public class PurchaseMenu : MonoBehaviour
         _itemCost = _priceText.GetComponent<ItemCost>();
         _buyMenu.SetActive(false);
     }
+    private void Start()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("PlayerInstance");
+        _playerOrDemon = player.GetComponent<PlayerOrDemon>();
+    }
     public void OnItemClick()
     {
-        if(!_buyMenu.activeSelf) _buyMenu.SetActive(true);
         int _id = GetComponent<ItemID>().id;
+        if (_itemDatum[_id].isOnlyForResidents && _playerOrDemon.isDemon) return; 
+        if(!_buyMenu.activeSelf) _buyMenu.SetActive(true);
         GameObject purchaseButton = _priceText.transform.parent.gameObject;
         purchaseButton.GetComponent<OnPurchase>().lastClickedButtonID = _id;
         purchaseButton.GetComponent<Button>().interactable = true;

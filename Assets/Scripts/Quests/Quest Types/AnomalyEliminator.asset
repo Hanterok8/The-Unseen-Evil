@@ -15,5 +15,6 @@ MonoBehaviour:
   _name: Anomaly Eliminator
   _description: "\xB7 Eliminate the anomalies that appeared after the demon came
     to this world"
-  _requiredTargets: 2
+  _requiredTargets: 3
   _usingItems: []
+  _coinsForQuest: 2

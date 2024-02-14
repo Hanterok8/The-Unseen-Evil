@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class RifleController : MonoBehaviour
 {
-    public Camera mainCamera;
-    public Camera AIMCamera;
+    public GameObject mainCamera;
+    public GameObject AIMCamera;
     private PersonController _personController;
     private PhotonView _photonView;
     private void Start()
@@ -29,13 +29,13 @@ public class RifleController : MonoBehaviour
             _personController.ChangePlayerAnimation(21);
             if (Input.GetMouseButtonDown(1))
             {
-                mainCamera.enabled = false;
-                AIMCamera.enabled = true;
+                mainCamera.SetActive(false);
+                AIMCamera.SetActive(true);
             }
             if (Input.GetMouseButtonUp(1))
             {
-                mainCamera.enabled = true;
-                AIMCamera.enabled = false;
+                mainCamera.SetActive(true);
+                AIMCamera.SetActive(false);
             }
         }       
     }

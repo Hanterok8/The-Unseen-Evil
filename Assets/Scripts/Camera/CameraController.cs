@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float sensetivityMouse = 100f;
+    [SerializeField] private float sensitivityMouse = 100f;
     [SerializeField] private Transform Player;
-    [SerializeField] private PhotonView _photonView;
+    private PhotonView _photonView;
     private PersonController personController;
     private DemonController demonController;
     private float xRotation;
@@ -23,9 +23,10 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         camera = GetComponent<Camera>();
-        sensetivityMouse = PlayerPrefs.GetInt("Sensetivity") * COEFFICIENT;
+        sensitivityMouse = PlayerPrefs.GetInt("Sensitivity") * COEFFICIENT;
         Cursor.lockState = CursorLockMode.Locked;
-        _photonView = Player.GetComponent<PhotonView>();
+        //_photonView = Player.GetComponent<PhotonView>();
+        _photonView = GetComponent<PhotonView>();
         if (!_photonView.IsMine)
         {
             Destroy(GetComponent<Camera>());
@@ -58,8 +59,8 @@ public class CameraController : MonoBehaviour
             }
         }
         if (!_photonView.IsMine) return;
-        float mouseX = Input.GetAxis("Mouse X") * sensetivityMouse * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * sensetivityMouse * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * sensitivityMouse * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivityMouse * Time.deltaTime;
 
         yRotation += mouseX;
         xRotation -= mouseY;
@@ -67,7 +68,7 @@ public class CameraController : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -Y_LOOK_LIMIT, Y_LOOK_LIMIT);
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        Player.rotation = Quaternion.Euler(0, yRotation, 0);
+        Player.rotation = Quaternion.Euler(0, yRotation+1, 0);
     }
     private void SetNewFOV(int newCameraFOV)
     {

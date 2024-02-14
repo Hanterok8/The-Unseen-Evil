@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OnAnomalyEliminated : MonoBehaviour
 {
     private TouchingAnomaly touchingAnomaly;
     private QuestSwitcher questSwitcher;
-    private const int COINS_FOR_QUEST = 1;
     void Start()
     {
         GameObject currentPlayerModel = GetComponent<CurrentPlayer>().CurrentPlayerModel;
@@ -14,12 +11,15 @@ public class OnAnomalyEliminated : MonoBehaviour
         questSwitcher = GetComponent<QuestSwitcher>();
         touchingAnomaly.onAnomalyTouched += AddQuestProgress;
     }
+    private void OnDisable()
+    {
+        touchingAnomaly.onAnomalyTouched -= AddQuestProgress;
+    }
     private void AddQuestProgress()
     {
-        questSwitcher.AddQuestStep(1);
-        if (questSwitcher.interactedTargets >= questSwitcher.currentQuest.requiredTargets)
+        if (questSwitcher.currentQuest.name == "Anomaly Eliminator")
         {
-            questSwitcher.PassQuest(COINS_FOR_QUEST);
+            questSwitcher.AddQuestStep(1);
         }
     }
 }

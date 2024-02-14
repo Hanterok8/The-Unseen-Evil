@@ -5,6 +5,8 @@ using TMPro;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private GameObject Player;
+    private QuestSwitcher questSwitcher;
     private float Damage = 20f;
     private float fireRate = 5f;
     private float Range = 100f;
@@ -32,6 +34,7 @@ public class Weapon : MonoBehaviour
     private TMP_Text Ammo;
     private void Start()
     {
+        questSwitcher = Player.GetComponent<QuestSwitcher>();
         Cam = Camera.main;
         Ammo = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<TMP_Text>();
     }
@@ -67,7 +70,11 @@ public class Weapon : MonoBehaviour
         {
             GameObject ImpactGO = Instantiate(hitEffect, Hit.point, Quaternion.LookRotation(Hit.normal));
             Destroy(ImpactGO, 2f);
-
+            RewardForGhost ghost = Hit.transform.GetComponent<RewardForGhost>();
+            if (ghost != null && questSwitcher.currentQuest.name == "Maruntian Soul Catcher")
+            {
+                questSwitcher.AddQuestStep(1);
+            }
             if (Hit.rigidbody != null)
             {
                 Hit.rigidbody.AddForce(-Hit.normal * Forse);

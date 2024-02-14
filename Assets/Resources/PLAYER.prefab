@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b45a9f1b468344ca5c09d6e6fb5c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nickName: 
 --- !u!114 &8553688274142185177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +114,7 @@ MonoBehaviour:
   - {fileID: 7110653457783099416, guid: b153a8e678af8df4785962bfd2a1829e, type: 3}
   _distance: 3
   _inventoryGameObjects: []
-  demonPrefab: {fileID: 0}
+  demonPrefab: {fileID: 1115505141538682346, guid: 473982180ba583c4587a19887f7b56b4, type: 3}
   selected: 2
   _slots: []
 --- !u!114 &1755473603941372799
@@ -194,7 +195,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 07662a17a1c8c9e498a55f913459afd0, type: 2}
   - {fileID: 11400000, guid: ff072f623b0b76941ac30ca0d3c7b9ea, type: 2}
   - {fileID: 11400000, guid: ac39b5c5c93cfcb4f89678ceb3d1860c, type: 2}
+  - {fileID: 11400000, guid: 459e1f6273c582f4c933e82b5a70c7ae, type: 2}
   secondsBeforeNextQuest: 0
+  extraQuest: {fileID: 11400000, guid: 9fa4809c3c287f34e8c68a7f5dc80d94, type: 2}
   completedQuest: []
   currentQuest: {fileID: 0}
   interactedTargets: 0
@@ -478,7 +481,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dreyar By M.Aure 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5280645982556885989, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

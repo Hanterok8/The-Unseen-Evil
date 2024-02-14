@@ -38,7 +38,7 @@ public class StaminaUI : MonoBehaviour
     }
     private void UpdateStaminaUI()
     {
-        _staminaUI.fillAmount = staminaSettings._playerStamina / 100.0f;
+        _staminaUI.fillAmount = (float)staminaSettings._playerStamina / (float)100.0f;
         _staminaTextUI.text = $"{staminaSettings._playerStamina}%";
     }
     private void TurnOffStaminaUI()

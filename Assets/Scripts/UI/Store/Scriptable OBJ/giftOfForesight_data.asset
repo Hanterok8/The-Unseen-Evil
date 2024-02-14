@@ -15,3 +15,4 @@ MonoBehaviour:
   _price: 2
   _name: Gift of foresight
   _sprite: {fileID: 21300000, guid: e6661cb8bf752be42bca0d9fb8008ea6, type: 3}
+  _isOnlyForResidents: 1

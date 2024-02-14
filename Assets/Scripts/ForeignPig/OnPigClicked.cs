@@ -3,13 +3,9 @@ using UnityEngine;
 
 public class OnPigClicked : MonoBehaviour
 {
-    private Camera camera;
+    [SerializeField] private Camera camera;
     private const int DISTANCE = 5;
     public Action onAPigClicked;
-    private void Start()
-    {
-        camera = Camera.main;
-    }
     private void Update()
     {
         RaycastHit hit;

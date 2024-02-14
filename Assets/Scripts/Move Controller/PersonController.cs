@@ -1,14 +1,17 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Animator))]
-public class PersonController : MonoBehaviour
+public class PersonController : MonoBehaviourPunCallbacks
 {
     [SerializeField] public float _speed = 3f;
     [SerializeField] public float _maxSpeed = 4f;
     [SerializeField] public float _minSpeed = 2f;
     [SerializeField] private bool _ground;
+    [SerializeField] private GameObject spectatorPlayer;
     public Vector2 AxesSpeed;
     public int state;
     public bool isRunning;
@@ -21,6 +24,7 @@ public class PersonController : MonoBehaviour
     private HoldController _holdController;
     private StaminaSettings _staminaSettings;
     private int newFOV;
+    public Action onTransformedToSpectator;
 
     private void Awake()
     {
@@ -43,6 +47,10 @@ public class PersonController : MonoBehaviour
         if (!_photonView.IsMine) return;
         AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _speed, Input.GetAxis("Vertical") * _speed);
         isRunning = Input.GetKey(KeyCode.LeftShift);
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            KickPlayer();
+        }
         if (!isInhabitantFrozen)
         {
             MovementInput();
@@ -132,11 +140,32 @@ public class PersonController : MonoBehaviour
 
     internal void LookAtDemon(Transform demon)
     {
-        transform.LookAt(demon);
+        //transform.LookAt(demon);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(demon.position), 50 * Time.deltaTime);
     }
-
+    [PunRPC]
     internal void KickPlayer()
     {
-        PhotonNetwork.LeaveRoom();
+        if (!_photonView.IsMine) return;
+        CurrentPlayer[] players = FindObjectsOfType<CurrentPlayer>();
+        GameObject spectator = Instantiate(spectatorPlayer);
+        foreach (CurrentPlayer player in players)
+        {
+            if (player.CurrentPlayerModel == gameObject)
+            {
+                //Destroy(player.gameObject);
+                player.GetComponent<CurrentPlayer>().CurrentPlayerModel = spectator;
+                break;
+            }
+        }
+        Destroy(gameObject); 
+        onTransformedToSpectator?.Invoke();
+        //PhotonNetwork.Disconnect();
+
     }
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
 }

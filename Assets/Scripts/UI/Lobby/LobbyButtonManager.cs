@@ -14,7 +14,7 @@ public class LobbyButtonManager : MonoBehaviour
     [SerializeField] private GameObject _playBg;
 
     [SerializeField] private Slider playerLimitValue;
-    [SerializeField] private Slider sensetivity;
+    [SerializeField] private Slider sensitivity;
     [SerializeField] private Toggle visibleTogleButton;
     [SerializeField] private TMP_Text nickname;
     [SerializeField] private TMP_Text roomName;
@@ -69,8 +69,8 @@ public class LobbyButtonManager : MonoBehaviour
     {
         lobbyManager.playerNickname = nickname.text;
     }
-    public void OnSensetivityChanged()
+    public void OnSensitivityChanged()
     {
-        lobbyManager.sensetivityInGame = (int)sensetivity.value;
+        lobbyManager.sensitivityInGame = (int)sensitivity.value;
     }
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   _requiredTargets: 1
   _usingItems:
   - Maze key
+  _coinsForQuest: 1

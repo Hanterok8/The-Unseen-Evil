@@ -3,14 +3,11 @@ using UnityEngine;
 
 public class RecipeOpener : MonoBehaviour
 {
-    private Camera camera;
-    private const int DISTANCE = 5;
+    [SerializeField] private Camera camera;
     [SerializeField] private LayerMask layerMask;
+    private const int DISTANCE = 5;
     public Action onEnabledRecipeUI;
-    private void Start()
-    {
-        camera = Camera.main;
-    }
+
     private void Update()
     {
         RaycastHit hit;

@@ -68,10 +68,6 @@ public class GunSystem : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
             RewardForGhost ghost = hit.transform.GetComponent<RewardForGhost>();
-            if (ghost != null)
-            {
-                ghost.GiveReward(10);
-            }
             if (hit.rigidbody != null)
             {
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
