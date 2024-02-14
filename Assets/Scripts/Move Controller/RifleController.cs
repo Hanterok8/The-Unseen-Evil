@@ -5,12 +5,12 @@ public class RifleController : MonoBehaviour
 {
     public Camera mainCamera;
     public Camera AIMCamera;
-    private PersonController _personController;
+    private CharachterController _charachterController;
     private PhotonView _photonView;
     private void Start()
     {
         _photonView = GetComponent<PhotonView>();
-        _personController = GetComponent<PersonController>();
+        _charachterController = GetComponent<CharachterController>();
     }
     private void Update()
     {
@@ -22,23 +22,23 @@ public class RifleController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Q))
         {
-            _personController.ChangePlayerAnimation(20);
+            _charachterController._playerAnimator.SetBool("Equp", true);
+        }
+        if (Input.GetKey(KeyCode.T))
+        {
+            _charachterController._playerAnimator.SetBool("Equp", false);
         }
         if (Input.GetMouseButtonDown(1))
         {
-            _personController.ChangePlayerAnimation(22);
+            _charachterController._playerAnimator.SetBool("isAiming", true);
             mainCamera.enabled = false;
             AIMCamera.enabled = true;
         }
         if (Input.GetMouseButtonUp(1))
         {
-            _personController.ChangePlayerAnimation(21);
+            _charachterController._playerAnimator.SetBool("isAiming", false);
             mainCamera.enabled = true;
             AIMCamera.enabled = false;
-        }
-        if (Input.GetKey(KeyCode.T))
-        {
-            _personController.ChangePlayerAnimation(21);
         }
     }
 }

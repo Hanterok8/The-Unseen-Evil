@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CharachterController : MonoBehaviour
 {
-    [SerializeField] private Animator _playerAnimator;
+    [SerializeField] public Animator _playerAnimator;
     [SerializeField] private Rigidbody _playerRigidbody;
 
     [SerializeField] private Transform _mainCamera;
@@ -43,11 +43,7 @@ public class CharachterController : MonoBehaviour
         Vector3 relativeVector = transform.InverseTransformDirection(movementVector);
         _playerAnimator.SetFloat("Horizontal", relativeVector.x);
         _playerAnimator.SetFloat("Vertical", relativeVector.z);
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            _movementWalkSpeed = 4f;
-            Run();
-        }
+        OnRun();
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             _movementWalkSpeed = 2f;
@@ -79,5 +75,13 @@ public class CharachterController : MonoBehaviour
     private void UnCrouch()
     {
         _playerAnimator.SetBool("isCrouch", false);
+    }
+    private void OnRun()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            _movementWalkSpeed = 4f;
+            Run();
+        }
     }
 }
