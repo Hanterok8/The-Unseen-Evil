@@ -21,13 +21,6 @@ public class QuestDisplayer : MonoBehaviour
         questSwitcher.onAllQuestsCompleted += DisplayNoQuests;
         questSwitcher.onAddedQuestStep += UpdateQuestState;
     }
-    private void OnEnable()
-    {
-        //questSwitcher.onGivenQuest += DisplayNewQuest;
-        //questSwitcher.onPassedQuest += DestroyPassedQuest;
-        //questSwitcher.onAllQuestsCompleted += DisplayNoQuests;
-        //questSwitcher.onAddedQuestStep += UpdateQuestState;
-    }
     private void OnDisable()
     {
         questSwitcher.onGivenQuest -= DisplayNewQuest;

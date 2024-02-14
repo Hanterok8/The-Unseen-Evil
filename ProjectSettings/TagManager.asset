@@ -35,6 +35,7 @@ TagManager:
   - ForeignPig
   - Anomaly
   - Spectator
+  - Crystal
   layers:
   - Default
   - TransparentFX

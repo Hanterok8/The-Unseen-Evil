@@ -49,12 +49,15 @@ public class QuestSwitcher : MonoBehaviour
         currentQuest = null;
         onPassedQuest?.Invoke();
         onReceivedCoinsByQuest?.Invoke(receivedCoins);
+        if (leftQuests.Count == 0)
+        {
+            onAllQuestsCompleted?.Invoke();
+        }
     }
     private void GiveNewQuest()
     {
         if (leftQuests.Count == 0)
         {
-            onAllQuestsCompleted?.Invoke();
             return;
         }
         interactedTargets = 0;

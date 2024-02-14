@@ -2,19 +2,16 @@ using UnityEngine;
 
 public class OpenStore : MonoBehaviour
 {
-    [SerializeField] private Weapon weapon;
-    [SerializeField] private Camera playerCamera;
+    [SerializeField] public Weapon weapon;
+    [SerializeField] public CameraController cameraController;
     public bool isStoreOpened;
-    private CameraController cameraController;
     private StoreElements storeElements;
     private bool isInShopCircleCollider;
-
     private IsAimodipsis aimodipsis;
+    private bool isOpenedStore = false;
     private void Start()
     {
-        cameraController = playerCamera.GetComponent<CameraController>();
         storeElements = FindObjectOfType<StoreElements>();
-        
         aimodipsis = GetPlayer().GetComponent<IsAimodipsis>();
         isStoreOpened = false;
     }
@@ -35,24 +32,32 @@ public class OpenStore : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && !aimodipsis.isAimodipsis)
         {
-            SwapStoreUIState();
+            isOpenedStore = !isOpenedStore;
+            SwapPlayerMovementState(isOpenedStore);
+            OpenUIStore();
         }
     }
-    private void SwapStoreUIState()
+    public virtual void SwapPlayerMovementState(bool enableState)
     {
-        cameraController.enabled = !cameraController.enabled;
-        weapon.enabled = !weapon.enabled;
-        if (Cursor.visible)
+        cameraController.enabled = enableState;
+        weapon.enabled = enableState;
+        if (!enableState)
             Cursor.lockState = CursorLockMode.Locked;
         else
             Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = !Cursor.visible;
+        Cursor.visible = !enableState;
+    }
+
+    private void OpenUIStore()
+    {
+        
+        GameObject Blur = storeElements.BlurBackground;
+        Blur.SetActive(!Blur.activeSelf);
         storeElements.store.SetActive(!storeElements.store.activeSelf);
         storeElements.buyMenu.SetActive(false);
-        GameObject blur = storeElements.BlurBackground;
-        blur.SetActive(!blur.activeSelf);
         isStoreOpened = !isStoreOpened;
     }
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("shop_circle"))
@@ -68,7 +73,8 @@ public class OpenStore : MonoBehaviour
 
             if (isStoreOpened)
             {
-                SwapStoreUIState();
+                SwapPlayerMovementState(false);
+                OpenUIStore();
             }
 
         }

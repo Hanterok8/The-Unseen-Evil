@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
 public class CrystalMover : MonoBehaviour
@@ -10,6 +8,7 @@ public class CrystalMover : MonoBehaviour
     private bool isMouseButtonPressed = false;
     private static bool isCursorBusy = false;
     private bool isMouseAimedToElementPosition = false;
+    public static Action onElementPlaced;
 
     private void OnEnable()
     {
@@ -17,7 +16,7 @@ public class CrystalMover : MonoBehaviour
     }
     private void Update()
     {
-        if (isMouseButtonPressed) 
+        if (isMouseButtonPressed)
             transform.position = Input.mousePosition;
     }
     public void OnMousePressedDown()
@@ -32,10 +31,17 @@ public class CrystalMover : MonoBehaviour
         isCursorBusy = false;
         if (isMouseAimedToElementPosition)
         {
-            staticPositionedElement.SetActive(true);
-            gameObject.SetActive(false);
+            PlaceElement();
         }
     }
+
+    private void PlaceElement()
+    {
+        onElementPlaced?.Invoke();
+        staticPositionedElement.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.GetComponent<CrystalIndex>().elementIndex == crystalIndex)
