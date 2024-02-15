@@ -1212,7 +1212,7 @@ MonoBehaviour:
   playerNickname: player nickname is not entered
   createdRoomName: 
   isRoomVisible: 1
-  sensetivityInGame: -1
+  sensitivityInGame: -1
 --- !u!4 &499005505
 Transform:
   m_ObjectHideFlags: 0
@@ -10495,7 +10495,7 @@ MonoBehaviour:
   joinByCode: {fileID: 346545241527948491}
   _playBg: {fileID: 1721951734}
   playerLimitValue: {fileID: 1063381461532119648}
-  sensetivity: {fileID: 807472213}
+  sensitivity: {fileID: 0}
   visibleTogleButton: {fileID: 1380769277580184364}
   nickname: {fileID: 3386059902878948762}
   roomName: {fileID: 1928707096}

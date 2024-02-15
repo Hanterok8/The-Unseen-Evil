@@ -5,12 +5,12 @@ using UnityEngine;
 public class GameMenuOpener : MonoBehaviour
 {
     private GameObject gameMenu;
-    private OpenStore openStore;
+    private TriggerController openStore;
 
     void Start()
     {
         GameObject playerModel = GetComponent<CurrentPlayer>().CurrentPlayerModel;
-        openStore = playerModel.GetComponent<OpenStore>();
+        openStore = playerModel.GetComponent<TriggerController>();
         gameMenu = FindObjectOfType<GameMenuElements>().gameMenu;
     }
     private void Update()

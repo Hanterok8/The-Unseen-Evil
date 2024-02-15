@@ -35,9 +35,9 @@ public class CrystalQuestFinisher : MonoBehaviour
         CharacterController characterController = currentPlayerModel.GetComponent<CharacterController>();
         characterController._playerAnimator.enabled = true;
         characterController.enabled = true;
-        OpenStore storeOpener = currentPlayerModel.GetComponent<OpenStore>();
-        storeOpener.cameraController.enabled = true;
-        storeOpener.weapon.enabled = true;
+        TriggerController triggerController = currentPlayerModel.GetComponent<TriggerController>();
+        triggerController.cameraController.enabled = true;
+        triggerController.weapon.enabled = true;
         Destroy(gameObject);
     }
 }

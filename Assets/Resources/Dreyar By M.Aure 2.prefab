@@ -1159,7 +1159,6 @@ GameObject:
   - component: {fileID: 2892313214222753845}
   - component: {fileID: 7049922857257111451}
   - component: {fileID: 936355559579846233}
-  - component: {fileID: 1110916836487560904}
   - component: {fileID: 4579140868872128453}
   - component: {fileID: 964770410627039602}
   - component: {fileID: 711917837439663969}
@@ -1168,8 +1167,9 @@ GameObject:
   - component: {fileID: 6788309797504859992}
   - component: {fileID: 2685224592581704332}
   - component: {fileID: 8029907373491654442}
-  - component: {fileID: 3648201582090234008}
   - component: {fileID: -157511031869023375}
+  - component: {fileID: 4524374877466916879}
+  - component: {fileID: 1866998656737798827}
   m_Layer: 7
   m_Name: Dreyar By M.Aure 2
   m_TagString: Player
@@ -1429,21 +1429,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1110916836487560904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470049310683012215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cef874f382965a4889cf14d765a59b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 8799213293950528838}
-  cameraController: {fileID: 187724314771387701}
-  isStoreOpened: 0
 --- !u!114 &4579140868872128453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,21 +1706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41864667025e7ac4d94c9041d99c0bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3648201582090234008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470049310683012215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf1e18e768e0e2408129d80e9f5deb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 8799213293950528838}
-  cameraController: {fileID: 187724314771387701}
-  isStoreOpened: 0
 --- !u!114 &-157511031869023375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1749,6 +1719,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spectatorPlayer: {fileID: 1104296795575374734, guid: 3cf42f1700b9fc34c99d4703d448de45, type: 3}
+--- !u!114 &4524374877466916879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3470049310683012215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236befa138c6a1c4180e00cb3b8298b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStoreOpened: 0
+  weapon: {fileID: 8799213293950528838}
+  cameraController: {fileID: 187724314771387701}
+--- !u!114 &1866998656737798827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3470049310683012215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624335143bd5d1547b3b290bf6304bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3550321043067029588
 GameObject:
   m_ObjectHideFlags: 0

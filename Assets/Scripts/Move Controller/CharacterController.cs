@@ -71,22 +71,22 @@ public class CharacterController : MonoBehaviour
             newFOV = 60;
             isRunning = false;
             _movementWalkSpeed = 2f;
-            Run(false);
+            _photonView.RPC(nameof(Run), RpcTarget.All, false);
         }
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            Crouch(true);
+            _photonView.RPC(nameof(Crouch), RpcTarget.All, true);
         }
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            Crouch(false);
+            _photonView.RPC(nameof(Crouch), RpcTarget.All, false);
         }
         
         return movementVector;
     }
     public void AnimatorStateChange(Vector3 relativeVector3)
     {
-        _photonView.RPC(nameof(AnimatorStateChange), RpcTarget.All, relativeVector3);
+        _photonView.RPC(nameof(AnimatorStateChangeRPC), RpcTarget.All, relativeVector3);
     }
     [PunRPC]
     private void AnimatorStateChangeRPC(Vector3 relativeVector)
@@ -112,7 +112,7 @@ public class CharacterController : MonoBehaviour
             isRunning = true;
             newFOV = 75;
             _movementWalkSpeed = 4f;
-            Run(true);
+            _photonView.RPC(nameof(Run), RpcTarget.All, true);
         }
     }
 }
