@@ -6,14 +6,14 @@ using UnityEngine;
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] public TMP_Text localRoomCode;
-
     [SerializeField] private TMP_Text LogText;
+
     public int maximumPlayers;
     public string playerNickname;
     public string createdRoomName;
     public bool isRoomVisible = true;
-
     public int sensitivityInGame = -1;
+
     void Start()
     {
         PlayerPrefs.DeleteAll();

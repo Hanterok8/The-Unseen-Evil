@@ -5,25 +5,26 @@ using UnityEngine;
 
 public class QuestSwitcher : MonoBehaviour
 {
-    [SerializeField] public List<QuestData> leftQuests = new List<QuestData>();
-    [SerializeField] private int secondsBeforeNextQuest;
+    private const int SECONDS_ON_START = 7;
+    private const int DELAY = 1;
 
-    [Tooltip("The quest that requires some items in order to complete it.")] 
-    [SerializeField] public QuestData extraQuest;
-
-    public List<QuestData> completedQuest = new List<QuestData>();
-    public QuestData currentQuest;
     public Action onGivenQuest;
     public Action onPassedQuest;
     public Action<int> onReceivedCoinsByQuest;
     public Action onAllQuestsCompleted;
     public Action onAddedQuestStep;
 
+    [SerializeField] public List<QuestData> leftQuests = new List<QuestData>();
+    [SerializeField] private int secondsBeforeNextQuest;
+    [Tooltip("The quest that requires some items in order to complete it.")] 
+    [SerializeField] public QuestData extraQuest;
+
+    public List<QuestData> completedQuest = new List<QuestData>();
+    public QuestData currentQuest;
     public int interactedTargets = 0;
-    private bool canQuestBeTaken;
+
     private PhotonView photonView;
-    private const int SECONDS_ON_START = 7;
-    private const int DELAY = 1;
+    private bool canQuestBeTaken;
 
     private void Start()
     {

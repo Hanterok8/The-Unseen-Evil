@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private GameObject playerPrefab;
     
-
     private void Awake()
     {
         PhotonNetwork.CurrentRoom.IsOpen = false;

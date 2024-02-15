@@ -9,10 +9,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private TMP_Text roomName;
     [SerializeField] private GameObject StartButton;
-
     [SerializeField] private Transform playerListContent;
     [SerializeField] private GameObject playerlistPrefab;
+
     public static Player DemonPlayer;
+
     void Start()
     {
         Player player = PhotonNetwork.PlayerList[0];
@@ -33,19 +34,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("PlayLocation");
     }
 
-    private void RecreatePlayerInRoomList()
-    {
-        Player[] playersInRoom = PhotonNetwork.PlayerList;
-
-        foreach (Transform transf in playerListContent)
-        {
-            Destroy(transf.gameObject);
-        }
-        for (int i = 0; i < playersInRoom.Length; i++)
-        {
-            Instantiate(playerlistPrefab, playerListContent).GetComponent<PlayerListNickname>().SetUpNickname(playersInRoom[i]);
-        }
-    }
+    
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene(0);
@@ -58,6 +47,37 @@ public class RoomManager : MonoBehaviourPunCallbacks
         ChangeSameNickNames();
         RecreatePlayerInRoomList();
 
+    }
+    
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Instantiate(playerlistPrefab, playerListContent).GetComponent<PlayerListNickname>().SetUpNickname(newPlayer);
+    }
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        Invoke(nameof(RecreatePlayerInRoomList), 0.2f);
+    }
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        StartButton.SetActive(PhotonNetwork.IsMasterClient);
+    }
+    public void PlayerModeSet()
+    {
+        int demonIndex = Random.Range(0, PhotonNetwork.PlayerList.Length);
+        DemonPlayer = PhotonNetwork.PlayerList[demonIndex];
+    }
+    private void RecreatePlayerInRoomList()
+    {
+        Player[] playersInRoom = PhotonNetwork.PlayerList;
+
+        foreach (Transform transf in playerListContent)
+        {
+            Destroy(transf.gameObject);
+        }
+        for (int i = 0; i < playersInRoom.Length; i++)
+        {
+            Instantiate(playerlistPrefab, playerListContent).GetComponent<PlayerListNickname>().SetUpNickname(playersInRoom[i]);
+        }
     }
     private void ChangeSameNickNames()
     {
@@ -77,22 +97,5 @@ public class RoomManager : MonoBehaviourPunCallbacks
                 }
             }
         }
-    }
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        Instantiate(playerlistPrefab, playerListContent).GetComponent<PlayerListNickname>().SetUpNickname(newPlayer);
-    }
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        Invoke(nameof(RecreatePlayerInRoomList), 0.2f);
-    }
-    public override void OnMasterClientSwitched(Player newMasterClient)
-    {
-        StartButton.SetActive(PhotonNetwork.IsMasterClient);
-    }
-    public void PlayerModeSet()
-    {
-        int demonIndex = Random.Range(0, PhotonNetwork.PlayerList.Length);
-        DemonPlayer = PhotonNetwork.PlayerList[demonIndex];
     }
 }

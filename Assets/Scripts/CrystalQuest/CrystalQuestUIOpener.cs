@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,9 +9,11 @@ public class CrystalQuestUIOpener : OpenStore
     private CrystalElements crystalElements;
     private CharacterController characterController;
     private QuestSwitcher questSwitcher;
+    private PhotonView photonView;
 
     private void Start()
     {
+        photonView = GetComponent<PhotonView>();
         questSwitcher = GetQuestSwitcher();
         characterController = GetComponent<CharacterController>();
         crystalElements = FindObjectOfType<CrystalElements>();
@@ -26,7 +29,7 @@ public class CrystalQuestUIOpener : OpenStore
     }
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.CompareTag("Crystal") && questSwitcher.currentQuest.name == "Lost Crystal")
+        if (collider.gameObject.CompareTag("Crystal") && questSwitcher.currentQuest.name == "Lost Crystal" && photonView.IsMine)
         {
             SwapPlayerMovementState(false);
             Destroy(collider.transform.parent.gameObject);
