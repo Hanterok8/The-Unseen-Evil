@@ -84,8 +84,12 @@ public class CharacterController : MonoBehaviour
         
         return movementVector;
     }
+    public void AnimatorStateChange(Vector3 relativeVector3)
+    {
+        _photonView.RPC(nameof(AnimatorStateChange), RpcTarget.All, relativeVector3);
+    }
     [PunRPC]
-    private void AnimatorStateChange(Vector3 relativeVector)
+    private void AnimatorStateChangeRPC(Vector3 relativeVector)
     {
         _playerAnimator.SetFloat("Horizontal", relativeVector.x);
         _playerAnimator.SetFloat("Vertical", relativeVector.z);

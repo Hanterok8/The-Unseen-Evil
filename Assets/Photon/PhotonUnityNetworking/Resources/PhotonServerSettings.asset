@@ -58,6 +58,7 @@ MonoBehaviour:
   - Crouch
   - Run
   - KickPlayerRPC
+  - AnimatorStateChangeRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -10,7 +10,7 @@ public class CrystalQuestUIOpener : OpenStore
     private CharacterController characterController;
     private QuestSwitcher questSwitcher;
     private PhotonView photonView;
-
+                                                                
     private void Start()
     {
         photonView = GetComponent<PhotonView>();
@@ -24,6 +24,8 @@ public class CrystalQuestUIOpener : OpenStore
         characterController.enabled = false;
         GameObject crystalCanvas = crystalElements.crystalCanvas;
         crystalCanvas.SetActive(true);
+        characterController._playerAnimator.enabled = false;
+        characterController.AnimatorStateChange(new Vector3(0, 0, 0));
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
