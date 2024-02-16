@@ -4011,6 +4011,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Empty bottle
       objectReference: {fileID: 0}
+    - target: {fileID: 4785972264485177712, guid: cefbdfb5325cbf747afd1de5d80f286b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5269458706159014858, guid: cefbdfb5325cbf747afd1de5d80f286b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2499998
@@ -4066,13 +4070,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4785972264485177712, guid: cefbdfb5325cbf747afd1de5d80f286b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1275876117977700291}
   m_SourcePrefab: {fileID: 100100000, guid: cefbdfb5325cbf747afd1de5d80f286b, type: 3}
 --- !u!1 &240306593318566361 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4785972264485177712, guid: cefbdfb5325cbf747afd1de5d80f286b, type: 3}
   m_PrefabInstance: {fileID: 4701351157621928105}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1275876117977700291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240306593318566361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37bb32f24130fc748b048cdf269a9d6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 3470049310683012215}
+  layer:
+    serializedVersion: 2
+    m_Bits: 2048
+  _camera: {fileID: 8016230631410983}
 --- !u!4 &585025116025365347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5269458706159014858, guid: cefbdfb5325cbf747afd1de5d80f286b, type: 3}
@@ -4219,6 +4243,10 @@ PrefabInstance:
     - target: {fileID: 4513680155828007193, guid: c3312636833fa594ea3fd12121c5ace4, type: 3}
       propertyPath: m_Name
       value: Water bottle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513680155828007193, guid: c3312636833fa594ea3fd12121c5ace4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

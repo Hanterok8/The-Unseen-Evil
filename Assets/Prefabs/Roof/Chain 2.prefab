@@ -53,7 +53,8 @@ PrefabInstance:
       value: Chain 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -2845779275431937956, guid: 04213f933aea8a94c82a5f9b5da196e6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04213f933aea8a94c82a5f9b5da196e6, type: 3}

@@ -114,7 +114,8 @@ public class ItemControl : MonoBehaviour
             "Empty bottle" => 1,
             "Lamb's blood" => 2,
             "Gift of foresight" => 3,
-            "Maze key" => 4
+            "Maze key" => 4,
+            "Water Bottle" => 8
         };
         Image img = _inventorySprites[itemIndexInInventory];
         _inventoryGameObjects[itemIndexInInventory].SetActive(true);
