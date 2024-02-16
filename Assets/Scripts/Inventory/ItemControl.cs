@@ -1,5 +1,5 @@
 using Photon.Pun;
-using System.Reflection;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,23 +52,7 @@ public class ItemControl : MonoBehaviour
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, _distance, _layer) && Input.GetKeyDown(KeyCode.E))
         {
-            PickUpInformation _itemInfo = hit.collider.gameObject.GetComponent<PickUpInformation>();
-            if (_itemInfo.isQuestedItem)
-            {
-                if (!_questSwitcher.currentQuest) return;
-                foreach (string item in _questSwitcher.currentQuest.usingItems)
-                {
-                    if (item == _itemInfo.name)
-                    {
-                        ReceiveItem(_itemInfo.name);
-                        Destroy(_itemInfo.gameObject);
-                    }
-                }
-                return;
-            }
-
-            ReceiveItem(_itemInfo.name);
-            Destroy(_itemInfo.gameObject);
+            PickUpItem(hit);
         }
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 
@@ -84,6 +68,28 @@ public class ItemControl : MonoBehaviour
 
 
 
+
+    }
+    public virtual void PickUpItem(RaycastHit hit)
+    {
+        PickUpInformation _itemInfo = hit.collider.gameObject.GetComponent<PickUpInformation>();
+        if (_itemInfo.isQuestedItem)
+        {
+            if (!_questSwitcher.currentQuest) return;
+            foreach (string item in _questSwitcher.currentQuest.usingItems)
+            {
+                if (item == _itemInfo.name)
+                {
+                    ReceiveItem(_itemInfo.name);
+                    Destroy(_itemInfo.gameObject);
+                }
+            }
+            return;
+        }
+
+        ReceiveItem(_itemInfo.name);
+        if(!_itemInfo.gameObject.isStatic)
+            Destroy(_itemInfo.gameObject);
     }
     public void ReceiveItem(string infoName)
     {
@@ -120,8 +126,9 @@ public class ItemControl : MonoBehaviour
         img.transform.localPosition = new Vector3(0, 0, 0);
         SelectAnotherSlot(freeSlotIndex);
     }
-    public void TakeAwayItem(int slotIndexOfItem)
+    public void TakeAwayItem()
     {
+        int slotIndexOfItem = selected;
         int currentGameObjectIndex = _slots[slotIndexOfItem].GetComponent<SlotItemInformation>().itemGameObjectIndex;
         _inventoryGameObjects[currentGameObjectIndex].SetActive(false);
         SlotItemInformation slotInformation = _slots[slotIndexOfItem].GetComponent<SlotItemInformation>();

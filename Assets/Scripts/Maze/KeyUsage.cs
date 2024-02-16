@@ -42,6 +42,6 @@ public class KeyUsage : MonoBehaviour
         if (itemControl._slots[itemControl.selected].GetComponent<SlotItemInformation>().name != "Maze key")
             return;
         gates.GetComponent<Animator>().SetTrigger("OpenGates");
-        itemControl.TakeAwayItem(itemControl.selected);
+        itemControl.TakeAwayItem();
     }
 }

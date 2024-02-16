@@ -73,7 +73,18 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("Matchmaking");
     }
 
-    
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        Debug.Log("Create room is failed");
+    }
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        Debug.Log("Join room is failed");
+    }
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        Debug.Log("Join specific room is failed");
+    }
 
     private void Log(string message)
     {
@@ -81,4 +92,5 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         LogText.text += "\n";
         LogText.text += message;
     }
+    
 }

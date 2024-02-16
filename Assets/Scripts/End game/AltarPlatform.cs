@@ -31,11 +31,11 @@ public class AltarPlatform : MonoBehaviour
     private void PlaceItemOntoPlatform()
     {
         int usingSlot = itemControl.selected;
-        if (itemControl._slots[itemControl.selected].GetComponent<SlotItemInformation>().name != requiredItem)
+        if (itemControl._slots[usingSlot].GetComponent<SlotItemInformation>().name != requiredItem)
             return;
         platformItem.SetActive(true);
         meshRenderer.material.color = Color.blue;
-        itemControl.TakeAwayItem(usingSlot);
+        itemControl.TakeAwayItem();
         Transform altarObject = transform.parent;
         altarObject.GetComponent<AltarConnectingItems>().AddActivatedPlatform();
     }

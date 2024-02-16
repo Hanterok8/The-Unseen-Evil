@@ -113,6 +113,10 @@ MonoBehaviour:
   - {fileID: 1885793852632665162, guid: c8d8966b78bfebb45bef893cdb91e55f, type: 3}
   - {fileID: 4586617436358527917, guid: c4675c81d3ca0284d96a486720e5a7e6, type: 3}
   - {fileID: 7110653457783099416, guid: b153a8e678af8df4785962bfd2a1829e, type: 3}
+  - {fileID: 9028336343816922019, guid: 916863ba208064e4e96336f37837a907, type: 3}
+  - {fileID: 6436244194769082338, guid: e5bc42fc0e5309940aaf42aebd1fd5f0, type: 3}
+  - {fileID: 7178962179584392224, guid: 9dfaffbaa4d2b4d4797762618b446512, type: 3}
+  - {fileID: 8710521962025991136, guid: fea2d226f498ad14d9f086cf5f512e16, type: 3}
   _distance: 3
   _inventoryGameObjects: []
   demonPrefab: {fileID: 1115505141538682346, guid: 473982180ba583c4587a19887f7b56b4, type: 3}

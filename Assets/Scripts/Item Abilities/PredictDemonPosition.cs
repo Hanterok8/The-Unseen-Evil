@@ -36,7 +36,7 @@ public class PredictDemonPosition : MonoBehaviour
             _magicSourse.PlayOneShot(_magicClip);
             Debug.Log("tapped");
             ItemControl itemControl = Player.GetComponent<ItemControl>();
-            itemControl.TakeAwayItem(itemControl.selected);
+            itemControl.TakeAwayItem();
             StartCoroutine(UseAbility());
             isUsingAbility = true;
         }
