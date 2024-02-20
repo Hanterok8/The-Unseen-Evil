@@ -9,6 +9,7 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] private Transform _mainCamera;
     [SerializeField] private float _movementWalkSpeed = 2f;
+    public float currentSpeed = 0f;
     private PhotonView _photonView;
     public bool isRunning;
     private Vector3 _movementVector;
@@ -68,18 +69,9 @@ public class CharacterController : MonoBehaviour
         OnRun();
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
+            _playerAnimator.SetFloat("Speed", 0f);
             newFOV = 60;
-            isRunning = false;
             _movementWalkSpeed = 2f;
-            _photonView.RPC(nameof(Run), RpcTarget.All, false);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            _photonView.RPC(nameof(Crouch), RpcTarget.All, true);
-        }
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            _photonView.RPC(nameof(Crouch), RpcTarget.All, false);
         }
         
         return movementVector;
@@ -94,25 +86,13 @@ public class CharacterController : MonoBehaviour
         _playerAnimator.SetFloat("Horizontal", relativeVector.x);
         _playerAnimator.SetFloat("Vertical", relativeVector.z);
     }
-
-    [PunRPC]
-    private void Run(bool isRunning)
-    {
-        _playerAnimator.SetBool("isRunning", isRunning);
-    }
-    [PunRPC]
-    private void Crouch(bool isCrouching)
-    {
-        _playerAnimator.SetBool("isCrouch", isCrouching);
-    }
     private void OnRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
-            isRunning = true;
+            _playerAnimator.SetFloat("Speed", 1f);
             newFOV = 75;
             _movementWalkSpeed = 4f;
-            _photonView.RPC(nameof(Run), RpcTarget.All, true);
         }
     }
 }
