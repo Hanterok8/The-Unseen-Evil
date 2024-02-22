@@ -9,6 +9,7 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] private Transform _mainCamera;
     [SerializeField] private float _movementWalkSpeed = 2f;
+    public GameObject _menu;
     public float currentSpeed = 0f;
     private PhotonView _photonView;
     public bool isRunning;
@@ -72,6 +73,11 @@ public class CharacterController : MonoBehaviour
             _playerAnimator.SetFloat("Speed", 0f);
             newFOV = 60;
             _movementWalkSpeed = 2f;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _menu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
         }
         
         return movementVector;
