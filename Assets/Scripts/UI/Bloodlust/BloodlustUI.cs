@@ -8,7 +8,6 @@ public class BloodLustUI : MonoBehaviour
     [SerializeField] public GameObject hint;
     [SerializeField] public TMP_Text hintText;
     private TMP_Text _bloodlustTextUI;
-    private PlayerOrDemon _playerOrDemon;
     private IsAimodipsis _aimodipsis;
     private GameObject _bloodlustScale;
     private BloodlustSettings bloodlustSettings;
@@ -17,7 +16,6 @@ public class BloodLustUI : MonoBehaviour
     {
         _bloodlustScale = GameObject.FindGameObjectWithTag("GameObjectBloodLust");
         player = GameObject.FindGameObjectWithTag("PlayerInstance");
-        _playerOrDemon = player.GetComponent<PlayerOrDemon>();
         _bloodlustTextUI = GameObject.FindGameObjectWithTag("BloodlustText").GetComponent<TMP_Text>();
         _aimodipsis = player.GetComponent<IsAimodipsis>();
         bloodlustSettings = player.GetComponent<BloodlustSettings>();

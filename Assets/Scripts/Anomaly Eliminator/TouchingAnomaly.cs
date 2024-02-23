@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TouchingAnomaly : MonoBehaviour
@@ -10,7 +8,7 @@ public class TouchingAnomaly : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Anomaly"))
         {
-            
+
             onAnomalyTouched?.Invoke(collider);
         }
     }
