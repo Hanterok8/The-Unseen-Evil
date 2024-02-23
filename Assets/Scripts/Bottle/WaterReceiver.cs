@@ -45,8 +45,7 @@ public class WaterReceiver : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit, DISTANCE, layer))
             {
-                itemController.ReceiveItem("Water Bottle");
-                itemController.TakeAwayItem();
+                StartCoroutine(GetHolyWater());
             }
             else if (Physics.Raycast(ray, out hit, DISTANCE) && questSwitcher.currentQuest.name == "Secrets of the Roof")
             {
@@ -74,5 +73,11 @@ public class WaterReceiver : MonoBehaviour
     private bool IsCurrentItem(string tag)
     {
         return itemController._slots[itemController.selected].GetComponent<SlotItemInformation>().name == tag;
+    }
+    private IEnumerator GetHolyWater()
+    {
+        itemController.ReceiveItem("Water Bottle");
+        yield return null;
+        itemController.TakeAwayItem();
     }
 }

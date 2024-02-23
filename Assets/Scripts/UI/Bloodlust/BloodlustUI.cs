@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-public class BloodlustUI : MonoBehaviour
+public class BloodLustUI : MonoBehaviour
 {
     [SerializeField] private Image bloodlustUI;
     [SerializeField] private GameObject player;
@@ -13,7 +13,7 @@ public class BloodlustUI : MonoBehaviour
     private GameObject _bloodlustScale;
     private BloodlustSettings bloodlustSettings;
 
-    private void Awake()
+    private void Start()
     {
         _bloodlustScale = GameObject.FindGameObjectWithTag("GameObjectBloodLust");
         player = GameObject.FindGameObjectWithTag("PlayerInstance");
@@ -22,9 +22,6 @@ public class BloodlustUI : MonoBehaviour
         _aimodipsis = player.GetComponent<IsAimodipsis>();
         bloodlustSettings = player.GetComponent<BloodlustSettings>();
         _bloodlustScale.SetActive(false);
-    }
-    private void OnEnable()
-    {
         bloodlustSettings.onBloodlustActivated += ActivateScale;
         bloodlustSettings.onChangedBloodlust += UpdateBloodlustUI;
     }

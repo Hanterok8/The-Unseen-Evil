@@ -12,8 +12,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [SerializeField] private Transform playerListContent;
     [SerializeField] private GameObject playerlistPrefab;
 
-    public static Player DemonPlayer;
-
     void Start()
     {
         Player player = PhotonNetwork.PlayerList[0];
@@ -30,7 +28,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         StartButton.GetComponent<Button>().interactable = false;
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
-        PlayerModeSet();
+        photonView.RPC(nameof(PlayerModeSet), RpcTarget.All);
         PhotonNetwork.LoadLevel("PlayLocation");
     }
 
@@ -61,10 +59,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         StartButton.SetActive(PhotonNetwork.IsMasterClient);
     }
+    [PunRPC]
     public void PlayerModeSet()
     {
         int demonIndex = Random.Range(0, PhotonNetwork.PlayerList.Length);
-        DemonPlayer = PhotonNetwork.PlayerList[demonIndex];
+        string DemonPlayer = PhotonNetwork.PlayerList[demonIndex].NickName;
+        PhotonNetwork.DemonName = DemonPlayer;
     }
     private void RecreatePlayerInRoomList()
     {

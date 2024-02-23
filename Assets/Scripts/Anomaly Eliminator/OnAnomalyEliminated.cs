@@ -15,10 +15,12 @@ public class OnAnomalyEliminated : MonoBehaviour
     {
         touchingAnomaly.onAnomalyTouched -= AddQuestProgress;
     }
-    private void AddQuestProgress()
+    private void AddQuestProgress(Collider collider)
     {
         if (questSwitcher.currentQuest.name == "Anomaly Eliminator")
         {
+            collider.GetComponent<ParticleSystem>().loop = false;
+            Destroy(collider.GetComponent<Light>());
             questSwitcher.AddQuestStep(1);
         }
     }
