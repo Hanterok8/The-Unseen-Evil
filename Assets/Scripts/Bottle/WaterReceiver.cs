@@ -73,8 +73,8 @@ public class WaterReceiver : MonoBehaviour
     }
     private IEnumerator GetHolyWater()
     {
-        itemController.ReceiveItem("Water Bottle");
-        yield return null;
         itemController.TakeAwayItem();
+        yield return new WaitForEndOfFrame();
+        itemController.ReceiveItem("Water Bottle");
     }
 }

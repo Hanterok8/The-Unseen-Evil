@@ -87,4 +87,13 @@ public class CameraController : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
     }
+    public IEnumerator ShakeCamera()
+    {
+        while (true)
+        {
+            camera.transform.localPosition = new Vector3
+                    (Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * 0.3f;
+            yield return null;
+        }
+    }
 }

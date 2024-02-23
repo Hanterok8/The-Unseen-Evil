@@ -8,15 +8,18 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Rigidbody _playerRigidbody;
 
     [SerializeField] private Transform _mainCamera;
-    [SerializeField] private float _movementWalkSpeed = 2f;
+    [SerializeField] private float _movementWalkSpeed = 4f;
     private PhotonView _photonView;
     public bool isRunning;
     private Vector3 _movementVector;
     public Vector2 AxesSpeed;
     public Action<int> onChangedFOV;
     private int newFOV = 60;
+    public bool isFrozen;
+    private StaminaSettings stamina;
     void Start()
     {
+        stamina = GetComponent<StaminaSettings>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _photonView = GetComponent<PhotonView>();
@@ -34,7 +37,10 @@ public class CharacterController : MonoBehaviour
     {
         if (_photonView.IsMine)
         {
-            _movementVector = GetMovement();
+            if (!isFrozen)
+            {
+                _movementVector = GetMovement();
+            }
             onChangedFOV?.Invoke(newFOV);
             AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _movementWalkSpeed, Input.GetAxis("Vertical") * _movementWalkSpeed);
         }
@@ -49,7 +55,7 @@ public class CharacterController : MonoBehaviour
 
     private Vector3 GetMovement()
     {
-
+        
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -70,7 +76,7 @@ public class CharacterController : MonoBehaviour
         {
             newFOV = 60;
             isRunning = false;
-            _movementWalkSpeed = 2f;
+            _movementWalkSpeed = 4f;
             _photonView.RPC(nameof(Run), RpcTarget.All, false);
         }
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -81,7 +87,7 @@ public class CharacterController : MonoBehaviour
         {
             _photonView.RPC(nameof(Crouch), RpcTarget.All, false);
         }
-        
+
         return movementVector;
     }
     public void AnimatorStateChange(Vector3 relativeVector3)
@@ -107,11 +113,11 @@ public class CharacterController : MonoBehaviour
     }
     private void OnRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && stamina._playerStamina > 0)
         {
             isRunning = true;
             newFOV = 75;
-            _movementWalkSpeed = 4f;
+            _movementWalkSpeed = 8f;
             _photonView.RPC(nameof(Run), RpcTarget.All, true);
         }
     }

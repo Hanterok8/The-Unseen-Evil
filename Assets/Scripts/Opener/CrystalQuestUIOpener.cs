@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CrystalQuestUIOpener : StoreOpener, IOpenable
+public class CrystalQuestUIOpener : MonoBehaviour
 {
     private CrystalElements crystalElements;
     private CharacterController characterController;
@@ -10,9 +10,8 @@ public class CrystalQuestUIOpener : StoreOpener, IOpenable
         characterController = GetComponent<CharacterController>();
         crystalElements = FindObjectOfType<CrystalElements>();
     }
-    public override void SwapPlayerMovementState(bool enableTo)
+    private void SwapPlayerMovementState()
     {
-        base.SwapPlayerMovementState(enableTo);
         characterController.enabled = false;
         GameObject crystalCanvas = crystalElements.crystalCanvas;
         crystalCanvas.SetActive(true);
@@ -21,8 +20,8 @@ public class CrystalQuestUIOpener : StoreOpener, IOpenable
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
-    public new void Open(bool ChangeStateTo)
+    public new void Open()
     {
-        SwapPlayerMovementState(ChangeStateTo);
+        SwapPlayerMovementState();
     }
 }

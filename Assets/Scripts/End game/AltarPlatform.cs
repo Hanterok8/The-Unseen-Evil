@@ -4,7 +4,6 @@ using UnityEngine.UIElements;
 
 public class AltarPlatform : MonoBehaviour
 {
-    [SerializeField] private int indexOfRequiredItem;
     public string requiredItem;
     private bool isPlayerEnteredPlatform = false;
     private GameObject platformItem;

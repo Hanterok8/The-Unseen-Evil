@@ -1364,6 +1364,7 @@ MonoBehaviour:
   _movementWalkSpeed: 4
   isRunning: 0
   AxesSpeed: {x: 0, y: 0}
+  isFrozen: 0
 --- !u!114 &8661235625801893879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1830,6 +1831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624335143bd5d1547b3b290bf6304bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraController: {fileID: 187724314771387701}
+  weapon: {fileID: 8799213293950528838}
 --- !u!1 &3550321043067029588
 GameObject:
   m_ObjectHideFlags: 0
@@ -7620,7 +7623,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7951685160904519288}
   - component: {fileID: 305662018599805056}
-  - component: {fileID: 4134420760136042044}
   m_Layer: 0
   m_Name: AimCamera
   m_TagString: Untagged
@@ -7694,14 +7696,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4134420760136042044
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6854424501122190128}
-  m_Enabled: 1
 --- !u!1 &6875499144808162460
 GameObject:
   m_ObjectHideFlags: 0

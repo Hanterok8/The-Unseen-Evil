@@ -1,6 +1,4 @@
 using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TriggerController : MonoBehaviour
@@ -29,7 +27,7 @@ public class TriggerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && !aimodipsis.isAimodipsis)
         {
             isStoreOpened = !isStoreOpened;
-            OpenUI(isStoreOpened);
+            StoreIOpener.Open();
         }
     }
     private GameObject GetPlayer()
@@ -52,7 +50,7 @@ public class TriggerController : MonoBehaviour
         }
         if (collider.gameObject.CompareTag("Crystal") && questSwitcher.currentQuest.name == "Lost Crystal" && photonView.IsMine)
         {
-            CrystalIOpener.Open(true);
+            CrystalIOpener.Open();
             Destroy(collider.transform.parent.gameObject);
             Destroy(collider.gameObject);
         }
@@ -66,18 +64,10 @@ public class TriggerController : MonoBehaviour
 
             if (isStoreOpened)
             {
-                OpenUI(false);
-                cameraController.enabled = false;
-                weapon.enabled = false;
+                StoreIOpener.Open();
             }
 
         }
 
-    }
-    private void OpenUI(bool isOpening)
-    {
-        StoreIOpener.Open(isOpening);
-        cameraController.enabled = !isOpening;
-        weapon.enabled = !isOpening;
     }
 }
