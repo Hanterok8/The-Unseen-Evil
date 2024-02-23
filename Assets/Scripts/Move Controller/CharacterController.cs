@@ -8,18 +8,17 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Rigidbody _playerRigidbody;
 
     [SerializeField] private Transform _mainCamera;
-    [SerializeField] private float _movementWalkSpeed = 4f;
+    [SerializeField] private float _movementWalkSpeed = 2f;
+    public GameObject _menu;
+    public float currentSpeed = 0f;
     private PhotonView _photonView;
     public bool isRunning;
     private Vector3 _movementVector;
     public Vector2 AxesSpeed;
     public Action<int> onChangedFOV;
     private int newFOV = 60;
-    public bool isFrozen;
-    private StaminaSettings stamina;
     void Start()
     {
-        stamina = GetComponent<StaminaSettings>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _photonView = GetComponent<PhotonView>();
@@ -37,10 +36,7 @@ public class CharacterController : MonoBehaviour
     {
         if (_photonView.IsMine)
         {
-            if (!isFrozen)
-            {
-                _movementVector = GetMovement();
-            }
+            _movementVector = GetMovement();
             onChangedFOV?.Invoke(newFOV);
             AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _movementWalkSpeed, Input.GetAxis("Vertical") * _movementWalkSpeed);
         }
@@ -55,7 +51,7 @@ public class CharacterController : MonoBehaviour
 
     private Vector3 GetMovement()
     {
-        
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -74,20 +70,16 @@ public class CharacterController : MonoBehaviour
         OnRun();
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
+            _playerAnimator.SetFloat("Speed", 0f);
             newFOV = 60;
-            isRunning = false;
-            _movementWalkSpeed = 4f;
-            _photonView.RPC(nameof(Run), RpcTarget.All, false);
+            _movementWalkSpeed = 2f;
         }
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _photonView.RPC(nameof(Crouch), RpcTarget.All, true);
+            _menu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
         }
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            _photonView.RPC(nameof(Crouch), RpcTarget.All, false);
-        }
-
+        
         return movementVector;
     }
     public void AnimatorStateChange(Vector3 relativeVector3)
@@ -100,25 +92,13 @@ public class CharacterController : MonoBehaviour
         _playerAnimator.SetFloat("Horizontal", relativeVector.x);
         _playerAnimator.SetFloat("Vertical", relativeVector.z);
     }
-
-    [PunRPC]
-    private void Run(bool isRunning)
-    {
-        _playerAnimator.SetBool("isRunning", isRunning);
-    }
-    [PunRPC]
-    private void Crouch(bool isCrouching)
-    {
-        _playerAnimator.SetBool("isCrouch", isCrouching);
-    }
     private void OnRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && stamina._playerStamina > 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
-            isRunning = true;
+            _playerAnimator.SetFloat("Speed", 1f);
             newFOV = 75;
-            _movementWalkSpeed = 8f;
-            _photonView.RPC(nameof(Run), RpcTarget.All, true);
+            _movementWalkSpeed = 4f;
         }
     }
 }

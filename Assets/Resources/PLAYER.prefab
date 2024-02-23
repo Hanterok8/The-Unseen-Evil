@@ -494,6 +494,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dreyar By M.Aure 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7049922857257111451, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049922857257111451, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[0].Name
+      value: Blend
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049922857257111451, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[1].Name
+      value: Speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049922857257111451, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[2].Name
+      value: Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049922857257111451, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[3].Name
+      value: Vertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049922857257111451, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[3].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049922857257111451, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[4].Name
+      value: isCrouch
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049922857257111451, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[5].Name
+      value: isRunning
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049922857257111451, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[6].Name
+      value: Equp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049922857257111451, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[7].Name
+      value: isAiming
+      objectReference: {fileID: 0}
+    - target: {fileID: 7049922857257111451, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[7].Type
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5280645982556885989, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
     m_RemovedGameObjects: []

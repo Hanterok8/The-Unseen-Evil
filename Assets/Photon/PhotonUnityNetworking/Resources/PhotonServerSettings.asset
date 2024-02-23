@@ -59,8 +59,7 @@ MonoBehaviour:
   - Run
   - KickPlayerRPC
   - AnimatorStateChangeRPC
-  - PlayerModeSet
-  - OnItemsConnected
+  - OnRun
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
