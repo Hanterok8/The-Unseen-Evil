@@ -36,6 +36,9 @@ TagManager:
   - Anomaly
   - Spectator
   - Crystal
+  - Chain
+  - Plank
+  - Roof door
   layers:
   - Default
   - TransparentFX
@@ -49,8 +52,8 @@ TagManager:
   - GatesInMaze
   - AltarRecipe
   - Receivable
-  - 
-  - 
+  - PlayerPP
+  - DemonPP
   - 
   - 
   - 

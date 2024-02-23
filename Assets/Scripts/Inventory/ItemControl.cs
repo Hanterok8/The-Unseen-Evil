@@ -115,6 +115,9 @@ public class ItemControl : MonoBehaviour
             "Lamb's blood" => 2,
             "Gift of foresight" => 3,
             "Maze key" => 4,
+            "Axe" => 5,
+            "Roof key" => 6,
+            "Wirecutters" => 7,
             "Water Bottle" => 8
         };
         Image img = _inventorySprites[itemIndexInInventory];
