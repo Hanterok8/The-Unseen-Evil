@@ -8,7 +8,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Rigidbody _playerRigidbody;
 
     [SerializeField] private Transform _mainCamera;
-    [SerializeField] private float _movementWalkSpeed = 2f;
+    [SerializeField] private float _movementWalkSpeed = 4f;
     public GameObject _menu;
     public float currentSpeed = 0f;
     private PhotonView _photonView;
@@ -17,8 +17,12 @@ public class CharacterController : MonoBehaviour
     public Vector2 AxesSpeed;
     public Action<int> onChangedFOV;
     private int newFOV = 60;
+    public bool isFrozen;
+    private StaminaSettings stamina;
+
     void Start()
     {
+        stamina = GetComponent<StaminaSettings>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _photonView = GetComponent<PhotonView>();
@@ -36,7 +40,8 @@ public class CharacterController : MonoBehaviour
     {
         if (_photonView.IsMine)
         {
-            _movementVector = GetMovement();
+            if (!isFrozen) _movementVector = GetMovement();
+            if (stamina._playerStamina <= 0) _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 0f);
             onChangedFOV?.Invoke(newFOV);
             AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _movementWalkSpeed, Input.GetAxis("Vertical") * _movementWalkSpeed);
         }
@@ -70,9 +75,9 @@ public class CharacterController : MonoBehaviour
         OnRun();
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            _playerAnimator.SetFloat("Speed", 0f);
+            _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 0f);
             newFOV = 60;
-            _movementWalkSpeed = 2f;
+            _movementWalkSpeed = 4f;
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -92,13 +97,18 @@ public class CharacterController : MonoBehaviour
         _playerAnimator.SetFloat("Horizontal", relativeVector.x);
         _playerAnimator.SetFloat("Vertical", relativeVector.z);
     }
+    [PunRPC]
+    private void ChangeRunAnimation(float value)
+    {
+        _playerAnimator.SetFloat("Speed", value);
+    }
     private void OnRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && stamina._playerStamina > 0)
         {
-            _playerAnimator.SetFloat("Speed", 1f);
+            _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 1f);
             newFOV = 75;
-            _movementWalkSpeed = 4f;
+            _movementWalkSpeed = 7f;
         }
     }
 }

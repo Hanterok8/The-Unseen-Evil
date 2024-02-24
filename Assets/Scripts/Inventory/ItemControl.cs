@@ -69,7 +69,7 @@ public class ItemControl : MonoBehaviour
 
 
     }
-    public virtual void PickUpItem(RaycastHit hit)
+    private void PickUpItem(RaycastHit hit)
     {
         PickUpInformation _itemInfo = hit.collider.gameObject.GetComponent<PickUpInformation>();
         if (_itemInfo.isQuestedItem)
@@ -114,9 +114,9 @@ public class ItemControl : MonoBehaviour
             "Lamb's blood" => 2,
             "Gift of foresight" => 3,
             "Maze key" => 4,
-            "Axe" => 5,
-            "Roof key" => 6,
-            "Wirecutters" => 7,
+            "Roof key" => 5,
+            "Wirecutters" => 6,
+            "Axe" => 7,
             "Water Bottle" => 8
         };
         Image img = _inventorySprites[itemIndexInInventory];

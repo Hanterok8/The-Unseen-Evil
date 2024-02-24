@@ -39,6 +39,7 @@ TagManager:
   - Chain
   - Plank
   - Roof door
+  - Prayer2
   layers:
   - Default
   - TransparentFX

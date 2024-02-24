@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftQuests:
-  - {fileID: 11400000, guid: 459e1f6273c582f4c933e82b5a70c7ae, type: 2}
+  - {fileID: 11400000, guid: d22e91a2b6e4575499036bcd038574ac, type: 2}
   secondsBeforeNextQuest: 0
   extraQuest: {fileID: 11400000, guid: 9fa4809c3c287f34e8c68a7f5dc80d94, type: 2}
   completedQuest: []
