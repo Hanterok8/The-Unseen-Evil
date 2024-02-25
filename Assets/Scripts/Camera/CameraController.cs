@@ -93,7 +93,6 @@ public class CameraController : MonoBehaviour
         {
             camera.transform.localPosition = new Vector3
                     (Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * 0.3f;
-            yield return null;
         }
     }
 }
