@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] private Transform _mainCamera;
     [SerializeField] private float _movementWalkSpeed = 4f;
-    public GameObject _menu;
+    private GameObject _menu;
     public float currentSpeed = 0f;
     private PhotonView _photonView;
     public bool isRunning;
@@ -22,6 +23,7 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
+        _menu = GameObject.FindGameObjectWithTag("menu");
         stamina = GetComponent<StaminaSettings>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -84,7 +86,6 @@ public class CharacterController : MonoBehaviour
             _menu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
         }
-        
         return movementVector;
     }
     public void AnimatorStateChange(Vector3 relativeVector3)

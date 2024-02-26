@@ -1550,7 +1550,7 @@ MonoBehaviour:
   _playerRigidbody: {fileID: 0}
   _mainCamera: {fileID: 1162847930649953265}
   _movementWalkSpeed: 4
-  _menu: {fileID: 0}
+  _menu: {fileID: 4754703614867779721, guid: e501c29ba6396014ea1550fa80474ce2, type: 3}
   currentSpeed: 0
   isRunning: 0
   AxesSpeed: {x: 0, y: 0}
