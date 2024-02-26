@@ -1,8 +1,9 @@
 using Photon.Pun;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class AimCamera : MonoBehaviour
 {
     [SerializeField] private float sensitivityMouse = 100f;
     [SerializeField] private Transform Player;
@@ -15,9 +16,6 @@ public class CameraController : MonoBehaviour
     private const int COEFFICIENT = 3;
     private Camera camera;
     private int currentFOV = 60;
-    public Transform aimPose;
-    public float AimSmoothspeed = 20f;
-    public LayerMask aimMask;
     private void Awake()
     {
         characterController = Player.GetComponent<CharacterController>();
@@ -70,15 +68,8 @@ public class CameraController : MonoBehaviour
 
         xRotation = Mathf.Clamp(xRotation, -Y_LOOK_LIMIT, Y_LOOK_LIMIT);
 
-        Vector2 screenCentre = new Vector2(Screen.width / 2, Screen.height / 2);
-        Ray ray = Camera.main.ScreenPointToRay(screenCentre);
-        if(Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
-        {
-            aimPose.position = Vector3.Lerp(aimPose.position,hit.point,AimSmoothspeed*Time.deltaTime);
-        }
-
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        Player.rotation = Quaternion.Euler(0, yRotation + 1, 0);
+        Player.rotation = Quaternion.Euler(0, yRotation+1, 0);
     }
     private void SetNewFOV(int newCameraFOV)
     {
@@ -103,6 +94,7 @@ public class CameraController : MonoBehaviour
         {
             camera.transform.localPosition = new Vector3
                     (Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * 0.3f;
+            yield return null;
         }
     }
 }

@@ -1,3 +1,4 @@
+using AQUAS_Lite;
 using Photon.Pun;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class RifleController : MonoBehaviour
     public Camera mainCamera;
     public Camera AIMCamera;
     private CharacterController _charachterController;
+    [SerializeField] private GameObject _Player;
     private PhotonView _photonView;
     private void Start()
     {
@@ -31,12 +33,14 @@ public class RifleController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             _charachterController._playerAnimator.SetBool("isAiming", true);
+            _Player.GetComponent<CameraController>().enabled = false;
             mainCamera.enabled = false;
             AIMCamera.enabled = true;
         }
         if (Input.GetMouseButtonUp(1))
         {
             _charachterController._playerAnimator.SetBool("isAiming", false);
+            _Player.GetComponent<CameraController>().enabled = true;
             mainCamera.enabled = true;
             AIMCamera.enabled = false;
         }

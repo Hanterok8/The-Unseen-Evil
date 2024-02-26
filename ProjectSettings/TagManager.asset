@@ -41,6 +41,7 @@ TagManager:
   - Roof door
   - Prayer2
   - Sheep
+  - menu
   layers:
   - Default
   - TransparentFX
