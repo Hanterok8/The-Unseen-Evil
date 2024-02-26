@@ -117,7 +117,8 @@ public class ItemControl : MonoBehaviour
             "Roof key" => 5,
             "Wirecutters" => 6,
             "Axe" => 7,
-            "Water Bottle" => 8
+            "Water Bottle" => 8,
+            "Knife" => 9
         };
         Image img = _inventorySprites[itemIndexInInventory];
         _inventoryGameObjects[itemIndexInInventory].SetActive(true);

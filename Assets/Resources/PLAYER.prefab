@@ -117,6 +117,7 @@ MonoBehaviour:
   - {fileID: 6436244194769082338, guid: e5bc42fc0e5309940aaf42aebd1fd5f0, type: 3}
   - {fileID: 7178962179584392224, guid: 9dfaffbaa4d2b4d4797762618b446512, type: 3}
   - {fileID: 8710521962025991136, guid: fea2d226f498ad14d9f086cf5f512e16, type: 3}
+  - {fileID: 1351973935744428965, guid: 85d502dc7c5cbdd459aa9c1e03a00363, type: 3}
   _distance: 3
   _inventoryGameObjects: []
   demonPrefab: {fileID: 1115505141538682346, guid: 473982180ba583c4587a19887f7b56b4, type: 3}
@@ -197,6 +198,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftQuests:
   - {fileID: 11400000, guid: d22e91a2b6e4575499036bcd038574ac, type: 2}
+  - {fileID: 11400000, guid: 459e1f6273c582f4c933e82b5a70c7ae, type: 2}
+  - {fileID: 11400000, guid: ff072f623b0b76941ac30ca0d3c7b9ea, type: 2}
+  - {fileID: 11400000, guid: d7d017d654217c140b62fbb6993b800a, type: 2}
+  - {fileID: 11400000, guid: 3609244804b98e341b08dd56b2021243, type: 2}
+  - {fileID: 11400000, guid: ac39b5c5c93cfcb4f89678ceb3d1860c, type: 2}
+  - {fileID: 11400000, guid: 07662a17a1c8c9e498a55f913459afd0, type: 2}
   secondsBeforeNextQuest: 0
   extraQuest: {fileID: 11400000, guid: 9fa4809c3c287f34e8c68a7f5dc80d94, type: 2}
   completedQuest: []
