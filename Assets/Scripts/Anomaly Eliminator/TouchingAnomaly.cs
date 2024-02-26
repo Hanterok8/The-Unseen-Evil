@@ -8,7 +8,7 @@ public class TouchingAnomaly : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Anomaly"))
         {
-
+            Destroy(collider);
             onAnomalyTouched?.Invoke(collider);
         }
     }

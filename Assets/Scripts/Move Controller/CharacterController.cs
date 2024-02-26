@@ -1,7 +1,6 @@
 using Photon.Pun;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
@@ -43,7 +42,11 @@ public class CharacterController : MonoBehaviour
         if (_photonView.IsMine)
         {
             if (!isFrozen) _movementVector = GetMovement();
-            if (stamina._playerStamina <= 0) _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 0f);
+            if (stamina._playerStamina <= 0)
+            {
+                isRunning = false;
+                _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 0f);
+            }
             onChangedFOV?.Invoke(newFOV);
             AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _movementWalkSpeed, Input.GetAxis("Vertical") * _movementWalkSpeed);
         }
@@ -77,6 +80,7 @@ public class CharacterController : MonoBehaviour
         OnRun();
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
+            isRunning = false;
             _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 0f);
             newFOV = 60;
             _movementWalkSpeed = 4f;
@@ -107,6 +111,7 @@ public class CharacterController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && stamina._playerStamina > 0)
         {
+            isRunning = true;
             _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 1f);
             newFOV = 75;
             _movementWalkSpeed = 7f;
