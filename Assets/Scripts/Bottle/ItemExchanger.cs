@@ -63,7 +63,11 @@ public class ItemExchanger : MonoBehaviour
                     Destroy(frontItem);
                     questSwitcher.AddQuestStep(1);
                 }
-                else if (hit.collider.CompareTag("Sheep") && IsCurrentItem("Knife"))
+                
+            }
+            else if (Physics.Raycast(ray, out hit, DISTANCE))
+            {
+                if (hit.collider.CompareTag("Sheep") && IsCurrentItem("Knife"))
                 {
                     StartCoroutine(TakeAwayItemAndGetNewOne("Lamb's blood"));
                 }

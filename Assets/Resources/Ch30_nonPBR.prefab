@@ -333,8 +333,11 @@ MonoBehaviour:
   _playerRigidbody: {fileID: 9168012729401099908}
   _mainCamera: {fileID: 5749523862453355139}
   _movementWalkSpeed: 2
+  _menu: {fileID: 0}
+  currentSpeed: 0
   isRunning: 0
   AxesSpeed: {x: 0, y: 0}
+  isFrozen: 0
 --- !u!136 &8974254019273461512
 CapsuleCollider:
   m_ObjectHideFlags: 0
