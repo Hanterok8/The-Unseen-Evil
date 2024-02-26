@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 using TMPro;
 
 public class Weapon : MonoBehaviour
@@ -32,11 +33,26 @@ public class Weapon : MonoBehaviour
     private Camera Cam;
 
     private TMP_Text Ammo;
+    private PhotonView photonView;
     private void Start()
     {
-        questSwitcher = Player.GetComponent<QuestSwitcher>();
+        GameObject mainPlayer = GetMainPlayer();
+        photonView = mainPlayer.GetComponent<PhotonView>();
+        questSwitcher = mainPlayer.GetComponent<QuestSwitcher>();
         Cam = Camera.main;
         Ammo = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<TMP_Text>();
+    }
+    private GameObject GetMainPlayer()
+    {
+        CurrentPlayer[] currentPlayers = FindObjectsOfType<CurrentPlayer>();
+        foreach (CurrentPlayer currentPlayer in currentPlayers)
+        {
+            if (currentPlayer.CurrentPlayerModel == Player)
+            {
+                return currentPlayer.gameObject;
+            }
+        }
+        return null;
     }
     void Update()
     {
@@ -62,14 +78,13 @@ public class Weapon : MonoBehaviour
     void Shoot()
     {
         AudioSource.PlayOneShot(shotSFX);
-        Instantiate(muzleFlash, bulletSpawn.position, bulletSpawn.rotation);
+        PhotonNetwork.Instantiate(muzleFlash.name, bulletSpawn.position, bulletSpawn.rotation);
 
         RaycastHit Hit;
 
         if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out Hit, Range))
         {
-            GameObject ImpactGO = Instantiate(hitEffect, Hit.point, Quaternion.LookRotation(Hit.normal));
-            Destroy(ImpactGO, 2f);
+            photonView.RPC(nameof(InstantiantEffect), RpcTarget.All, Hit);
             RewardForGhost ghost = Hit.transform.GetComponent<RewardForGhost>();
             if (ghost != null && questSwitcher.currentQuest.name == "Maruntian Soul Catcher")
             {
@@ -81,6 +96,13 @@ public class Weapon : MonoBehaviour
             }
         }
     }
+    [PunRPC]
+    private void InstantiantEffect(RaycastHit Hit)
+    {
+        GameObject ImpactGO = Instantiate(hitEffect, Hit.point, Quaternion.LookRotation(Hit.normal));
+        Destroy(ImpactGO, 2f);
+    }
+
     void Reload()
     {
         float Reason = 30f - ammoInClip;

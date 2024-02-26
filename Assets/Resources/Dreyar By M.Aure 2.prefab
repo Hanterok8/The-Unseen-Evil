@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 2769697062488827277}
   - component: {fileID: 3627581376301212470}
   - component: {fileID: 8346223386015637440}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1550,7 +1550,6 @@ MonoBehaviour:
   _playerRigidbody: {fileID: 0}
   _mainCamera: {fileID: 1162847930649953265}
   _movementWalkSpeed: 4
-  _menu: {fileID: 4754703614867779721, guid: e501c29ba6396014ea1550fa80474ce2, type: 3}
   currentSpeed: 0
   isRunning: 0
   AxesSpeed: {x: 0, y: 0}
@@ -9180,7 +9179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04c7a312bcd5dc4eadb89f45ecd5ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 3470049310683012215}
   maxAmmo: 120
   ammoInClip: 30
   muzleFlash: {fileID: 1743301284569550, guid: e8ff2f1604b6a4d4ebed0318e558bba7, type: 3}
