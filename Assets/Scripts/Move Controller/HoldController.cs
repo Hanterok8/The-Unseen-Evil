@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class HoldController : MonoBehaviour
 {
-    private PersonController _personController;
+    private CharacterController characterController;
 
     private PhotonView _photonView;
     private void Start()
     {
         _photonView = GetComponent<PhotonView>();
-        _personController = GetComponent<PersonController>();
+        characterController = GetComponent<CharacterController>();
     }
     private void Update()
     {
@@ -19,7 +19,7 @@ public class HoldController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Y))
         {
-            _personController.ChangePlayerAnimation(30);
+            characterController._playerAnimator.SetBool("Hold", true);
         }
     }
 }
