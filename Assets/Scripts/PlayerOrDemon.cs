@@ -10,7 +10,7 @@ public class PlayerOrDemon : MonoBehaviour
     private void Start()
     {
         photonView = GetComponent<PhotonView>();
-        if (photonView.IsMine && PhotonNetwork.IsMasterClient)    
+        if (photonView.IsMine && DemonSaver.DemonName == photonView.Owner.NickName)    
         {
             isDemon = true;
             GetComponent<OnAimodipsisMode>().enabled = true;
