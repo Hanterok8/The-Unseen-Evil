@@ -42,7 +42,7 @@ public class CharacterController : MonoBehaviour
         if (_photonView.IsMine)
         {
             if (!isFrozen) _movementVector = GetMovement();
-            if (stamina._playerStamina <= 0)
+            if (stamina && stamina._playerStamina <= 0)
             {
                 isRunning = false;
                 _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 0f);
@@ -87,8 +87,17 @@ public class CharacterController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _menu.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
+            _menu.SetActive(!_menu.activeSelf);
+            if (Cursor.visible)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+            }
+
+            Cursor.visible = !Cursor.visible;
         }
         return movementVector;
     }

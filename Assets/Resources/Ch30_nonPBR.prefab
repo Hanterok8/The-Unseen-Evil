@@ -333,7 +333,6 @@ MonoBehaviour:
   _playerRigidbody: {fileID: 9168012729401099908}
   _mainCamera: {fileID: 5749523862453355139}
   _movementWalkSpeed: 2
-  _menu: {fileID: 0}
   currentSpeed: 0
   isRunning: 0
   AxesSpeed: {x: 0, y: 0}
@@ -375,10 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 3
-    SynchronizeType: 2
-    Name: State
+  m_SynchronizeParameters: []
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
@@ -806,6 +802,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivityMouse: 100
   Player: {fileID: 7922546751584887003}
+  aimPose: {fileID: 0}
+  AimSmoothspeed: 20
+  aimMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &682743469777031622
 MonoBehaviour:
   m_ObjectHideFlags: 0

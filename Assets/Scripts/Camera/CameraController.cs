@@ -21,34 +21,23 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         characterController = Player.GetComponent<CharacterController>();
-        demonController = Player.GetComponent<DemonController>();
     }
     void Start()
     {
         camera = GetComponent<Camera>();
         sensitivityMouse = PlayerPrefs.GetInt("Sensitivity") * COEFFICIENT;
         Cursor.lockState = CursorLockMode.Locked;
-        //_photonView = Player.GetComponent<PhotonView>();
-        _photonView = GetComponent<PhotonView>();
+        _photonView = Player.GetComponent<PhotonView>();
         if (!_photonView.IsMine)
         {
             Destroy(GetComponent<Camera>());
             Destroy(GetComponent<AudioListener>());
         }
-    }
-    private void OnEnable()
-    {
-        if (characterController)
-            characterController.onChangedFOV += SetNewFOV;
-        else
-            demonController.onChangedFOV += SetNewFOV;
+        characterController.onChangedFOV += SetNewFOV;
     }
     private void OnDisable()
     {
-        if (characterController)
-            characterController.onChangedFOV -= SetNewFOV;
-        else
-            demonController.onChangedFOV -= SetNewFOV;
+        characterController.onChangedFOV -= SetNewFOV;
     }
     void Update()
     {

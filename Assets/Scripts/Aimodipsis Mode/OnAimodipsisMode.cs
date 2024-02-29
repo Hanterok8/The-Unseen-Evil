@@ -46,7 +46,7 @@ public class OnAimodipsisMode : MonoBehaviour
         GameObject spawnedPrefab = PhotonNetwork.Instantiate
             (prefabToSpawn.name, currentLivingPlayer.CurrentPlayerModel.transform.localPosition + Vector3.up * 3, Quaternion.identity);
         PhotonNetwork.Destroy(currentLivingPlayer.CurrentPlayerModel);
-        isAimodipsisMode.isAimodipsis = aimodipsisModeTurnTo;
+        isAimodipsisMode.SetAimodipsisMode(aimodipsisModeTurnTo);
         currentLivingPlayer.CurrentPlayerModel = spawnedPrefab;
         photonView = GetComponent<PhotonView>();
         photonView.RPC(nameof(TurnVoiceChatIntoRPC), RpcTarget.All, aimodipsisModeTurnTo);
