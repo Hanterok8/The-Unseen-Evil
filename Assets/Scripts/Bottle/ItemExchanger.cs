@@ -72,6 +72,14 @@ public class ItemExchanger : MonoBehaviour
                     StartCoroutine(TakeAwayItemAndGetNewOne("Lamb's blood"));
                 }
             }
+            else if (Physics.Raycast(ray, out hit, DISTANCE) && questSwitcher.currentQuest.name == "Missing pieces")
+            {
+                if (hit.collider.CompareTag("Prayer1") || hit.collider.CompareTag("Prayer3"))
+                {
+                    Destroy(hit.collider.gameObject);
+                    questSwitcher.AddQuestStep(1);
+                }
+            }
         }
         
         

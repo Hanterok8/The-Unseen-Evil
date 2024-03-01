@@ -42,6 +42,8 @@ TagManager:
   - Prayer2
   - Sheep
   - menu
+  - Prayer1
+  - Prayer3
   layers:
   - Default
   - TransparentFX

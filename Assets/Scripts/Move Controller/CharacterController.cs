@@ -36,29 +36,41 @@ public class CharacterController : MonoBehaviour
             Destroy(_mainCamera.GetComponent<Camera>());
             Destroy(_mainCamera.GetComponent<AudioListener>());
         }
+
+        stamina.onStaminaUpdated += CheckNewStamina;
     }
+
+    private void OnDisable()
+    {
+        stamina.onStaminaUpdated -= CheckNewStamina;
+    }
+
     void Update()
     {
         if (_photonView.IsMine)
         {
             if (!isFrozen) _movementVector = GetMovement();
-            if (stamina && stamina._playerStamina <= 0)
-            {
-                isRunning = false;
-                _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 0f);
-            }
-            onChangedFOV?.Invoke(newFOV);
-            AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _movementWalkSpeed, Input.GetAxis("Vertical") * _movementWalkSpeed);
         }
     }
 
     private void FixedUpdate()
     {
-        if (_photonView.IsMine)
-            _playerRigidbody.velocity = new Vector3
-                (_movementVector.x * _movementWalkSpeed, _playerRigidbody.velocity.y, _movementVector.z * _movementWalkSpeed);
+        if (!_photonView.IsMine) return;
+        
+        onChangedFOV?.Invoke(newFOV);
+        AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _movementWalkSpeed, Input.GetAxis("Vertical") * _movementWalkSpeed);
+        _playerRigidbody.velocity = new Vector3
+            (_movementVector.x * _movementWalkSpeed, _playerRigidbody.velocity.y, _movementVector.z * _movementWalkSpeed);
+
     }
 
+    private void CheckNewStamina()
+    {
+        if (stamina && stamina._playerStamina <= 0)
+        {
+            SetRunningStateFalse();
+        }
+    }
     private Vector3 GetMovement()
     {
 
@@ -80,10 +92,7 @@ public class CharacterController : MonoBehaviour
         OnRun();
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            isRunning = false;
-            _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 0f);
-            newFOV = 60;
-            _movementWalkSpeed = 4f;
+            SetRunningStateFalse();
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -101,6 +110,15 @@ public class CharacterController : MonoBehaviour
         }
         return movementVector;
     }
+
+    private void SetRunningStateFalse()
+    {
+        isRunning = false;
+        _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 0f);
+        newFOV = 60;
+        _movementWalkSpeed = 4f;
+    }
+
     public void AnimatorStateChange(Vector3 relativeVector3)
     {
         _photonView.RPC(nameof(AnimatorStateChangeRPC), RpcTarget.All, relativeVector3);
