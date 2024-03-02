@@ -6,11 +6,9 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField] public Animator _playerAnimator;
     [SerializeField] private Rigidbody _playerRigidbody;
-
     [SerializeField] private Transform _mainCamera;
     [SerializeField] private float _movementWalkSpeed = 4f;
-    private GameObject _menu;
-    public float currentSpeed = 0f;
+    [SerializeField] private GameObject _menu;
     private PhotonView _photonView;
     public bool isRunning;
     private Vector3 _movementVector;
@@ -142,6 +140,19 @@ public class CharacterController : MonoBehaviour
             _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 1f);
             newFOV = 75;
             _movementWalkSpeed = 7f;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Wall")
+        {
+            _movementWalkSpeed = 0;
+            _playerAnimator.SetBool("isWall" , true);
+        }
+        else
+        {
+            _movementWalkSpeed = 4;
+            _playerAnimator.SetBool("isWall", false);
         }
     }
 }

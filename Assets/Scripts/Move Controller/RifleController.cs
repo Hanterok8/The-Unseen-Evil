@@ -1,13 +1,14 @@
-using AQUAS_Lite;
 using Photon.Pun;
 using UnityEngine;
 
 public class RifleController : MonoBehaviour
 {
-    public Camera mainCamera;
-    public Camera AIMCamera;
+    [SerializeField] private GameObject LHoldTarget;
+    [SerializeField] private GameObject _RHand;
+    [SerializeField] private GameObject _LHand;
+    [SerializeField] private GameObject _WeaponTarget;
+    [SerializeField] private GameObject _LForeArm;
     private CharacterController _charachterController;
-    [SerializeField] private GameObject _Player;
     private PhotonView _photonView;
     private void Start()
     {
@@ -22,27 +23,18 @@ public class RifleController : MonoBehaviour
     }
     private void RifleInput()
     {
-        if (Input.GetKey(KeyCode.Q))
-        {
-            _charachterController._playerAnimator.SetBool("Equp", true);
-        }
-        if (Input.GetKey(KeyCode.T))
-        {
-            _charachterController._playerAnimator.SetBool("Equp", false);
-        }
         if (Input.GetMouseButtonDown(1))
         {
             _charachterController._playerAnimator.SetBool("isAiming", true);
-            _Player.GetComponent<CameraController>().enabled = false;
-            mainCamera.enabled = false;
-            AIMCamera.enabled = true;
+            LHoldTarget.transform.parent = _RHand.transform;
+            LHoldTarget.transform.position = _WeaponTarget.transform.position;
+            LHoldTarget.transform.rotation = _WeaponTarget.transform.rotation;
         }
         if (Input.GetMouseButtonUp(1))
         {
             _charachterController._playerAnimator.SetBool("isAiming", false);
-            _Player.GetComponent<CameraController>().enabled = true;
-            mainCamera.enabled = true;
-            AIMCamera.enabled = false;
+            LHoldTarget.transform.parent = _LHand.transform;
+            LHoldTarget.transform.localPosition = new Vector3(0, 0, 0);
         }
     }
 }
