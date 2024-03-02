@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class RifleController : MonoBehaviour
 {
-    private CharacterController _charachterController;
     [SerializeField] private GameObject LHoldTarget;
     [SerializeField] private GameObject _RHand;
     [SerializeField] private GameObject _LHand;
     [SerializeField] private GameObject _WeaponTarget;
-    [SerializeField] private GameObject _Player;
+    [SerializeField] private GameObject _LForeArm;
+    private CharacterController _charachterController;
     private PhotonView _photonView;
     private void Start()
     {
@@ -29,14 +29,12 @@ public class RifleController : MonoBehaviour
             LHoldTarget.transform.parent = _RHand.transform;
             LHoldTarget.transform.position = _WeaponTarget.transform.position;
             LHoldTarget.transform.rotation = _WeaponTarget.transform.rotation;
-            _Player.GetComponent<CameraController>().enabled = false;
         }
         if (Input.GetMouseButtonUp(1))
         {
             _charachterController._playerAnimator.SetBool("isAiming", false);
             LHoldTarget.transform.parent = _LHand.transform;
-            LHoldTarget.transform.position = new Vector3(0, 0, 0);
-            _Player.GetComponent<CameraController>().enabled = true;
+            LHoldTarget.transform.localPosition = new Vector3(0, 0, 0);
         }
     }
 }

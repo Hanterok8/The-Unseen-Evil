@@ -10,12 +10,12 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _movementWalkSpeed = 4f;
     [SerializeField] private GameObject _menu;
     private PhotonView _photonView;
-    private bool isRunning;
+    public bool isRunning;
     private Vector3 _movementVector;
     public Vector2 AxesSpeed;
     public Action<int> onChangedFOV;
     private int newFOV = 60;
-    private bool isFrozen;
+    public bool isFrozen;
     private StaminaSettings stamina;
 
     void Start()
