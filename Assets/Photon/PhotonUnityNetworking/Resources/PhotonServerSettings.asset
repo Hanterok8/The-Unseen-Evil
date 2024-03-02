@@ -66,6 +66,8 @@ MonoBehaviour:
   - PlayerModeSet
   - PlayerModeSetRPC
   - UpdateTotalQuestsCountRPC
+  - AddActivatedPlatformRPC
+  - PlaceItemOntoPlatformRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

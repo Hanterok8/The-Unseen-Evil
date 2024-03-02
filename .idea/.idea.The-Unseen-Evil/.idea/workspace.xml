@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/End game/AltarPlatform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/End game/AltarPlatform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/AltarRecipe.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/AltarRecipe.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/DomeLight.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/DomeLight.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/MissingPieces.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/MissingPieces.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/QuestData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/QuestData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/Secrets of the Roof.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/Secrets of the Roof.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +116,7 @@
       <workItem from="1709311124076" duration="9044000" />
       <workItem from="1709337197682" duration="45000" />
       <workItem from="1709387576866" duration="434000" />
+      <workItem from="1709395937255" duration="2542000" />
     </task>
     <servers />
   </component>

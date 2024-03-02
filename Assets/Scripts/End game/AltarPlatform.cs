@@ -8,12 +8,13 @@ public class AltarPlatform : MonoBehaviour
     private GameObject platformItem;
     private ItemControl itemControl;
     private PhotonView photonView;
-    MeshRenderer meshRenderer;
+    private MeshRenderer meshRenderer;
+    private GameObject player;
     private void Start()
     {
         CurrentPlayer currentPlayer = FindObjectOfType<CurrentPlayer>();
         photonView = currentPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
-        GameObject player = currentPlayer.gameObject;
+        player = currentPlayer.gameObject;
         itemControl = player.GetComponent<ItemControl>();
         platformItem = transform.GetChild(0).gameObject;
         platformItem.SetActive(false);
@@ -29,13 +30,19 @@ public class AltarPlatform : MonoBehaviour
     private void PlaceItemOntoPlatform()
     {
         int usingSlot = itemControl.selected;
-        if (itemControl._slots[usingSlot].GetComponent<SlotItemInformation>().name != requiredItem)
+        if (itemControl._slots[usingSlot].GetComponent<SlotItemInformation>().name != requiredItem && !platformItem.activeSelf)
             return;
-        platformItem.SetActive(true);
-        meshRenderer.material.color = Color.blue;
         itemControl.TakeAwayItem();
+        photonView.RPC(nameof(PlaceItemOntoPlatformRPC), RpcTarget.All);
+    }
+
+    [PunRPC]
+    private void PlaceItemOntoPlatformRPC()
+    {
+        meshRenderer.material.color = Color.blue;
+        platformItem.SetActive(true);
         Transform altarObject = transform.parent;
-        altarObject.GetComponent<AltarConnectingItems>().AddActivatedPlatform();
+        altarObject.GetComponent<AltarConnectingItems>().AddActivatedPlatform(player);
     }
     private void OnCollisionEnter(Collision collision)
     {

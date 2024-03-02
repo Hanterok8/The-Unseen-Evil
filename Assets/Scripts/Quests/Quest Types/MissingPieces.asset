@@ -18,3 +18,4 @@ MonoBehaviour:
   _requiredTargets: 2
   _usingItems: []
   _coinsForQuest: 1
+  _isQuestRequiredForEndingGame: 1

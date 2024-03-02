@@ -56,6 +56,7 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
+        if (!photonView.IsMine) return;
         if (Input.GetMouseButton(0) && ammoInClip > 0 && Time.time > nextFire && CanShoot)
         {
             nextFire = Time.time + 1f / fireRate;
