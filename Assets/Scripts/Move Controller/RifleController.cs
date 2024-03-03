@@ -8,16 +8,17 @@ public class RifleController : MonoBehaviour
     [SerializeField] private GameObject _LHand;
     [SerializeField] private GameObject _WeaponTarget;
     [SerializeField] private GameObject _LForeArm;
+    [SerializeField] private GameObject player;
     private CharacterController _charachterController;
     private PhotonView _photonView;
     private void Start()
     {
-        _photonView = GetComponent<PhotonView>();
-        _charachterController = GetComponent<CharacterController>();
+        _photonView = player.GetComponent<PhotonView>();
+        _charachterController = player.GetComponent<CharacterController>();
     }
     private void Update()
     {
-        if (_photonView == null) _photonView = GetComponent<PhotonView>();
+        if (_photonView == null) _photonView = player.GetComponent<PhotonView>();
         if (_photonView.IsMine) RifleInput();
 
     }
@@ -25,16 +26,20 @@ public class RifleController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            _charachterController._playerAnimator.SetBool("isAiming", true);
-            LHoldTarget.transform.parent = _RHand.transform;
+            Aim(true, _RHand);
             LHoldTarget.transform.position = _WeaponTarget.transform.position;
             LHoldTarget.transform.rotation = _WeaponTarget.transform.rotation;
         }
         if (Input.GetMouseButtonUp(1))
         {
-            _charachterController._playerAnimator.SetBool("isAiming", false);
-            LHoldTarget.transform.parent = _LHand.transform;
+            Aim(false, _LHand);
             LHoldTarget.transform.localPosition = new Vector3(0, 0, 0);
         }
+    }
+
+    private void Aim(bool isAiming, GameObject newParent)
+    {
+        _charachterController.SetAimingAnimation(isAiming);
+        LHoldTarget.transform.parent = newParent.transform;
     }
 }

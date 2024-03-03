@@ -1756,7 +1756,6 @@ GameObject:
   - component: {fileID: 4410405491507862931}
   - component: {fileID: 4626557317557611518}
   - component: {fileID: 8661235625801893879}
-  - component: {fileID: 5090191656197164472}
   - component: {fileID: 3889778718054288073}
   - component: {fileID: 4799168764283103533}
   - component: {fileID: 2892313214222753845}
@@ -1924,24 +1923,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6aac6afba45614280bc451f8e535ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5090191656197164472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470049310683012215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46dbef3a5d442654da864f708096fb0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LHoldTarget: {fileID: 2833448457126794803}
-  _RHand: {fileID: 3811665485105812151}
-  _LHand: {fileID: 8033125949757005105}
-  _WeaponTarget: {fileID: 7445662868950766880}
-  _Player: {fileID: 3470049310683012215}
-  _LForeArm: {fileID: 6893531268440713912}
 --- !u!114 &3889778718054288073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9681,6 +9662,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1651207458261644541, guid: 08aff3481d1d96c40b54d48347503691, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1419803855454381516}
+    - targetCorrespondingSourceObject: {fileID: 1651207458261644541, guid: 08aff3481d1d96c40b54d48347503691, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4045667570982166896}
   m_SourcePrefab: {fileID: 100100000, guid: 08aff3481d1d96c40b54d48347503691, type: 3}
 --- !u!4 &706656519172759630 stripped
 Transform:
@@ -9911,6 +9895,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4045667570982166896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2271880130215611971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46dbef3a5d442654da864f708096fb0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LHoldTarget: {fileID: 2833448457126794803}
+  _RHand: {fileID: 3811665485105812151}
+  _LHand: {fileID: 8033125949757005105}
+  _WeaponTarget: {fileID: 7445662868950766880}
+  _LForeArm: {fileID: 6893531268440713912}
+  player: {fileID: 3470049310683012215}
 --- !u!1001 &1690539080283188766
 PrefabInstance:
   m_ObjectHideFlags: 0

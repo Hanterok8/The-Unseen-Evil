@@ -195,13 +195,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b5a54227ee24f4e8c02499b7113642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftQuests:
-  - {fileID: 11400000, guid: ac39b5c5c93cfcb4f89678ceb3d1860c, type: 2}
-  secondsBeforeNextQuest: 0
-  extraQuest: {fileID: 11400000, guid: 9fa4809c3c287f34e8c68a7f5dc80d94, type: 2}
   completedQuest: []
   currentQuest: {fileID: 0}
   interactedTargets: 0
+  leftQuests:
+  - {fileID: 11400000, guid: ac39b5c5c93cfcb4f89678ceb3d1860c, type: 2}
+  extraQuest: {fileID: 11400000, guid: 9fa4809c3c287f34e8c68a7f5dc80d94, type: 2}
+  secondsBeforeNextQuest: 0
 --- !u!82 &7311694160924015630
 AudioSource:
   m_ObjectHideFlags: 0

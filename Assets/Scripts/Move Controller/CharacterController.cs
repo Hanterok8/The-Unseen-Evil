@@ -142,6 +142,16 @@ public class CharacterController : MonoBehaviour
             _movementWalkSpeed = 7f;
         }
     }
+
+    public void SetAimingAnimation(bool newState)
+    {
+        _photonView.RPC(nameof(SetAimingAnimationRPC), RpcTarget.All, newState);
+    }
+
+    private void SetAimingAnimationRPC(bool newState)
+    {
+        _playerAnimator.SetBool("isAiming", newState);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Wall")
