@@ -71,6 +71,7 @@ public class CharacterController : MonoBehaviour
 
         Vector3 relativeVector = transform.InverseTransformDirection(movementVector);
         AnimatorStateChange(relativeVector);
+        ControllerDemonAttack();
         OnRun();
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
@@ -120,6 +121,25 @@ public class CharacterController : MonoBehaviour
         {
             _movementWalkSpeed = 4;
             _playerAnimator.SetBool("isWall", false);
+        }
+    }
+    private void ControllerDemonAttack()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            _playerAnimator.SetBool("IsAttack", true);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            _playerAnimator.SetBool("IsAttack", false);
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            _playerAnimator.SetBool("isJumpAttack", true);
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            _playerAnimator.SetBool("isJumpAttack", false);
         }
     }
 }
