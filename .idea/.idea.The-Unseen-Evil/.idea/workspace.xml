@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain 2.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" afterDir="false" />
@@ -116,6 +117,7 @@
       <workItem from="1709387576866" duration="434000" />
       <workItem from="1709395937255" duration="2542000" />
       <workItem from="1709408610803" duration="2680000" />
+      <workItem from="1709498536534" duration="523000" />
     </task>
     <servers />
   </component>
