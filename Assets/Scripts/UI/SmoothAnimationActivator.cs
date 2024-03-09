@@ -12,7 +12,9 @@ public class SmoothAnimationActivator : MonoBehaviour
     private void OnEnable()
     {
         animator = GetComponent<Animator>();
+        animator.ResetTrigger("Close");
         animator.SetTrigger("Open");
+        gameObject.SetActive(true);
     }
 
     public void DisableGameObject()

@@ -47,14 +47,18 @@ public class LobbyButtonManager : MonoBehaviour
     }
     public void SetRoom()
     {
-        createOrJoinButtons.GetComponent<Animator>().SetTrigger("Close");
+        Animator animator = createOrJoinButtons.GetComponent<Animator>();
+        animator.ResetTrigger("Open");
+        animator.SetTrigger("Close");
         settingRoom.SetActive(true);
     }
 
     public void BackFromSettingRoom()
     {
         createOrJoinButtons.SetActive(true);
-        settingRoom.GetComponent<Animator>().SetTrigger("Close");
+        Animator animator = settingRoom.GetComponent<Animator>();
+        animator.ResetTrigger("Open");
+        animator.SetTrigger("Close");
     }
 
     public void BackFromJoinByCode()

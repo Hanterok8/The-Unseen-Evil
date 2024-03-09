@@ -21,7 +21,16 @@ public class StoreOpener : MonoBehaviour
         Cursor.visible = !Cursor.visible;
         GameObject Blur = storeElements.BlurBackground;
         Blur.SetActive(!Blur.activeSelf);
-        storeElements.store.SetActive(!storeElements.store.activeSelf);
+        if (!storeElements.store.activeSelf)
+        {
+            storeElements.store.SetActive(true);
+        }
+        else
+        {
+            storeElements.store.GetComponent<Animator>().SetTrigger("Close");
+        }
+        
+        
         storeElements.buyMenu.SetActive(false);
     }
 

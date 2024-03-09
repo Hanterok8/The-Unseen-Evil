@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ButtonScale.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ButtonScale.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain 2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Opener/StoreOpener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Opener/StoreOpener.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyButtonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyButtonManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Setting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Setting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SmoothAnimationActivator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SmoothAnimationActivator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +25,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Quests/TotalCompletedQuestsCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Aimodipsis/AimodipsisBanner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Dealer/DealerMark.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/NicknameDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -116,7 +120,8 @@
       <workItem from="1709408610803" duration="2680000" />
       <workItem from="1709498536534" duration="523000" />
       <workItem from="1709828039760" duration="3003000" />
-      <workItem from="1709990845478" duration="5817000" />
+      <workItem from="1709990845478" duration="9474000" />
+      <workItem from="1710009419857" duration="2763000" />
     </task>
     <servers />
   </component>
