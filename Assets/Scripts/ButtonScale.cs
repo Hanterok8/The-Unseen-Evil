@@ -2,17 +2,28 @@ using UnityEngine;
 
 public class ButtonScale : MonoBehaviour
 {
-    [SerializeField] private GameObject _play;
+    [SerializeField] private Animator _play;
     [SerializeField] private AudioSource _playSource;
+
+    public bool isClicked { get; private set; }
 
     public void BigButton()
     {
-        _play.transform.localScale = new Vector3(3, 3, 3);
+        if (isClicked) return;
+        _play.SetTrigger("MakeBig");
         _playSource.Play();
     }
     public void SmallButton()
     {
-        _play.transform.localScale = new Vector3(1,1,1);
+        if (isClicked) return;
+        _play.SetTrigger("MakeSmall");
         _playSource.Pause();
     }
+
+    public void MiddleButton()
+    {
+        _play.SetTrigger("MakeMiddle");
+        isClicked = true;
+    }
+    
 }

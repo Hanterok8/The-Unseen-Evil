@@ -8,10 +8,8 @@ using UnityEngine.UI;
 public class LobbyButtonManager : MonoBehaviour
 {
     [SerializeField] private GameObject createOrJoinButtons;
-    [SerializeField] private GameObject mainMenuButtons;
     [SerializeField] private GameObject settingRoom;
     [SerializeField] private GameObject joinByCode;
-    [SerializeField] private GameObject _playBg;
 
     [SerializeField] private Slider playerLimitValue;
     [SerializeField] private Slider sensitivity;
@@ -27,9 +25,10 @@ public class LobbyButtonManager : MonoBehaviour
     => lobbyManager = FindFirstObjectByType<LobbyManager>();
     public void SetOrJoinRoom()
     {
-        mainMenuButtons.SetActive(false);
+        ButtonScale buttonScale = GetComponent<ButtonScale>();
+        if (buttonScale.isClicked) return;
         createOrJoinButtons.SetActive(true);
-        _playBg.SetActive(true);
+        buttonScale.MiddleButton();
     }
     public void OnRoomNameChanged()
     {
@@ -48,12 +47,24 @@ public class LobbyButtonManager : MonoBehaviour
     }
     public void SetRoom()
     {
-        createOrJoinButtons.SetActive(false);
+        createOrJoinButtons.GetComponent<Animator>().SetTrigger("Close");
         settingRoom.SetActive(true);
+    }
+
+    public void BackFromSettingRoom()
+    {
+        createOrJoinButtons.SetActive(true);
+        settingRoom.GetComponent<Animator>().SetTrigger("Close");
+    }
+
+    public void BackFromJoinByCode()
+    {
+        createOrJoinButtons.SetActive(true);
+        joinByCode.GetComponent<Animator>().SetTrigger("Close");
     }
     public void JoinRoom()
     {
-        createOrJoinButtons.SetActive(false);
+        createOrJoinButtons.GetComponent<Animator>().SetTrigger("Close");
         joinByCode.SetActive(true);
     }
 

@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Post processing/Demon profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Post processing/Demon profile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Room UI/PlayerList.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Room UI/PlayerList.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Ch30_nonPBR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Ch30_nonPBR.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Matchmaking.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Matchmaking.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ButtonScale.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ButtonScale.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyButtonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyButtonManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Setting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Setting.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +115,8 @@
       <workItem from="1709395937255" duration="2542000" />
       <workItem from="1709408610803" duration="2680000" />
       <workItem from="1709498536534" duration="523000" />
-      <workItem from="1709828039760" duration="1809000" />
+      <workItem from="1709828039760" duration="3003000" />
+      <workItem from="1709990845478" duration="5817000" />
     </task>
     <servers />
   </component>

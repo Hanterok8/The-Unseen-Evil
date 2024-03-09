@@ -9,7 +9,7 @@ public class Setting : MonoBehaviour
     }
     public void OffSettings()
     {
-        seeSettings.SetActive(false);
+        seeSettings.GetComponent<Animator>().SetTrigger("Close");
     }
     public void Exit()
     {
