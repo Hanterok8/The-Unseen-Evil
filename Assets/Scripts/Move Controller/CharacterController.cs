@@ -1,5 +1,6 @@
 using Photon.Pun;
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -125,21 +126,25 @@ public class CharacterController : MonoBehaviour
     }
     private void ControllerDemonAttack()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButton(0))
         {
             _playerAnimator.SetBool("IsAttack", true);
+            StartCoroutine(HandAttack());
         }
-        if (Input.GetMouseButtonUp(0))
-        {
-            _playerAnimator.SetBool("IsAttack", false);
-        }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
             _playerAnimator.SetBool("isJumpAttack", true);
+            StartCoroutine(Culdayn());
         }
-        if (Input.GetMouseButtonUp(1))
-        {
-            _playerAnimator.SetBool("isJumpAttack", false);
-        }
+    }
+    private IEnumerator Culdayn()
+    {
+        yield return new WaitForSeconds(2);
+        _playerAnimator.SetBool("isJumpAttack", false);
+    }
+    private IEnumerator HandAttack()
+    {
+        yield return new WaitForSeconds(1);
+        _playerAnimator.SetBool("IsAttack", false);
     }
 }

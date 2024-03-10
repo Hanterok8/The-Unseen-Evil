@@ -278,7 +278,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115505141538682346}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: ab23e76242f41704898f5208a174b1b8, type: 3}
   m_Controller: {fileID: 9100000, guid: e7834729cbfc817468c23dcfeafae170, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -375,12 +375,31 @@ MonoBehaviour:
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
   m_SynchronizeParameters:
-  - Type: 3
-    SynchronizeType: 2
-    Name: State
+  - Type: 1
+    SynchronizeType: 0
+    Name: Horizontal
+  - Type: 1
+    SynchronizeType: 0
+    Name: Vertical
+  - Type: 1
+    SynchronizeType: 0
+    Name: Speed
+  - Type: 4
+    SynchronizeType: 0
+    Name: isWall
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsAttack
+  - Type: 4
+    SynchronizeType: 0
+    Name: isJumpAttack
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
+  - SynchronizeType: 0
+    LayerIndex: 1
+  - SynchronizeType: 0
+    LayerIndex: 2
 --- !u!114 &7860204914140984949
 MonoBehaviour:
   m_ObjectHideFlags: 0
