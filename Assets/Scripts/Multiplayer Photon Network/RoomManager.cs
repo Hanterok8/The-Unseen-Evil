@@ -1,3 +1,4 @@
+using System.Collections;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
@@ -11,6 +12,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject StartButton;
     [SerializeField] private Transform playerListContent;
     [SerializeField] private GameObject playerlistPrefab;
+    [SerializeField] private GameObject loadingScreen;
     private PhotonView photonView;
 
     private string DemonPlayer;
@@ -33,9 +35,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
         DemonChooser();
+        photonView.RPC(nameof(LoadScene), RpcTarget.All);
         PhotonNetwork.LoadLevel("PlayLocation");
     }
-
+    [PunRPC]
+    private void LoadScene()
+    {
+        loadingScreen.SetActive(true);
+    }
     
     public override void OnLeftRoom()
     {
