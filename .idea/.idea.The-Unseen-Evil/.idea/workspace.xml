@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Matchmaking.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Matchmaking.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Multiplayer Photon Network/RoomManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Multiplayer Photon Network/RoomManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Multiplayer Photon Network/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Multiplayer Photon Network/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +24,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Aimodipsis/AimodipsisBanner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Dealer/DealerMark.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/NicknameDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.probuilder@5.2.2/Editor/EditorCore/BooleanEditor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -123,6 +122,9 @@
       <workItem from="1710009419857" duration="4079000" />
       <workItem from="1710028519321" duration="203000" />
       <workItem from="1710058419125" duration="2688000" />
+      <workItem from="1710185106698" duration="1342000" />
+      <workItem from="1710265489293" duration="1575000" />
+      <workItem from="1710286965653" duration="680000" />
     </task>
     <servers />
   </component>

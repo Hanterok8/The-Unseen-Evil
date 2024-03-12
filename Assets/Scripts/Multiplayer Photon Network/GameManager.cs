@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
-        PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(Random.Range(-4, 4), 3, Random.Range(-4, 4)), Quaternion.identity);
+        PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(Random.Range(-8, 8), 2, Random.Range(-8, 8)), Quaternion.identity);
     }
 
 }

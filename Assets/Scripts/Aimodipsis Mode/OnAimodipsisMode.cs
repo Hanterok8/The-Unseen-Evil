@@ -44,7 +44,7 @@ public class OnAimodipsisMode : MonoBehaviour
     private void RebornPlayer(GameObject prefabToSpawn, bool aimodipsisModeTurnTo)
     {
         GameObject spawnedPrefab = PhotonNetwork.Instantiate
-            (prefabToSpawn.name, currentLivingPlayer.CurrentPlayerModel.transform.localPosition + Vector3.up * 3, Quaternion.identity);
+            (prefabToSpawn.name, currentLivingPlayer.CurrentPlayerModel.transform.localPosition + Vector3.up, Quaternion.identity);
         PhotonNetwork.Destroy(currentLivingPlayer.CurrentPlayerModel);
         isAimodipsisMode.SetAimodipsisMode(aimodipsisModeTurnTo);
         currentLivingPlayer.CurrentPlayerModel = spawnedPrefab;

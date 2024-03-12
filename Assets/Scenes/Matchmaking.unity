@@ -1913,7 +1913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1486577068
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2032,7 +2032,6 @@ MonoBehaviour:
   StartButton: {fileID: 679048990}
   playerListContent: {fileID: 1744978896}
   playerlistPrefab: {fileID: 2603336080641680871, guid: 78bde40020a052442a2a55060bbc6b4f, type: 3}
-  loadingBar: {fileID: 708132442}
   loadingScreen: {fileID: 1486577067}
 --- !u!4 &1641465554
 Transform:
