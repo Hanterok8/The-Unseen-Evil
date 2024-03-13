@@ -12,6 +12,8 @@ public class RifleController : MonoBehaviour
     private PhotonView _photonView;
     private void Start()
     {
+        _LForeArm.transform.localPosition = new Vector3(0,0,0);
+        _LForeArm.transform.localRotation = new Quaternion(0,0,0,0);
         _photonView = GetComponent<PhotonView>();
         _charachterController = GetComponent<CharacterController>();
     }
@@ -34,7 +36,6 @@ public class RifleController : MonoBehaviour
         {
             _charachterController._playerAnimator.SetBool("isAiming", false);
             LHoldTarget.transform.parent = _LHand.transform;
-            LHoldTarget.transform.localPosition = new Vector3(0, 0, 0);
         }
     }
 }

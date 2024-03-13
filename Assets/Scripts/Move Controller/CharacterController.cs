@@ -126,12 +126,12 @@ public class CharacterController : MonoBehaviour
     }
     private void ControllerDemonAttack()
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButtonDown(0))
         {
             _playerAnimator.SetBool("IsAttack", true);
             StartCoroutine(HandAttack());
         }
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             _playerAnimator.SetBool("isJumpAttack", true);
             StartCoroutine(Culdayn());
