@@ -1,18 +1,22 @@
+using System.Collections;
 using Photon.Pun;
 using UnityEngine;
 
 public class TriggerController : MonoBehaviour
 {
+    [SerializeField] public Weapon weapon;
+    [SerializeField] public CameraController cameraController;
+    public bool isStoreOpened = false;
+    
     private GameObject Player;
     private StoreOpener StoreIOpener;
     private CrystalQuestUIOpener CrystalIOpener;
     private bool isInShopCircleCollider = false;
     private IsAimodipsis aimodipsis;
-    public bool isStoreOpened = false;
     private QuestSwitcher questSwitcher;
     private PhotonView photonView;
-    [SerializeField] public Weapon weapon;
-    [SerializeField] public CameraController cameraController;
+    private int cooldownTime;
+    
     private void Start()
     {
         Player = GetPlayer();
@@ -24,10 +28,11 @@ public class TriggerController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && !aimodipsis.isAimodipsis)
+        if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && !aimodipsis.isAimodipsis && cooldownTime == 0)
         {
             isStoreOpened = !isStoreOpened;
             StoreIOpener.Open();
+            StartCoroutine(ResetCooldownTime());
         }
     }
     private GameObject GetPlayer()
@@ -62,12 +67,23 @@ public class TriggerController : MonoBehaviour
         {
             isInShopCircleCollider = false;
 
-            if (isStoreOpened)
+            if (isStoreOpened && cooldownTime == 0)
             {
+                StartCoroutine(ResetCooldownTime());
                 StoreIOpener.Open();
             }
 
         }
 
+    }
+
+    private IEnumerator ResetCooldownTime()
+    {
+        cooldownTime = 3;
+        while (cooldownTime > 0)
+        {
+            cooldownTime--;
+            yield return new WaitForSeconds(1);
+        }
     }
 }
