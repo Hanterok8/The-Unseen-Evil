@@ -1,5 +1,6 @@
 using Photon.Pun;
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -87,6 +88,7 @@ public class CharacterController : MonoBehaviour
 
         Vector3 relativeVector = transform.InverseTransformDirection(movementVector);
         AnimatorStateChange(relativeVector);
+        ControllerDemonAttack();
         OnRun();
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
@@ -164,5 +166,28 @@ public class CharacterController : MonoBehaviour
             _movementWalkSpeed = 4;
             _playerAnimator.SetBool("isWall", false);
         }
+    }
+    private void ControllerDemonAttack()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            _playerAnimator.SetBool("IsAttack", true);
+            StartCoroutine(HandAttack());
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            _playerAnimator.SetBool("isJumpAttack", true);
+            StartCoroutine(Culdayn());
+        }
+    }
+    private IEnumerator Culdayn()
+    {
+        yield return new WaitForSeconds(2);
+        _playerAnimator.SetBool("isJumpAttack", false);
+    }
+    private IEnumerator HandAttack()
+    {
+        yield return new WaitForSeconds(1);
+        _playerAnimator.SetBool("IsAttack", false);
     }
 }
