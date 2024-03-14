@@ -16,8 +16,8 @@ public class RifleController : MonoBehaviour
         _photonView = player.GetComponent<PhotonView>();
         _charachterController = player.GetComponent<CharacterController>();
 
-        _LForeArm.transform.localPosition = new Vector3(0,0,0);
-        _LForeArm.transform.localRotation = new Quaternion(0,0,0,0);
+        _LForeArm.transform.localPosition = new Vector3(0, 0, 0);
+        _LForeArm.transform.localRotation = new Quaternion(0, 0, 0, 0);
     }
     private void Update()
     {
