@@ -78,7 +78,7 @@ public class Weapon : MonoBehaviour
     }
     void Shoot()
     {
-        AudioSource.PlayOneShot(shotSFX);
+        photonView.RPC(nameof(ShootSoundRPC), RpcTarget.All);
         PhotonNetwork.Instantiate(muzleFlash.name, bulletSpawn.position, bulletSpawn.rotation);
 
         RaycastHit Hit;
@@ -96,6 +96,11 @@ public class Weapon : MonoBehaviour
                 Hit.rigidbody.AddForce(-Hit.normal * Forse);
             }
         }
+    }
+    [PunRPC]
+    private void ShootSoundRPC()
+    {
+        AudioSource.PlayOneShot(shotSFX);
     }
     [PunRPC]
     private void InstantiantEffect(RaycastHit Hit)

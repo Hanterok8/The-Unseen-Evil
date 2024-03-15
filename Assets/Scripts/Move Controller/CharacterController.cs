@@ -10,14 +10,15 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Transform _mainCamera;
     [SerializeField] private float _movementWalkSpeed = 4f;
     [SerializeField] private GameObject _menu;
-    private PhotonView _photonView;
     public bool isRunning;
-    private Vector3 _movementVector;
     public Vector2 AxesSpeed;
     public Action<int> onChangedFOV;
-    private int newFOV = 60;
     public bool isFrozen;
+    private PhotonView _photonView;
+    private Vector3 _movementVector;
+    private int newFOV = 60;
     private StaminaSettings stamina;
+    private int currentStamina;
 
     void Start()
     {
@@ -55,7 +56,7 @@ public class CharacterController : MonoBehaviour
     private void FixedUpdate()
     {
         if (!_photonView.IsMine) return;
-        
+        currentStamina = gameObject.layer == 8 ? 100 : stamina._playerStamina;   
         onChangedFOV?.Invoke(newFOV);
         AxesSpeed = new Vector2(Input.GetAxis("Horizontal") * _movementWalkSpeed, Input.GetAxis("Vertical") * _movementWalkSpeed);
         _playerRigidbody.velocity = new Vector3
@@ -65,7 +66,8 @@ public class CharacterController : MonoBehaviour
 
     private void CheckNewStamina()
     {
-        if (stamina && stamina._playerStamina <= 0)
+        Debug.Log(currentStamina.ToString() + " <- Stamina, if = " + (currentStamina <= 0));
+        if (currentStamina <= 1)
         {
             SetRunningStateFalse();
         }
@@ -136,7 +138,7 @@ public class CharacterController : MonoBehaviour
     }
     private void OnRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && stamina._playerStamina > 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && currentStamina > 0)
         {
             isRunning = true;
             _photonView.RPC(nameof(ChangeRunAnimation), RpcTarget.All, 1f);
@@ -149,7 +151,7 @@ public class CharacterController : MonoBehaviour
     {
         _photonView.RPC(nameof(SetAimingAnimationRPC), RpcTarget.All, newState);
     }
-
+    [PunRPC]
     private void SetAimingAnimationRPC(bool newState)
     {
         _playerAnimator.SetBool("isAiming", newState);

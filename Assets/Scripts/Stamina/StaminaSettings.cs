@@ -42,7 +42,7 @@ public class StaminaSettings : MonoBehaviour
     }
     private void UpdateStamina(int staminaStep)
     {
-        onStaminaUpdated?.Invoke();
         _playerStamina += staminaStep;
+        onStaminaUpdated?.Invoke();
     }
 }

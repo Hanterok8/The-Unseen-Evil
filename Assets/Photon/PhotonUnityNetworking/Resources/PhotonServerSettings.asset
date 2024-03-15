@@ -69,6 +69,10 @@ MonoBehaviour:
   - AddActivatedPlatformRPC
   - PlaceItemOntoPlatformRPC
   - LoadScene
+  - ReceiveItemRPC
+  - SetAimingAnimationRPC
+  - PlayInRPC
+  - ShootSoundRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

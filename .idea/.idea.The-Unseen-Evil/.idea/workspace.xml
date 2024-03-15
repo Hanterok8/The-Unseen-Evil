@@ -6,9 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Opener/IOpenable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Opener/IOpenable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Idle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Right Strafe Walking.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Right Strafe Walking.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Running.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Running.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Walking Backwards.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Walking Backwards.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Walking.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Walking.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MuzzleFlash01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MuzzleFlash01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Move Controller/CharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Move Controller/CharacterController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Move Controller/RifleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Move Controller/RifleController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Opener/TriggerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Opener/TriggerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SoundScripts/FootSteep.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SoundScripts/FootSteep.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stamina/StaminaSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stamina/StaminaSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyButtonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyButtonManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Stamina/StaminaUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Stamina/StaminaUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UIAnimations/DemonAnim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UIAnimations/DemonAnim.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UIAnimations/ResidentAnim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UIAnimations/ResidentAnim.anim" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +42,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Quests/TotalCompletedQuestsCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Aimodipsis/AimodipsisBanner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Dealer/DealerMark.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/DestroyMethod.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/NicknameDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.probuilder@5.2.2/Editor/EditorCore/BooleanEditor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -37,6 +57,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -126,6 +147,9 @@
       <workItem from="1710265489293" duration="1575000" />
       <workItem from="1710286965653" duration="1319000" />
       <workItem from="1710361831164" duration="999000" />
+      <workItem from="1710421623818" duration="1505000" />
+      <workItem from="1710429495780" duration="6024000" />
+      <workItem from="1710525602080" duration="4514000" />
     </task>
     <servers />
   </component>

@@ -23,7 +23,7 @@ public class ItemControl : MonoBehaviour
     {
         _questSwitcher = GetComponent<QuestSwitcher>();
         _currentLivingPlayer = GetComponent<CurrentPlayer>();
-        _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
+        _photonView = GetComponent<PhotonView>();
         _camera = Camera.main;
         selected = 0;
         lastSlot = 0;
@@ -43,8 +43,12 @@ public class ItemControl : MonoBehaviour
     void Update()
     {
 
-        if (_photonView == null) _photonView = _currentLivingPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
+        if (_photonView == null) _photonView = GetComponent<PhotonView>();
         if (_camera == null) _camera = Camera.main;
+        if (_inventoryGameObjects[0] == null && _currentLivingPlayer.CurrentPlayerModel != demonPrefab)
+        {
+            _inventoryGameObjects = _currentLivingPlayer.CurrentPlayerModel.GetComponent<Items>().ItemGameObjects;
+        }
         if (!_photonView.IsMine) return;
 
         RaycastHit hit;
@@ -102,10 +106,7 @@ public class ItemControl : MonoBehaviour
             }
         }
         if (freeSlotIndex == -1) return;
-        if (_inventoryGameObjects[0] == null && _currentLivingPlayer.CurrentPlayerModel != demonPrefab)
-        {
-            _inventoryGameObjects = _currentLivingPlayer.CurrentPlayerModel.GetComponent<Items>().ItemGameObjects;
-        }
+        
         _inventoryGameObjects[itemIndexInInventory].SetActive(false);
         itemIndexInInventory = infoName switch
         {
@@ -120,15 +121,21 @@ public class ItemControl : MonoBehaviour
             "Water Bottle" => 8,
             "Knife" => 9
         };
-        Image img = _inventorySprites[itemIndexInInventory];
-        _inventoryGameObjects[itemIndexInInventory].SetActive(true);
-        img = Instantiate(img);
+        Image img = Instantiate(_inventorySprites[itemIndexInInventory]);
         img.transform.parent = _slots[freeSlotIndex];
+        img.transform.localPosition = Vector3.one;
+        
         SlotItemInformation slotInformation = _slots[freeSlotIndex].GetComponent<SlotItemInformation>();
         slotInformation.name = infoName;
         slotInformation.itemGameObjectIndex = itemIndexInInventory;
-        img.transform.localPosition = new Vector3(0, 0, 0);
         SelectAnotherSlot(freeSlotIndex);
+        _photonView.RPC(nameof(ReceiveItemRPC), RpcTarget.All);
+    }
+
+    [PunRPC]
+    private void ReceiveItemRPC()
+    {
+        _inventoryGameObjects[itemIndexInInventory].SetActive(true);
     }
     public void TakeAwayItem()
     {

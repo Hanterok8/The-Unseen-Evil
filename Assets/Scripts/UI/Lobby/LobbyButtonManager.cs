@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class LobbyButtonManager : MonoBehaviour
@@ -19,7 +20,9 @@ public class LobbyButtonManager : MonoBehaviour
     [SerializeField] private TMP_InputField roomNameInputField;
     [SerializeField] private TMP_Text localRoomCode;
 
-    LobbyManager lobbyManager;
+    private LobbyManager lobbyManager;
+    [SerializeField] private int backButtonInSettingRoomCooldown;
+    [SerializeField] private int backButtonInLocalRoomCooldown;
 
     private void Start()
     => lobbyManager = FindFirstObjectByType<LobbyManager>();
@@ -55,16 +58,43 @@ public class LobbyButtonManager : MonoBehaviour
 
     public void BackFromSettingRoom()
     {
+        Debug.Log(backButtonInSettingRoomCooldown.ToString() + " before if");
+        if (backButtonInSettingRoomCooldown > 0) return;
+        backButtonInSettingRoomCooldown = 5;
         createOrJoinButtons.SetActive(true);
         Animator animator = settingRoom.GetComponent<Animator>();
         animator.ResetTrigger("Open");
         animator.SetTrigger("Close");
+        StopCoroutine(UpdateCooldownSettingRoom());
+        StartCoroutine(UpdateCooldownSettingRoom());
     }
 
     public void BackFromJoinByCode()
     {
+        if (backButtonInLocalRoomCooldown > 0) return;
+        backButtonInLocalRoomCooldown = 5;
         createOrJoinButtons.SetActive(true);
         joinByCode.GetComponent<Animator>().SetTrigger("Close");
+        StopCoroutine(UpdateCooldownLocalRoom());
+        StartCoroutine(UpdateCooldownLocalRoom());
+    }
+
+    private IEnumerator UpdateCooldownSettingRoom()
+    {
+        while (backButtonInSettingRoomCooldown > 0)
+        {
+            yield return new WaitForSeconds(1);
+            backButtonInSettingRoomCooldown--;
+            Debug.Log(backButtonInSettingRoomCooldown.ToString() + " in coroutine");
+        }
+    }
+    private IEnumerator UpdateCooldownLocalRoom()
+    {
+        while (backButtonInLocalRoomCooldown > 0)
+        {
+            yield return new WaitForSeconds(1);
+            backButtonInLocalRoomCooldown--;
+        }
     }
     public void JoinRoom()
     {

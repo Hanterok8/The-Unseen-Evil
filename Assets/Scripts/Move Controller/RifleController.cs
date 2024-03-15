@@ -15,8 +15,7 @@ public class RifleController : MonoBehaviour
     {
         _photonView = player.GetComponent<PhotonView>();
         _charachterController = player.GetComponent<CharacterController>();
-
-        _LForeArm.transform.localPosition = new Vector3(0,0,0);
+        
         _LForeArm.transform.localRotation = new Quaternion(0,0,0,0);
     }
     private void Update()
@@ -29,19 +28,16 @@ public class RifleController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            Aim(true, _RHand);
+            _charachterController.SetAimingAnimation(true);
+            LHoldTarget.transform.parent = _RHand.transform;
             LHoldTarget.transform.position = _WeaponTarget.transform.position;
             LHoldTarget.transform.rotation = _WeaponTarget.transform.rotation;
         }
         if (Input.GetMouseButtonUp(1))
         {
-            Aim(false, _LHand);
+            _charachterController.SetAimingAnimation(false);
+            LHoldTarget.transform.parent = _LHand.transform;
         }
     }
-
-    private void Aim(bool isAiming, GameObject newParent)
-    {
-        _charachterController.SetAimingAnimation(isAiming);
-        LHoldTarget.transform.parent = newParent.transform;
-    }
+    
 }

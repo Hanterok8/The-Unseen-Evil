@@ -15,7 +15,7 @@ public class TriggerController : MonoBehaviour
     private IsAimodipsis aimodipsis;
     private QuestSwitcher questSwitcher;
     private PhotonView photonView;
-    private int cooldownTime;
+    private int cooldownTime = 0;
     
     private void Start()
     {
@@ -32,6 +32,7 @@ public class TriggerController : MonoBehaviour
         {
             isStoreOpened = !isStoreOpened;
             StoreIOpener.Open();
+            StopAllCoroutines();
             StartCoroutine(ResetCooldownTime());
         }
     }
@@ -67,9 +68,8 @@ public class TriggerController : MonoBehaviour
         {
             isInShopCircleCollider = false;
 
-            if (isStoreOpened && cooldownTime == 0)
+            if (isStoreOpened)
             {
-                StartCoroutine(ResetCooldownTime());
                 StoreIOpener.Open();
             }
 
@@ -82,8 +82,8 @@ public class TriggerController : MonoBehaviour
         cooldownTime = 3;
         while (cooldownTime > 0)
         {
-            cooldownTime--;
             yield return new WaitForSeconds(1);
+            cooldownTime--;
         }
     }
 }
