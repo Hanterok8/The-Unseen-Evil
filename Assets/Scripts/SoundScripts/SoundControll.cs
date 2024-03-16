@@ -12,6 +12,7 @@ public class SoundControll : MonoBehaviour
     public string volume6Parametr = "MasterVolume";
     public string volume7Parametr = "MasterVolume";
     public string volume8Parametr = "MasterVolume";
+    public string volume9Parametr = "MasterVolume";
     public AudioMixer audioMixer;
     public Slider slider;
 
@@ -32,6 +33,7 @@ public class SoundControll : MonoBehaviour
         audioMixer.SetFloat(volume6Parametr, volumeValue);
         audioMixer.SetFloat(volume7Parametr, volumeValue);
         audioMixer.SetFloat(volume8Parametr, volumeValue);
+        audioMixer.SetFloat(volume9Parametr, volumeValue);
     }
     private float CalculateVolume(float value)
     {

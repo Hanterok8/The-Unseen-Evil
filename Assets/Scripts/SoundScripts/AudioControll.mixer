@@ -113,6 +113,25 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &-6261133093981470046
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DemonFoot
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 8e262900428e5ad45aec73ccb981122f
+  m_Children: []
+  m_Volume: 11902cfd2d5c41045ac6fbe5c134380b
+  m_Pitch: 739fb339850353746af751b74d01df6e
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -3283302411164515795}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &-3971708232217782138
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -141,6 +160,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-3283302411164515795
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 8279dbbc4d09a9647a4fc7e27111d35c
+  m_EffectName: Attenuation
+  m_MixLevel: df5ea91ff0a85fa49b5d6ca5ad2b286c
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -157,6 +190,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 11902cfd2d5c41045ac6fbe5c134380b
+    name: DemonFoot
   - guid: a66b6c583becc9c4faebd6bb68c26431
     name: DemonOff
   - guid: 93d59891d0c198f4db7313d8e79f1ea7
@@ -184,6 +219,7 @@ AudioMixerController:
     - b657c8ef61899794194e6b6d51621123
     - acb7210b75a5d944c8c42530968cbb77
     - 2561f848f853b0a4a8ff88098bb46010
+    - 8e262900428e5ad45aec73ccb981122f
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -203,6 +239,7 @@ AudioMixerGroupController:
   - {fileID: -7870972814838099403}
   - {fileID: 3583628217153961712}
   - {fileID: -6756969708993289081}
+  - {fileID: -6261133093981470046}
   m_Volume: a942126678b691b4996df98b6aecf48a
   m_Pitch: 50672a2a096077f4d9d2ee2a7ad98487
   m_Send: 00000000000000000000000000000000
@@ -244,6 +281,7 @@ AudioMixerSnapshotController:
     7f023389500551a469adbe3b5be6562f: -8.841784
     42d1386a1556ef043b7d81e749c0d9d7: -9.456394
     bc932c6d352ddb74bb4e72ad53977d4f: -9.456394
+    11902cfd2d5c41045ac6fbe5c134380b: -8.841784
   m_TransitionOverrides: {}
 --- !u!243 &2178241683329799241
 AudioMixerGroupController:

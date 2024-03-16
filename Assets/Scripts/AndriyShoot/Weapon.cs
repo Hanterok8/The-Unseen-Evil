@@ -1,11 +1,11 @@
-using System.Collections;
-using UnityEngine;
-using UnityEngine.UI;
 using Photon.Pun;
+using System.Collections;
 using TMPro;
+using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    private CharacterController _characterController;
     [SerializeField] private GameObject Player;
     private QuestSwitcher questSwitcher;
     private float Damage = 20f;
@@ -65,6 +65,7 @@ public class Weapon : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R) && maxAmmo > 0)
         {
+            _characterController._playerAnimator.SetBool("isReload", true);
             StartCoroutine(ReloadDelay());
             Reload();
         }
@@ -74,6 +75,7 @@ public class Weapon : MonoBehaviour
     {
         CanShoot = false;
         yield return new WaitForSeconds(ReloadTime);
+        _characterController._playerAnimator.SetBool("isReload", false);
         CanShoot = true;
     }
     void Shoot()
@@ -130,5 +132,5 @@ public class Weapon : MonoBehaviour
     private void OnDisable()
     {
         Ammo.text = "";
-    } 
+    }
 }
