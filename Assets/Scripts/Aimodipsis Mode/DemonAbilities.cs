@@ -22,7 +22,7 @@ public class DemonAbilities : MonoBehaviour
 
     private void Update()
     {
-        if (!photonView) return;
+        if (!photonView.IsMine) return;
         RaycastHit hit;
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, distanceLimit, aimLayer))

@@ -2371,7 +2371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b94b746f17bea4cb47326d0432bb57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: {fileID: 4305036175383201479}
+  speaker: {fileID: 0}
 --- !u!1 &3550321043067029588
 GameObject:
   m_ObjectHideFlags: 0
@@ -9765,6 +9765,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1651207458261644541, guid: 08aff3481d1d96c40b54d48347503691, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1419803855454381516}
+    - targetCorrespondingSourceObject: {fileID: 1651207458261644541, guid: 08aff3481d1d96c40b54d48347503691, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5681481153561311748}
   m_SourcePrefab: {fileID: 100100000, guid: 08aff3481d1d96c40b54d48347503691, type: 3}
 --- !u!4 &706656519172759630 stripped
 Transform:
@@ -9995,6 +9998,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5681481153561311748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2271880130215611971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &1690539080283188766
 PrefabInstance:
   m_ObjectHideFlags: 0

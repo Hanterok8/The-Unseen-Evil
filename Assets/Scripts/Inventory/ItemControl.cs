@@ -150,18 +150,20 @@ public class ItemControl : MonoBehaviour
     }
     private void SelectAnotherSlot(int newSlotIndex)
     {
-        if (_inventoryGameObjects.Length == 0 || _inventoryGameObjects == null)
-        {
-            _inventoryGameObjects = _currentLivingPlayer.CurrentPlayerModel.GetComponent<Items>().ItemGameObjects;
-        }
         selected = newSlotIndex;
         _outlines[lastSlot].gameObject.SetActive(false);
         _outlines[selected].gameObject.SetActive(true);
+        _photonView.RPC(nameof(SelectAnotherSlotRPC), RpcTarget.All);
+        lastSlot = selected;
+    }
+
+    [PunRPC]
+    private void SelectAnotherSlotRPC()
+    {
         int indexOfPickedGameObject = _slots[selected].GetComponent<SlotItemInformation>().itemGameObjectIndex;
         int indexOfLastGameObject = _slots[lastSlot].GetComponent<SlotItemInformation>().itemGameObjectIndex;
         if (indexOfLastGameObject != -1) _inventoryGameObjects[indexOfLastGameObject].SetActive(false);
 
         if (indexOfPickedGameObject != -1) _inventoryGameObjects[indexOfPickedGameObject].SetActive(true);
-        lastSlot = selected;
     }
 }

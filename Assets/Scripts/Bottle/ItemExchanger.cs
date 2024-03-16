@@ -43,7 +43,7 @@ public class ItemExchanger : MonoBehaviour
             {
                 StartCoroutine(TakeAwayItemAndGetNewOne("Water Bottle"));
             }
-            else if (Physics.Raycast(ray, out hit, DISTANCE) && questSwitcher.currentQuest.name == "Secrets of the Roof")
+            if (Physics.Raycast(ray, out hit, DISTANCE) && questSwitcher.currentQuest.name == "Secrets of the Roof")
             {
                 GameObject frontItem = hit.collider.gameObject;
                 if ((hit.collider.CompareTag("Chain") && IsCurrentItem("Wirecutters")) || (hit.collider.GetComponent<PickUpInformation>().name == "Plank" && IsCurrentItem("Axe")))
@@ -65,21 +65,23 @@ public class ItemExchanger : MonoBehaviour
                 }
                 
             }
-            else if (Physics.Raycast(ray, out hit, DISTANCE))
+            if (Physics.Raycast(ray, out hit, DISTANCE) && questSwitcher.currentQuest.name == "Missing pieces")
             {
-                if (hit.collider.CompareTag("Sheep") && IsCurrentItem("Knife"))
-                {
-                    StartCoroutine(TakeAwayItemAndGetNewOne("Lamb's blood"));
-                }
-            }
-            else if (Physics.Raycast(ray, out hit, DISTANCE) && questSwitcher.currentQuest.name == "Missing pieces")
-            {
+                Debug.Log($"{hit.collider.CompareTag("Prayer1") || hit.collider.CompareTag("Prayer3")} \n Prayer1 - {hit.collider.CompareTag("Prayer1")} \n Prayer3 - {hit.collider.CompareTag("Prayer3")}");
                 if (hit.collider.CompareTag("Prayer1") || hit.collider.CompareTag("Prayer3"))
                 {
                     Destroy(hit.collider.gameObject);
                     questSwitcher.AddQuestStep(1);
                 }
             }
+            if (Physics.Raycast(ray, out hit, DISTANCE))
+            {
+                if (hit.collider.CompareTag("Sheep") && IsCurrentItem("Knife"))
+                {
+                    StartCoroutine(TakeAwayItemAndGetNewOne("Lamb's blood"));
+                }
+            }
+            
         }
         
         

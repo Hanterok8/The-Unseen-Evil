@@ -6,28 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Demon/DemonController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Demon/DemonController.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Idle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Right Strafe Walking.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Right Strafe Walking.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Running.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Running.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Walking Backwards.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Walking Backwards.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Walking.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Walking.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/ManController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/ManController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Ch30_nonPBR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Ch30_nonPBR.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/MuzzleFlash01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MuzzleFlash01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AndriyShoot/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AndriyShoot/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bottle/ItemExchanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bottle/ItemExchanger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Move Controller/CharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Move Controller/CharacterController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Move Controller/RifleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Move Controller/RifleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Opener/TriggerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Opener/TriggerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SoundScripts/FootSteep.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SoundScripts/FootSteep.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stamina/StaminaSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stamina/StaminaSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyButtonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyButtonManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Stamina/StaminaUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Stamina/StaminaUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VoiceChat/VoiceChatActivator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VoiceChat/VoiceChatActivator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UIAnimations/DemonAnim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UIAnimations/DemonAnim.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UIAnimations/ResidentAnim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UIAnimations/ResidentAnim.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +28,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/2d/7a47e222/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7f2ccf3999ca4756b70a33db243fabf4151218/ce/906d39bd/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Quests/TotalCompletedQuestsCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Aimodipsis/AimodipsisBanner.cs" root0="FORCE_HIGHLIGHTING" />
@@ -55,27 +46,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "XThreadsFramesViewSplitterKey": "0.46656978",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\aivle\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\aivle\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\aivle\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\aivle\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\aivle\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\aivle\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Рабочий стол/Game\The Unseen Evil.exe" />
@@ -111,10 +103,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="235720">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="235720" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -149,7 +141,8 @@
       <workItem from="1710361831164" duration="999000" />
       <workItem from="1710421623818" duration="1505000" />
       <workItem from="1710429495780" duration="6024000" />
-      <workItem from="1710525602080" duration="4514000" />
+      <workItem from="1710525602080" duration="5202000" />
+      <workItem from="1710609232750" duration="2859000" />
     </task>
     <servers />
   </component>
@@ -160,5 +153,50 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Bottle/ItemExchanger.cs</url>
+          <line>67</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Bottle\ItemExchanger.cs" initialLine="67" containingFunctionPresentation="Method 'Update'">
+            <startOffsets>
+              <option value="2464" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2563" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Bottle/ItemExchanger.cs</url>
+          <line>70</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Bottle\ItemExchanger.cs" initialLine="69" containingFunctionPresentation="Method 'Update'">
+            <startOffsets>
+              <option value="2800" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2877" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Bottle/ItemExchanger.cs</url>
+          <line>72</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Bottle\ItemExchanger.cs" initialLine="71" containingFunctionPresentation="Method 'Update'">
+            <startOffsets>
+              <option value="2916" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2949" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

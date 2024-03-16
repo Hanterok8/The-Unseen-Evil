@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         GameObject mainPlayer = GetMainPlayer();
-        photonView = mainPlayer.GetComponent<PhotonView>();
+        photonView = GetComponent<PhotonView>();
         questSwitcher = mainPlayer.GetComponent<QuestSwitcher>();
         Cam = Camera.main;
         Ammo = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<TMP_Text>();
