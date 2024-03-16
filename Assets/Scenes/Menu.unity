@@ -6369,6 +6369,10 @@ PrefabInstance:
       propertyPath: volume8Parametr
       value: Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 2270825994297835002, guid: e5523ee72d91bab4f9e10d48be873028, type: 3}
+      propertyPath: volume9Parametr
+      value: DemonFoot
+      objectReference: {fileID: 0}
     - target: {fileID: 2584543535018676360, guid: e5523ee72d91bab4f9e10d48be873028, type: 3}
       propertyPath: m_fontSize
       value: 24.6
