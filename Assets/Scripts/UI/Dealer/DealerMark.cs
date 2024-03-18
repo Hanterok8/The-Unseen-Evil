@@ -17,6 +17,7 @@ public class DealerMark : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (camera == null) camera = Camera.main.transform;
         float distanceToPlayer = Vector3.Distance(transform.position, camera.position);
         float newScale = distanceToPlayer * coefficient / 100;
         DealerImage.localScale = new Vector3(newScale, newScale, newScale);

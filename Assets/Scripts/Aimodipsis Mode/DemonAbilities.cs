@@ -57,7 +57,7 @@ public class DemonAbilities : MonoBehaviour
         }
         PlayerSetter playerSettings = killedPlayer.GetComponent<PlayerSetter>();
         //residentController.SetNewFrozenValue(true);
-        GetComponent<DemonController>().isDemonFrozen = true;
+        GetComponent<CharacterController>().isFrozen = true;
         killedPlayer.transform.localPosition += new Vector3(0f, 0.75f, 0f);
         killedPlayer.GetComponent<Rigidbody>().isKinematic = true;
         playerSettings.LookAtDemon(transform);
@@ -82,7 +82,7 @@ public class DemonAbilities : MonoBehaviour
     {
         Destroy(currentParticlesParam);
     }
-    private void UnfreezeDemon() => GetComponent<DemonController>().isDemonFrozen = false;
+    private void UnfreezeDemon() => GetComponent<CharacterController>().isFrozen = false;
 
     private IEnumerator ResetCooldown(int cooldownTime)
     {

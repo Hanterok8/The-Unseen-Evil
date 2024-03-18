@@ -9,7 +9,7 @@ public class TriggerController : MonoBehaviour
     public bool isStoreOpened = false;
     
     private GameObject Player;
-    private StoreOpener StoreIOpener;
+    private StoreOpener StoreUIOpener;
     private CrystalQuestUIOpener CrystalIOpener;
     private bool isInShopCircleCollider = false;
     private IsAimodipsis aimodipsis;
@@ -21,17 +21,17 @@ public class TriggerController : MonoBehaviour
     {
         Player = GetPlayer();
         photonView = GetComponent<PhotonView>();
-        StoreIOpener = GetComponent<StoreOpener>();
+        StoreUIOpener = GetComponent<StoreOpener>();
         CrystalIOpener = Player.GetComponent<CrystalQuestUIOpener>();
         aimodipsis = Player.GetComponent<IsAimodipsis>();
         questSwitcher = Player.GetComponent<QuestSwitcher>();
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && !aimodipsis.isAimodipsis && cooldownTime == 0)
+        if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && !aimodipsis.isAimodipsis && cooldownTime <= 0)
         {
             isStoreOpened = !isStoreOpened;
-            StoreIOpener.Open();
+            StoreUIOpener.Open();
             StopAllCoroutines();
             StartCoroutine(ResetCooldownTime());
         }
@@ -70,7 +70,7 @@ public class TriggerController : MonoBehaviour
 
             if (isStoreOpened)
             {
-                StoreIOpener.Open();
+                StoreUIOpener.Open();
             }
 
         }

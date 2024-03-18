@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class TotalCompletedQuestsCounter : MonoBehaviour
 {
-    public int TotalQuestsDone { get; private set; }
+    public int TotalQuestsDone; //{ get; private set; }
 
     private PhotonView photonView;
 

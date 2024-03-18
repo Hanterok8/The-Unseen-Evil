@@ -1,12 +1,13 @@
 using Photon.Pun;
 using System.Collections;
+using ExitGames.Client.Photon.StructWrapping;
 using TMPro;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    private CharacterController _characterController;
     [SerializeField] private GameObject Player;
+    private CharacterController _characterController;
     private QuestSwitcher questSwitcher;
     private float Damage = 20f;
     private float fireRate = 5f;
@@ -39,6 +40,7 @@ public class Weapon : MonoBehaviour
         GameObject mainPlayer = GetMainPlayer();
         photonView = GetComponent<PhotonView>();
         questSwitcher = mainPlayer.GetComponent<QuestSwitcher>();
+        _characterController = Player.GetComponent<CharacterController>();
         Cam = Camera.main;
         Ammo = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<TMP_Text>();
     }

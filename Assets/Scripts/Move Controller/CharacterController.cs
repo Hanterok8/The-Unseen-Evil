@@ -36,12 +36,13 @@ public class CharacterController : MonoBehaviour
             Destroy(_mainCamera.GetComponent<Camera>());
             Destroy(_mainCamera.GetComponent<AudioListener>());
         }
-
+        if (stamina == null) return;
         stamina.onStaminaUpdated += CheckNewStamina;
     }
 
     private void OnDisable()
     {
+        if (stamina == null) return;
         stamina.onStaminaUpdated -= CheckNewStamina;
     }
 

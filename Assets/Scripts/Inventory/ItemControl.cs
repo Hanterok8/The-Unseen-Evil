@@ -124,6 +124,7 @@ public class ItemControl : MonoBehaviour
         Image img = Instantiate(_inventorySprites[itemIndexInInventory]);
         img.transform.parent = _slots[freeSlotIndex];
         img.transform.localPosition = Vector3.one;
+        img.transform.localScale = _inventorySprites[itemIndexInInventory].transform.localScale;
         
         SlotItemInformation slotInformation = _slots[freeSlotIndex].GetComponent<SlotItemInformation>();
         slotInformation.name = infoName;
@@ -153,15 +154,15 @@ public class ItemControl : MonoBehaviour
         selected = newSlotIndex;
         _outlines[lastSlot].gameObject.SetActive(false);
         _outlines[selected].gameObject.SetActive(true);
-        _photonView.RPC(nameof(SelectAnotherSlotRPC), RpcTarget.All);
+        _photonView.RPC(nameof(SelectAnotherSlotRPC), RpcTarget.All, selected, lastSlot);
         lastSlot = selected;
     }
 
     [PunRPC]
-    private void SelectAnotherSlotRPC()
+    private void SelectAnotherSlotRPC(int selectedSlot, int lastSelectedSlot)
     {
-        int indexOfPickedGameObject = _slots[selected].GetComponent<SlotItemInformation>().itemGameObjectIndex;
-        int indexOfLastGameObject = _slots[lastSlot].GetComponent<SlotItemInformation>().itemGameObjectIndex;
+        int indexOfPickedGameObject = _slots[selectedSlot].GetComponent<SlotItemInformation>().itemGameObjectIndex;
+        int indexOfLastGameObject = _slots[lastSelectedSlot].GetComponent<SlotItemInformation>().itemGameObjectIndex;
         if (indexOfLastGameObject != -1) _inventoryGameObjects[indexOfLastGameObject].SetActive(false);
 
         if (indexOfPickedGameObject != -1) _inventoryGameObjects[indexOfPickedGameObject].SetActive(true);

@@ -44,12 +44,12 @@ public class OnAimodipsisMode : MonoBehaviour
     private void RebornPlayer(GameObject prefabToSpawn, bool aimodipsisModeTurnTo)
     {
         GameObject spawnedPrefab = PhotonNetwork.Instantiate
-            (prefabToSpawn.name, currentLivingPlayer.CurrentPlayerModel.transform.localPosition + Vector3.up, Quaternion.identity);
+            (prefabToSpawn.name, currentLivingPlayer.CurrentPlayerModel.transform.position + Vector3.up, Quaternion.identity);
         PhotonNetwork.Destroy(currentLivingPlayer.CurrentPlayerModel);
         isAimodipsisMode.SetAimodipsisMode(aimodipsisModeTurnTo);
         currentLivingPlayer.CurrentPlayerModel = spawnedPrefab;
         photonView = GetComponent<PhotonView>();
-        photonView.RPC(nameof(TurnVoiceChatIntoRPC), RpcTarget.All, aimodipsisModeTurnTo);
+        // photonView.RPC(nameof(TurnVoiceChatIntoRPC), RpcTarget.All, aimodipsisModeTurnTo);
         photonView.RPC(nameof(TurnOnAimodipsisForAllPlayers), RpcTarget.All, aimodipsisModeTurnTo);
         isPlayerBecomeDemon = aimodipsisModeTurnTo;
     }
@@ -62,15 +62,15 @@ public class OnAimodipsisMode : MonoBehaviour
             isAimodipsisses[i].SetAimodipsisMode(setAimodipsisModeTo);
         }
     }
-    [PunRPC]
-    private void TurnVoiceChatIntoRPC(bool voiceChatTurnInto)
-    {
-        Speaker[] speakers = FindObjectsOfType<Speaker>();
-
-        foreach (Speaker speaker in speakers)
-        {
-            speaker.enabled = voiceChatTurnInto;
-        }
-    }
+    // [PunRPC]
+    // private void TurnVoiceChatIntoRPC(bool voiceChatTurnInto)
+    // {
+    //     Speaker[] speakers = FindObjectsOfType<Speaker>();
+    //
+    //     foreach (Speaker speaker in speakers)
+    //     {
+    //         speaker.enabled = voiceChatTurnInto;
+    //     }
+    // }
 
 }
