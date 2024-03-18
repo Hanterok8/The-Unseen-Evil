@@ -45,6 +45,7 @@ TagManager:
   - Prayer1
   - Prayer3
   - VoiceManager
+  - Scrim
   layers:
   - Default
   - TransparentFX

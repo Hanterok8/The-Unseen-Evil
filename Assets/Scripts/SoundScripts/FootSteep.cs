@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using Photon.Pun;
-using Unity.Netcode;
 using UnityEngine;
 
 public class FootSteep : MonoBehaviour
