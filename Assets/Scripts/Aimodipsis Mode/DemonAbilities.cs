@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DemonAbilities : MonoBehaviour
 {
+    [SerializeField] public Animator _playerAnimator;
     [SerializeField] private float distanceLimit;
     [SerializeField] private LayerMask aimLayer;
     [SerializeField] private ParticleSystem particlesAtKilling;

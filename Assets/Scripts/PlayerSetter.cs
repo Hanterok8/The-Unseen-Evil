@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerSetter : MonoBehaviour
 {
+    private DemonAbilities _ability;
     private PhotonView photonView;
     [SerializeField] private GameObject spectatorPlayer;
     public Action onTransformedToSpectator;
@@ -31,6 +32,7 @@ public class PlayerSetter : MonoBehaviour
             {
                 //Destroy(player.gameObject);
                 player.GetComponent<CurrentPlayer>().CurrentPlayerModel = spectator;
+                _ability._playerAnimator.SetBool("Death", true);
                 break;
             }
         }

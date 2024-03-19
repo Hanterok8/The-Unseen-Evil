@@ -563,6 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8729613d65fb66043977914ba7915355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 1801269065406510372, guid: 34143b24d819bce4b97370d8676eb1ac, type: 3}
   distanceLimit: 100
   aimLayer:
     serializedVersion: 2
