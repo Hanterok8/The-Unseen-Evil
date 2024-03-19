@@ -136,35 +136,43 @@ public class ItemControl : MonoBehaviour
     [PunRPC]
     private void ReceiveItemRPC()
     {
+        if (!_photonView.IsMine) return;
         _inventoryGameObjects[itemIndexInInventory].SetActive(true);
     }
     public void TakeAwayItem()
     {
         int slotIndexOfItem = selected;
         int currentGameObjectIndex = _slots[slotIndexOfItem].GetComponent<SlotItemInformation>().itemGameObjectIndex;
-        _inventoryGameObjects[currentGameObjectIndex].SetActive(false);
+        _photonView.RPC(nameof(TakeAwayItemRPC), RpcTarget.All, currentGameObjectIndex);
         SlotItemInformation slotInformation = _slots[slotIndexOfItem].GetComponent<SlotItemInformation>();
         slotInformation.name = "";
         slotInformation.itemGameObjectIndex = -1;
         Transform itemImage = _slots[slotIndexOfItem].transform.GetChild(0);
         Destroy(itemImage.gameObject);
     }
+
+    [PunRPC]
+    private void TakeAwayItemRPC(int index)
+    {
+        if (!_photonView.IsMine) return;
+        _inventoryGameObjects[index].SetActive(false);
+    }
     private void SelectAnotherSlot(int newSlotIndex)
     {
         selected = newSlotIndex;
         _outlines[lastSlot].gameObject.SetActive(false);
         _outlines[selected].gameObject.SetActive(true);
-        _photonView.RPC(nameof(SelectAnotherSlotRPC), RpcTarget.All, selected, lastSlot);
+        int indexOfPickedGameObject = _slots[selected].GetComponent<SlotItemInformation>().itemGameObjectIndex;
+        int indexOfLastGameObject = _slots[lastSlot].GetComponent<SlotItemInformation>().itemGameObjectIndex;
+        _photonView.RPC(nameof(SelectAnotherSlotRPC), RpcTarget.All, indexOfPickedGameObject, indexOfLastGameObject);
         lastSlot = selected;
     }
 
     [PunRPC]
     private void SelectAnotherSlotRPC(int selectedSlot, int lastSelectedSlot)
     {
-        int indexOfPickedGameObject = _slots[selectedSlot].GetComponent<SlotItemInformation>().itemGameObjectIndex;
-        int indexOfLastGameObject = _slots[lastSelectedSlot].GetComponent<SlotItemInformation>().itemGameObjectIndex;
-        if (indexOfLastGameObject != -1) _inventoryGameObjects[indexOfLastGameObject].SetActive(false);
+        if (lastSelectedSlot != -1) _inventoryGameObjects[lastSelectedSlot].SetActive(false);
 
-        if (indexOfPickedGameObject != -1) _inventoryGameObjects[indexOfPickedGameObject].SetActive(true);
+        if (selectedSlot != -1) _inventoryGameObjects[selectedSlot].SetActive(true);
     }
 }

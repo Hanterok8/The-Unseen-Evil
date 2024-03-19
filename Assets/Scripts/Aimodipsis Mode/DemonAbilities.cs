@@ -11,6 +11,7 @@ public class DemonAbilities : MonoBehaviour
     private PhotonView photonView;
     private bool inCooldown;
     private Animator playerAnimator;
+    private Animator demonAnimator;
     private GameObject currentPlayerParam;
     private GameObject currentParticlesParam;
     private void Start()
@@ -18,6 +19,7 @@ public class DemonAbilities : MonoBehaviour
         photonView = GetComponent<PhotonView>();
         mainCamera = Camera.main;
         inCooldown = false;
+        demonAnimator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -32,7 +34,7 @@ public class DemonAbilities : MonoBehaviour
                 Debug.Log("Aimed on player");
                 GameObject resident = hit.collider.gameObject;
                 currentPlayerParam = resident;
-
+                
                 KillInhabitant(5);
             }
         }
@@ -45,6 +47,7 @@ public class DemonAbilities : MonoBehaviour
     [PunRPC]
     private void KillPlayerRPC(int time, string playerNickname)
     {
+        demonAnimator.SetTrigger("Eat");
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         GameObject killedPlayer = null;
         foreach (GameObject player in players)
@@ -56,7 +59,6 @@ public class DemonAbilities : MonoBehaviour
             }
         }
         PlayerSetter playerSettings = killedPlayer.GetComponent<PlayerSetter>();
-        //residentController.SetNewFrozenValue(true);
         GetComponent<CharacterController>().isFrozen = true;
         killedPlayer.transform.localPosition += new Vector3(0f, 0.75f, 0f);
         killedPlayer.GetComponent<Rigidbody>().isKinematic = true;
@@ -68,11 +70,11 @@ public class DemonAbilities : MonoBehaviour
         StartCoroutine(ResetCooldown(time));
         Invoke(nameof(UnfreezeDemon), time);
     }
-    [PunRPC]
-    private void ChangePlayerAnimationRPC(int animationState)
-    {
-        playerAnimator.SetInteger("State", animationState);
-    }
+    // [PunRPC]
+    // private void ChangePlayerAnimationRPC(int animationState)
+    // {
+    //     playerAnimator.SetInteger("State", animationState);
+    // }
     private void DeleteParticles()
     {
         photonView.RPC(nameof(DestroyParticlesRPC), RpcTarget.All);

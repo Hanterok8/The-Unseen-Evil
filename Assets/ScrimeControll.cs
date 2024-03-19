@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Photon.Pun;
 
 public class ScrimeControll : MonoBehaviour
 {
@@ -7,10 +8,13 @@ public class ScrimeControll : MonoBehaviour
     [SerializeField] private Light[] _lights;
     [SerializeField] private AudioClip _scrimer;
     [SerializeField] private AudioSource _scrimerSourse;
+    private PhotonView photonView;
+
+    private void Start() => photonView = GetComponent<PhotonView>();
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && photonView.IsMine)
         {
             _scrimerSourse.Play();
             foreach (Light light in _lights)
@@ -21,12 +25,13 @@ public class ScrimeControll : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        StartCoroutine(Culdayn());
+        if (!photonView.IsMine) return;
+         StartCoroutine(Culdayn());
     }
     private IEnumerator Culdayn()
     {
         yield return new WaitForSeconds(5);    
-        Destroy(_cube);
+        if (photonView.IsMine) Destroy(_cube);
         foreach (Light light in _lights)
         {
             light.color = Color.white;

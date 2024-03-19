@@ -39,5 +39,6 @@ public class MazeEnding : MonoBehaviour
         gaterAnimator.ResetTrigger("OpenGates");
         QuestSwitcher questSwitcher = Player.GetComponent<QuestSwitcher>();
         questSwitcher.AddQuestStep(1);
+        if(photonView.IsMine) Destroy(gameObject);
     }
 }

@@ -20,16 +20,17 @@ public class PlayerSetter : MonoBehaviour
         photonView.RPC(nameof(KickPlayerRPC), RpcTarget.All);
     }
     [PunRPC]
-    internal void KickPlayerRPC()
+    private void KickPlayerRPC()
     {
+        if (!photonView.IsMine) return;
         CurrentPlayer[] players = FindObjectsOfType<CurrentPlayer>();
         GameObject spectator = Instantiate(spectatorPlayer);
         foreach (CurrentPlayer player in players)
         {
             if (player.CurrentPlayerModel == gameObject)
             {
-                Destroy(player.gameObject);
                 player.GetComponent<CurrentPlayer>().CurrentPlayerModel = spectator;
+                Destroy(player.CurrentPlayerModel);
                 break;
             }
         }

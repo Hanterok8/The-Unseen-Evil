@@ -1,4 +1,5 @@
 using System.Collections;
+using Photon.Pun;
 using UnityEngine;
 
 public class ScrimerController2 : MonoBehaviour
@@ -8,10 +9,12 @@ public class ScrimerController2 : MonoBehaviour
     [SerializeField] private Light[] _light;
     [SerializeField] private GameObject _gameObject;
     [SerializeField] private GameObject _cube;
+    private PhotonView photonView;
 
+    private void Start() => photonView = GetComponent<PhotonView>();
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && photonView.IsMine)
         {
             StartCoroutine(ScrimerCD());
             foreach (Light light in _light)
@@ -26,12 +29,12 @@ public class ScrimerController2 : MonoBehaviour
         _scrimerAnim.SetBool("isTrrigerScrim", true);
         yield return new WaitForSeconds(1);
         _scrimerAnim.SetBool("isTrrigerScrim", false);
-        Destroy(_gameObject,2);
+        Destroy(_gameObject,1);
         yield return new WaitForSeconds(3);
         foreach (Light light in _light)
         {
             light.enabled = true;
         }
-        Destroy(_cube);
+        if (photonView.IsMine) Destroy(_cube);
     }
 }

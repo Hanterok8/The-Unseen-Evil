@@ -6,29 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Demon/DemonController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Demon/DemonController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain 2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/ManController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/ManController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Idle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Running.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Running.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Walking Backwards.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Walking Backwards.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Walking.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Walking.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Ch30_nonPBR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Ch30_nonPBR.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure FOR COMMIT.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure FOR COMMIT.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Particle System.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Particle System.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScrimeControll.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScrimeControll.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScrimerController2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScrimerController2.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/DemonAbilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/DemonAbilities.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/OnAimodipsisMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/OnAimodipsisMode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AndriyShoot/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AndriyShoot/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Move Controller/CharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Move Controller/CharacterController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Opener/TriggerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Opener/TriggerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerSetter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerSetter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/TotalCompletedQuestsCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/TotalCompletedQuestsCounter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Dealer/DealerMark.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Dealer/DealerMark.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Texture/textures 9/Untitled_2_Mat_1_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/textures 9/Untitled_2_Mat_1_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +33,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/2d/7a47e222/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7f2ccf3999ca4756b70a33db243fabf4151218/ce/906d39bd/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ScrimeControll.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Quests/TotalCompletedQuestsCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Aimodipsis/AimodipsisBanner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Dealer/DealerMark.cs" root0="FORCE_HIGHLIGHTING" />
@@ -158,7 +151,8 @@
       <workItem from="1710693233277" duration="1315000" />
       <workItem from="1710696665389" duration="793000" />
       <workItem from="1710775856602" duration="1535000" />
-      <workItem from="1710779107362" duration="1746000" />
+      <workItem from="1710779107362" duration="8483000" />
+      <workItem from="1710854265893" duration="505000" />
     </task>
     <servers />
   </component>
@@ -237,6 +231,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs</url>
+          <line>65</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Camera\CameraController.cs" initialLine="65" containingFunctionPresentation="Method 'Update'">
+            <startOffsets>
+              <option value="2231" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2321" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
