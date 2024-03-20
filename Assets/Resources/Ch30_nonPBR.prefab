@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 1470107360353580337}
   - component: {fileID: 803577861028650215}
   - component: {fileID: 4127990289969437993}
+  - component: {fileID: 5029691893708361178}
   m_Layer: 13
   m_Name: UI Camera
   m_TagString: Untagged
@@ -250,6 +251,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562936576791958012}
   m_Enabled: 1
+--- !u!114 &5029691893708361178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562936576791958012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cd0d0d6a9cd62448fceace27c456c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &738426986748207617
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +374,7 @@ Transform:
   m_Children:
   - {fileID: 6718207090544057249}
   - {fileID: 6312605163765515444}
+  - {fileID: 2704193822503643095}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6600210491671454021
@@ -487,6 +501,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 0
     Name: isJumpAttack
+  - Type: 9
+    SynchronizeType: 0
+    Name: Eat
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
@@ -2883,3 +2900,65 @@ Transform:
   - {fileID: 2478099626781865074}
   m_Father: {fileID: 2772890511868494406}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3423065364670744929
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7922546751584887003}
+    m_Modifications:
+    - target: {fileID: 722284737712238262, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 722284737712238262, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 722284737712238262, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 722284737712238262, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 722284737712238262, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 722284737712238262, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 722284737712238262, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 722284737712238262, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 722284737712238262, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 722284737712238262, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978842022645793395, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+      propertyPath: m_Name
+      value: Spot Light
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+--- !u!4 &2704193822503643095 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 722284737712238262, guid: cd8fa2bef32ad214e9d21063aee48bbf, type: 3}
+  m_PrefabInstance: {fileID: 3423065364670744929}
+  m_PrefabAsset: {fileID: 0}

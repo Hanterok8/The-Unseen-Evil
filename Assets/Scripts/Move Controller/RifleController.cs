@@ -9,10 +9,14 @@ public class RifleController : MonoBehaviour
     [SerializeField] private GameObject _WeaponTarget;
     [SerializeField] private GameObject _LForeArm;
     [SerializeField] private GameObject player;
+    [SerializeField] private Weapon weapon;
+    [SerializeField] private Transform weaponEnd;
     private CharacterController _charachterController;
     private PhotonView _photonView;
+    private Camera cam;
     private void Start()
     {
+        cam = Camera.main;
         _photonView = player.GetComponent<PhotonView>();
         _charachterController = player.GetComponent<CharacterController>();
         
@@ -32,11 +36,13 @@ public class RifleController : MonoBehaviour
             LHoldTarget.transform.parent = _RHand.transform;
             LHoldTarget.transform.position = _WeaponTarget.transform.position;
             LHoldTarget.transform.rotation = _WeaponTarget.transform.rotation;
+            weapon.RaycastThrower = cam.transform;
         }
         if (Input.GetMouseButtonUp(1))
         {
             _charachterController.SetAimingAnimation(false);
             LHoldTarget.transform.parent = _LHand.transform;
+            weapon.RaycastThrower = weaponEnd;
         }
     }
     

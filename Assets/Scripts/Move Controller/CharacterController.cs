@@ -54,6 +54,8 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+
+
     private void FixedUpdate()
     {
         if (!_photonView.IsMine) return;

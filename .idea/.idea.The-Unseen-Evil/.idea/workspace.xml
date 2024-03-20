@@ -6,21 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Demon/DemonController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Demon/DemonController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain 2.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/ManController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/ManController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScrimeControll.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScrimeControll.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScrimerController2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScrimerController2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/DemonAbilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/DemonAbilities.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SPECTATOR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SPECTATOR.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AndriyShoot/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AndriyShoot/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/SpectatorCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/SpectatorCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Move Controller/CharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Move Controller/CharacterController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Move Controller/RifleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Move Controller/RifleController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerSetter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerSetter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/textures 9/Untitled_2_Mat_1_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/textures 9/Untitled_2_Mat_1_Normal.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,13 +25,17 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/2d/7a47e222/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7f2ccf3999ca4756b70a33db243fabf4151218/ce/906d39bd/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cdbb0156c5f14428b9e39f273d3bdab83a000/7b/a2bbe754/StructWrapperUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ScrimeControll.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Quests/TotalCompletedQuestsCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Aimodipsis/AimodipsisBanner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Dealer/DealerMark.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/DestroyMethod.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/NicknameDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UICamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.probuilder@5.2.2/Editor/EditorCore/BooleanEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../Рабочий стол/PlayerSetter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../Рабочий стол/Weapon.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -74,7 +70,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Рабочий стол/Game\The Unseen Evil.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Рабочий стол/Game/The Unseen Evil.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\aivle\OneDrive\Рабочий стол\Game" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -207,32 +203,6 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/AndriyShoot/Weapon.cs</url>
-          <line>67</line>
-          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\AndriyShoot\Weapon.cs" initialLine="65" containingFunctionPresentation="Method 'Update'">
-            <startOffsets>
-              <option value="1973" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2020" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/AndriyShoot/Weapon.cs</url>
-          <line>71</line>
-          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\AndriyShoot\Weapon.cs" initialLine="69" containingFunctionPresentation="Method 'Update'">
-            <startOffsets>
-              <option value="2162" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2171" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs</url>
           <line>65</line>
           <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Camera\CameraController.cs" initialLine="65" containingFunctionPresentation="Method 'Update'">
@@ -244,6 +214,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/OnAimodipsisMode.cs</url>
+          <line>34</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Aimodipsis Mode\OnAimodipsisMode.cs" initialLine="34" containingFunctionPresentation="Method 'Update'">
+            <startOffsets>
+              <option value="1258" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1290" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

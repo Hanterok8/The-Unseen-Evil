@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpectatorCamera : MonoBehaviour
 { 
     [SerializeField] private Vector3 distance;
+    [SerializeField] private GameObject spectatorPrefab;
     private GameObject parentPlayerObject;
     private Transform currentSpectatingPlayer;
     [SerializeField] private int currentPlayerIndex;
@@ -15,11 +16,17 @@ public class SpectatorCamera : MonoBehaviour
     public Action<string> onChangedSpectatingPlayer;
     private void Start()
     {
-        parentPlayerObject = GetPlayerParent(gameObject);
+        //parentPlayerObject = GetPlayerParent(gameObject);
         currentPlayerIndex = 0;
-        photonView = parentPlayerObject.GetComponent<PhotonView>();
+        photonView = GetComponent<PhotonView>();
         sensitivityMouse = PlayerPrefs.GetInt("Sensitivity") * COEFFICIENT;
         ChangeSpectatingPlayer(1);
+        if (!photonView.IsMine)
+        {
+            Destroy(GetComponent<Camera>());
+            Destroy(GetComponent<AudioListener>());
+            Destroy(gameObject);
+        }
     }
     private GameObject GetPlayerParent(GameObject lookingPlayerFor)
     {

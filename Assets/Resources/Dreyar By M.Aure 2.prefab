@@ -1661,6 +1661,8 @@ MonoBehaviour:
   _WeaponTarget: {fileID: 7445662868950766880}
   _LForeArm: {fileID: 6893531268440713912}
   player: {fileID: 3470049310683012215}
+  weapon: {fileID: 0}
+  weaponEnd: {fileID: 0}
 --- !u!114 &3889778718054288073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2761,6 +2763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5547184857641012138}
   - component: {fileID: 5978350809482324177}
+  - component: {fileID: 5968056337084134613}
   m_Layer: 0
   m_Name: UI Camera
   m_TagString: Untagged
@@ -2834,6 +2837,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &5968056337084134613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4500892912963999965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cd0d0d6a9cd62448fceace27c456c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4605344669229523354
 GameObject:
   m_ObjectHideFlags: 0
@@ -9661,6 +9676,7 @@ MonoBehaviour:
   reloadSFX: {fileID: 8300000, guid: 31b23fc48b5a43147a4d4e5571e7966a, type: 3}
   AudioSource: {fileID: 8736647049544937295}
   audioReload: {fileID: 1419803855454381516}
+  RaycastThrower: {fileID: 0}
 --- !u!82 &8736647049544937295
 AudioSource:
   m_ObjectHideFlags: 0

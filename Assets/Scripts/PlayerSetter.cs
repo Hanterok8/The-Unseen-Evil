@@ -17,24 +17,37 @@ public class PlayerSetter : MonoBehaviour
     }
     public void KickPlayer()
     {
+        if(!photonView.IsMine) return;
+        PhotonNetwork.Instantiate(spectatorPlayer.name, Vector3.zero, Quaternion.identity);
+       // Invoke(nameof(DestroyPlayer), 1.5f);
         photonView.RPC(nameof(KickPlayerRPC), RpcTarget.All);
+        PhotonNetwork.Destroy(gameObject);
+    }
+
+    // private void DestroyPlayer()
+    // {
+    //     photonView.RPC(nameof(DestroyPlayerRPC), RpcTarget.All);
+    // }
+
+    [PunRPC]
+    private void DestroyPlayerRPC()
+    {
+        Destroy(gameObject);
     }
     [PunRPC]
     private void KickPlayerRPC()
     {
         if (!photonView.IsMine) return;
         CurrentPlayer[] players = FindObjectsOfType<CurrentPlayer>();
-        GameObject spectator = Instantiate(spectatorPlayer);
         foreach (CurrentPlayer player in players)
         {
             if (player.CurrentPlayerModel == gameObject)
             {
-                player.GetComponent<CurrentPlayer>().CurrentPlayerModel = spectator;
-                Destroy(player.CurrentPlayerModel);
+                //player.GetComponent<CurrentPlayer>().CurrentPlayerModel = spectator;
+                Destroy(player.gameObject);
                 break;
             }
         }
-        Destroy(gameObject);
         onTransformedToSpectator?.Invoke();
         //PhotonNetwork.Disconnect();
 

@@ -88,6 +88,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: {x: 3, y: 3, z: 3}
+  spectatorPrefab: {fileID: 0}
+  currentPlayerIndex: 0
 --- !u!20 &4370288879749575922
 Camera:
   m_ObjectHideFlags: 0

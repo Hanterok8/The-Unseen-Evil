@@ -35,6 +35,9 @@ public class Weapon : MonoBehaviour
 
     private TMP_Text Ammo;
     private PhotonView photonView;
+    private RaycastHit HitForRPC;
+
+    public Transform RaycastThrower;
     private void Start()
     {
         GameObject mainPlayer = GetMainPlayer();
@@ -67,17 +70,24 @@ public class Weapon : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R) && maxAmmo > 0)
         {
-            _characterController._playerAnimator.SetBool("isReload", true);
+            _characterController.SetAimingAnimation(false);
+            photonView.RPC(nameof(ReloadAnimationRPC), RpcTarget.All, true);
             StartCoroutine(ReloadDelay());
             Reload();
         }
         Ammo.text = ammoInClip + " / " + maxAmmo;
     }
+
+    [PunRPC]
+    private void ReloadAnimationRPC(bool reloadSelf) 
+    {
+        _characterController._playerAnimator.SetBool("isReload", reloadSelf);
+    }
     private IEnumerator ReloadDelay()
     {
         CanShoot = false;
         yield return new WaitForSeconds(ReloadTime);
-        _characterController._playerAnimator.SetBool("isReload", false);
+        photonView.RPC(nameof(ReloadAnimationRPC), RpcTarget.All, false);
         CanShoot = true;
     }
     void Shoot()
@@ -87,30 +97,36 @@ public class Weapon : MonoBehaviour
 
         RaycastHit Hit;
 
-        if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out Hit, Range))
+        if (Physics.Raycast(RaycastThrower.position, RaycastThrower.forward, out Hit, Range))
         {
-            photonView.RPC(nameof(InstantiantEffect), RpcTarget.All, Hit);
+            GameObject player = Hit.collider.gameObject;
+
+            HitForRPC = Hit;
+            photonView.RPC(nameof(InstantiantEffect), RpcTarget.All);
             RewardForGhost ghost = Hit.transform.GetComponent<RewardForGhost>();
             if (ghost != null && questSwitcher.currentQuest.name == "Maruntian Soul Catcher")
             {
                 questSwitcher.AddQuestStep(1);
             }
-            if (Hit.rigidbody != null)
-            {
-                Hit.rigidbody.AddForce(-Hit.normal * Forse);
-            }
         }
     }
+
     [PunRPC]
     private void ShootSoundRPC()
     {
         AudioSource.PlayOneShot(shotSFX);
     }
     [PunRPC]
-    private void InstantiantEffect(RaycastHit Hit)
+    private void InstantiantEffect()
     {
+        RaycastHit Hit = HitForRPC;
         GameObject ImpactGO = Instantiate(hitEffect, Hit.point, Quaternion.LookRotation(Hit.normal));
         Destroy(ImpactGO, 2f);
+    }
+    [PunRPC]
+    private void ReloadSoundRPC()
+    {
+        audioReload.PlayOneShot(reloadSFX);
     }
 
     void Reload()
@@ -118,7 +134,7 @@ public class Weapon : MonoBehaviour
         float Reason = 30f - ammoInClip;
         if (ammoInClip < 30)
         {
-            audioReload.PlayOneShot(reloadSFX);
+            photonView.RPC(nameof(ReloadSoundRPC), RpcTarget.All); 
         }
         if (maxAmmo >= Reason)
         {
