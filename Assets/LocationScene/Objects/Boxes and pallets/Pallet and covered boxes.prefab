@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 484268}
   - component: {fileID: 3373250}
   - component: {fileID: 2341586}
-  - component: {fileID: 6458060}
   m_Layer: 0
   m_Name: Covered_boxes2
   m_TagString: Untagged
@@ -84,28 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6458060
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124654}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300010, guid: 1cb9b014d5c442f4ba45f61cf46282c8, type: 3}
 --- !u!1 &142680
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,5 +187,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.648937, y: 0.5401179, z: 0.074566886}
-  m_Center: {x: -0.3244685, y: 0.27005896, z: 0.037283443}
+  m_Size: {x: 0.648937, y: 0.5401179, z: 0.5891362}
+  m_Center: {x: -0.3244685, y: 0.27006277, z: 0.29456896}
