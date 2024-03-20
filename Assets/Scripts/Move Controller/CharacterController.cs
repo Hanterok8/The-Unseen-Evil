@@ -52,6 +52,11 @@ public class CharacterController : MonoBehaviour
             if (!isFrozen) _movementVector = GetMovement();
         }
     }
+    public void Freeze()
+    {
+        isFrozen = true;
+        _movementVector = Vector3.zero;
+    }
 
     private void FixedUpdate()
     {
