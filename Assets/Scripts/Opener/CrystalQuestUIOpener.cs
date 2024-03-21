@@ -7,7 +7,7 @@ public class CrystalQuestUIOpener : MonoBehaviour
 
     private void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        characterController = GetComponent<CurrentPlayer>().CurrentPlayerModel.GetComponent<CharacterController>();
         crystalElements = FindObjectOfType<CrystalElements>();
     }
     private void SwapPlayerMovementState()
