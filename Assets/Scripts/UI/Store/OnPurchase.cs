@@ -34,7 +34,7 @@ public class OnPurchase : MonoBehaviour
     {
         if (_itemName.text == "AK-74")
         {
-            QuestSwitcher questSwitcher= player.GetComponent<QuestSwitcher>();
+            QuestSwitcher questSwitcher = player.GetComponent<QuestSwitcher>();
             questSwitcher.leftQuests.Add(questSwitcher.extraQuest);
         }
     }

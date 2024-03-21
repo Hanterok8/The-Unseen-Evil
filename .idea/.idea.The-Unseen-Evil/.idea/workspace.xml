@@ -6,12 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LabirintScrimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LabirintScrimer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/OnAimodipsisMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/OnAimodipsisMode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeCloser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeCloser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Opener/CrystalQuestUIOpener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Opener/CrystalQuestUIOpener.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyButtonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Lobby/LobbyButtonManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UICamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UICamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Dealer/DealerMark.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Dealer/DealerMark.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/OnPurchase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/OnPurchase.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +74,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Рабочий стол/Game/The Unseen Evil.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Рабочий стол/Game\The Unseen Evil.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\aivle\OneDrive\Рабочий стол\Game" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -103,10 +107,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="281548">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="281548" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -151,6 +155,7 @@
       <workItem from="1710854265893" duration="505000" />
       <workItem from="1710968158362" duration="13774000" />
       <workItem from="1711034147096" duration="2296000" />
+      <workItem from="1711041600480" duration="10595000" />
     </task>
     <servers />
   </component>
@@ -165,45 +170,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Bottle/ItemExchanger.cs</url>
-          <line>67</line>
-          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Bottle\ItemExchanger.cs" initialLine="67" containingFunctionPresentation="Method 'Update'">
-            <startOffsets>
-              <option value="2464" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2563" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Bottle/ItemExchanger.cs</url>
-          <line>70</line>
-          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Bottle\ItemExchanger.cs" initialLine="69" containingFunctionPresentation="Method 'Update'">
-            <startOffsets>
-              <option value="2800" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2877" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Bottle/ItemExchanger.cs</url>
-          <line>72</line>
-          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Bottle\ItemExchanger.cs" initialLine="71" containingFunctionPresentation="Method 'Update'">
-            <startOffsets>
-              <option value="2916" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2949" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs</url>
           <line>65</line>
@@ -229,6 +195,71 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs</url>
+          <line>41</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Maze\MazeEnding.cs" initialLine="41" containingFunctionPresentation="Method 'EndQuest'">
+            <startOffsets>
+              <option value="1329" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1359" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/Quests/QuestDisplayer.cs</url>
+          <line>46</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\UI\Quests\QuestDisplayer.cs" initialLine="46" containingFunctionPresentation="Method 'DestroyPassedQuest'">
+            <startOffsets>
+              <option value="1532" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1567" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/Quests/QuestDisplayer.cs</url>
+          <line>47</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\UI\Quests\QuestDisplayer.cs" initialLine="47" containingFunctionPresentation="Method 'DestroyPassedQuest'">
+            <startOffsets>
+              <option value="1576" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1596" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/Quests/QuestDisplayer.cs</url>
+          <line>26</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\UI\Quests\QuestDisplayer.cs" initialLine="26" containingFunctionPresentation="Method 'OnDisable'">
+            <startOffsets>
+              <option value="857" />
+            </startOffsets>
+            <endOffsets>
+              <option value="907" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Quests/QuestSwitcher.cs</url>
+          <line>53</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Quests\QuestSwitcher.cs" initialLine="53" containingFunctionPresentation="Method 'PassQuest'">
+            <startOffsets>
+              <option value="1722" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1746" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -28,6 +28,7 @@ public class MazeEnding : MonoBehaviour
     {
         if (collider.gameObject == playerModel && photonView.IsMine)
         {
+            Debug.Log("ended maze");
             EndQuest();
         }
     }
@@ -39,6 +40,7 @@ public class MazeEnding : MonoBehaviour
         gaterAnimator.ResetTrigger("OpenGates");
         QuestSwitcher questSwitcher = Player.GetComponent<QuestSwitcher>();
         questSwitcher.AddQuestStep(1);
+        Debug.Log(questSwitcher + "Added quest step.");
         if(photonView.IsMine) Destroy(gameObject);
     }
 }

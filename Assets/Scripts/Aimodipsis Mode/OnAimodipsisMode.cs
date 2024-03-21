@@ -49,7 +49,6 @@ public class OnAimodipsisMode : MonoBehaviour
         isAimodipsisMode.SetAimodipsisMode(aimodipsisModeTurnTo);
         currentLivingPlayer.CurrentPlayerModel = spawnedPrefab;
         photonView = GetComponent<PhotonView>();
-        // photonView.RPC(nameof(TurnVoiceChatIntoRPC), RpcTarget.All, aimodipsisModeTurnTo);
         photonView.RPC(nameof(TurnOnAimodipsisForAllPlayers), RpcTarget.All, aimodipsisModeTurnTo);
         isPlayerBecomeDemon = aimodipsisModeTurnTo;
     }

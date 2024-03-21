@@ -35,8 +35,13 @@ public class AltarConnectingItems : MonoBehaviour
         if (isConnected)
             Invoke(nameof(OnItemsConnected), 1f);
     }
-    [PunRPC]
+
     private void OnItemsConnected()
+    {
+        photonView.RPC(nameof(OnItemsConnectedRPC), RpcTarget.All);
+    }
+    [PunRPC]
+    private void OnItemsConnectedRPC()
     {
         int neededNumber = (int)(PhotonNetwork.PlayerList.Length * (float)(ALL_GAME_QUESTS / 2));
         if (totalQuests.TotalQuestsDone < neededNumber) return;

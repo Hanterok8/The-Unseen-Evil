@@ -199,7 +199,7 @@ MonoBehaviour:
   currentQuest: {fileID: 0}
   interactedTargets: 0
   leftQuests:
-  - {fileID: 11400000, guid: 459e1f6273c582f4c933e82b5a70c7ae, type: 2}
+  - {fileID: 11400000, guid: d7d017d654217c140b62fbb6993b800a, type: 2}
   extraQuest: {fileID: 11400000, guid: 9fa4809c3c287f34e8c68a7f5dc80d94, type: 2}
   secondsBeforeNextQuest: 0
 --- !u!82 &7311694160924015630

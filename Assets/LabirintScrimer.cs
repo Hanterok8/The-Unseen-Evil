@@ -6,7 +6,7 @@ public class LabirintScrimer : MonoBehaviour
 {
     [SerializeField] private Animator _labirintScrimer;
     [SerializeField] private GameObject _scrimer;
-    [SerializeField] private GameObject _UI;
+    //[SerializeField] private GameObject _UI;
     [SerializeField] private GameObject _leftHandImage;
     [SerializeField] private GameObject _rightHandImage;
     [SerializeField] private AudioSource _scrimerSound;
@@ -15,7 +15,7 @@ public class LabirintScrimer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _UI.SetActive(false);
+            //_UI.SetActive(false);
             _leftHandImage.SetActive(true);
             _rightHandImage.SetActive(true);
             _scrimer.SetActive(true);
@@ -27,7 +27,7 @@ public class LabirintScrimer : MonoBehaviour
     private IEnumerator CDdelete()
     {
         yield return new WaitForSeconds(3);
-        _UI.SetActive(true);
+        //_UI.SetActive(true);
         _leftHandImage.SetActive(false);
         _rightHandImage.SetActive(false);
         _scrimer.SetActive(false);
