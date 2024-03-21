@@ -12,6 +12,7 @@ public class MazeEnding : MonoBehaviour
     {
         gates = GameObject.FindGameObjectWithTag("MazeGates");
         photonView = GetComponent<PhotonView>();
+        if (!photonView.IsMine) return;
         GameObject[] players;
         players = GameObject.FindGameObjectsWithTag("PlayerInstance");
         foreach (GameObject player in players)

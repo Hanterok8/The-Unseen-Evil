@@ -13,8 +13,8 @@ public class TriggerController : MonoBehaviour
     private CrystalQuestUIOpener CrystalIOpener;
     private bool isInShopCircleCollider = false;
     private IsAimodipsis aimodipsis;
-    private QuestSwitcher questSwitcher;
-    private PhotonView photonView;
+    [SerializeField] private QuestSwitcher questSwitcher;
+    [SerializeField] private PhotonView photonView;
     private int cooldownTime = 0;
     
     private void Start()
@@ -28,6 +28,7 @@ public class TriggerController : MonoBehaviour
     }
     private void Update()
     {
+        if (!photonView.IsMine) return;
         if (Input.GetKeyDown(KeyCode.E) && isInShopCircleCollider && !aimodipsis.isAimodipsis && cooldownTime <= 0)
         {
             isStoreOpened = !isStoreOpened;

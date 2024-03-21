@@ -14,7 +14,7 @@ public class ScrimeControll : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && photonView.IsMine)
+        if (other.gameObject.CompareTag("Player") && photonView.IsMine)
         {
             _scrimerSourse.Play();
             foreach (Light light in _lights)
@@ -30,6 +30,7 @@ public class ScrimeControll : MonoBehaviour
     }
     private IEnumerator Culdayn()
     {
+        Destroy(gameObject);
         yield return new WaitForSeconds(5);    
         if (photonView.IsMine) Destroy(_cube);
         foreach (Light light in _lights)

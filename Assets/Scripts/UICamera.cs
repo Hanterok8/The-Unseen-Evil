@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UICamera : MonoBehaviour
 {
-    private PhotonView photonView;
+    [SerializeField] private PhotonView photonView;
 
     private void Start()
     {

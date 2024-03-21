@@ -79,7 +79,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.Log("Join room is failed");
+        Debug.Log("Join room is failed \n" + message + "\n" + returnCode);
     }
     public override void OnJoinRoomFailed(short returnCode, string message)
     {

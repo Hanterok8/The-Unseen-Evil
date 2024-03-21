@@ -31,7 +31,7 @@ public class DomeTrigger : MonoBehaviour
                 activatedLights++;
                 if (activatedLights == 4)
                 {
-                    dome.SetActive(true);
+                    dome.SetActive(false);
                 }
             }
         }

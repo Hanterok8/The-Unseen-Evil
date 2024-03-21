@@ -14,7 +14,7 @@ public class ScrimerController2 : MonoBehaviour
     private void Start() => photonView = GetComponent<PhotonView>();
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && photonView.IsMine)
+        if (other.gameObject.CompareTag("Player") && photonView.IsMine)
         {
             StartCoroutine(ScrimerCD());
             foreach (Light light in _light)
@@ -27,9 +27,8 @@ public class ScrimerController2 : MonoBehaviour
     private IEnumerator ScrimerCD()
     {
         _scrimerAnim.SetBool("isTrrigerScrim", true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.4f);
         _scrimerAnim.SetBool("isTrrigerScrim", false);
-        Destroy(_gameObject,1);
         yield return new WaitForSeconds(3);
         foreach (Light light in _light)
         {

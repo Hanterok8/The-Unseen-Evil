@@ -112,10 +112,32 @@ public class LobbyButtonManager : MonoBehaviour
     }
     public void OnEnteredNickname()
     {
+        if (IsEmpty(nickname.text))
+        {
+            lobbyManager.playerNickname = "player nickname is not entered";
+            return;
+        }
         lobbyManager.playerNickname = nickname.text;
     }
     public void OnSensitivityChanged()
     {
         lobbyManager.sensitivityInGame = (int)sensitivity.value;
+    }
+    private bool IsEmpty(string message)
+    {
+        if (string.IsNullOrEmpty(message)) return true;
+        else
+        {
+            char[] messageInChar = message.ToCharArray();
+            foreach (char symbol in messageInChar)
+            {
+                if (symbol != ' ')
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

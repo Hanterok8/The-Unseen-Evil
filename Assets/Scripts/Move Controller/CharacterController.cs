@@ -9,7 +9,6 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Rigidbody _playerRigidbody;
     [SerializeField] private Transform _mainCamera;
     [SerializeField] private float _movementWalkSpeed = 4f;
-    [SerializeField] private GameObject _menu;
     public bool isRunning;
     public Vector2 AxesSpeed;
     public Action<int> onChangedFOV;
@@ -22,7 +21,6 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        _menu = GameObject.FindGameObjectWithTag("menu");
         stamina = GetComponent<StaminaSettings>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -104,20 +102,7 @@ public class CharacterController : MonoBehaviour
         {
             SetRunningStateFalse();
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            _menu.SetActive(!_menu.activeSelf);
-            if (Cursor.visible)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Confined;
-            }
-
-            Cursor.visible = !Cursor.visible;
-        }
+       
         return movementVector;
     }
 
