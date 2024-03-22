@@ -15,3 +15,4 @@ MonoBehaviour:
   _price: 3
   _name: AK-74
   _sprite: {fileID: 21300000, guid: 2a1e5e91fe39a134c99247ed5a5f27ec, type: 3}
+  _isOnlyForResidents: 0

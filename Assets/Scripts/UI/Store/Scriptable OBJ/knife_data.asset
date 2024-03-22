@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a625eb8f3f72d04fb99c705bc7856a8, type: 3}
   m_Name: knife_data
   m_EditorClassIdentifier: 
-  _price: 3
+  _price: 6
   _name: Knife
   _sprite: {fileID: 21300000, guid: 26290bd72da46ff44a84dae2cd4c8a16, type: 3}
   _isOnlyForResidents: 0

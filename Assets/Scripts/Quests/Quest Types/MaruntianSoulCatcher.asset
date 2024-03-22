@@ -16,4 +16,5 @@ MonoBehaviour:
   _description: "\xB7 Catch the Maruntian soul in the house"
   _requiredTargets: 1
   _usingItems: []
-  _coinsForQuest: 2
+  _coinsForQuest: 4
+  _isQuestRequiredForEndingGame: 0
