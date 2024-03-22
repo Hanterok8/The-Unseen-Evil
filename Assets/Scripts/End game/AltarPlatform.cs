@@ -10,10 +10,11 @@ public class AltarPlatform : MonoBehaviour
     private PhotonView photonView;
     private MeshRenderer meshRenderer;
     private GameObject player;
+    private bool isItemPlaced = false;
     private void Start()
     {
         CurrentPlayer currentPlayer = FindObjectOfType<CurrentPlayer>();
-        photonView = currentPlayer.CurrentPlayerModel.GetComponent<PhotonView>();
+        photonView = GetComponent<PhotonView>();
         player = currentPlayer.gameObject;
         itemControl = player.GetComponent<ItemControl>();
         platformItem = transform.GetChild(0).gameObject;
@@ -30,7 +31,7 @@ public class AltarPlatform : MonoBehaviour
     private void PlaceItemOntoPlatform()
     {
         int usingSlot = itemControl.selected;
-        if (itemControl._slots[usingSlot].GetComponent<SlotItemInformation>().name != requiredItem && !platformItem.activeSelf)
+        if (itemControl._slots[usingSlot].GetComponent<SlotItemInformation>().name != requiredItem && !platformItem.activeSelf && !isItemPlaced)
             return;
         itemControl.TakeAwayItem();
         photonView.RPC(nameof(PlaceItemOntoPlatformRPC), RpcTarget.All);
@@ -39,6 +40,7 @@ public class AltarPlatform : MonoBehaviour
     [PunRPC]
     private void PlaceItemOntoPlatformRPC()
     {
+        isItemPlaced = true;
         meshRenderer.material.color = Color.blue;
         platformItem.SetActive(true);
         Transform altarObject = transform.parent;

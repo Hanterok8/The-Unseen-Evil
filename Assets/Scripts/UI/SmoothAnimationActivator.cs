@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 
 public class SmoothAnimationActivator : MonoBehaviour
 {
+    [SerializeField] private GameObject background;
     private Animator animator;
     
 
@@ -20,5 +21,14 @@ public class SmoothAnimationActivator : MonoBehaviour
     public void DisableGameObject()
     {
         gameObject.SetActive(false);
+    }
+
+    public void ActivateBackground()
+    {
+        background.SetActive(true);
+    }
+    public void DeactivateBackground()
+    {
+        background.SetActive(false);
     }
 }

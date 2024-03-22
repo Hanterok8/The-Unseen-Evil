@@ -23,8 +23,9 @@ public class AltarConnectingItems : MonoBehaviour
         totalQuests = FindObjectOfType<TotalCompletedQuestsCounter>();
     }
     public void AddActivatedPlatform(GameObject player)
-    { lastInteractedPlayer = player;
-       photonView.RPC(nameof(AddActivatedPlatform), RpcTarget.All);
+    {
+        lastInteractedPlayer = player;
+        photonView.RPC(nameof(AddActivatedPlatform), RpcTarget.All);
     }
     
     [PunRPC]

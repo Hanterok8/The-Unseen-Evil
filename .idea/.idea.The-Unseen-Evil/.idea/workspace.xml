@@ -6,16 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LabirintScrimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LabirintScrimer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/OnAimodipsisMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/OnAimodipsisMode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeCloser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeCloser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Dealer/DealerMark.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Dealer/DealerMark.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Store/OnPurchase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Store/OnPurchase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/End game/AltarPlatform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/End game/AltarPlatform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Opener/StoreOpener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Opener/StoreOpener.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/QuestSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/QuestSwitcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SmoothAnimationActivator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SmoothAnimationActivator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UIAnimations/SmoothActivation/StoreMenu_Close.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UIAnimations/SmoothActivation/StoreMenu_Close.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UIAnimations/SmoothActivation/StoreMenu_Open.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UIAnimations/SmoothActivation/StoreMenu_Open.anim" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +154,7 @@
       <workItem from="1710854265893" duration="505000" />
       <workItem from="1710968158362" duration="13774000" />
       <workItem from="1711034147096" duration="2296000" />
-      <workItem from="1711041600480" duration="10595000" />
+      <workItem from="1711041600480" duration="14179000" />
     </task>
     <servers />
   </component>
@@ -253,10 +252,10 @@
           <line>53</line>
           <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Quests\QuestSwitcher.cs" initialLine="53" containingFunctionPresentation="Method 'PassQuest'">
             <startOffsets>
-              <option value="1722" />
+              <option value="1723" />
             </startOffsets>
             <endOffsets>
-              <option value="1746" />
+              <option value="1747" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="20" />

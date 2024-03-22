@@ -19,8 +19,8 @@ public class StoreOpener : MonoBehaviour
         else
             Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = !Cursor.visible;
-        GameObject Blur = storeElements.BlurBackground;
-        Blur.SetActive(!Blur.activeSelf);
+        // GameObject Blur = storeElements.BlurBackground;
+        // Blur.SetActive(!Blur.activeSelf);
         if (!storeElements.store.activeSelf)
         {
             storeElements.store.SetActive(true);

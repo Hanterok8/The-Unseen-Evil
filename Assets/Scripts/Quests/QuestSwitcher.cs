@@ -50,7 +50,7 @@ public class QuestSwitcher : MonoBehaviourPunCallbacks
     {
         totalQuestsCounter.UpdateTotalQuestsCount(1);
         completedQuest.Add(currentQuest);
-        currentQuest = null;
+        currentQuest = null; 
         onPassedQuest?.Invoke();
         onReceivedCoinsByQuest?.Invoke(receivedCoins);
         if (leftQuests.Count == 0)

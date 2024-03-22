@@ -4110,6 +4110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502df23ec1e33b7429b6a07b73e6b66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 0}
 --- !u!222 &5046789476908719428
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5208,6 +5209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502df23ec1e33b7429b6a07b73e6b66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 0}
 --- !u!95 &7063956057852416768
 Animator:
   serializedVersion: 5
@@ -5523,6 +5525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502df23ec1e33b7429b6a07b73e6b66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 0}
 --- !u!95 &7523065651446695802
 Animator:
   serializedVersion: 5
@@ -7496,6 +7499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502df23ec1e33b7429b6a07b73e6b66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 0}
 --- !u!95 &9154789506876925986
 Animator:
   serializedVersion: 5

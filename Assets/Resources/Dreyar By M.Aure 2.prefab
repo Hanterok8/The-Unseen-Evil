@@ -1123,13 +1123,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2833448457126794803}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4220940538093896918}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &2941096259324909951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,7 +1482,6 @@ GameObject:
   - component: {fileID: 2892313214222753845}
   - component: {fileID: 7049922857257111451}
   - component: {fileID: 936355559579846233}
-  - component: {fileID: 4579140868872128453}
   - component: {fileID: 964770410627039602}
   - component: {fileID: 5592463489428497158}
   - component: {fileID: 4941709183035269492}
@@ -1495,7 +1494,6 @@ GameObject:
   - component: {fileID: 1866998656737798827}
   - component: {fileID: 3978638624636646254}
   - component: {fileID: 4994583799937062882}
-  - component: {fileID: 6345928208592576655}
   m_Layer: 7
   m_Name: Dreyar By M.Aure 2
   m_TagString: Player
@@ -1784,18 +1782,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &4579140868872128453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470049310683012215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &964770410627039602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2217,19 +2203,6 @@ MonoBehaviour:
   - {fileID: 7788517764676060867}
   - {fileID: 1484409646864973002}
   - {fileID: 4040707468599072029}
---- !u!114 &6345928208592576655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470049310683012215}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5b94b746f17bea4cb47326d0432bb57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speaker: {fileID: 0}
 --- !u!1 &3550321043067029588
 GameObject:
   m_ObjectHideFlags: 0
