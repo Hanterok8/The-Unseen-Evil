@@ -29,17 +29,34 @@ public class OnAimodipsisMode : MonoBehaviour
     private void Update()
     {
         if (!photonView.IsMine) return;
-
-        if (bloodLust._demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !isAimodipsisMode.isAimodipsis)
+        if (!isAimodipsisMode.isAimodipsis && bloodLust._demonBloodlust >= 100)
         {
             RebornPlayer(demonPrefab, true);
-            _demonSource.PlayOneShot(_demonSound);
+            photonView.RPC(nameof(PlayDemonSoundRPC), RpcTarget.All);
+        }
+        else if (bloodLust._demonBloodlust >= 60 && Input.GetKeyDown(KeyCode.F) && !isAimodipsisMode.isAimodipsis)
+        {
+            RebornPlayer(demonPrefab, true);
+            photonView.RPC(nameof(PlayDemonSoundRPC), RpcTarget.All);
         }
         else if (isAimodipsisMode.isAimodipsis && bloodLust._demonBloodlust <= 0)
         {
             RebornPlayer(residentPrefab, false);
-            _demonVoplSource.PlayOneShot(_demonVoplSound);
+            photonView.RPC(nameof(PlayDemonVoplSoundRPC), RpcTarget.All);
         }
+        
+    }
+
+    [PunRPC]
+    private void PlayDemonSoundRPC()
+    {
+        _demonSource.PlayOneShot(_demonSound);
+    }
+
+    [PunRPC]
+    private void PlayDemonVoplSoundRPC()
+    {
+        _demonVoplSource.PlayOneShot(_demonVoplSound);
     }
     private void RebornPlayer(GameObject prefabToSpawn, bool aimodipsisModeTurnTo)
     {

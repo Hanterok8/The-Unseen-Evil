@@ -59,15 +59,16 @@ public class CameraController : MonoBehaviour
 
         xRotation = Mathf.Clamp(xRotation, -Y_LOOK_LIMIT, Y_LOOK_LIMIT);
 
-        // Vector2 screenCentre = new Vector2(Screen.width / 2, Screen.height / 2);
-        // Ray ray = Camera.main.ScreenPointToRay(screenCentre);
-        // if(Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
-        // {
-        //     aimPose.position = Vector3.Lerp(aimPose.position,hit.point,AimSmoothspeed*Time.deltaTime);
-        // }
+        Vector2 screenCentre = new Vector2(Screen.width / 2, Screen.height / 2);
+        Ray ray = Camera.main.ScreenPointToRay(screenCentre);
+        if(Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimMask))
+        {
+            aimPose.position = Vector3.Lerp(aimPose.position,hit.point,AimSmoothspeed*Time.deltaTime);
+        }
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         Player.rotation = Quaternion.Euler(0, yRotation + 1, 0);
+        
     }
     private void SetNewFOV(int newCameraFOV)
     {

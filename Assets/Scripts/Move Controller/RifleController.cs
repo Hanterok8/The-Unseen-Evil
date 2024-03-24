@@ -19,7 +19,7 @@ public class RifleController : MonoBehaviour
         cam = Camera.main;
         _photonView = player.GetComponent<PhotonView>();
         _charachterController = player.GetComponent<CharacterController>();
-        
+        weapon.RaycastThrower = weaponEnd;
         _LForeArm.transform.localRotation = new Quaternion(0,0,0,0);
     }
     private void Update()

@@ -61,10 +61,18 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Instantiate(playerlistPrefab, playerListContent).GetComponent<PlayerListNickname>().SetUpNickname(newPlayer);
+        if (PhotonNetwork.PlayerList.Length >= 3 && PhotonNetwork.IsMasterClient)
+        {
+            StartButton.SetActive(true);
+        }
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         Invoke(nameof(RecreatePlayerInRoomList), 0.2f);
+        if (PhotonNetwork.PlayerList.Length < 3 && PhotonNetwork.IsMasterClient)
+        {
+            StartButton.SetActive(false);
+        }
     }
     public override void OnMasterClientSwitched(Player newMasterClient)
     {

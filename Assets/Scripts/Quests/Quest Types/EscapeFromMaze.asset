@@ -18,3 +18,4 @@ MonoBehaviour:
   _usingItems:
   - Maze key
   _coinsForQuest: 1
+  _isQuestRequiredForEndingGame: 0

@@ -7,6 +7,7 @@ public class UICamera : MonoBehaviour
 
     private void Start()
     {
+        
         if (!photonView.IsMine)
         {
             Destroy(gameObject);

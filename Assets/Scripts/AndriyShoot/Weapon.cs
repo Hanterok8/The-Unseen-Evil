@@ -38,6 +38,7 @@ public class Weapon : MonoBehaviour
     private RaycastHit HitForRPC;
 
     public Transform RaycastThrower;
+    private Transform RealGhost;
     private void Start()
     {
         GameObject mainPlayer = GetMainPlayer();
@@ -106,11 +107,18 @@ public class Weapon : MonoBehaviour
             RewardForGhost ghost = Hit.transform.GetComponent<RewardForGhost>();
             if (ghost != null && questSwitcher.currentQuest.name == "Maruntian Soul Catcher")
             {
+                ghost.GetComponent<Rigidbody>().isKinematic = false;
+                RealGhost = ghost.transform;
+                Invoke(nameof(DisableQuest), 4f);
                 questSwitcher.AddQuestStep(1);
             }
         }
     }
 
+    private void DisableQuest()
+    {
+        Destroy(RealGhost.parent.gameObject);
+    }
     [PunRPC]
     private void ShootSoundRPC()
     {

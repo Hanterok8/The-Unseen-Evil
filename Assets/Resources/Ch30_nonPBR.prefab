@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cd0d0d6a9cd62448fceace27c456c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photonView: {fileID: 0}
 --- !u!1 &738426986748207617
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +370,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 1.12777, y: 1.12777, z: 1.12777}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6718207090544057249}
@@ -441,7 +442,6 @@ MonoBehaviour:
   _playerRigidbody: {fileID: 9168012729401099908}
   _mainCamera: {fileID: 5749523862453355139}
   _movementWalkSpeed: 2
-  _menu: {fileID: 0}
   isRunning: 0
   AxesSpeed: {x: 0, y: 0}
   isFrozen: 0

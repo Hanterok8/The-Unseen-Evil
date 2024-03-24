@@ -4,14 +4,17 @@ public class StoreOpener : MonoBehaviour
 {
     [SerializeField] private CameraController cameraController;
     [SerializeField] private Weapon weapon;
+    private CharacterController controller;
     private StoreElements storeElements;
     private void Start()
     {
+        controller = GetComponent<CharacterController>();
         storeElements = FindObjectOfType<StoreElements>();
     }
 
     public void SwapPlayerMovementState()
     {
+        controller.enabled = !controller.enabled;
         cameraController.enabled = !cameraController.enabled;
         weapon.enabled = !weapon.enabled;
         if (Cursor.visible)

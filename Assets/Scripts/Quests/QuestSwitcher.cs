@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class QuestSwitcher : MonoBehaviourPunCallbacks
 {
-    private const int SECONDS_ON_START = 7;
+    private const int SECONDS_ON_START = 120;
     private const int DELAY = 1;
 
     public Action onGivenQuest;

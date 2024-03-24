@@ -6,15 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LabirintScrimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LabirintScrimer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/ManController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/ManController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Ch30_nonPBR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Ch30_nonPBR.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/MuzzleFlash01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MuzzleFlash01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Matchmaking.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Matchmaking.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/End game/AltarPlatform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/End game/AltarPlatform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/OnAimodipsisMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/OnAimodipsisMode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AndriyShoot/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AndriyShoot/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bloodlust/BloodlustSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bloodlust/BloodlustSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Move Controller/RifleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Move Controller/RifleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Multiplayer Photon Network/RoomManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Multiplayer Photon Network/RoomManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Opener/StoreOpener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Opener/StoreOpener.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/EscapeFromMaze.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/EscapeFromMaze.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/QuestSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/QuestSwitcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SmoothAnimationActivator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SmoothAnimationActivator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UIAnimations/SmoothActivation/StoreMenu_Close.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UIAnimations/SmoothActivation/StoreMenu_Close.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UIAnimations/SmoothActivation/StoreMenu_Open.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UIAnimations/SmoothActivation/StoreMenu_Open.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/TotalCompletedQuestsCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/TotalCompletedQuestsCounter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UICamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UICamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +40,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/2d/7a47e222/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7f2ccf3999ca4756b70a33db243fabf4151218/ce/906d39bd/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/84/0466991b/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cdbb0156c5f14428b9e39f273d3bdab83a000/7b/a2bbe754/StructWrapperUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ScrimeControll.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Quests/TotalCompletedQuestsCounter.cs" root0="FORCE_HIGHLIGHTING" />
@@ -106,10 +120,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="281548">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="281548" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -154,7 +168,11 @@
       <workItem from="1710854265893" duration="505000" />
       <workItem from="1710968158362" duration="13774000" />
       <workItem from="1711034147096" duration="2296000" />
-      <workItem from="1711041600480" duration="14179000" />
+      <workItem from="1711041600480" duration="14852000" />
+      <workItem from="1711113116103" duration="9219000" />
+      <workItem from="1711145403526" duration="2202000" />
+      <workItem from="1711206015913" duration="13452000" />
+      <workItem from="1711271309534" duration="1808000" />
     </task>
     <servers />
   </component>
@@ -174,26 +192,13 @@
           <line>65</line>
           <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Camera\CameraController.cs" initialLine="65" containingFunctionPresentation="Method 'Update'">
             <startOffsets>
-              <option value="2231" />
+              <option value="2216" />
             </startOffsets>
             <endOffsets>
-              <option value="2321" />
+              <option value="2306" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/OnAimodipsisMode.cs</url>
-          <line>34</line>
-          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Aimodipsis Mode\OnAimodipsisMode.cs" initialLine="34" containingFunctionPresentation="Method 'Update'">
-            <startOffsets>
-              <option value="1258" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1290" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs</url>
@@ -252,13 +257,65 @@
           <line>53</line>
           <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Quests\QuestSwitcher.cs" initialLine="53" containingFunctionPresentation="Method 'PassQuest'">
             <startOffsets>
-              <option value="1723" />
+              <option value="1725" />
             </startOffsets>
             <endOffsets>
-              <option value="1747" />
+              <option value="1749" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs</url>
+          <line>77</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\End game\AltarConnectingItems.cs" initialLine="71" containingFunctionPresentation="Method 'OnItemsConnectedRPC'">
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs</url>
+          <line>61</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\End game\AltarConnectingItems.cs" initialLine="62" containingFunctionPresentation="Method 'OnItemsConnectedRPC'">
+            <startOffsets>
+              <option value="1997" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2026" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs</url>
+          <line>49</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\End game\AltarConnectingItems.cs" initialLine="50" containingFunctionPresentation="Method 'OnItemsConnectedRPC'">
+            <startOffsets>
+              <option value="1606" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1653" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs</url>
+          <line>52</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\End game\AltarConnectingItems.cs" initialLine="53" containingFunctionPresentation="Method 'OnItemsConnectedRPC'">
+            <startOffsets>
+              <option value="1790" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1800" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -11,8 +11,8 @@ public class AltarConnectingItems : MonoBehaviour
     
     [SerializeField] private GameObject gameEndingImage;
     private GameObject lastInteractedPlayer;
-    private bool isConnected = false;
-    private int activatedPlatforms = 0;
+    [SerializeField] private bool isConnected = false;
+    [SerializeField] private int activatedPlatforms = 0;
     private const int REQUIRED_ITEMS = 2;
     private TotalCompletedQuestsCounter totalQuests;
     private PhotonView photonView;
@@ -25,7 +25,7 @@ public class AltarConnectingItems : MonoBehaviour
     public void AddActivatedPlatform(GameObject player)
     {
         lastInteractedPlayer = player;
-        photonView.RPC(nameof(AddActivatedPlatform), RpcTarget.All);
+        photonView.RPC(nameof(AddActivatedPlatformRPC), RpcTarget.All);
     }
     
     [PunRPC]
@@ -39,14 +39,17 @@ public class AltarConnectingItems : MonoBehaviour
 
     private void OnItemsConnected()
     {
+        Debug.Log("Items connected");
         photonView.RPC(nameof(OnItemsConnectedRPC), RpcTarget.All);
     }
     [PunRPC]
     private void OnItemsConnectedRPC()
     {
         int neededNumber = (int)(PhotonNetwork.PlayerList.Length * (float)(ALL_GAME_QUESTS / 2));
+        Debug.Log((totalQuests.TotalQuestsDone < neededNumber) + "\n" + totalQuests.TotalQuestsDone + " " + neededNumber);
         if (totalQuests.TotalQuestsDone < neededNumber) return;
         QuestSwitcher questSwitcher = lastInteractedPlayer.GetComponent<QuestSwitcher>();
+        Debug.Log("Success");
         int i = 0;
         foreach (QuestData quest in questSwitcher.completedQuest)
         {
@@ -56,6 +59,7 @@ public class AltarConnectingItems : MonoBehaviour
             }
         }
 
+        Debug.Log(i + " " + (i < 4));
         if (i < 4) return;
         CharacterController[] characterControllers = FindObjectsOfType<CharacterController>();
         foreach (CharacterController controller in characterControllers)
@@ -64,25 +68,14 @@ public class AltarConnectingItems : MonoBehaviour
         }
         gameEndingImage.SetActive(true);
         
-        CameraController[] cameras = FindObjectsOfType<CameraController>();
-        foreach (CameraController camera in cameras)
-        {
-            StartCoroutine(camera.ShakeCamera());
-        }
-        StartCoroutine(EndGame());
-        
-    }
-    private IEnumerator EndGame()
-    {
-        Color endingColor = gameEndingImage.GetComponent<Image>().color;
-        while (endingColor.a < 1)
-        {
-            endingColor.a += 0.05f;
-            yield return new WaitForSeconds(0.15f);
-        }
-        
+        // CameraController[] cameras = FindObjectsOfType<CameraController>();
+        // foreach (CameraController camera in cameras)
+        // {
+        //     StartCoroutine(camera.ShakeCamera());
+        // }
         TMP_Text EndText = gameEndingImage.transform.GetChild(0).GetComponent<TMP_Text>();
         EndText.text = "The residents expelled the demons.";
-
+        
     }
+
 }

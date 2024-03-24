@@ -79,6 +79,8 @@ MonoBehaviour:
   - ReloadSoundRPC
   - DestroyPlayerRPC
   - OnItemsConnectedRPC
+  - PlayDemonSoundRPC
+  - PlayDemonVoplSoundRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

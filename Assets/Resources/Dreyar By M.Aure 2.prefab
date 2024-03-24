@@ -359,9 +359,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649439847445909589}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000026077032, y: 0.000000061801344, z: 0.00000005214718, w: 1}
-  m_LocalPosition: {x: 0.0044, y: 1.003, z: 1.7}
-  m_LocalScale: {x: 12.5, y: 12.500001, z: 12.500001}
+  m_LocalRotation: {x: 0.000000026077032, y: 0.00000006180135, z: 0.00000005214701, w: 1}
+  m_LocalPosition: {x: 0.0044, y: 1.0030005, z: 1.7}
+  m_LocalScale: {x: 12.5, y: 12.500006, z: 12.500006}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5547184857641012138}
@@ -9645,7 +9645,7 @@ MonoBehaviour:
   maxAmmo: 120
   ammoInClip: 30
   muzleFlash: {fileID: 1743301284569550, guid: e8ff2f1604b6a4d4ebed0318e558bba7, type: 3}
-  hitEffect: {fileID: 1344314377593938, guid: 9e03786a9517b604d8e930182607a128, type: 3}
+  hitEffect: {fileID: 1337198075554910, guid: 9c5444d8493bcfc4e92bfa87be99af36, type: 3}
   bulletSpawn: {fileID: 706656519172759630}
   shotSFX: {fileID: 8300000, guid: b0a119224c277224693b7a1dab7b264c, type: 3}
   reloadSFX: {fileID: 8300000, guid: 31b23fc48b5a43147a4d4e5571e7966a, type: 3}

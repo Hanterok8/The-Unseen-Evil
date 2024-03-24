@@ -11,9 +11,14 @@ public class LabirintScrimer : MonoBehaviour
     [SerializeField] private GameObject _rightHandImage;
     [SerializeField] private AudioSource _scrimerSound;
     [SerializeField] private GameObject _cube;
+    private PhotonView _photonView;
+    void Start()
+    {
+        _photonView = GetComponent<PhotonView>();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && _photonView.IsMine)
         {
             //_UI.SetActive(false);
             _leftHandImage.SetActive(true);
@@ -21,6 +26,7 @@ public class LabirintScrimer : MonoBehaviour
             _scrimer.SetActive(true);
             _labirintScrimer.SetBool("ScrimerTrue", true);
             _scrimerSound.Play();
+            Destroy(GetComponent<BoxCollider>());
             StartCoroutine(CDdelete());
         }
     }

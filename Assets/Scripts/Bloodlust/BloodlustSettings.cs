@@ -34,12 +34,12 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
     {
         if (!_aimodipsis.isAimodipsis)
         {
-            if (_demonBloodlust < 100) UpdateBloodlust(50);
-            _bootDelay = 3;
+            if (_demonBloodlust < 96) UpdateBloodlust(5);
+            _bootDelay = 8;
         }
         else
         {
-            if (_demonBloodlust > 0) UpdateBloodlust(-2);
+            if (_demonBloodlust > 3) UpdateBloodlust(-4);
             _bootDelay = 1;
         }
     }
