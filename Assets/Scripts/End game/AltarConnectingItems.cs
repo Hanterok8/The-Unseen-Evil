@@ -74,7 +74,7 @@ public class AltarConnectingItems : MonoBehaviour
         //     StartCoroutine(camera.ShakeCamera());
         // }
         TMP_Text EndText = gameEndingImage.transform.GetChild(0).GetComponent<TMP_Text>();
-        EndText.text = "The residents expelled the demons.";
+        EndText.text = "The residents expelled the demon.";
         
     }
 

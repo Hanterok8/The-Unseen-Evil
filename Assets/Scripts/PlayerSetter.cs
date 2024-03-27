@@ -23,11 +23,7 @@ public class PlayerSetter : MonoBehaviour
         photonView.RPC(nameof(KickPlayerRPC), RpcTarget.All);
         PhotonNetwork.Destroy(gameObject);
     }
-
-    // private void DestroyPlayer()
-    // {
-    //     photonView.RPC(nameof(DestroyPlayerRPC), RpcTarget.All);
-    // }
+    
 
     [PunRPC]
     private void DestroyPlayerRPC()
@@ -43,13 +39,11 @@ public class PlayerSetter : MonoBehaviour
         {
             if (player.CurrentPlayerModel == gameObject)
             {
-                //player.GetComponent<CurrentPlayer>().CurrentPlayerModel = spectator;
                 Destroy(player.gameObject);
                 break;
             }
         }
         onTransformedToSpectator?.Invoke();
-        //PhotonNetwork.Disconnect();
 
     }
 }

@@ -1,13 +1,16 @@
 using Photon.Pun;
 using System.Collections;
 using UnityEngine;
+using System;
 
 public class DemonAbilities : MonoBehaviour
 {
+    [SerializeField] private Transform demonVictory;
     [SerializeField] public Animator _playerAnimator;
     [SerializeField] private float distanceLimit;
     [SerializeField] private LayerMask aimLayer;
     [SerializeField] private ParticleSystem particlesAtKilling;
+    public Action onDemonVictory;
     private Camera mainCamera;
     private PhotonView photonView;
     private bool inCooldown;
@@ -22,6 +25,7 @@ public class DemonAbilities : MonoBehaviour
         inCooldown = false;
         demonAnimator = GetComponent<Animator>();
     }
+    
 
     private void Update()
     {
@@ -40,6 +44,7 @@ public class DemonAbilities : MonoBehaviour
             }
         }
     }
+    
     public void KillInhabitant(int timeToKill)
     {
         photonView.RPC(nameof(KillPlayerRPC), RpcTarget.All, timeToKill, currentPlayerParam.GetComponent<PhotonView>().Owner.NickName);
@@ -69,12 +74,8 @@ public class DemonAbilities : MonoBehaviour
             (particlesAtKilling.name, killedPlayer.transform.position, Quaternion.Euler(-90, 0, 0));
         StartCoroutine(ResetCooldown(time));
         Invoke(nameof(UnfreezeDemon), time);
+
     }
-    // [PunRPC]
-    // private void ChangePlayerAnimationRPC(int animationState)
-    // {
-    //     playerAnimator.SetInteger("State", animationState);
-    // }
     private void UnfreezeDemon() => GetComponent<CharacterController>().isFrozen = false;
 
     private IEnumerator ResetCooldown(int cooldownTime)

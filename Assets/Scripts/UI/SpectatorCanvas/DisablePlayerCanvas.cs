@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DisablePlayerCanvas : MonoBehaviour
 {
-    public GameObject questUI;
+    [SerializeField] private GameObject[] Canvases;
     private PlayerSetter playerSettings;
 
     private void Start()
@@ -17,7 +17,10 @@ public class DisablePlayerCanvas : MonoBehaviour
     }
     public virtual void DisableCanvas()
     {
-        questUI.SetActive(false);
+        foreach (GameObject canvas in Canvases)
+        {
+            canvas.SetActive(false);
+        }
         gameObject.SetActive(false);
     }
 }

@@ -46,6 +46,7 @@ TagManager:
   - Prayer3
   - VoiceManager
   - Scrim
+  - DemonVictory
   layers:
   - Default
   - TransparentFX

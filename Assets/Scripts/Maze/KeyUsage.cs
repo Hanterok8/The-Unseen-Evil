@@ -7,7 +7,7 @@ public class KeyUsage : MonoBehaviour
     [SerializeField] GameObject playerParent;
     private GameObject Player;
     [SerializeField] LayerMask layer;
-    private const int DISTANCE = 155;
+    private const int DISTANCE = 3;
     private GameObject gates;
     private ItemControl itemControl;
     private PhotonView photonView;

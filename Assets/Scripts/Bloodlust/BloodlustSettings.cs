@@ -40,8 +40,8 @@ public class BloodlustSettings : MonoBehaviourPunCallbacks
             }
             else
             {
-                if (_demonBloodlust > 3) UpdateBloodlust(-4);
-                yield return new WaitForSeconds(1);
+                if (_demonBloodlust > 3) UpdateBloodlust(-5);
+                yield return new WaitForSeconds(2.1f);
             }
         }
     }
