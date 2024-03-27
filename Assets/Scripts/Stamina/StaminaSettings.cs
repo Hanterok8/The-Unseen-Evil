@@ -1,5 +1,6 @@
 using Photon.Pun;
 using System;
+using System.Collections;
 using UnityEngine;
 [RequireComponent(typeof(PhotonView))]
 public class StaminaSettings : MonoBehaviour
@@ -11,7 +12,6 @@ public class StaminaSettings : MonoBehaviour
     private GameObject emptyPlayerObject;
     private CharacterController moving;
     private PhotonView _photonView;
-    private float _bootDelay = 0.1f;
 
     private void Start()
     {
@@ -20,25 +20,30 @@ public class StaminaSettings : MonoBehaviour
         moving = GetComponent<CharacterController>();
         _photonView = GetComponent<PhotonView>();
         if (!_photonView.IsMine) return;
-        InvokeRepeating(nameof(ChangeStaminaValue), 0, _bootDelay);
+        StartCoroutine(ChangeStaminaValue());
     }
-    private void ChangeStaminaValue()
+    
+    private IEnumerator ChangeStaminaValue()
     {
-        if (moving.isRunning && (moving.AxesSpeed.x != 0 || moving.AxesSpeed.y != 0))
+        while (true)
         {
-            if (_playerStamina > 0) UpdateStamina(-1);
-            _bootDelay = 0.1f;
+            if (moving.isRunning && (moving.AxesSpeed.x != 0 || moving.AxesSpeed.y != 0))
+            {
+                if (_playerStamina > 0) UpdateStamina(-1);
+                yield return new WaitForSeconds(0.1f);
+            }
+            else if ((!moving.isRunning && (moving.AxesSpeed.x != 0 || moving.AxesSpeed.y != 0)) || (moving.AxesSpeed.x == 0 && moving.AxesSpeed.y == 0))
+            {
+                if (_playerStamina < 100) UpdateStamina(1);
+                yield return new WaitForSeconds(0.15f);
+            }
+            if (isDemon)
+            {
+                onBecomeDemon?.Invoke();
+                StopAllCoroutines();
+            }
         }
-        else if ((!moving.isRunning && (moving.AxesSpeed.x != 0 || moving.AxesSpeed.y != 0)) || (moving.AxesSpeed.x == 0 && moving.AxesSpeed.y == 0))
-        {
-            if (_playerStamina < 100) UpdateStamina(1);
-            _bootDelay = 0.15f;
-        }
-        if (isDemon)
-        {
-            onBecomeDemon?.Invoke();
-            CancelInvoke();
-        }
+
     }
     private void UpdateStamina(int staminaStep)
     {

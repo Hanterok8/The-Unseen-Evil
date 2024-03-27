@@ -31,7 +31,7 @@ public class QuestSwitcher : MonoBehaviourPunCallbacks
     {
         totalQuestsCounter = FindObjectOfType<TotalCompletedQuestsCounter>();
         photonView = GetComponent<PhotonView>();
-        secondsBeforeNextQuest = SECONDS_ON_START;
+        secondsBeforeNextQuest = 30;
         if (!photonView.IsMine) return;
         InvokeRepeating(nameof(ReloadQuest), 1, DELAY);
     }

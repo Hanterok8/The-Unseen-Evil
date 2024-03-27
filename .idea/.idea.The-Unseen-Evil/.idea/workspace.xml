@@ -6,27 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LabirintScrimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LabirintScrimer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/ManController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/ManController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Ch30_nonPBR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Ch30_nonPBR.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Dreyar By M.Aure 2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/MuzzleFlash01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/MuzzleFlash01.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Matchmaking.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Matchmaking.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/OnAimodipsisMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/OnAimodipsisMode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AndriyShoot/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AndriyShoot/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bloodlust/BloodlustSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bloodlust/BloodlustSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Move Controller/RifleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Move Controller/RifleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Multiplayer Photon Network/RoomManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Multiplayer Photon Network/RoomManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Opener/StoreOpener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Opener/StoreOpener.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/EscapeFromMaze.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/Quest Types/EscapeFromMaze.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/QuestSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/QuestSwitcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Quests/TotalCompletedQuestsCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Quests/TotalCompletedQuestsCounter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UICamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UICamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stamina/StaminaSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stamina/StaminaSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SpectatorCanvas/DisablePlayerCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SpectatorCanvas/DisablePlayerCanvas.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +71,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Рабочий стол/Game\The Unseen Evil.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../Video\The Unseen Evil.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\aivle\OneDrive\Рабочий стол\Game" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -173,6 +157,7 @@
       <workItem from="1711145403526" duration="2202000" />
       <workItem from="1711206015913" duration="13452000" />
       <workItem from="1711271309534" duration="1808000" />
+      <workItem from="1711549562623" duration="675000" />
     </task>
     <servers />
   </component>
