@@ -30,10 +30,15 @@ public class DemonVictory : MonoBehaviour
     private void EndGame()
     {   
         _photonView.RPC(nameof(EndGameRPC), RpcTarget.All);
+        Invoke(nameof(MoveToLobby), 7);
     }
     [PunRPC]
     private void EndGameRPC()
     {
         victoryCanvas.SetActive(true);
+    }
+    private void MoveToLobby()
+    {
+        PhotonNetwork.LoadLevel("Menu");
     }
 }

@@ -41,6 +41,7 @@ public class AltarConnectingItems : MonoBehaviour
     {
         Debug.Log("Items connected");
         photonView.RPC(nameof(OnItemsConnectedRPC), RpcTarget.All);
+        Invoke(nameof(MoveToLobby), 7);
     }
     [PunRPC]
     private void OnItemsConnectedRPC()
@@ -76,6 +77,11 @@ public class AltarConnectingItems : MonoBehaviour
         TMP_Text EndText = gameEndingImage.transform.GetChild(0).GetComponent<TMP_Text>();
         EndText.text = "The residents expelled the demon.";
         
+    }
+
+    private void MoveToLobby()
+    {
+        PhotonNetwork.LoadLevel("Menu");
     }
 
 }

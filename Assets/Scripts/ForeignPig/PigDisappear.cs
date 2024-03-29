@@ -9,11 +9,9 @@ public class PigDisappear : MonoBehaviour
     private PigQuestEnd pigQuestEnd;
     void Start()
     {
-        GameObject Player;
-        GameObject[] players;
         photonView = GetComponent<PhotonView>();
+        if (!photonView.IsMine) return;
         pigQuestEnd = GetPigQuestEnd();
-        players = GameObject.FindGameObjectsWithTag("PlayerInstance");
         pigQuestEnd.onQuestEnded += Disappear;
     }
     private void OnDisable()
@@ -35,6 +33,7 @@ public class PigDisappear : MonoBehaviour
     }
     private void Disappear()
     {
+        if (!photonView.IsMine) return;
         GameObject player = pigQuestEnd.gameObject;
         GameObject playerModel = player.GetComponent<CurrentPlayer>().CurrentPlayerModel;
         transform.LookAt(playerModel.transform);
