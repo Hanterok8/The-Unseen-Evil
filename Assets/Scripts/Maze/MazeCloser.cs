@@ -27,7 +27,7 @@ public class MazeCloser : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject == playerModel && photonView.IsMine && Player.GetComponent<QuestSwitcher>().currentQuest.name == "Escape from the Mirage Maze")
+        if (collider.gameObject == playerModel && collider.GetComponent<PhotonView>().Owner.NickName == photonView.Owner.NickName && photonView.IsMine && Player.GetComponent<QuestSwitcher>().currentQuest.name == "Escape from the Mirage Maze")
         {
             Debug.Log("in maze");
             mazeCloserWall.SetActive(true);

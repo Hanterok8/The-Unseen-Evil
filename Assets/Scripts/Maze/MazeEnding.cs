@@ -4,7 +4,7 @@ using UnityEngine;
 public class MazeEnding : MonoBehaviour
 {
     private GameObject Player;
-    private GameObject playerModel;
+    [SerializeField] private GameObject playerModel;
     private PhotonView photonView;
     private GameObject gates;
     private void Start()
@@ -26,7 +26,7 @@ public class MazeEnding : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject == playerModel && photonView.IsMine)
+        if (collider.gameObject == playerModel && collider.GetComponent<PhotonView>().Owner.NickName == photonView.Owner.NickName && photonView.IsMine)
         {
             Debug.Log("ended maze");
             EndQuest();

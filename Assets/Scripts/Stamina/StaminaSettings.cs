@@ -9,18 +9,30 @@ public class StaminaSettings : MonoBehaviour
     public Action onBecomeDemon;
     public Action onStaminaUpdated;
     public bool isDemon = false;
-    private GameObject emptyPlayerObject;
     private CharacterController moving;
     private PhotonView _photonView;
 
     private void Start()
     {
-        emptyPlayerObject = GameObject.FindGameObjectWithTag("PlayerInstance");
+        _photonView = GetComponent<PhotonView>();
         _photonView = GetComponent<PhotonView>();
         moving = GetComponent<CharacterController>();
         _photonView = GetComponent<PhotonView>();
         if (!_photonView.IsMine) return;
         StartCoroutine(ChangeStaminaValue());
+        GameObject[] players = GameObject.FindGameObjectsWithTag("PlayerInstance");
+        foreach (GameObject player in players)
+        {
+            if (player.GetComponent<PhotonView>().Owner.NickName == _photonView.Owner.NickName)
+            {
+                if (player.GetComponent<PlayerOrDemon>().isDemon)
+                {
+                    enabled = false;
+                }
+
+                break;
+            }
+        }
     }
     
     private IEnumerator ChangeStaminaValue()

@@ -6,9 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="e4502ae2-5103-40e4-8bea-338aba0da065" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.The-Unseen-Evil/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LabirintScrimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LabirintScrimer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Other Animations/Open Roof Door.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Other Animations/Open Roof Door.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerAnimations/Idle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Ch30_nonPBR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Ch30_nonPBR.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PLAYER.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayLocation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/End game/AltarConnectingItems.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ForeignPig/PigDisappear.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ForeignPig/PigDisappear.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScrimeControll.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScrimeControll.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScrimerController2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScrimerController2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/DemonAbilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Aimodipsis Mode/DemonAbilities.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Anomaly Eliminator/OnAnomalyEliminated.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Anomaly Eliminator/OnAnomalyEliminated.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Anomaly Eliminator/TouchingAnomaly.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Anomaly Eliminator/TouchingAnomaly.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bottle/ItemExchanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bottle/ItemExchanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ForeignPig/OnPigClicked.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ForeignPig/OnPigClicked.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ForeignPig/PigQuestEnd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ForeignPig/PigQuestEnd.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeCloser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeCloser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Opener/TriggerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Opener/TriggerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stamina/StaminaSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stamina/StaminaSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/DemonVictory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/DemonVictory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +36,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/2d/7a47e222/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7f2ccf3999ca4756b70a33db243fabf4151218/ce/906d39bd/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/84/0466991b/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -158,6 +178,11 @@
       <workItem from="1711271309534" duration="1808000" />
       <workItem from="1711549562623" duration="11923000" />
       <workItem from="1711644706515" duration="966000" />
+      <workItem from="1711671590980" duration="1612000" />
+      <workItem from="1711719949735" duration="6843000" />
+      <workItem from="1711752506978" duration="1511000" />
+      <workItem from="1711802744151" duration="770000" />
+      <workItem from="1711835203614" duration="600000" />
     </task>
     <servers />
   </component>
@@ -173,27 +198,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs</url>
-          <line>65</line>
-          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Camera\CameraController.cs" initialLine="65" containingFunctionPresentation="Method 'Update'">
-            <startOffsets>
-              <option value="2216" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2306" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Maze/MazeEnding.cs</url>
           <line>41</line>
           <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Maze\MazeEnding.cs" initialLine="41" containingFunctionPresentation="Method 'EndQuest'">
             <startOffsets>
-              <option value="1329" />
+              <option value="1429" />
             </startOffsets>
             <endOffsets>
-              <option value="1359" />
+              <option value="1459" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />
@@ -301,6 +313,45 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/DemonVictory.cs</url>
+          <line>27</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\UI\DemonVictory.cs" initialLine="27" containingFunctionPresentation="Method 'CheckNumberOfPlayers'">
+            <startOffsets>
+              <option value="769" />
+            </startOffsets>
+            <endOffsets>
+              <option value="779" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs</url>
+          <line>49</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\Camera\CameraController.cs" initialLine="49" containingFunctionPresentation="Method 'FixedUpdate'">
+            <startOffsets>
+              <option value="1564" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1603" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/DemonVictory.cs</url>
+          <line>25</line>
+          <properties documentPath="C:\Users\aivle\OneDrive\Документы\GitHub\The-Unseen-Evil\Assets\Scripts\UI\DemonVictory.cs" initialLine="25" containingFunctionPresentation="Method 'CheckNumberOfPlayers'">
+            <startOffsets>
+              <option value="714" />
+            </startOffsets>
+            <endOffsets>
+              <option value="738" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

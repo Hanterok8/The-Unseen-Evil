@@ -14,7 +14,7 @@ public class ScrimeControll : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && photonView.IsMine)
+        if (other.gameObject.CompareTag("Player") && other.GetComponent<PhotonView>().Owner.NickName == photonView.Owner.NickName && photonView.IsMine)
         {
             _scrimerSourse.Play();
             foreach (Light light in _lights)
@@ -25,8 +25,11 @@ public class ScrimeControll : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (!photonView.IsMine) return;
-         StartCoroutine(Culdayn());
+        if (other.gameObject.CompareTag("Player") && other.GetComponent<PhotonView>().Owner.NickName == photonView.Owner.NickName && photonView.IsMine)
+        {
+            StartCoroutine(Culdayn());
+        }
+         
     }
     private IEnumerator Culdayn()
     {

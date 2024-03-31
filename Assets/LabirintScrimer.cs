@@ -18,7 +18,7 @@ public class LabirintScrimer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && _photonView.IsMine)
+        if (other.gameObject.CompareTag("Player") && other.GetComponent<PhotonView>().Owner.NickName == _photonView.Owner.NickName && _photonView.IsMine)
         {
             //_UI.SetActive(false);
             _leftHandImage.SetActive(true);

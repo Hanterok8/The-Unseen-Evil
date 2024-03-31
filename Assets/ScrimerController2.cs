@@ -14,7 +14,7 @@ public class ScrimerController2 : MonoBehaviour
     private void Start() => photonView = GetComponent<PhotonView>();
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && photonView.IsMine)
+        if (other.gameObject.CompareTag("Player") && other.GetComponent<PhotonView>().Owner.NickName == photonView.Owner.NickName && photonView.IsMine)
         {
             StartCoroutine(ScrimerCD());
             foreach (Light light in _light)

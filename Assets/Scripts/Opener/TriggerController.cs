@@ -55,7 +55,7 @@ public class TriggerController : MonoBehaviour
         {
             isInShopCircleCollider = true;
         }
-        if (collider.gameObject.CompareTag("Crystal") && questSwitcher.currentQuest.name == "Lost Crystal" && photonView.IsMine)
+        if (collider.gameObject.CompareTag("Crystal") && collider.GetComponent<PhotonView>().Owner.NickName == photonView.Owner.NickName && questSwitcher.currentQuest.name == "Lost Crystal" && photonView.IsMine)
         {
             CrystalIOpener.Open();
             Destroy(collider.transform.parent.gameObject);

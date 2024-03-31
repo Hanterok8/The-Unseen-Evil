@@ -20,6 +20,7 @@ public class OnPigClicked : MonoBehaviour
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, DISTANCE) && Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("RAYCAST TO PIG - " + hit.collider.gameObject.CompareTag("ForeignPig"));
             if (hit.collider.gameObject.CompareTag("ForeignPig"))
             {
                 onAPigClicked?.Invoke();

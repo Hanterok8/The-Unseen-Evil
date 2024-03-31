@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
 public class DemonVictory : MonoBehaviour
@@ -16,10 +17,12 @@ public class DemonVictory : MonoBehaviour
 
     private IEnumerator CheckNumberOfPlayers()
     {
+        yield return new WaitForSeconds(15);
         while (true)
         {
             yield return new WaitForSeconds(6);
-            GameObject[] players = GameObject.FindGameObjectsWithTag("PlayerInstance");
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            Debug.Log(players.Length);
             if (players.Length == 1)
             {
                 EndGame();
@@ -39,6 +42,6 @@ public class DemonVictory : MonoBehaviour
     }
     private void MoveToLobby()
     {
-        PhotonNetwork.LoadLevel("Menu");
+        PhotonNetwork.CloseConnection(PhotonNetwork.LocalPlayer);
     }
 }

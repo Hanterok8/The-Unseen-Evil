@@ -20,6 +20,7 @@ public class PigQuestEnd : MonoBehaviour
     }
     private void CheckIsInQuest()
     {
+        Debug.Log("CHECK IS IN QUEST - " + questSwitcher.currentQuest.name);
         QuestData currentQuest = questSwitcher.currentQuest;
         if (currentQuest && currentQuest.name == "Foreign Pig")
         {
@@ -29,6 +30,7 @@ public class PigQuestEnd : MonoBehaviour
 
     private void ForcePigDisappear()
     {
+        Debug.Log("Invoke");
         onQuestEnded?.Invoke();
         questSwitcher.AddQuestStep(1);
     }

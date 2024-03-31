@@ -46,7 +46,7 @@ public class ItemExchanger : MonoBehaviour
             if (Physics.Raycast(ray, out hit, DISTANCE) && questSwitcher.currentQuest.name == "Secrets of the Roof")
             {
                 GameObject frontItem = hit.collider.gameObject;
-                if ((hit.collider.CompareTag("Chain") && IsCurrentItem("Wirecutters")) || (hit.collider.GetComponent<PickUpInformation>().name == "Plank" && IsCurrentItem("Axe")))
+                if ((hit.collider.CompareTag("Chain") && IsCurrentItem("Wirecutters")) || (hit.collider.CompareTag("Plank") && IsCurrentItem("Axe")))
                 {
                     frontItem.GetComponent<Rigidbody>().isKinematic = false;
                     itemController.TakeAwayItem();

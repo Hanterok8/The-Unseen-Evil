@@ -5,7 +5,6 @@ using System;
 
 public class DemonAbilities : MonoBehaviour
 {
-    [SerializeField] private Transform demonVictory;
     [SerializeField] public Animator _playerAnimator;
     [SerializeField] private float distanceLimit;
     [SerializeField] private LayerMask aimLayer;
